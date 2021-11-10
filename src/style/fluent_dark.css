@@ -1,0 +1,189 @@
+
+/* Define variables */
+
+:root {
+    --dark-gray-color: rgb(30, 30, 30);
+    --light-gray-color: rgb(40, 40, 40);
+    --light-gray-hover-color: rgb(45, 45, 45);
+    --light-gray-border-color: rgb(47, 47, 47);
+    --accent-color: rgb(0, 120, 212);
+    --light-accent-color: rgb(15, 136, 230);
+}
+
+/* Body settings */
+
+body {
+    background-color: var(--dark-gray-color);
+}
+
+/* Text input Fluent design */
+
+input[type="text"], input[type="password"] {
+    background-color: var(--light-gray-color);
+    border: var(--light-gray-border-color) solid 0.2px;
+    border-bottom: rgb(185, 185, 185) solid 0.2px;
+    border-radius: 4px;
+    padding: 6px 6px 5px 10px;
+    color: white;
+    outline: none;
+}
+
+input[type="text"]:hover, input[type="password"]:hover {
+    background-color: var(--light-gray-hover-color);
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    background-color: var(--dark-gray-color);
+    border-bottom: rgb(46, 137, 255) solid 2px;
+}
+
+/* Button Fluent no background design */
+
+.fluent-button-nobg {
+    color: rgb(185, 185, 185);
+    border: none;
+    padding: 5px 11px 6px;
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.1s ease-in-out;
+    outline: white;
+    border-radius: 4px;
+}
+
+.fluent-button-nobg:hover {
+    background-color: var(--light-gray-hover-color);
+    cursor: pointer;
+}
+
+.fluent-button-nobg:focus {
+    background-color: rgba(45, 45, 45, 0.5);
+}
+
+/* Button Fluent design */
+
+.fluent-button, input[type="submit"], button {
+    color: white;
+    border: var(--light-gray-border-color) solid 0.2px;
+    padding: 5px 11px 6px;
+    background-color: var(--light-gray-color);
+    transition: 0.1s ease-in-out;
+    outline: white;
+    border-radius: 4px;
+}
+
+.fluent-button:hover, input[type="submit"]:hover, button:hover {
+    background-color: var(--light-gray-hover-color);
+    cursor: pointer;
+}
+
+.fluent-button:focus, input[type="submit"]:focus, button:focus {
+    background-color: rgba(45, 45, 45, 0.5);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Checkbox Fluent design */
+
+input[type="checkbox"] {
+    padding: 2px 10px;
+    display: inline;
+    color: white;
+    border: rgb(160, 160, 160) solid 0.2px;
+    background-color: var(--dark-gray-color);
+    transition: 0.1s ease-in-out;
+    outline: white;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 17px;
+}
+
+input[type="checkbox"]:hover {
+    background-color: var(--light-gray-hover-color);
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--accent-color);
+    border: var(--accent-color) solid 0.2px;
+    background-image: url("https://img.icons8.com/fluency-systems-regular/50/000000/checkmark--v1.png");
+}
+
+input[type="checkbox"]:checked:hover {
+    background-color: var(--light-accent-color);
+    border: var(--light-accent-color) solid 0.2px;
+    background-image: url("https://img.icons8.com/fluency-systems-regular/50/000000/checkmark--v1.png");
+}
+
+/* Date and Time Fluent design */
+
+input[type="date"], input[type="time"] {
+    color: white;
+    border: var(--light-gray-border-color) solid 0.2px;
+    padding: 7px 11px 5px;
+    background-color: var(--light-gray-color);
+    transition: 0.1s ease-in-out;
+    outline: white;
+    border-radius: 4px;
+}
+
+input[type="date"]:hover, input[type="time"]:hover {
+    background-color: var(--light-gray-hover-color);
+}
+
+input[type="date"]:focus, input[type="time"]:focus {
+    background-color: rgba(45, 45, 45, 0.5);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Select Fluent design */
+
+select {
+    color: white;
+    border: var(--light-gray-border-color) solid 0.2px;
+    padding: 5px 0px 6px 11px;
+    background-color: var(--light-gray-color);
+    transition: 0.1s ease-in-out;
+    outline: white;
+    border-radius: 4px;
+}
+
+select:hover {
+    background-color: var(--light-gray-hover-color);
+    cursor: pointer;
+}
+
+select:focus {
+    background-color: rgba(45, 45, 45, 0.5);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Select option Fluent desing */
+
+option {
+    color: rgb(185, 185, 185);
+    border: none;
+    padding: 5px 11px 6px;
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.1s ease-in-out;
+    outline: white;
+    border-radius: 4px;
+}
+
+option:hover {
+    background-color: var(--light-gray-hover-color);
+    cursor: pointer;
+}
+
+option:focus {
+    background-color: rgba(45, 45, 45, 0.5);
+}
+
+/* Form Fluent design */
+
+form {
+    color: white;
+    border: var(--light-gray-border-color) solid 0.2px;
+    padding: 10em;
+    background-color: rgb(33, 33, 33);
+    border-radius: 4px;
+}
