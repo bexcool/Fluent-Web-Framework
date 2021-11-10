@@ -16,9 +16,9 @@ body {
     background-color: var(--dark-gray-color);
 }
 
-/* Text input Fluent design */
+/* Text input and Textarea Fluent design */
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], textarea {
     background-color: var(--light-gray-color);
     border: var(--light-gray-border-color) solid 0.2px;
     border-bottom: rgb(185, 185, 185) solid 0.2px;
@@ -28,11 +28,11 @@ input[type="text"], input[type="password"] {
     outline: none;
 }
 
-input[type="text"]:hover, input[type="password"]:hover {
+input[type="text"]:hover, input[type="password"]:hover, textarea:hover {
     background-color: var(--light-gray-hover-color);
 }
 
-input[type="text"]:focus, input[type="password"]:focus {
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
     background-color: var(--dark-gray-color);
     border-bottom: rgb(46, 137, 255) solid 2px;
 }
@@ -183,7 +183,20 @@ option:focus {
 form {
     color: white;
     border: var(--light-gray-border-color) solid 0.2px;
-    padding: 10em;
     background-color: rgb(33, 33, 33);
     border-radius: 4px;
+}
+
+/* Fieldset Fluent design */
+
+fieldset {
+    color: white;
+    border: var(--light-gray-border-color) solid 0.2px;
+    border-radius: 4px;
+}
+
+/* Legend Fluent design */
+
+legend {
+    padding: 0px 15px;
 }
