@@ -10,15 +10,16 @@
     --light-accent-color: rgb(15, 136, 230);
 }
 
-/* Body settings */
+/* Body */
 
 body {
     background-color: var(--dark-gray-color);
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* Text input and Textarea Fluent design */
+/* Input text, password, email and Textarea Fluent design */
 
-input[type="text"], input[type="password"], textarea {
+input[type="text"], input[type="password"], input[type="email"], textarea {
     background-color: var(--light-gray-color);
     border: var(--light-gray-border-color) solid 0.2px;
     border-bottom: rgb(185, 185, 185) solid 0.2px;
@@ -28,11 +29,11 @@ input[type="text"], input[type="password"], textarea {
     outline: none;
 }
 
-input[type="text"]:hover, input[type="password"]:hover, textarea:hover {
+input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover, textarea:hover {
     background-color: var(--light-gray-hover-color);
 }
 
-input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
     background-color: var(--dark-gray-color);
     border-bottom: rgb(46, 137, 255) solid 2px;
 }
@@ -42,7 +43,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 .fluent-button-nobg {
     color: rgb(185, 185, 185);
     border: none;
-    padding: 5px 11px 6px;
+    padding: 6px 11px 7px;
     background-color: rgba(0, 0, 0, 0);
     transition: 0.1s ease-in-out;
     outline: white;
@@ -135,7 +136,65 @@ input[type="date"]:focus, input[type="time"]:focus {
     color: rgba(255, 255, 255, 0.75);
 }
 
-/* Select Fluent design */
+/* Input color Fluent design */
+
+input[type="color"] {
+    height: 30px;
+    color: white;
+    border: var(--light-gray-border-color) solid 0.2px;
+    padding: 5px;
+    background-color: var(--light-gray-color);
+    transition: 0.1s ease-in-out;
+    outline: white;
+    border-radius: 4px;
+}
+
+input[type="color"]:hover {
+    background-color: var(--light-gray-hover-color);
+}
+
+input[type="color"]:focus {
+    background-color: rgba(45, 45, 45, 0.5);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+::-webkit-color-swatch,
+::-moz-color-swatch {
+  border-color: transparent;
+}
+
+/* Input file Fluent design */
+
+input[type="file"] {
+    color: white;
+    border: var(--light-gray-border-color) solid 0.2px;
+    padding: 5px 11px 6px;
+    background-color: var(--light-gray-color);
+    transition: 0.1s ease-in-out;
+    outline: white;
+    border-radius: 4px;
+}
+
+input[type="file"]:hover {
+    background-color: var(--light-gray-hover-color);
+}
+
+input[type="file"]:focus {
+    background-color: rgba(45, 45, 45, 0.5);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+::-webkit-file-upload-button {
+    color: white;
+    border: var(--light-gray-border-color) solid 0.2px;
+    padding: 5px 11px 6px;
+    background-color: var(--light-gray-color);
+    transition: 0.1s ease-in-out;
+    outline: white;
+    border-radius: 4px;
+}
+
+/* Input select Fluent design */
 
 select {
     color: white;
@@ -157,9 +216,9 @@ select:focus {
     color: rgba(255, 255, 255, 0.75);
 }
 
-/* Select option Fluent desing */
+/* Input select (multiselect) option Fluent desing */
 
-option {
+select[multiselect] option {
     color: rgb(185, 185, 185);
     border: none;
     padding: 5px 11px 6px;
@@ -169,12 +228,12 @@ option {
     border-radius: 4px;
 }
 
-option:hover {
+select[multiselect] option:hover {
     background-color: var(--light-gray-hover-color);
     cursor: pointer;
 }
 
-option:focus {
+select[multiselect]option:focus {
     background-color: rgba(45, 45, 45, 0.5);
 }
 
