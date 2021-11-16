@@ -3,6 +3,7 @@
 :root {
     --dark-color: rgb(30, 30, 30);
     --light-color: rgb(40, 40, 40);
+    --light-trans-color: rgba(40, 40, 40, 0.7);
     --light-hover-color: rgb(45, 45, 45);
     --light-border-color: rgb(47, 47, 47);
     --light-dark-color: rgb(33, 33, 33);
@@ -21,6 +22,8 @@
 body {
     background-color: var(--dark-color);
     font-family: "Segoe UI", Arial, sans-serif;
+    background-image: url("D:/Photoshop/button_sphere_reset.png");
+    color: var(--text-color);
 }
 
 body::-webkit-scrollbar {
@@ -49,7 +52,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Input text, password, email and Textarea */
 
-input[type="text"], input[type="password"], input[type="email"], textarea {
+input[type="text"], input[type="password"], input[type="email"], input[type="url"], textarea {
     background-color: var(--light-color);
     border: var(--light-border-color) solid 0.2px;
     border-bottom: var(--textbox-border-bottom) solid 0.2px;
@@ -59,13 +62,14 @@ input[type="text"], input[type="password"], input[type="email"], textarea {
     outline: none;
 }
 
-input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover, textarea:hover {
+input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover, input[type="url"]:hover, textarea:hover {
     background-color: var(--light-hover-color);
 }
 
-input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="url"]:hover, textarea:focus {
     background-color: var(--dark-color);
     border-bottom: rgb(46, 137, 255) solid 2px;
+    padding: 6px 6px 4px 10px;
 }
 
 /* Button Fluent no background design */
@@ -114,19 +118,21 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 /* Checkbox */
 
 input[type="checkbox"] {
-    padding: 2px 10px;
     display: inline;
     color: var(--text-color);
     border: rgb(160, 160, 160) solid 0.2px;
     background-color: var(--dark-color);
     transition: 0.1s ease-in-out;
     outline: var(--text-color);
+    height: 1.5em;
+    width: 1.5em;
+    padding: 0 0.58em;
     border-radius: 5px;
     appearance: none;
     -webkit-appearance: none;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 17px;
+    background-size: 1em;
 }
 
 input[type="checkbox"]:hover {
@@ -223,6 +229,74 @@ input[type="file"]:focus {
     border-radius: 4px;
 }
 
+/* Input range */
+
+input[type="range"] {
+    -webkit-appearance: none;
+    height: 0.35em;
+    border-radius: 30px;
+    background: none;
+    outline: none;
+    -webkit-transition: 0.1s ease-out;
+    transition: 0.1s ease-out;
+}
+
+/* -> Progress bar thumb WEBKIT */
+
+input[type="range"]::-webkit-slider-thumb {
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    background-color: var(--light-accent-color);
+    border: var(--light-color) solid 0.4em;
+    -webkit-transition: 0.1s ease-out;
+    transition: 0.1s ease-out;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    width: 0.85em;
+    height: 0.85em;
+    border: var(--light-color) solid 0.3em;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: var(--light-color);
+    height: 100%;
+    border-radius: 20px;
+}
+
+/* -> Progress bar thumb MOZILLA */
+
+input[type="range"]::-moz-range-thumb {
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    background: var(--light-accent-color);
+    border: var(--light-color) solid 0.4em;
+    -webkit-transition: 0.1s ease-out;
+    transition: 0.1s ease-out;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    width: 0.85em;
+    height: 0.85em;
+    border: var(--light-color) solid 0.3em;
+}
+
+/* -> Left side of progress bar */
+
+input[type="range"]::-moz-range-progress {
+    background-color: var(--light-accent-color);
+    height: 100%;
+    border-radius: 20px;
+}
+
+input[type="range"]::-moz-range-track {
+    background-color: var(--light-color);
+    height: 100%;
+    border-radius: 20px;
+}
+
 /* Input select */
 
 select {
@@ -311,7 +385,6 @@ legend {
 }
 
 .fluent-context-menu ul {
-    background-color: #faefae;
     list-style: none;
     display: none;
     padding: 3px;
@@ -319,17 +392,16 @@ legend {
     width: 10em;
     color: var(--text-color);
     border: var(--light-border-color) solid 0.2px;
-    background-color: var(--light-color);
+    background: var(--light-trans-color);
+    backdrop-filter: blur(10px);
     outline: var(--text-color);
     border-radius: 8px;
     list-style: none;
     transition: 0.1s ease-in-out;
     height: 0;
-    opacity: 0;
 }
 
 .fluent-context-menu:hover ul {
-    opacity: 1;
     display: block;
     position: absolute;
     height: auto;
