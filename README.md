@@ -5,7 +5,7 @@
 ### Some controls
 ![obrazek](https://user-images.githubusercontent.com/53868994/151600056-709ddcb5-838a-4f69-a518-a249130aa712.png)
 ### Expander
-```
+```html
 <fluent-expander header="Open me!">
    <p>Welcome to fluent framework!</p>
 </fluent-expander>
@@ -21,14 +21,16 @@
 
 ## Usage
 ### CSS
-#### Fluent Style
-This file contains whole Fluent styling.
+#### Fluent Style ***(required)***
+This file contains whole Fluent styling.<br>
+**This file is required.**
 ```
 http://resources.bexcool.eu/fluentstyle/src/style/fluent.min.css
 ```
 ### JavaScript
-#### Fluent Functions (required)
-This file contains core functions of the framework. This file is **required** because it makes whole framework work.
+#### Fluent Functions ***(required)***
+This file contains core functions of the framework.<br>
+**This file is required because it makes whole framework work.**
 ```
 http://resources.bexcool.eu/fluentstyle/src/js/fluent_functions.min.js
 ```
