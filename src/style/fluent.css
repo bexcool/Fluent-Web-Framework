@@ -1,8 +1,10 @@
 /* Define variables */
 
 :root {
-    --dark-color: rgb(30, 30, 30);
+    /* Global colors */
+    --dark-color: rgb(32, 32, 32);
     --dark-border-color: rgb(25, 25, 25);
+    --darker-color: rgb(39, 39, 39);
     --light-color: rgb(43, 43, 43);
     --light-trans-color: rgba(43, 43, 43, 0.7);
     --light-hover-color: rgb(45, 45, 45);
@@ -22,6 +24,12 @@
     --accent-color: #4cc2ff;
     --textbox-border-bottom-color: rgb(180, 180, 180);
     --icon-color: 0;
+
+    /* Button */
+    --button-color: hsla(0, 0%, 100%, .061);
+    --button-hover-color: rgba(255, 255, 255, 0.089);
+    --button-focus-color: rgba(255, 255, 255, 0.040);
+    --button-border-color: rgba(63, 63, 63, 0.5);
 }
 
 /* Body */
@@ -60,8 +68,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 input[type="text"], input[type="password"], input[type="email"], input[type="url"], textarea {
     background-color: var(--light-color);
-    border: var(--light-border-color) solid 0.2px;
-    border-bottom: var(--textbox-border-bottom-color) solid 0.2px;
+    border: var(--light-border-color) solid 0.4px;
+    border-bottom: var(--textbox-border-bottom-color) solid 0.4px;
     border-radius: 4px;
     padding: 6px 6px 5px 10px;
     color: var(--text-color);
@@ -86,8 +94,16 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     padding: 6px 11px 7px;
     background-color: rgba(0, 0, 0, 0);
     transition: 0.1s ease-in-out;
+    -webkit-transition: 0.1s ease-in-out;
+    -moz-transition: 0.1s ease-in-out;
+    -ms-transition: 0.1s ease-in-out;
+    -o-transition: 0.1s ease-in-out;
     outline: var(--text-color);
     border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
 }
 
 .fluent-hyperlink-button:hover {
@@ -109,6 +125,10 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     transition: 0.1s ease-in-out;
     outline: var(--text-color);
     border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
 }
 
 .fluent-hyperlink-button-accent:hover {
@@ -125,21 +145,28 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 
 .fluent-button, input[type="submit"], button {
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.2px;
+    border: var(--button-border-color) solid 0.4px;
     padding: 5px 11px 6px;
-    background-color: var(--light-color);
+    background-color: var(--button-color);
     transition: 0.1s ease-in-out;
+    -webkit-transition: 0.1s ease-in-out;
+    -moz-transition: 0.1s ease-in-out;
+    -ms-transition: 0.1s ease-in-out;
+    -o-transition: 0.1s ease-in-out;
     outline: var(--text-color);
     border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
 }
 
 .fluent-button:hover, input[type="submit"]:hover, button:hover {
-    background-color: var(--light-hover-color);
-    cursor: pointer;
+    background-color: var(--button-hover-color);
 }
 
 .fluent-button:focus, input[type="submit"]:focus, button:focus {
-    background-color: var(--focus-color);
+    background-color: var(--button-focus-color);
     color: var(--text-focus-color);
 }
 
@@ -147,7 +174,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 
 .fluent-button-accent {
     color: var(--text-color-inverted);
-    border: var(--light-border-color) solid 0.2px;
+    border: var(--light-border-color) solid 0.4px;
     padding: 5px 11px 6px;
     background-color: var(--accent-color);
     transition: 0.1s ease-in-out;
@@ -156,7 +183,6 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 
 .fluent-button-accent:hover {
     background-color: var(--accent-hover-color);
-    cursor: pointer;
 }
 
 .fluent-button-accent:focus {
@@ -169,7 +195,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 input[type="checkbox"] {
     display: inline;
     color: var(--text-color);
-    border: rgb(160, 160, 160) solid 0.2px;
+    border: rgb(160, 160, 160) solid 0.4px;
     background-color: var(--dark-color);
     transition: 0.1s ease-in-out;
     outline: var(--text-color);
@@ -190,13 +216,13 @@ input[type="checkbox"]:hover {
 
 input[type="checkbox"]:checked {
     background-color: var(--accent-hover-color);
-    border: var(--accent-hover-color) solid 0.2px;
+    border: var(--accent-hover-color) solid 0.4px;
     background-image: url("https://img.icons8.com/fluency-systems-regular/50/000000/checkmark--v1.png");
 }
 
 input[type="checkbox"]:checked:hover {
     background-color: var(--accent-color);
-    border: var(--accent-color) solid 0.2px;
+    border: var(--accent-color) solid 0.4px;
     background-image: url("https://img.icons8.com/fluency-systems-regular/50/000000/checkmark--v1.png");
 }
 
@@ -204,7 +230,7 @@ input[type="checkbox"]:checked:hover {
 
 input[type="date"], input[type="time"] {
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.2px;
+    border: var(--light-border-color) solid 0.4px;
     padding: 7px 11px 5px;
     background-color: var(--light-color);
     transition: 0.1s ease-in-out;
@@ -226,7 +252,7 @@ input[type="date"]:focus, input[type="time"]:focus {
 input[type="color"] {
     height: 30px;
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.2px;
+    border: var(--light-border-color) solid 0.4px;
     padding: 5px;
     background-color: var(--light-color);
     transition: 0.1s ease-in-out;
@@ -251,7 +277,7 @@ input[type="color"]:focus {
 
 input[type="file"] {
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.2px;
+    border: var(--light-border-color) solid 0.4px;
     padding: 5px 11px 6px;
     background-color: var(--light-color);
     transition: 0.1s ease-in-out;
@@ -270,7 +296,7 @@ input[type="file"]:focus {
 
 ::-webkit-file-upload-button {
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.2px;
+    border: var(--light-border-color) solid 0.4px;
     padding: 5px 11px 6px;
     background-color: var(--light-color);
     transition: 0.1s ease-in-out;
@@ -350,7 +376,7 @@ input[type="range"]::-moz-range-track {
 
 select {
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.2px;
+    border: var(--light-border-color) solid 0.4px;
     padding: 5px 0px 6px 11px;
     background-color: var(--light-color);
     transition: 0.1s ease-in-out;
@@ -389,13 +415,30 @@ select[multiselect]option:focus {
     background-color: var(--focus-color);
 }
 
-/* Form, background border */
+/* Background Border */
+
+.fluent-background-border {
+    color: var(--text-color);
+    border: var(--light-border-color) solid 0.4px;
+    background-color: var(--light-color);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding: 2em;
+}
+
+/* Form */
 
 form, .fluent-background-border {
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.2px;
-    background-color: var(--light-dark-color);
-    border-radius: 4px;
+    border: var(--light-border-color) solid 0.4px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
     padding: 2em;
 }
 
@@ -403,7 +446,7 @@ form, .fluent-background-border {
 
 fieldset {
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.2px;
+    border: var(--light-border-color) solid 0.4px;
     border-radius: 4px;
 }
 
@@ -426,10 +469,6 @@ legend {
     margin-right: 1.43em;
 }
 
-.fluent-context-menu-container:hover {
-    background-color: var(--light-hover-color);
-}
-
 .fluent-context-menu-container:focus {
     background-color: var(--focus-color);
     color: var(--text-focus-color);
@@ -442,7 +481,7 @@ legend {
     margin-top: 0;
     width: auto;
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.2px;
+    border: var(--light-border-color) solid 0.4px;
     background: var(--light-trans-color);
     backdrop-filter: blur(10px);
     outline: var(--text-color);
@@ -478,7 +517,7 @@ legend {
 }
 
 .fluent-context-menu-container ul li a:hover, .fluent-context-menu-standalone ul li a:hover {
-    background-color: var(--light-hover-color);
+    background-color: var(--lighter-hover-color);
 }
 
 .fluent-context-menu-container ul li a:focus, .fluent-context-menu-standalone ul li a:hover {
@@ -491,17 +530,21 @@ legend {
     display: block;
     width: 100%;
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.2px;
+    border: var(--button-border-color) solid 0.4px;
     padding: 4px 11px 6px;
-    background-color: var(--light-color);
+    background-color: var(--button-color);
     transition: 0.1s ease-in-out;
+    -webkit-transition: 0.1s ease-in-out;
+    -moz-transition: 0.1s ease-in-out;
+    -ms-transition: 0.1s ease-in-out;
+    -o-transition: 0.1s ease-in-out;
     outline: var(--text-color);
     border-radius: 4px;
     font-size: 13.33px;
 }
 
 .fluent-context-menu-container a:hover {
-    background-color: var(--light-hover-color);
+    background-color: var(--button-hover-color);
     cursor: default;
 }
 
@@ -532,7 +575,7 @@ a.fluent-menu-item:hover {
     margin-top: 0;
     width: auto;
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.2px;
+    border: var(--light-border-color) solid 0.4px;
     background: var(--light-trans-color);
     backdrop-filter: blur(10px);
     outline: var(--text-color);
@@ -612,7 +655,7 @@ p, .fluent-body {
 
 .fluent-expander-header {
     color: var(--text-color);
-    border: var(--dark-border-color) solid 0.2px;
+    border: var(--dark-border-color) solid 0.4px;
     padding: 0 12px;
     background-color: var(--light-color);
     transition: 0.1s ease-in-out;
@@ -630,6 +673,7 @@ p, .fluent-body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 2em 0 0 0;
 }
 
 /*
@@ -674,11 +718,11 @@ p, .fluent-body {
 
 .fluent-expander-body {
     color: var(--text-color);
-    border: var(--dark-border-color) solid 0.2px;
+    border: var(--dark-border-color) solid 0.4px;
     border-top: none;
     display: none;
     padding: 5px 20px 6px;
-    background-color: var(--light-color);
+    background-color: var(--darker-color);
     border-radius: 0px 0px 4px 4px;
     -webkit-border-radius: 0px 0px 4px 4px;
     -moz-border-radius: 0px 0px 4px 4px;
@@ -693,11 +737,6 @@ p, .fluent-body {
 
 .fluent-expander-body * {
     opacity: 0;
-    transition: 0.2s ease-in-out;
-    -webkit-transition: 0.2s ease-in-out;
-    -moz-transition: 0.2s ease-in-out;
-    -ms-transition: 0.2s ease-in-out;
-    -o-transition: 0.2s ease-in-out;
 }
 
 .fluent-expander-body.expanded {
@@ -735,12 +774,8 @@ p, .fluent-body {
     margin-right: 1.43em;
 }
 
-.fluent-combobox:hover {
-    background-color: var(--light-hover-color);
-}
-
 .fluent-combobox:focus {
-    background-color: var(--focus-color);
+    background-color: var(--button-focus-color);
     color: var(--text-focus-color);
 }
 
@@ -751,7 +786,7 @@ p, .fluent-body {
     margin-top: 0;
     width: auto;
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.2px;
+    border: var(--light-border-color) solid 0.4px;
     background: var(--light-trans-color);
     backdrop-filter: blur(10px);
     outline: var(--text-color);
@@ -800,9 +835,9 @@ p, .fluent-body {
     display: block;
     width: 100%;
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.2px;
+    border: var(--button-border-color) solid 0.4px;
     padding: 4px 11px 6px;
-    background-color: var(--light-color);
+    background-color: var(--button-color);
     transition: 0.1s ease-in-out;
     outline: var(--text-color);
     border-radius: 4px;
@@ -810,7 +845,7 @@ p, .fluent-body {
 }
 
 .fluent-combobox a:hover {
-    background-color: var(--light-hover-color);
+    background-color: var(--button-hover-color);
     cursor: default;
 }
 

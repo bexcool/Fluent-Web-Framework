@@ -5,7 +5,7 @@ var Initialized = false;
 function SwitchTheme() {
     var myElement = document.documentElement;
 
-    if (getComputedStyle(myElement).getPropertyValue("--dark-color") == "rgb(30, 30, 30)") // Is dark theme?
+    if (getComputedStyle(myElement).getPropertyValue("--dark-color") == "rgb(32, 32, 32)") // Is dark theme?
     {
         SetLightTheme();
     }
@@ -18,8 +18,10 @@ function SwitchTheme() {
 function SetDarkTheme() {
     var myElement = document.documentElement;
 
-    myElement.style.setProperty("--dark-color", "rgb(30, 30, 30)");
+    // Global colors
+    myElement.style.setProperty("--dark-color", "rgb(32, 32, 32)");
     myElement.style.setProperty("--dark-border-color", "rgb(25, 25, 25)");
+    myElement.style.setProperty("--darker-color", "rgb(39, 39, 39)");
     myElement.style.setProperty("--light-color", "rgb(43, 43, 43)");
     myElement.style.setProperty("--light-trans-color", "rgba(40, 40, 40, 0.7)");
     myElement.style.setProperty("--light-hover-color", "rgb(45, 45, 45)");
@@ -39,6 +41,12 @@ function SetDarkTheme() {
     myElement.style.setProperty("--accent-color", "#4cc2ff");
     myElement.style.setProperty("--icon-color", "0");
 
+    // Button
+    myElement.style.setProperty("--button-color", "hsla(0, 0%, 100%, .061");
+    myElement.style.setProperty("--button-hover-color", "rgba(255, 255, 255, 0.089)");
+    myElement.style.setProperty("--button-focus-color", "rgba(255, 255, 255, 0.040)");
+    myElement.style.setProperty("--button-border-color", "rgba(63, 63, 63, 0.5)");
+
     localStorage.setItem("CurrentTheme", "Dark");
 
     // Refresh selected items
@@ -56,6 +64,7 @@ function SetLightTheme() {
 
     myElement.style.setProperty("--dark-color", "rgb(238, 238, 238)");
     myElement.style.setProperty("--dark-border-color", "rgb(225, 225, 225)");
+    myElement.style.setProperty("--darker-color", "rgb(238, 238, 238)");
     myElement.style.setProperty("--light-color", "rgb(251, 251, 251)");
     myElement.style.setProperty("--light-trans-color", "rgba(251, 251, 251, 0.7)");
     myElement.style.setProperty("--light-hover-color", "rgb(247, 247, 247)");
@@ -74,6 +83,12 @@ function SetLightTheme() {
     myElement.style.setProperty("--accent-hover-color", "#1975c5");
     myElement.style.setProperty("--accent-color", "#0067c0");
     myElement.style.setProperty("--icon-color", "0.7");
+
+    // Button
+    myElement.style.setProperty("--button-color", "hsla(0, 0%, 100%, .75");
+    myElement.style.setProperty("--button-hover-color", "rgba(255, 255, 255, 0.5)");
+    myElement.style.setProperty("--button-focus-color", "rgba(255, 255, 255, 0.040)");
+    myElement.style.setProperty("--button-border-color", "rgba(150, 150, 150, 0.3)");
 
     localStorage.setItem("CurrentTheme", "Light");
 
@@ -329,7 +344,17 @@ function InitExpanders() {
                                                 "-o-border-radius: 4px 4px 4px 4px;";
 
                     for (const content of expander_body.children) {
-                        content.style.cssText = "opacity: 0;";
+                        content.animate(
+                            [
+                                // keyframes
+                                { opacity: "1" },
+                                { opacity: "0" }
+                            ],
+                            {
+                                // timing options
+                                duration: 150
+                            });
+                            content.style.opacity = "0";
                     }
 
                     setTimeout(function () {
@@ -346,7 +371,7 @@ function InitExpanders() {
                     }, 150);
 
                     setTimeout(() => {
-                        expander_arrow.style.cssText = "transform: rotate(0deg);"
+                        expander_arrow.style.transform = "rotate(0deg)"
                     }, 300);
 
                     setTimeout(function () {
@@ -374,12 +399,22 @@ function InitExpanders() {
                         });
 
                         setTimeout( () => {
-                            expander_arrow.style.cssText = "transform: rotate(180deg);"
+                            expander_arrow.style.transform = "rotate(180deg)"
                         }, 100);
 
                     for (const content of expander_body.children) {
                         setTimeout(function () {
-                            content.style.cssText = "opacity: 1;";
+                            content.animate(
+                                [
+                                    // keyframes
+                                    { opacity: "0" },
+                                    { opacity: "1" }
+                                ],
+                                {
+                                    // timing options
+                                    duration: 150
+                                });
+                                content.style.opacity = "1";
                         }, 100);
                     }
                 }
