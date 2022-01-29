@@ -336,13 +336,6 @@ function InitExpanders() {
                 const expander_arrow = expander.lastElementChild.firstElementChild;
 
                 if (expander_body.classList.contains("expanded")) {
-
-                    expander.style.cssText =    "border-radius: 4px 4px 4px 4px;" +
-                                                "-webkit-border-radius: 4px 4px 4px 4px;" +
-                                                "-moz-border-radius: 4px 4px 4px 4px;" +
-                                                "-ms-border-radius: 4px 4px 4px 4px;" +
-                                                "-o-border-radius: 4px 4px 4px 4px;";
-
                     for (const content of expander_body.children) {
                         content.animate(
                             [
@@ -376,6 +369,12 @@ function InitExpanders() {
 
                     setTimeout(function () {
                         expander_body.classList.remove("expanded");
+
+                        expander.style.cssText =    "border-radius: 4px 4px 4px 4px;" +
+                                                    "-webkit-border-radius: 4px 4px 4px 4px;" +
+                                                    "-moz-border-radius: 4px 4px 4px 4px;" +
+                                                    "-ms-border-radius: 4px 4px 4px 4px;" +
+                                                    "-o-border-radius: 4px 4px 4px 4px;";
                     }, 300);
                 }
                 else {
