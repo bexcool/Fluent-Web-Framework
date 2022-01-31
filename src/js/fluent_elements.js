@@ -47,14 +47,24 @@ customElements.define('fluent-contextmenu-item', ContextMenuItem);
 class Expander extends HTMLElement {
     connectedCallback() {
         const Header = this.attributes.Header?.value || "";
-        setTimeout( () =>
-            this.outerHTML =    '<div' + ' style="' + this.style.cssText + '" ' +
+        setTimeout( () => {
+            if (this.hasAttribute("expanded")) {
+                this.outerHTML =    '<div' + ' style="' + this.style.cssText + '" ' +
+                                'class="fluent-expander"><div class="fluent-expander-header">' +
+                                '<p>' + Header + '</p><div><img class="fluent-expander-arrow" style="transform: rotate(180deg)" src="https://resources.bexcool.eu/fluentstyle/src/img/arrow_down.svg"></div></div>' +
+                                '<div class="fluent-expander-body expanded">' +
+                                this.innerHTML +
+                                '</div></div>';
+            }
+            else {
+                this.outerHTML =    '<div' + ' style="' + this.style.cssText + '" ' +
                                 'class="fluent-expander"><div class="fluent-expander-header">' +
                                 '<p>' + Header + '</p><div><img class="fluent-expander-arrow" src="https://resources.bexcool.eu/fluentstyle/src/img/arrow_down.svg"></div></div>' +
                                 '<div class="fluent-expander-body">' +
                                 this.innerHTML +
-                                '</div></div>'
-        );
+                                '</div></div>';
+            }
+        });
     }
 }
 

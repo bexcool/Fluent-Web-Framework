@@ -12,20 +12,21 @@
 
 <body onload="InitializeFluent(); InitializeAnimations();">
     <div style="width: 50%; margin: 50px auto; padding: 10em;">
+        <button onclick="SwitchTheme();">Switch theme</button>
         <h2>Button</h2>
         <p>Customized button.</p>
-        <fluent-expander header="Normal">
+        <fluent-expander header="Normal" expanded>
             <div style="margin: 30px;">
                 <p>Normal redesigned button.</p>
-                <fluent-border><code>&lt;button&gt;Click me!&lt;/button&gt;</code></fluent-border><br><br>
+                <fluent-border><code>&lt;button&gt;Click me!&lt;/button&gt;</code></fluent-border><br>
                 <button>Click me!</button>
             </div>
         </fluent-expander>
-        <fluent-expander header="Accent">
+        <fluent-expander header="Accent" expanded>
             <div style="margin: 30px;">
                 <p>Normal redesigned button.</p>
-                <code>&lt;button&gt;Click me!&lt;/button&gt;</code><br><br>
-                <button>Click me!</button>
+                <fluent-border><code html>&lt;button accent&gt;I am an accent button&lt;/button&gt;</code></fluent-border><br>Dát pryč ' protože to podělá copy, přidat do code parametr HTML
+                <button accent>I am an accent button</button>
             </div>
         </fluent-expander>
     </div>
