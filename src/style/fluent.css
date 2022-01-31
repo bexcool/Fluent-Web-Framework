@@ -418,6 +418,8 @@ select[multiselect]option:focus {
 /* Background Border */
 
 .fluent-background-border {
+    width: fit-content;
+    height: fit-content;
     color: var(--text-color);
     border: var(--light-border-color) solid 0.4px;
     background-color: var(--light-color);
@@ -426,12 +428,12 @@ select[multiselect]option:focus {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    padding: 2em;
+    padding: 1em;
 }
 
 /* Form */
 
-form, .fluent-background-border {
+form {
     color: var(--text-color);
     border: var(--light-border-color) solid 0.4px;
     border-radius: 10px;
@@ -706,6 +708,7 @@ p, .fluent-body {
     display: flex; 
     align-items: center;
     transition: 0.1s ease-in-out;
+    overflow: hidden;
 }
 
 .fluent-expander-header:hover div {
@@ -721,31 +724,18 @@ p, .fluent-body {
     border: var(--dark-border-color) solid 0.4px;
     border-top: none;
     display: none;
-    padding: 5px 20px 6px;
     background-color: var(--darker-color);
     border-radius: 0px 0px 4px 4px;
     -webkit-border-radius: 0px 0px 4px 4px;
     -moz-border-radius: 0px 0px 4px 4px;
     -ms-border-radius: 0px 0px 4px 4px;
     -o-border-radius: 0px 0px 4px 4px;
-    transition: 2s ease-in-out;
-    -webkit-transition: 2s ease-in-out;
-    -moz-transition: 2s ease-in-out;
-    -ms-transition: 2s ease-in-out;
-    -o-transition: 2s ease-in-out;
-}
-
-.fluent-expander-body * {
-    opacity: 0;
+    overflow: hidden;
 }
 
 .fluent-expander-body.expanded {
+    border-top: rgba(0, 0, 0, 0) solid 0.4px;
     display: block;
-    transition: 0.2s ease-in-out;
-    -webkit-transition: 0.2s ease-in-out;
-    -moz-transition: 0.2s ease-in-out;
-    -ms-transition: 0.2s ease-in-out;
-    -o-transition: 0.2s ease-in-out;
 }
 
 .fluent-expander-arrow {
@@ -855,4 +845,20 @@ p, .fluent-body {
 
 .fluent-combobox a.fluent-combobox-item.selected:hover {
     background-color: var(--focus-color);
+}
+
+/* Code */
+.fluent-code-container {
+    flex: auto;
+    justify-content: center;
+    padding-right: 3.5em;
+    width: fit-content;
+    height: fit-content;
+}
+
+.fluent-code-copy-button {
+    margin-left: 2em; 
+    padding: 0.2em; 
+    display: inline-block;
+    position: absolute;
 }

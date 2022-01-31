@@ -60,11 +60,13 @@ class Expander extends HTMLElement {
 
 customElements.define('fluent-expander', Expander);
 
+// Border
+
 class Border extends HTMLElement {
     connectedCallback() {
         setTimeout( () => 
             this.outerHTML =    '<div' + ' style="' + this.style.cssText + '" ' + 
-                                'class="fluent-background-border" style>' + this.innerHTML + '</div>'
+                                'class="fluent-background-border">' + this.innerHTML + '</div>'
         );
     }
 }
