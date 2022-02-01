@@ -469,11 +469,7 @@ function MakeFluentElements() {
     }
 
     for (const code of document.querySelectorAll("code")) {
-        if (code.hasAttribute("sh")) {
-            switch (code.getAttribute("sh")) {
-                case "HTML": CodeSyntaxHigh(code); break;
-            }
-        }
+        if (code.hasAttribute("sh")) CodeSyntaxHigh(code, code.getAttribute("sh").toLowerCase());
     }
 
     // Button attributes
@@ -510,18 +506,18 @@ function CodeSyntaxHigh(elmnt, mode) {var lang = (mode || "html");
 var lang = (mode || "html");
 var elmntObj = (document.getElementById(elmnt) || elmnt);
 var elmntTxt = elmntObj.innerHTML;
-var tagcolor = "mediumblue";
+var tagcolor = "#006aff"; // Lighter blue
 var tagnamecolor = "brown";
 var attributecolor = "red";
-var attributevaluecolor = "mediumblue";
+var attributevaluecolor = "#006aff";
 var commentcolor = "green";
 var cssselectorcolor = "brown";
 var csspropertycolor = "red";
-var csspropertyvaluecolor = "mediumblue";
+var csspropertyvaluecolor = "#006aff";
 var cssdelimitercolor = "black";
 var cssimportantcolor = "red";
 var jscolor = "black";
-var jskeywordcolor = "mediumblue";
+var jskeywordcolor = "#006aff";
 var jsstringcolor = "brown";
 var jsnumbercolor = "red";
 var jspropertycolor = "black";
