@@ -21,7 +21,7 @@
                 <div style="margin: 30px;">
                     <p>Normal button.</p>
                     <fluent-border><code sh="HTML"> &lt;button&gt;Click me!&lt;/button&gt;
-                                                    // Can be used as an input type=&#34;submit&#34;
+                                                    &lt;!-- Can be used as &lt;input type=&#34;submit&#34;&gt; --&gt;
                                                     &lt;input type=&#34;submit&#34; value&#61;&#34;Click me!&#34;&gt;</code></fluent-border><br>
                     <button>Click me!</button>
                 </div>
@@ -47,11 +47,22 @@
             <p>Customized inputs with text.</p>
             <fluent-expander header="Input Text">
                 <div style="margin: 30px;">
-                    <p>Redesigned input type="text". PŘIDAT MOŽNOST TLAČÍTKA PRO SMAZÁNÍ TEXTU </p>
-                    <fluent-border><code sh="HTML"> &lt;input type=&#34;text&#34; value=&#34;BeXCool&#34;&gt;
+                    <p>Redesigned input type="text" with more attributes.</p>
+                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;clear_btn&#34; shows clear text button. --&gt;
+                                                    &lt;input type=&#34;text&#34; value=&#34;BeXCool&#34; clear_btn&gt;
                                                     &lt;input type=&#34;text&#34; placeholder=&#34;Type here&#34;&gt;</code></fluent-border><br>
-                    <input type="text" value="BeXCool"><br>
+                    <input type="text" value="BeXCool" clear_btn><br>
                     <input type="text" placeholder="Type here">
+                </div>
+            </fluent-expander>
+            <fluent-expander header="Input Password">
+                <div style="margin: 30px;">
+                    <p>Redesigned input type="password" with more attributes.</p>
+                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;showpass_btn&#34; shows button for showing password. --&gt;
+                                                    &lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn&gt;
+                                                    &lt;input type=&#34;password&#34; placeholder=&#34;Type password&#34;&gt;</code></fluent-border><br>
+                    <input type="password" value="1234" showpass_btn><br>
+                    <input type="password" placeholder="Type here">
                 </div>
             </fluent-expander>
         </section>

@@ -492,7 +492,55 @@ function MakeFluentElements() {
     const inputs_text = document.querySelectorAll("input[type=\"text\"]");
 
     for (const input_text of inputs_text) {
-        
+        input_text.outerHTML =  '<div class="fluent-textbox-container">' +
+                                '<input ' + AttributesToString(input_text) + ' >' + 
+                                '<button class="fluent-clear-text-input-button" style="opacity: 0; display: none; font-weight: light;">x</button>' +
+                                '</div>';
+    }
+
+    const inputs_text_new = document.querySelectorAll("input[type=\"text\"]");
+
+    for (const input_text of inputs_text_new) {
+        if (input_text.hasAttribute("clear_btn")) {
+            input_text.parentElement.lastElementChild.style.opacity = "1";
+            input_text.parentElement.lastElementChild.style.display = "inline";
+        }
+
+        input_text.parentElement.lastElementChild.addEventListener("click", () => {
+            input_text.value = "";
+        });
+    }
+
+    // Input password
+    const inputs_password = document.querySelectorAll("input[type=\"password\"]");
+
+    for (const input_password of inputs_password) {
+        input_password.outerHTML =  '<div class="fluent-textbox-container">' +
+                                '<input ' + AttributesToString(input_password) + ' >' + 
+                                '<button class="fluent-show-password-input-button" style="opacity: 0; display: none;"><img class="fluent-expander-arrow" src="https://resources.bexcool.eu/fluentstyle/src/img/eye_regular.svg"></button>' +
+                                '</div>';
+    }
+
+    const inputs_password_new = document.querySelectorAll("input[type=\"password\"]");
+
+    for (const input_password of inputs_password_new) {
+        const button = input_password.parentElement.lastElementChild;
+
+        if (input_password.hasAttribute("showpass_btn")) {
+            button.style.opacity = "1";
+            button.style.display = "inline";
+        }
+
+        button.addEventListener("click", () => {
+            if (input_password.getAttribute("type") == "password") {
+                input_password.setAttribute("type", "text");
+                button.innerHTML = '<img class="fluent-expander-arrow" src="https://resources.bexcool.eu/fluentstyle/src/img/eye_filled.svg">';
+            }
+            else {
+                input_password.setAttribute("type", "password");
+                button.innerHTML = '<img class="fluent-expander-arrow" src="https://resources.bexcool.eu/fluentstyle/src/img/eye_regular.svg">';
+            }
+        });
     }
 }
 

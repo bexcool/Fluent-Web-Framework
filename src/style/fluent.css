@@ -883,3 +883,30 @@ code {
 .fluent-svg-path {
     fill: var(--black-white-color);
 }
+/* Texbox */
+
+.fluent-textbox-container {
+    flex: auto;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+/* Input Text Clear Button */
+
+.fluent-clear-text-input-button {
+    margin-left: -2.25em;
+    padding: 0 0.5em 0.1em 0.5em;
+    height: 100%;
+    font-weight: 100;
+}
+
+
+/* Input Password Show Button */
+
+.fluent-show-password-input-button {
+    margin-left: -2.25em;
+    padding: 0;
+    height: 100%;
+}
