@@ -13,21 +13,47 @@
 <body onload="InitializeFluent(); InitializeAnimations();">
     <div style="width: 50%; margin: 50px auto; padding: 10em;">
         <button onclick="SwitchTheme();">Switch theme</button>
-        <h2>Button</h2>
-        <p>Customized button.</p>
-        <fluent-expander header="Normal">
-            <div style="margin: 30px;">
-                <p>Normal button.</p>
-                <fluent-border><code sh="HTML">&lt;button&gt;Click me!&lt;/button&gt;</code></fluent-border><br>
-                <button>Click me!</button>
-            </div>
-        </fluent-expander>
-        <fluent-expander header="Accent">
-            <div style="margin: 30px;">
-                <p>Accent button.</p>
-                <fluent-border><code sh="HTML">&lt;button accent&gt;I am an accent button&lt;/button&gt;</code></fluent-border><br>
-                <button accent>I am an accent button</button>
-            </div>
-        </fluent-expander>
+        <!-- Button section -->
+        <section>
+            <h2>Button</h2>
+            <p>Customized button.</p>
+            <fluent-expander header="Normal">
+                <div style="margin: 30px;">
+                    <p>Normal button.</p>
+                    <fluent-border><code sh="HTML"> &lt;button&gt;Click me!&lt;/button&gt;
+                                                    // Can be used as an input type=&#34;submit&#34;
+                                                    &lt;input type=&#34;submit&#34; value&#61;&#34;Click me!&#34;&gt;</code></fluent-border><br>
+                    <button>Click me!</button>
+                </div>
+            </fluent-expander>
+            <fluent-expander header="Accent">
+                <div style="margin: 30px;">
+                    <p>Accent button.</p>
+                    <fluent-border><code sh="HTML">&lt;button accent&gt;I am an accent button&lt;/button&gt;</code></fluent-border><br>
+                    <button accent>I am an accent button</button>
+                </div>
+            </fluent-expander>
+            <fluent-expander header="Hyperlink">
+                <div style="margin: 30px;">
+                    <p>Hyperlink button.</p>
+                    <fluent-border><code sh="HTML">&lt;button hyperlink&gt;Hyperlink&lt;/button&gt;</code></fluent-border><br>
+                    <button hyperlink>Hyperlink</button>
+                </div>
+            </fluent-expander>
+        </section>
+        <!-- Textbox section -->
+        <section>
+            <h2>Textbox</h2>
+            <p>Customized inputs with text.</p>
+            <fluent-expander header="Input Text">
+                <div style="margin: 30px;">
+                    <p>Redesigned input type="text". You </p>
+                    <fluent-border><code sh="HTML"> &lt;input type=&#34;text&#34; value=&#34;BeXCool&#34;&gt;
+                                                    &lt;input type=&#34;text&#34; placeholder=&#34;Type here&#34;&gt;</code></fluent-border><br>
+                    <input type="text" value="BeXCool"><br>
+                    <input type="text" placeholder="Type here">
+                </div>
+            </fluent-expander>
+        </section>
     </div>
 </body>

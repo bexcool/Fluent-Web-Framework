@@ -476,15 +476,27 @@ function MakeFluentElements() {
         }
     }
 
-    // Accent button
+    // Button attributes
     const buttons = document.querySelectorAll("button");
 
     for (const button of buttons) {
         if (button.hasAttribute("accent")){
-            button.outerHTML =  '<button style="' + button.style.cssText + '" class="fluent-button-accent">' + 
+            button.outerHTML =  '<button style="' + button.style.cssText + '" class="fluent-button-accent" accent>' + 
                                     button.innerHTML +
                                 '</button>';
         }
+        else if (button.hasAttribute("hyperlink")) {
+            button.outerHTML =  '<button style="' + button.style.cssText + '" class="fluent-hyperlink-button-accent" hyperlink>' + 
+                                    button.innerHTML +
+                                '</button>';
+        }
+    }
+
+    // Input text
+    const inputs_text = document.querySelectorAll("input[type=\"text\"]");
+
+    for (const input_text of inputs_text) {
+        
     }
 }
 

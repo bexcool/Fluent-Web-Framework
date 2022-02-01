@@ -68,6 +68,7 @@ body::-webkit-scrollbar-thumb:hover {
 /* Input text, password, email and Textarea */
 
 input[type="text"], input[type="password"], input[type="email"], input[type="url"], textarea {
+    margin: 0.2em;
     background-color: var(--light-color);
     border: var(--light-border-color) solid 0.4px;
     border-bottom: var(--textbox-border-bottom-color) solid 0.4px;
@@ -90,6 +91,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 /* Hyperlink button */
 
 .fluent-hyperlink-button {
+    margin: 0.2em;
     color: var(--text-nobg-color);
     border: none;
     padding: 6px 11px 7px;
@@ -119,6 +121,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 /* Hyperlink button accent */
 
 .fluent-hyperlink-button-accent {
+    margin: 0.2em;
     color: var(--accent-color);
     border: none;
     padding: 6px 11px 7px;
@@ -145,6 +148,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 /* Button */
 
 .fluent-button, input[type="submit"], button {
+    margin: 0.2em;
     color: var(--text-color);
     border: var(--button-border-color) solid 0.4px;
     padding: 5px 11px 6px;
@@ -230,6 +234,7 @@ input[type="checkbox"]:checked:hover {
 /* Date and Time */
 
 input[type="date"], input[type="time"] {
+    margin: 0.2em;
     color: var(--text-color);
     border: var(--light-border-color) solid 0.4px;
     padding: 7px 11px 5px;
@@ -251,6 +256,7 @@ input[type="date"]:focus, input[type="time"]:focus {
 /* Input color */
 
 input[type="color"] {
+    margin: 0.2em;
     height: 30px;
     color: var(--text-color);
     border: var(--light-border-color) solid 0.4px;
@@ -277,6 +283,7 @@ input[type="color"]:focus {
 /* Input file */
 
 input[type="file"] {
+    margin: 0.2em;
     color: var(--text-color);
     border: var(--light-border-color) solid 0.4px;
     padding: 5px 11px 6px;
@@ -308,6 +315,7 @@ input[type="file"]:focus {
 /* Input range */
 
 input[type="range"] {
+    margin: 0.2em;
     -webkit-appearance: none;
     height: 0.35em;
     border-radius: 30px;
@@ -849,6 +857,7 @@ p, .fluent-body {
 }
 
 /* Code */
+
 .fluent-code-container {
     flex: auto;
     justify-content: center;
@@ -858,13 +867,19 @@ p, .fluent-body {
 }
 
 .fluent-code-copy-button {
+    margin: 0;
     margin-left: 2em; 
     padding: 0.2em; 
     display: inline-block;
     position: absolute;
 }
 
+code {
+    white-space: pre-line;
+}
+
 /* SVG */
+
 .fluent-svg-path {
     fill: var(--black-white-color);
 }
