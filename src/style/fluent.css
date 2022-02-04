@@ -36,6 +36,7 @@
 /* Body */
 
 body {
+    scroll-behavior: smooth;
     background-color: var(--dark-color);
     font-family: "Segoe UI", Arial, sans-serif;
     color: var(--text-color);
@@ -862,20 +863,20 @@ p, .fluent-body {
     flex: auto;
     justify-content: center;
     padding-right: 3.5em;
-    width: fit-content;
-    height: fit-content;
+    overflow: auto;
 }
 
 .fluent-code-copy-button {
     margin: 0;
     margin-left: 2em; 
-    padding: 0.2em; 
+    padding: 0.2em;
     display: inline-block;
     position: absolute;
 }
 
 code {
     white-space: pre-line;
+    overflow: auto;
 }
 
 /* SVG */
@@ -883,6 +884,11 @@ code {
 .fluent-svg-path {
     fill: var(--black-white-color);
 }
+
+.fluent-svg {
+    margin-bottom: -0.2em; 
+}
+
 /* Texbox */
 
 .fluent-textbox-container {
@@ -903,10 +909,14 @@ code {
 }
 
 
-/* Input Password Show Button */
+/* Input Password Show */
 
-.fluent-show-password-input-button {
-    margin-left: -2.25em;
-    padding: 0;
-    height: 100%;
+.fluent-show-password-input {
+    margin-left: -1.8em;
+    position: absolute;
+}
+
+.fluent-show-password-input:hover {
+    filter: invert(0.3);
+    -webkit-filter: invert(0.3);
 }
