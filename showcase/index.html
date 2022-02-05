@@ -14,11 +14,11 @@
     <div style="width: 50%; margin: 50px auto; padding: 10em;">
         <button onclick="SwitchTheme();">Switch theme</button>
         <!-- Button section -->
-        <section>
+        <section id="button">
             <h2>Button</h2>
             <p>Customized button.</p>
             <fluent-expander header="Normal">
-                <div style="margin: 30px;">
+                <div class="fluent-content">
                     <p>Normal button.</p>
                     <fluent-border><code sh="HTML"> &lt;button&gt;Click me!&lt;/button&gt;
                                                     &lt;!-- Can be used as &lt;input type=&#34;submit&#34;&gt; --&gt;
@@ -27,14 +27,14 @@
                 </div>
             </fluent-expander>
             <fluent-expander header="Accent">
-                <div style="margin: 30px;">
+                <div class="fluent-content">
                     <p>Accent button.</p>
                     <fluent-border><code sh="HTML">&lt;button accent&gt;I am an accent button&lt;/button&gt;</code></fluent-border><br>
                     <button accent>I am an accent button</button>
                 </div>
             </fluent-expander>
             <fluent-expander header="Hyperlink">
-                <div style="margin: 30px;">
+                <div class="fluent-content">
                     <p>Hyperlink button.</p>
                     <fluent-border><code sh="HTML">&lt;button hyperlink&gt;Hyperlink&lt;/button&gt;</code></fluent-border><br>
                     <button hyperlink>Hyperlink</button>
@@ -42,11 +42,11 @@
             </fluent-expander>
         </section>
         <!-- Textbox section -->
-        <section>
+        <section id="textbox">
             <h2>Textbox</h2>
             <p>Customized inputs with text.</p>
             <fluent-expander header="Input Text">
-                <div style="margin: 30px;">
+                <div class="fluent-content">
                     <p>Redesigned input type="text" with more attributes.</p>
                     <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;clear_btn&#34; shows clear text button. --&gt;
                                                     &lt;input type=&#34;text&#34; value=&#34;BeXCool&#34; clear_btn&gt;
@@ -56,7 +56,7 @@
                 </div>
             </fluent-expander>
             <fluent-expander header="Input Password">
-                <div style="margin: 30px;">
+                <div class="fluent-content">
                     <p>Redesigned input type="password" with more attributes.</p>
                     <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;showpass_btn&#34; shows button for showing password. --&gt;
                                                     &lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn&gt;
@@ -66,6 +66,59 @@
                     <input type="password" value="1234" showpass_btn><br>
                     <input type="password" value="1234" showpass_btn showpass><br>
                     <input type="password" placeholder="Type here">
+                </div>
+            </fluent-expander>
+        </section>
+        <!-- Context menu section -->
+        <section id="contextmenu">
+            <h2>Context Menu</h2>
+            <p>Custom element with items.</p>
+            <fluent-expander header="Default" expanded>
+                <div class="fluent-content">
+                    <p>Hover it to show menu.</p>
+                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
+                                                    &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-contextmenu-item&gt;
+                                                    &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
+                    <fluent-contextmenu header="Navigation" url="#">
+                        <fluent-contextmenu-item url="#button">Button</fluent-contextmenu-item>
+                        <fluent-contextmenu-item url="#textbox">Textbox</fluent-contextmenu-item>
+                        <fluent-contextmenu-item url="#contextmenu">Context Menu</fluent-contextmenu-item>
+                        <fluent-contextmenu-item url="#expander">Expander</fluent-contextmenu-item>
+                        <fluent-contextmenu-item url="#code">Code</fluent-contextmenu-item>
+                    </fluent-contextmenu>
+                </div>
+            </fluent-expander>
+        </section>
+        <!-- Expander section -->
+        <section id="expander">
+            <h2>Expander</h2>
+            <p>Custom element which can be opened or closed.</p>
+            <fluent-expander header="Default" expanded>
+                <div class="fluent-content">
+                    <p>Click on expander to show it's content.</p>
+                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
+                                                    &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-contextmenu-item&gt;
+                                                    &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
+                    <fluent-expander header="Normal">
+                        <div class="fluent-content">
+                            <button>Button</button>
+                        </div>
+                    </fluent-expander>
+                    <fluent-expander header="Expanded" expanded>
+                        <div class="fluent-content">
+                            <button>Button</button>
+                        </div>
+                    </fluent-expander>
                 </div>
             </fluent-expander>
         </section>

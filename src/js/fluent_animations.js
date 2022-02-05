@@ -23,7 +23,5 @@ function InitializeAnimations() {
           });
       });
     }
-  }
-
-  )
+  }, 10);
 }

@@ -33,10 +33,15 @@
     --button-border-color: rgba(63, 63, 63, 0.5);
 }
 
+/* HTML */
+
+html {
+    scroll-behavior: smooth;
+}
+
 /* Body */
 
 body {
-    scroll-behavior: smooth;
     background-color: var(--dark-color);
     font-family: "Segoe UI", Arial, sans-serif;
     color: var(--text-color);
@@ -478,6 +483,7 @@ legend {
     width: auto;
     border-radius: 4px;
     transition: 0.1s ease-in-out;
+    margin: 0.2em;
     margin-right: 1.43em;
 }
 
@@ -715,10 +721,14 @@ p, .fluent-body {
     -o-border-radius: 4px;
     padding: 0;
     margin: 0;
-    display: flex; 
+    display: flex;
     align-items: center;
     transition: 0.1s ease-in-out;
-    overflow: hidden;
+    -webkit-transition: 0.1s ease-in-out;
+    -moz-transition: 0.1s ease-in-out;
+    -ms-transition: 0.1s ease-in-out;
+    -o-transition: 0.1s ease-in-out;
+    overflow: visible;
 }
 
 .fluent-expander-header:hover div {
@@ -740,7 +750,7 @@ p, .fluent-body {
     -moz-border-radius: 0px 0px 4px 4px;
     -ms-border-radius: 0px 0px 4px 4px;
     -o-border-radius: 0px 0px 4px 4px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .fluent-expander-body.expanded {
@@ -924,4 +934,10 @@ code {
 .fluent-show-password-input:hover {
     filter: invert(0.3);
     -webkit-filter: invert(0.3);
+}
+
+/* Content */
+
+.fluent-content {
+    margin: 2em;
 }

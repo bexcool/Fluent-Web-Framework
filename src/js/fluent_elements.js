@@ -1,12 +1,13 @@
 // Context menu
 class ContextMenu extends HTMLElement {
     connectedCallback() {
-        const Header = this.attributes.Header?.value || "";
+        const Header =this.attributes.Header != null ? this.attributes.Header.value : "";
+        const Url = this.attributes.Url != null ? this.attributes.Url.value : "#";
 
         setTimeout( () =>
             this.outerHTML =    '<div' + ' style="' + this.style.cssText + '" ' + 
                                 'class="fluent-context-menu-container">' +
-                                '<a href="#">' + Header + '</a>' +
+                                '<a href="' + Url + '">' + Header + '</a>' +
                                 '<ul class="fluent-context-menu">' +
                                 this.innerHTML +
                                 '</ul>' +
@@ -20,7 +21,7 @@ customElements.define('fluent-contextmenu', ContextMenu);
 // Context menu item
 class ContextMenuItem extends HTMLElement {
     connectedCallback() {
-        const Url = this.attributes.Url?.value || "#";
+        const Url = this.attributes.Url != null ? this.attributes.Url.value : "#";
 
         setTimeout( () => {
             // Check if is selectable
@@ -46,7 +47,8 @@ customElements.define('fluent-contextmenu-item', ContextMenuItem);
 
 class Expander extends HTMLElement {
     connectedCallback() {
-        const Header = this.attributes.Header?.value || "";
+        const Header = this.attributes.Header != null ? this.attributes.Header.value : "";
+
         setTimeout( () => {
             if (this.hasAttribute("expanded")) {
                 this.outerHTML =    '<div' + ' style="' + this.style.cssText + '" ' +
