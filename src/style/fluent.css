@@ -902,10 +902,15 @@ code {
 /* Input Text Clear Button */
 
 .fluent-clear-text-input-button {
-    margin-left: -2.25em;
+    margin-left: -2.1em;
     padding: 0 0.5em 0.1em 0.5em;
     height: 100%;
     font-weight: 100;
+    transform: translateY(-0.1em);
+    -webkit-transform: translateY(-0.1em);
+    -moz-transform: translateY(-0.1em);
+    -ms-transform: translateY(-0.1em);
+    -o-transform: translateY(-0.1em);
 }
 
 
