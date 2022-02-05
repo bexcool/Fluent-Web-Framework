@@ -478,7 +478,6 @@ legend {
 
 .fluent-context-menu-container {
     position: relative;
-    /* obsahový blok pro pozici "ul ul" */
     display: inline-block;
     width: auto;
     border-radius: 4px;
