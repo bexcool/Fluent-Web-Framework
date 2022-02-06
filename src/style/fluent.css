@@ -319,7 +319,7 @@ input[type="file"]:focus {
 }
 
 /* Input range */
-
+/*
 input[type="range"] {
     margin: 0.2em;
     -webkit-appearance: none;
@@ -331,7 +331,7 @@ input[type="range"] {
     transition: 0.1s ease-out;
 }
 
-/* -> Progress bar thumb WEBKIT */
+ -> Progress bar thumb WEBKIT 
 
 input[type="range"]::-webkit-slider-thumb {
     width: 0.65em;
@@ -343,19 +343,13 @@ input[type="range"]::-webkit-slider-thumb {
     transition: 0.1s ease-out;
 }
 
-input[type="range"]::-moz-range-thumb:hover {
-    width: 0.85em;
-    height: 0.85em;
-    border: var(--light-color) solid 0.3em;
-}
-
 input[type="range"]::-webkit-slider-runnable-track {
     background-color: var(--light-color);
     height: 100%;
     border-radius: 20px;
 }
 
-/* -> Progress bar thumb MOZILLA */
+ -> Progress bar thumb MOZILLA 
 
 input[type="range"]::-moz-range-thumb {
     width: 0.65em;
@@ -373,7 +367,7 @@ input[type="range"]::-moz-range-thumb:hover {
     border: var(--light-color) solid 0.3em;
 }
 
-/* -> Left side of progress bar */
+ -> Left side of progress bar 
 
 input[type="range"]::-moz-range-progress {
     background-color: var(--accent-color);
@@ -385,7 +379,153 @@ input[type="range"]::-moz-range-track {
     background-color: var(--light-color);
     height: 100%;
     border-radius: 20px;
+}*/
+
+/* ---------------------------------------------- */
+input[type=range] {
+    height: 0.35em;
+    -webkit-appearance: none;
+    --range: calc(var(--max) - var(--min));
+    --ratio: calc((var(--value) - var(--min)) / var(--range));
+    --sx: calc(0.5 * 1em + var(--ratio) * (100% - 1em));
 }
+
+input[type=range]:focus {
+    outline: none;
+}
+
+/*webkit*/
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: calc(0.5em * 0.5 - 1.75em * 0.5);
+    width: 1.75em;
+    height: 1.75em;
+    border-radius: 100%;
+    background: var(--accent-color);
+    border: var(--light-color) solid 0.5em;
+    box-shadow: none;
+    transition: 0.1s;
+    -webkit-transition: 0.1s;
+    -moz-transition: 0.1s;
+    -ms-transition: 0.1s;
+    -o-transition: 0.1s;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 0.35em;
+    border: none;
+    background: var(--light-color);
+    box-shadow: none;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+    margin-top: calc(0.35em * 0.5 - 1.65em * 0.5);
+    width: 1.8em;
+    height: 1.8em;
+    border: var(--light-color) solid 0.35em;
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+    margin-top: calc(0.6em * 0.5 - 1.7em * 0.5);
+    width: 1.7em;
+    height: 1.7em;
+    border: var(--light-color) solid 0.6em;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: linear-gradient(var(--accent-color), var(--accent-color)) 0/var(--sx) 100% no-repeat, var(--very-light-color);
+}
+
+/*mozilla*/
+input[type=range]::-moz-range-thumb {
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 100%;
+    background: var(--accent-color);
+    border: var(--light-color) solid 0.5em;
+    box-shadow: none;
+    transition: 0.1s;
+    -webkit-transition: 0.1s;
+    -moz-transition: 0.1s;
+    -ms-transition: 0.1s;
+    -o-transition: 0.1s;
+}
+
+input[type=range]::-moz-range-track {
+    height: 0.35em;
+    border: none;
+    background: var(--light-color);
+    box-shadow: none;
+}
+
+input[type=range]::-moz-range-thumb:hover {
+    width: 1em;
+    height: 1em;
+    border: var(--light-color) solid 0.37em;
+}
+
+input[type=range]::-moz-range-thumb:active {
+    width: 0.5em;
+    height: 0.5em;
+    border: var(--light-color) solid 0.54em;
+}
+
+input[type=range]::-moz-range-track {
+    background: linear-gradient(var(--accent-color), var(--accent-color)) 0/var(--sx) 100% no-repeat, var(--very-light-color);
+}
+
+/*ms*/
+input[type=range]::-ms-fill-upper {
+    background: transparent;
+    border-color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: transparent;
+    border-color: transparent;
+}
+
+input[type=range]::-ms-thumb {
+    width: 1em;
+    height: 1em;
+    border-radius: 100%;
+    background: var(--accent-color);
+    border: none;
+    box-shadow: none;
+    margin-top: 0;
+    box-sizing: border-box;
+}
+
+input[type=range]::-ms-track {
+    height: 0.35em;
+    background: var(--light-color);
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+input[type=range]::-ms-thumb:hover {
+    width: 1em;
+    height: 1em;
+    border: var(--light-color) solid 0.37em;
+}
+
+input[type=range]::-ms-thumb:active {
+    width: 0.5em;
+    height: 0.5em;
+    border: var(--light-color) solid 0.54em;
+}
+
+input[type=range]::-ms-fill-lower {
+    height: 0.35em;
+    border-radius: 0.5em 0 0 0.5em;
+    margin: -undefined 0 -undefined -undefined;
+    background: var(--accent-color);
+    border: none;
+    border-right-width: 0;
+}
+
+  
 
 /* Input select */
 

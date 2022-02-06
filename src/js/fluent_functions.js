@@ -150,6 +150,17 @@ function InitializeFluent() {
         });
         //#endregion
 
+        //#region Init sliders
+
+        for (const slider of document.querySelectorAll('input[type="range"]')) {
+            slider.style.setProperty('--value', slider.value);
+            slider.style.setProperty('--min', slider.min == '' ? '0' : slider.min);
+            slider.style.setProperty('--max', slider.max == '' ? '100' : slider.max);
+            slider.addEventListener('input', () => slider.style.setProperty('--value', slider.value));
+          }
+
+        //#endregion
+
         // ********************
         // Show custom context menu
         // ********************
@@ -578,6 +589,72 @@ function MakeFluentElements() {
         });
     }
 }
+
+//#region Fluent functions
+
+function ShowFlyout(element, delay) {
+    if (document.getElementById("fluent-context-menu-standalone-text") != null) {
+        const contextMenuStandaloneText = document.getElementById("fluent-context-menu-standalone-text");
+        const input_text = document.querySelectorAll("input[type=\"text\"]");
+
+        for (const context_menu of input_text) {
+            context_menu.addEventListener("contextmenu", (e) => {
+                e.preventDefault();
+
+                const {
+                    left: scopeOffsetX,
+                    top: scopeOffsetY,
+                } = document.querySelector("body").getBoundingClientRect();
+
+                const scopeX = e.pageX - scopeOffsetX;
+                const scopeY = e.pageY - scopeOffsetY;
+
+                // ? check if the element will go out of bounds
+                const outOfBoundsOnX = scopeX + contextMenuStandaloneText.clientWidth > document.querySelector("body").clientWidth;
+
+                const outOfBoundsOnY = scopeY + contextMenuStandaloneText.clientHeight > document.querySelector("body").clientHeight;
+
+                let normalizedX = e.pageX;
+                let normalizedY = e.pageY;
+
+                // ? normalzie on X
+                if (outOfBoundsOnX) {
+                    normalizedX = scopeOffsetX + document.querySelector("body").clientWidth - contextMenuStandaloneText.clientWidth;
+                }
+
+                // ? normalize on Y
+                if (outOfBoundsOnY) {
+                    normalizedY = scopeOffsetY + document.querySelector("body").clientHeight - contextMenuStandaloneText.clientHeight;
+                }
+
+                contextMenuStandaloneText.style.top = normalizedY + 'px';
+                contextMenuStandaloneText.style.left = normalizedX + 'px';
+
+                contextMenuStandaloneText.classList.add("visible");
+
+                contextMenuStandaloneText.animate(
+                    [
+                        // keyframes
+                        { transform: 'translateY(-20px)', opacity: '0' },
+                        { transform: 'translateY(0px)', opacity: '1' }
+                    ],
+                    {
+                        // timing options
+                        duration: 90
+                    });
+            });
+        }
+
+        // Close custom context menu
+        document.addEventListener("click", (e) => {
+            if (e.target.offsetParent != contextMenuStandaloneText) {
+                contextMenuStandaloneText.classList.remove("visible");
+            }
+        });
+    }
+}
+
+//#endregion
 
 //#region Helping functions
 
