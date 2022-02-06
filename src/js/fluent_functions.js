@@ -395,18 +395,22 @@ function InitExpanders() {
 function InitSelectableButtons() {
         // Set selectable buttons active when clicked
         const menu_items_select = document.querySelectorAll(".fluent-menu-item-select");
+        var doc = document.documentElement;
 
         if (menu_items_select.length != 0) {
             for (const menu_item_select of menu_items_select) {
                 menu_item_select.addEventListener("click", function (e) {
+                    e.preventDefault();
+
                     for (const menu_item_select_old of menu_items_select) {
-                        if (menu_item_select_old.classList.contains("selected")) {
+                        if (menu_item_select_old.hasAttribute("selected")) {
                             menu_item_select_old.classList.remove("selected");
+                            menu_item_select_old.removeAttribute("selected");
 
                             menu_item_select_old.firstChild.animate(
                                 [
                                     // keyframes
-                                    { height: 'scaleY(1)', opacity: '1' },
+                                    { transform: 'scaleY(1)', opacity: '1' },
                                     { transform: 'scaleY(0)', opacity: '0', }
                                 ],
                                 {
@@ -421,10 +425,11 @@ function InitSelectableButtons() {
                     }
 
                     menu_item_select.classList.add("selected");
+                    menu_item_select.setAttribute("selected", "");
 
                     var active_element = document.createElement("div");
 
-                    const cssString = "width: 4px; height: 1.45em; background-color:" + getComputedStyle(webDocument).getPropertyValue("--accent-color") + "; display: inline-block; border-radius: 10px; position: absolute; margin-left: -15px;";
+                    const cssString = "width: 4px; height: 1.45em; background-color:" + getComputedStyle(doc).getPropertyValue("--accent-color") + "; display: inline-block; border-radius: 10px; position: absolute; margin-left: -15px;";
                     active_element.style.cssText = cssString;
                     menu_item_select.prepend(active_element);
 
@@ -438,9 +443,28 @@ function InitSelectableButtons() {
                             // timing options
                             duration: 90
                         });
-
-                    e.preventDefault();
                 });
+
+                if (menu_item_select.hasAttribute("selected")) {
+                    menu_item_select.classList.add("selected");
+
+                    var active_element = document.createElement("div");
+
+                    const cssString = "width: 4px; height: 1.45em; background-color:" + getComputedStyle(doc).getPropertyValue("--accent-color") + "; display: inline-block; border-radius: 10px; position: absolute; margin-left: -15px;";
+                    active_element.style.cssText = cssString;
+                    menu_item_select.prepend(active_element);
+
+                    active_element.animate(
+                        [
+                            // keyframes
+                            { transform: 'scaleY(0)', opacity: '0' },
+                            { transform: 'scaleY(1)', opacity: '1' }
+                        ],
+                        {
+                            // timing options
+                            duration: 90
+                        });
+                }
             }
         }
 }

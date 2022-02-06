@@ -22,6 +22,7 @@ customElements.define('fluent-contextmenu', ContextMenu);
 class ContextMenuItem extends HTMLElement {
     connectedCallback() {
         const Url = this.attributes.Url != null ? this.attributes.Url.value : "#";
+        const Selected = this.attributes.Selected != null ? "selected" : "";
 
         setTimeout( () => {
             // Check if is selectable
@@ -31,7 +32,7 @@ class ContextMenuItem extends HTMLElement {
                                     '</a></li>'
             }
             else {
-                this.outerHTML =    '<li><a class="fluent-menu-item-select" href="' + Url + '">' +
+                this.outerHTML =    '<li><a class="fluent-menu-item-select" href="' + Url + '"' + Selected + '>' +
                                     this.innerHTML || "" +
                                     '</a></li>'
             }

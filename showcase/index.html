@@ -11,7 +11,7 @@
 </head>
 
 <body onload="InitializeFluent(); InitializeAnimations();">
-    <div style="width: 50%; margin: 50px auto; padding: 10em;">
+    <div style="width: 60%; margin: 50px auto; padding: 10em;">
         <button onclick="SwitchTheme();">Switch theme</button>
         <!-- Button section -->
         <section id="button">
@@ -73,7 +73,7 @@
         <section id="contextmenu">
             <h2>Context Menu</h2>
             <p>Custom element with items.</p>
-            <fluent-expander header="Default" expanded>
+            <fluent-expander header="Default">
                 <div class="fluent-content">
                     <p>Hover it to show menu.</p>
                     <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
@@ -93,16 +93,56 @@
                     </fluent-contextmenu>
                 </div>
             </fluent-expander>
+            <fluent-expander header="Default and selectable" expanded>
+                <div class="fluent-content">
+                    <p>Hover it to show menu.</p>
+                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
+                                                    &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;hr&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#contextmenu&#34; selectable selected&gt;1st option&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#expander&#34; selectable&gt;2nd option&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#code&#34; selectable&gt;3rd option&lt;/fluent-contextmenu-item&gt;
+                                                    &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
+                    <fluent-contextmenu header="Navigation" url="#">
+                        <fluent-contextmenu-item url="#button">Button</fluent-contextmenu-item>
+                        <fluent-contextmenu-item url="#textbox">Textbox</fluent-contextmenu-item>
+                        <fluent-contextmenu-item url="#contextmenu">Context Menu</fluent-contextmenu-item>
+                        <fluent-contextmenu-item url="#expander">Expander</fluent-contextmenu-item>
+                        <fluent-contextmenu-item url="#code">Code</fluent-contextmenu-item>
+                        <hr>
+                        <fluent-contextmenu-item selectable selected>1st option</fluent-contextmenu-item>
+                        <fluent-contextmenu-item selectable>2nd option</fluent-contextmenu-item>
+                        <fluent-contextmenu-item selectable>3rd option</fluent-contextmenu-item>
+                    </fluent-contextmenu>
+                </div>
+            </fluent-expander>
         </section>
         <!-- Expander section -->
         <section id="expander">
             <h2>Expander</h2>
             <p>Custom element which can be opened or closed.</p>
-            <fluent-expander header="Default" expanded>
+            <fluent-expander header="Default">
                 <div class="fluent-content">
                     <p>Click on expander to show it's content.</p>
                     <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
                                                     &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-contextmenu-item&gt;
+                                                    &lt;/fluent-contextmenu&gt;
+
+                                                    &lt;!-- Attribute &#34;expanded&#34; expands the expander on load. --&gt;
+                                                    &lt;fluent-contextmenu header=&#34;Navigation&#34; expanded&gt;
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-contextmenu-item&gt;
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-contextmenu-item&gt;
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-contextmenu-item&gt;
