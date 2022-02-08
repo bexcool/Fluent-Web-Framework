@@ -33,7 +33,7 @@ http://resources.bexcool.eu/fluentstyle/src/style/fluent.min.css
 ### JavaScript
 #### Fluent Functions ***(required)***
 This file contains core functions of the framework.<br>
-**This file is required because it makes whole framework work.**
+**This file is required.**
 ```
 http://resources.bexcool.eu/fluentstyle/src/js/fluent_functions.min.js
 ```
