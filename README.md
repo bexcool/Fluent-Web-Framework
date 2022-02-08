@@ -19,6 +19,9 @@
 - Custom elements for easier usage.
 - Light and Dark theme.
 
+## Showcase
+Visit [sample page](http://resources.bexcool.eu/fluentstyle/showcase/index.html) - still in progress
+
 ## Usage
 ### CSS
 #### Fluent Style ***(required)***
@@ -44,5 +47,3 @@ This file constains custom elements for easier usage.
 ```
 http://resources.bexcool.eu/fluentstyle/src/js/fluent_elements.min.js
 ```
-## Showcase (coming soon)
-Visit [sample page](http://resources.bexcool.eu/fluentstyle/showcase/index.html)
