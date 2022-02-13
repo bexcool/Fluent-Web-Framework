@@ -13,10 +13,11 @@
 <body onload="InitializeFluent(); InitializeAnimations();">
     <div style="width: 60%; margin: 50px auto; padding: 10em;">
         <button onclick="SwitchTheme();">Switch theme</button>
+        <h1>PŘIDAT TOGGLE BUTTON A CHECK BOX</h1>
         <!-- Button section -->
         <section id="button">
             <h2>Button</h2>
-            <p>Customized button.</p>
+            <p>Redesigned button.</p>
             <fluent-expander header="Normal">
                 <div class="fluent-content">
                     <p>Normal button.</p>
@@ -44,7 +45,7 @@
         <!-- Textbox section -->
         <section id="textbox">
             <h2>Textbox</h2>
-            <p>Customized inputs with text.</p>
+            <p>Redesigned inputs with text.</p>
             <fluent-expander header="Input Text">
                 <div class="fluent-content">
                     <p>Redesigned input type="text" with more attributes.</p>
@@ -66,6 +67,18 @@
                     <input type="password" value="1234" showpass_btn><br>
                     <input type="password" value="1234" showpass_btn showpass><br>
                     <input type="password" placeholder="Type here">
+                </div>
+            </fluent-expander>
+        </section>
+        <!-- Slider -->
+        <section if="slider">
+            <h2>Slider</h2>
+            <p>Redesigned input range.</p>
+            <fluent-expander header="Horizontal">
+                <div class="fluent-content">
+                    <p>Hover it to show menu.</p>
+                    <fluent-border><code sh="HTML"> &lt;input type=&#34;range&#34;&gt;</code></fluent-border><br>
+                    <input type="range">
                 </div>
             </fluent-expander>
         </section>
@@ -93,7 +106,7 @@
                     </fluent-contextmenu>
                 </div>
             </fluent-expander>
-            <fluent-expander header="Default and selectable" expanded>
+            <fluent-expander header="Default and selectable" expanded> 
                 <div class="fluent-content">
                     <p>Hover it to show menu.</p>
                     <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
@@ -159,6 +172,60 @@
                             <button>Button</button>
                         </div>
                     </fluent-expander>
+                </div>
+            </fluent-expander>
+        </section>
+        <!-- Code -->
+        <section id="code">
+            <h2>Code</h2>
+            <p>Redesigned code element with custom elements.</p>
+            <fluent-expander header="Syntax highlighted HTML">
+                <div class="fluent-content">
+                    <p>Supported syntax highlighting (sh attribute): HTML, CSS, JS.</p>
+                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;sh&#34; is syntax highlighting. --&gt;
+                                                    &AMP;lt;code sh=&AMP;#34;HTML&AMP;#34;&AMP;gt;
+                                                    &AMP;nbsp;&AMP;nbsp;&AMP;nbsp;&AMP;nbsp;&AMP;lt;button&AMP;gt;Click me!&AMP;lt;/button&AMP;gt;
+                                                    &AMP;lt;/code&AMP;gt;</code></fluent-border><br>
+                    <code sh="HTML">&lt;button&gt;Click me!&lt;/button&gt;</code>
+                </div>
+            </fluent-expander>
+        </section>
+        <!-- Flyout -->
+        <section id="flyout">
+            <h2>Flyout</h2>
+            <p>Custom element "Flyout" with text that shows on the top of the parent element.</p>
+            <fluent-expander header="Show flyout on click">
+                <div class="fluent-content">
+                    <p>
+                        Call function ShowFlyout(element, string, delay).
+                        <ul>
+                            <li><strong>element</strong> = Show flyout above this element.</li>
+                            <li><strong>string</strong> = Text to show in flyout.</li>
+                            <li><strong>delay</strong> = How long will flyout be visible (in milliseconds).</li>
+                        </ul>
+                    </p>
+                    <fluent-border><code sh="HTML"> &lt;button onclick=&#34;ShowFlyout(this, 'This is flyout', 2000);&#34;&gt;Show flyout!&lt;/button&gt;</code></fluent-border><br>
+                    <button onclick="ShowFlyout(this, 'This is flyout', 2000);">Show flyout!</button>
+                </div>
+            </fluent-expander>
+        </section>
+        <!-- Border -->
+        <section id="border">
+            <h2>Border</h2>
+            <p>Custom element "Border" with content.</p>
+            <fluent-expander header="Border with some content">
+                <div class="fluent-content">
+                    <p>
+                        Background border with header and button.
+                    </p>
+                    <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
+                                                    &lt;/fluent-border&gt;</code></fluent-border><br>
+                    <fluent-border>
+                        <h3>Button</h3>
+                        <button>Fluent button</button>
+                    </fluent-border>
                 </div>
             </fluent-expander>
         </section>

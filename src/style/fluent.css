@@ -31,6 +31,9 @@
     --button-hover-color: rgba(255, 255, 255, 0.089);
     --button-focus-color: rgba(255, 255, 255, 0.040);
     --button-border-color: rgba(63, 63, 63, 0.5);
+
+    /* Slider (input range) */
+    --slider-thumb-border-color: rgb(69, 69, 69);
 }
 
 /* HTML */
@@ -117,7 +120,6 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 
 .fluent-hyperlink-button:hover {
     background-color: var(--light-hover-color);
-    cursor: pointer;
 }
 
 .fluent-hyperlink-button:focus {
@@ -319,71 +321,9 @@ input[type="file"]:focus {
 }
 
 /* Input range */
-/*
-input[type="range"] {
-    margin: 0.2em;
-    -webkit-appearance: none;
-    height: 0.35em;
-    border-radius: 30px;
-    background: none;
-    outline: none;
-    -webkit-transition: 0.1s ease-out;
-    transition: 0.1s ease-out;
-}
 
- -> Progress bar thumb WEBKIT 
-
-input[type="range"]::-webkit-slider-thumb {
-    width: 0.65em;
-    height: 0.65em;
-    border-radius: 50%;
-    background-color: var(--accent-color);
-    border: var(--light-color) solid 0.4em;
-    -webkit-transition: 0.1s ease-out;
-    transition: 0.1s ease-out;
-}
-
-input[type="range"]::-webkit-slider-runnable-track {
-    background-color: var(--light-color);
-    height: 100%;
-    border-radius: 20px;
-}
-
- -> Progress bar thumb MOZILLA 
-
-input[type="range"]::-moz-range-thumb {
-    width: 0.65em;
-    height: 0.65em;
-    border-radius: 50%;
-    background: var(--accent-color);
-    border: var(--light-color) solid 0.4em;
-    -webkit-transition: 0.1s ease-out;
-    transition: 0.1s ease-out;
-}
-
-input[type="range"]::-moz-range-thumb:hover {
-    width: 0.85em;
-    height: 0.85em;
-    border: var(--light-color) solid 0.3em;
-}
-
- -> Left side of progress bar 
-
-input[type="range"]::-moz-range-progress {
-    background-color: var(--accent-color);
-    height: 100%;
-    border-radius: 20px;
-}
-
-input[type="range"]::-moz-range-track {
-    background-color: var(--light-color);
-    height: 100%;
-    border-radius: 20px;
-}*/
-
-/* ---------------------------------------------- */
 input[type=range] {
-    height: 0.35em;
+    height: 0.3em;
     -webkit-appearance: none;
     --range: calc(var(--max) - var(--min));
     --ratio: calc((var(--value) - var(--min)) / var(--range));
@@ -402,7 +342,7 @@ input[type=range]::-webkit-slider-thumb {
     height: 1.75em;
     border-radius: 100%;
     background: var(--accent-color);
-    border: var(--light-color) solid 0.5em;
+    border: var(--slider-thumb-border-color) solid 0.5em;
     box-shadow: none;
     transition: 0.1s;
     -webkit-transition: 0.1s;
@@ -412,7 +352,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-    height: 0.35em;
+    height: 0.3em;
     border: none;
     background: var(--light-color);
     box-shadow: none;
@@ -422,14 +362,14 @@ input[type=range]::-webkit-slider-thumb:hover {
     margin-top: calc(0.35em * 0.5 - 1.65em * 0.5);
     width: 1.8em;
     height: 1.8em;
-    border: var(--light-color) solid 0.35em;
+    border: var(--slider-thumb-border-color) solid 0.35em;
 }
 
 input[type=range]::-webkit-slider-thumb:active {
     margin-top: calc(0.6em * 0.5 - 1.7em * 0.5);
     width: 1.7em;
     height: 1.7em;
-    border: var(--light-color) solid 0.6em;
+    border: var(--slider-thumb-border-color) solid 0.6em;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
@@ -442,7 +382,7 @@ input[type=range]::-moz-range-thumb {
     height: 0.7em;
     border-radius: 100%;
     background: var(--accent-color);
-    border: var(--light-color) solid 0.5em;
+    border: var(--slider-thumb-border-color) solid 0.5em;
     box-shadow: none;
     transition: 0.1s;
     -webkit-transition: 0.1s;
@@ -452,7 +392,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 input[type=range]::-moz-range-track {
-    height: 0.35em;
+    height: 0.3em;
     border: none;
     background: var(--light-color);
     box-shadow: none;
@@ -461,13 +401,13 @@ input[type=range]::-moz-range-track {
 input[type=range]::-moz-range-thumb:hover {
     width: 1em;
     height: 1em;
-    border: var(--light-color) solid 0.37em;
+    border: var(--slider-thumb-border-color) solid 0.37em;
 }
 
 input[type=range]::-moz-range-thumb:active {
     width: 0.5em;
     height: 0.5em;
-    border: var(--light-color) solid 0.54em;
+    border: var(--slider-thumb-border-color) solid 0.54em;
 }
 
 input[type=range]::-moz-range-track {
@@ -497,7 +437,7 @@ input[type=range]::-ms-thumb {
 }
 
 input[type=range]::-ms-track {
-    height: 0.35em;
+    height: 0.3em;
     background: var(--light-color);
     border: none;
     box-shadow: none;
@@ -507,17 +447,17 @@ input[type=range]::-ms-track {
 input[type=range]::-ms-thumb:hover {
     width: 1em;
     height: 1em;
-    border: var(--light-color) solid 0.37em;
+    border: var(--slider-thumb-border-color) solid 0.37em;
 }
 
 input[type=range]::-ms-thumb:active {
     width: 0.5em;
     height: 0.5em;
-    border: var(--light-color) solid 0.54em;
+    border: var(--slider-thumb-border-color) solid 0.54em;
 }
 
 input[type=range]::-ms-fill-lower {
-    height: 0.35em;
+    height: 3em;
     border-radius: 0.5em 0 0 0.5em;
     margin: -undefined 0 -undefined -undefined;
     background: var(--accent-color);
@@ -640,18 +580,17 @@ legend {
     color: var(--text-color);
     border: var(--light-border-color) solid 0.4px;
     background: var(--light-trans-color);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     outline: var(--text-color);
     border-radius: 8px;
-    list-style: none;
     transition: 0.1s ease-in-out;
     height: 0;
     white-space: nowrap;
-    box-shadow: 0px 5px 13px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .fluent-context-menu-container:hover ul, .fluent-context-menu-standalone:hover ul {
-    display: block;
+    display: inline-block;
     position: absolute;
     height: auto;
 }
@@ -713,6 +652,31 @@ legend {
     background-color: var(--focus-color);
 }
 
+a.fluent-menu-item:hover {
+    cursor: pointer;
+}
+
+.fluent-context-menu {
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    overflow: hidden;
+    display: none;
+    position: absolute;
+    margin: -1.5em;
+    padding: 1.5em;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.fluent-context-menu-container:hover .fluent-context-menu {
+    display: inline-block;
+}
+
+/* Context Menu Standalone */
+
 .fluent-context-menu-standalone {
     display: none;
     position: fixed;
@@ -720,10 +684,6 @@ legend {
 
 .fluent-context-menu-standalone.visible {
     display: block;
-}
-
-a.fluent-menu-item:hover {
-    cursor: pointer;
 }
 
 .fluent-context-menu-standalone ul {
@@ -734,7 +694,7 @@ a.fluent-menu-item:hover {
     color: var(--text-color);
     border: var(--light-border-color) solid 0.4px;
     background: var(--light-trans-color);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     outline: var(--text-color);
     border-radius: 8px;
     list-style: none;
@@ -813,7 +773,7 @@ p, .fluent-body {
 .fluent-expander-header {
     color: var(--text-color);
     border: var(--dark-border-color) solid 0.4px;
-    padding: 0 12px;
+    padding: 0 0.4em 0 1em;
     background-color: var(--light-color);
     transition: 0.1s ease-in-out;
     border-radius: 4px 4px 4px 4px;
@@ -832,12 +792,6 @@ p, .fluent-body {
     align-items: center;
     margin: 2em 0 0 0;
 }
-
-/*
-.fluent-expander-header:hover {
-    background-color: var(--light-hover-color);
-}
-*/
 
 .fluent-expander-header:cl {
     background-color: var(--light-hover-color);
@@ -858,8 +812,7 @@ p, .fluent-body {
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
-    padding: 0;
-    margin: 0;
+    padding: 0.2em;
     display: flex;
     align-items: center;
     transition: 0.1s ease-in-out;
@@ -937,7 +890,7 @@ p, .fluent-body {
     color: var(--text-color);
     border: var(--light-border-color) solid 0.4px;
     background: var(--light-trans-color);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     outline: var(--text-color);
     border-radius: 8px;
     list-style: none;
@@ -1079,4 +1032,30 @@ code {
 
 .fluent-content {
     margin: 2em;
+}
+
+/* Flyout */
+
+.fluent-flyout {
+    position: absolute;
+    list-style: none;
+    padding: 0.5em;
+    margin-top: 0;
+    width: fit-content;
+    height: fit-content;
+    color: var(--text-color);
+    border: var(--light-border-color) solid 0.4px;
+    background: var(--light-trans-color);
+    backdrop-filter: blur(15px);
+    outline: var(--text-color);
+    border-radius: 8px;
+    list-style: none;
+    transition: 0.1s ease-in-out;
+    box-shadow: 0px 5px 13px 5px rgba(0, 0, 0, 0.1);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

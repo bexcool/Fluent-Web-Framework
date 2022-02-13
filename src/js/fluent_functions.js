@@ -51,6 +51,9 @@ function SetDarkTheme() {
     doc.style.setProperty("--button-focus-color", "rgba(255, 255, 255, 0.040)");
     doc.style.setProperty("--button-border-color", "rgba(63, 63, 63, 0.5)");
 
+    // Slider
+    doc.style.setProperty("--slider-thumb-border-color", "rgb(69, 69, 69)");
+
     localStorage.setItem("CurrentTheme", "Dark");
 
     // Refresh selected items
@@ -95,6 +98,9 @@ function SetLightTheme() {
     doc.style.setProperty("--button-hover-color", "rgba(255, 255, 255, 0.5)");
     doc.style.setProperty("--button-focus-color", "rgba(255, 255, 255, 0.040)");
     doc.style.setProperty("--button-border-color", "rgba(150, 150, 150, 0.3)");
+
+    // Slider
+    doc.style.setProperty("--slider-thumb-border-color", "white");
 
     localStorage.setItem("CurrentTheme", "Light");
 
@@ -296,6 +302,7 @@ function InitExpanders() {
     
     if (expanders.length != 0) {
         for (const expander of expanders) {
+
             const expander_body = expander.parentElement.lastElementChild;
             const expander_arrow = expander.lastElementChild.firstElementChild;
             
@@ -335,8 +342,8 @@ function InitExpanders() {
                         expander_body.animate(
                             [
                                 // keyframes
-                                { height: (expander_body.scrollHeight) + "px" },
-                                { height: "0" }
+                                { height: (expander_body.scrollHeight) + "px", easing: 'ease-in' },
+                                { height: "0", easing: 'ease-out' }
                             ],
                             {
                                 // timing options
@@ -370,8 +377,8 @@ function InitExpanders() {
                     expander_body.animate(
                         [
                             // keyframes
-                            { height: "0" },
-                            { height: (expander_body.scrollHeight) + "px" }
+                            { height: "0", easing: 'ease-out' },
+                            { height: (expander_body.scrollHeight) + "px", easing: 'ease-in' }
                         ],
                         {
                             // timing options
@@ -500,7 +507,12 @@ function MakeFluentElements() {
     }
 
     for (const code of document.querySelectorAll("code")) {
-        code.parentElement.parentElement.children[1].addEventListener("click", () => CopyToClipboard(DecodeHtml(code.innerHTML).replace(/<\/?span[^>]*>/g,"").replace(/[\u00A0\u1680​\u180e\u2000-\u2009\u200a​\u200b​\u202f\u205f​\u3000]/g,' ')));
+        code.parentElement.parentElement.children[1].addEventListener("click", () => {
+            CopyToClipboard(DecodeHtml(code.innerHTML).replace(/<\/?span[^>]*>/g,"").replace(/[\u00A0\u1680​\u180e\u2000-\u2009\u200a​\u200b​\u202f\u205f​\u3000]/g,' '));
+            
+
+            ShowFlyout(code.parentElement.parentElement.children[1], "Code copied!", 1000);
+        });
     }
 
     for (const code of document.querySelectorAll("code")) {
@@ -592,66 +604,81 @@ function MakeFluentElements() {
 
 //#region Fluent functions
 
-function ShowFlyout(element, delay) {
-    if (document.getElementById("fluent-context-menu-standalone-text") != null) {
-        const contextMenuStandaloneText = document.getElementById("fluent-context-menu-standalone-text");
-        const input_text = document.querySelectorAll("input[type=\"text\"]");
+// Show flyout
+function ShowFlyout(element, string, delay) {
+    let flyout = document.createElement("div");
+    let viewportOffset = element.getBoundingClientRect();
+    let closedFlyout = false;
 
-        for (const context_menu of input_text) {
-            context_menu.addEventListener("contextmenu", (e) => {
-                e.preventDefault();
+    document.body.appendChild(flyout);
+    flyout.classList.add("fluent-flyout");
 
-                const {
-                    left: scopeOffsetX,
-                    top: scopeOffsetY,
-                } = document.querySelector("body").getBoundingClientRect();
+    console.log(flyout.offsetWidth);
 
-                const scopeX = e.pageX - scopeOffsetX;
-                const scopeY = e.pageY - scopeOffsetY;
+    let text = document.createElement("p");
+    text.style.margin = "0";
+    text.innerHTML = string;
 
-                // ? check if the element will go out of bounds
-                const outOfBoundsOnX = scopeX + contextMenuStandaloneText.clientWidth > document.querySelector("body").clientWidth;
+    flyout.appendChild(text);
+    flyout.style.top = element.offsetTop - flyout.offsetHeight - 10 + 'px';
+    flyout.style.left = (element.offsetWidth / 2 - flyout.offsetWidth / 2) + viewportOffset.x + 'px';
+    flyout.animate(
+        [
+            // keyframes
+            { top: flyout.offsetTop + 5 + 'px', opacity: '0' },
+            { top: flyout.offsetTop, opacity: '1' }
+        ],
+        {
+            // timing options
+            duration: 80
+        });
 
-                const outOfBoundsOnY = scopeY + contextMenuStandaloneText.clientHeight > document.querySelector("body").clientHeight;
-
-                let normalizedX = e.pageX;
-                let normalizedY = e.pageY;
-
-                // ? normalzie on X
-                if (outOfBoundsOnX) {
-                    normalizedX = scopeOffsetX + document.querySelector("body").clientWidth - contextMenuStandaloneText.clientWidth;
-                }
-
-                // ? normalize on Y
-                if (outOfBoundsOnY) {
-                    normalizedY = scopeOffsetY + document.querySelector("body").clientHeight - contextMenuStandaloneText.clientHeight;
-                }
-
-                contextMenuStandaloneText.style.top = normalizedY + 'px';
-                contextMenuStandaloneText.style.left = normalizedX + 'px';
-
-                contextMenuStandaloneText.classList.add("visible");
-
-                contextMenuStandaloneText.animate(
+    // Close flyout
+    setTimeout(() => {
+        document.addEventListener("click", (e) => {
+            if (e.target.offsetParent != flyout) {
+                closedFlyout = true;
+                
+                flyout.animate(
                     [
                         // keyframes
-                        { transform: 'translateY(-20px)', opacity: '0' },
-                        { transform: 'translateY(0px)', opacity: '1' }
+                        { opacity: '1' },
+                        { opacity: '0' }
                     ],
                     {
                         // timing options
-                        duration: 90
+                        duration: 50
                     });
-            });
-        }
-
-        // Close custom context menu
-        document.addEventListener("click", (e) => {
-            if (e.target.offsetParent != contextMenuStandaloneText) {
-                contextMenuStandaloneText.classList.remove("visible");
+                flyout.style.opacity = "0";
+            
+                setTimeout(() => {
+                    flyout.remove();
+                }, 50);
             }
         });
-    }
+    }, 80);
+
+    setTimeout(() => {
+        if (!closedFlyout) {
+            closedFlyout = true;
+            
+            flyout.animate(
+                [
+                    // keyframes
+                    { opacity: '1' },
+                    { opacity: '0' }
+                ],
+                {
+                    // timing options
+                    duration: 50
+                });
+                flyout.style.opacity = "0";
+        
+                setTimeout(() => {
+                    flyout.remove();
+                }, 50);
+        }
+    }, delay);
 }
 
 //#endregion
@@ -661,6 +688,8 @@ function ShowFlyout(element, delay) {
 function CopyToClipboard(string) {
     navigator.clipboard.writeText(string);
 }
+
+function Clamp(num, min, max) { Math.min(Math.max(num, min), max); }
 
 function DecodeHtml(html) {
     var txt = document.createElement("textarea");
