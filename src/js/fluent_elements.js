@@ -27,12 +27,12 @@ class ContextMenuItem extends HTMLElement {
         setTimeout( () => {
             // Check if is selectable
             if (!this.hasAttribute("selectable")) {
-                this.outerHTML =    '<li><a class="fluent-menu-item" href="' + Url + '">' +
+                this.outerHTML =    '<li><a class="fluent-menu-item"' + AttributesToString(this) + '>' +
                                     this.innerHTML || "" +
                                     '</a></li>'
             }
             else {
-                this.outerHTML =    '<li><a class="fluent-menu-item-select" href="' + Url + '"' + Selected + '>' +
+                this.outerHTML =    '<li><a class="fluent-menu-item-select"' + AttributesToString(this) + '>' +
                                     this.innerHTML || "" +
                                     '</a></li>'
             }

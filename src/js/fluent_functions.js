@@ -24,9 +24,9 @@ function SetDarkTheme() {
     // Global colors
     doc.style.setProperty("--black-white-color", "white");
     doc.style.setProperty("--dark-color", "rgb(32, 32, 32)");
-    doc.style.setProperty("--dark-border-color", "rgb(25, 25, 25)");
-    doc.style.setProperty("--darker-color", "rgb(39, 39, 39)");
-    doc.style.setProperty("--light-color", "rgb(43, 43, 43)");
+    doc.style.setProperty("--dark-border-color", "rgb(25, 25, 25, 0.6)");
+    doc.style.setProperty("--darker-color", "hsla(0, 0%, 100%, 3.26%)");
+    doc.style.setProperty("--light-color", "hsla(0, 0%, 100%, 5.12%)");
     doc.style.setProperty("--light-trans-color", "rgba(40, 40, 40, 0.7)");
     doc.style.setProperty("--light-hover-color", "rgb(45, 45, 45)");
     doc.style.setProperty("--lighter-hover-color", "rgb(55, 55, 55)");
@@ -137,7 +137,10 @@ function InitializeFluent() {
         MakeFluentElements();
 
         // Initialize Selectable Buttons
-        InitSelectableButtons();
+        InitSelectableMenuItems();
+
+        // Initialize Pages and Page Switchers
+        InitializePages();
 
         //#region Remove focus from elements when clicked
         const buttons = document.querySelectorAll("button, a.fluent-menu-item");
@@ -410,57 +413,72 @@ function InitExpanders() {
     }
 }
 
-function InitSelectableButtons() {
+function InitSelectableMenuItems() {
         // Set selectable buttons active when clicked
-        const menu_items_select = document.querySelectorAll(".fluent-menu-item-select");
+        const menu_items = document.querySelectorAll(".fluent-menu-item-select");
         var doc = document.documentElement;
 
-        if (menu_items_select.length != 0) {
-            for (const menu_item_select of menu_items_select) {
+        if (menu_items.length != 0) {
+            for (const menu_item_select of menu_items) {
                 menu_item_select.addEventListener("click", function (e) {
                     e.preventDefault();
+                    let i = 0, newItemIndex, oldItemIndex;
 
-                    for (const menu_item_select_old of menu_items_select) {
+                    // Get new selected menu item
+                    for (const menu_item of menu_items) {
+                        if (menu_item == menu_item_select) newItemIndex = i;
+
+                        i++;
+                    }
+
+                    i = 0;
+
+                    for (const menu_item_select_old of menu_items) {
                         if (menu_item_select_old.hasAttribute("selected")) {
                             menu_item_select_old.classList.remove("selected");
                             menu_item_select_old.removeAttribute("selected");
 
-                            menu_item_select_old.firstChild.animate(
-                                [
-                                    // keyframes
-                                    { transform: 'scaleY(1)', opacity: '1' },
-                                    { transform: 'scaleY(0)', opacity: '0', }
-                                ],
-                                {
-                                    // timing options
-                                    duration: 90
-                                });
+                            oldItemIndex = i;
+
+                            // Animate accent colored div movement
+                            if (newItemIndex > oldItemIndex) {
+                                menu_item_select_old.firstChild.style.animation = "fluent-menu-item-select-down 0.3s ease-in";
+                            }
+                            else { 
+                                menu_item_select_old.firstChild.style.animation = "fluent-menu-item-select-up 0.3s ease-in";
+                            }
 
                             setTimeout(function () {
                                 menu_item_select_old.firstChild.remove();
-                            }, 90);
+                            }, 280);
                         }
+
+                        i++;
                     }
+
+                    i = 0;
 
                     menu_item_select.classList.add("selected");
                     menu_item_select.setAttribute("selected", "");
 
                     var active_element = document.createElement("div");
 
-                    const cssString = "width: 4px; height: 1.45em; background-color:" + getComputedStyle(doc).getPropertyValue("--accent-color") + "; display: inline-block; border-radius: 10px; position: absolute; margin-left: -15px;";
+                    const cssString = "width: 3px; height: 1.2em; opacity: 0; will-change: transform; background-color:" + getComputedStyle(doc).getPropertyValue("--accent-color") + "; display: inline-block; border-radius: 10px; position: absolute; margin-left: -15px; margin-top: 0.1em;";
                     active_element.style.cssText = cssString;
                     menu_item_select.prepend(active_element);
+                    active_element.style.overflow = "hidden";
 
-                    active_element.animate(
-                        [
-                            // keyframes
-                            { transform: 'scaleY(0)', opacity: '0' },
-                            { transform: 'scaleY(1)', opacity: '1' }
-                        ],
-                        {
-                            // timing options
-                            duration: 90
-                        });
+                    setTimeout(function () {
+                        active_element.style.opacity = "1";
+
+                        // Animate accent colored div movement
+                        if (newItemIndex > oldItemIndex) {
+                            active_element.style.animation = "fluent-menu-item-select-up-reverse 0.3s ease-out";
+                        }
+                        else { 
+                            active_element.style.animation = "fluent-menu-item-select-down-reverse 0.3s ease-out";
+                        }
+                    }, 280);
                 });
 
                 if (menu_item_select.hasAttribute("selected")) {
@@ -468,7 +486,7 @@ function InitSelectableButtons() {
 
                     var active_element = document.createElement("div");
 
-                    const cssString = "width: 4px; height: 1.45em; background-color:" + getComputedStyle(doc).getPropertyValue("--accent-color") + "; display: inline-block; border-radius: 10px; position: absolute; margin-left: -15px;";
+                    const cssString = "width: 3px; height: 1.2em; background-color:" + getComputedStyle(doc).getPropertyValue("--accent-color") + "; display: inline-block; border-radius: 10px; position: absolute; margin-left: -15px; margin-top: 0.1em;";
                     active_element.style.cssText = cssString;
                     menu_item_select.prepend(active_element);
 
@@ -485,6 +503,30 @@ function InitSelectableButtons() {
                 }
             }
         }
+}
+
+function InitializePages() {
+    for (const page_switcher of document.querySelectorAll("fluent-page-switcher")) {
+        // Show current page
+        page_switcher.children[page_switcher.getAttribute("active-page")].style.display = "block";
+
+        for (const page of page_switcher.querySelectorAll("fluent-page")) console.log("lol");
+    }
+}
+
+function SetActivePageIndex(page_switcher_id, index) {
+    const page_switcher = document.getElementById(page_switcher_id);
+
+    if (page_switcher.hasAttribute("active-page")) {
+        // Hide previous page
+        page_switcher.children[page_switcher.getAttribute("active-page")].style.display = "none";
+
+        // Show current page
+        page_switcher.setAttribute("active-page", index);
+        const active_page = page_switcher.children[page_switcher.getAttribute("active-page")];
+        active_page.style.display = "block";
+        active_page.style.animation="fluent-page-fade-up 0.3s ease-in-out";
+    }
 }
 
 function MakeFluentElements() {
@@ -541,7 +583,7 @@ function MakeFluentElements() {
     for (const input_text of inputs_text) {
         input_text.outerHTML =  '<div class="fluent-textbox-container">' +
                                 '<input ' + AttributesToString(input_text) + ' >' + 
-                                '<button class="fluent-clear-text-input-button" style="opacity: 0; display: none; font-weight: light;">x</button>' +
+                                '<button class="fluent-clear-text-input-button">x</button>' +
                                 '</div>';
     }
 
@@ -716,6 +758,24 @@ var jskeywordcolor = "#006aff";
 var jsstringcolor = "brown";
 var jsnumbercolor = "red";
 var jspropertycolor = "black";
+
+/* New colors - need to set properties
+var tagcolor = "gray";
+var tagnamecolor = "#569cd6";
+var attributecolor = "#9cdcfe";
+var attributevaluecolor = "#ce9178";
+var commentcolor = "green";
+var cssselectorcolor = "brown";
+var csspropertycolor = "red";
+var csspropertyvaluecolor = "#006aff";
+var cssdelimitercolor = "black";
+var cssimportantcolor = "red";
+var jscolor = "black";
+var jskeywordcolor = "#006aff";
+var jsstringcolor = "brown";
+var jsnumbercolor = "red";
+var jspropertycolor = "black";
+*/attributecolor
 elmntObj.style.fontFamily = "Consolas,'Courier New', monospace";
 if (!lang) {
 	lang = "html";
