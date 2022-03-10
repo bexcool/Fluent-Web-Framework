@@ -596,12 +596,12 @@ legend {
     height: auto;
 }
 
-.fluent-context-menu-container ul li, .fluent-context-menu-standalone ul li {
+.fluent-context-menu-container ul li, .fluent-context-menu-standalone ul li, .fluent-menu ul li {
     display: block;
     width: 100%;
 }
 
-.fluent-context-menu-container ul li a, .fluent-context-menu-standalone ul li a {
+.fluent-context-menu-container ul li a, .fluent-context-menu-standalone ul li a, .fluent-menu ul li a {
     color: var(--text-color);
     border: none;
     margin: 5px;
@@ -614,15 +614,15 @@ legend {
     overflow: hidden;
 }
 
-.fluent-context-menu-container ul li a:hover, .fluent-context-menu-standalone ul li a:hover {
+.fluent-context-menu-container ul li a:hover, .fluent-context-menu-standalone ul li a:hover, .fluent-menu ul li a:hover {
     background-color: var(--lighter-hover-color);
 }
 
-.fluent-context-menu-container ul li a:focus, .fluent-context-menu-standalone ul li a:hover {
+.fluent-context-menu-container ul li a:focus, .fluent-context-menu-standalone ul li a:focus, .fluent-menu ul li a:focus {
     background-color: var(--focus-color);
 }
 
-.fluent-context-menu-container a, .fluent-context-menu-standalone a {
+.fluent-context-menu-container a, .fluent-context-menu-standalone a, .fluent-menu a {
     text-decoration: none;
     color: #282737;
     display: block;
@@ -679,6 +679,7 @@ a.fluent-menu-item:hover {
 
 .fluent-menu-item-select {
     overflow: hidden;
+    cursor: default;
 }
 
 @keyframes fluent-menu-item-select-up {
@@ -779,6 +780,38 @@ a.fluent-menu-item:hover {
     transition: 0.1s ease-in-out;
     white-space: nowrap;
     box-shadow: 0px 5px 13px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu */
+
+.fluent-menu ul {
+    list-style: none;
+    padding: 3px;
+    margin-top: 0;
+    width: auto;
+    color: var(--text-color);
+    border: var(--light-border-color) solid 0.4px;
+    background: var(--light-trans-color);
+    backdrop-filter: blur(15px);
+    outline: var(--text-color);
+    border-radius: 8px;
+    transition: 0.1s ease-in-out;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.fluent-menu {
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    margin: -1.5em;
+    padding: 1.5em;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 /* Hr spacer */

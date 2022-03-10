@@ -26,21 +26,22 @@
         <button onclick="SetActivePageIndex('page-switcher-test', 7)">Code</button>
         <button onclick="SetActivePageIndex('page-switcher-test', 8)">Flyout</button>
         <button onclick="SetActivePageIndex('page-switcher-test', 9)">Border</button>
+        <button onclick="SetActivePageIndex('page-switcher-test', 10)">Menu</button>
         <!--
         <fluent-contextmenu header="Pages">
-            <fluent-contextmenu-item onclick="SetActivePageIndex('page-switcher-test', 0)" selectable>Button</fluent-contextmenu-item>
-            <fluent-contextmenu-item onclick="SetActivePageIndex('page-switcher-test', 1)" selectable>Textbox</fluent-contextmenu-item>
-            <fluent-contextmenu-item onclick="SetActivePageIndex('page-switcher-test', 2)" selectable>Checkbox</fluent-contextmenu-item>
-            <fluent-contextmenu-item onclick="SetActivePageIndex('page-switcher-test', 3)" selectable>Slider</fluent-contextmenu-item>
-            <fluent-contextmenu-item onclick="SetActivePageIndex('page-switcher-test', 4)" selectable>Table</fluent-contextmenu-item>
-            <fluent-contextmenu-item onclick="SetActivePageIndex('page-switcher-test', 5)" selectable>Context menu</fluent-contextmenu-item>
-            <fluent-contextmenu-item onclick="SetActivePageIndex('page-switcher-test', 6)" selectable>Expander</fluent-contextmenu-item>
-            <fluent-contextmenu-item onclick="SetActivePageIndex('page-switcher-test', 7)" selectable>Code</fluent-contextmenu-item>
-            <fluent-contextmenu-item onclick="SetActivePageIndex('page-switcher-test', 8)" selectable>Flyout</fluent-contextmenu-item>
-            <fluent-contextmenu-item onclick="SetActivePageIndex('page-switcher-test', 9)" selectable>Border</fluent-contextmenu-item>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 0)" selectable>Button</fluent-menu-item>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 1)" selectable>Textbox</fluent-menu-item>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 2)" selectable>Checkbox</fluent-menu-item>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 3)" selectable>Slider</fluent-menu-item>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 4)" selectable>Table</fluent-menu-item>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 5)" selectable>Context menu</fluent-menu-item>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 6)" selectable>Expander</fluent-menu-item>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 7)" selectable>Code</fluent-menu-item>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 8)" selectable>Flyout</fluent-menu-item>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 9)" selectable>Border</fluent-menu-item>
         </fluent-contextmenu>
         -->
-        <fluent-page-switcher id="page-switcher-test" active-page="5">
+        <fluent-page-switcher id="page-switcher-test" active-page="10">
             <!-- Button section -->
             <fluent-page>
                 <section id="button">
@@ -162,49 +163,49 @@
                             <p>Hover it to show menu.</p>
                             <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
                                                             &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-contextmenu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-contextmenu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-contextmenu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-contextmenu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-contextmenu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
                                                             &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
                             <fluent-contextmenu header="Navigation" url="#">
-                                <fluent-contextmenu-item url="#button">Button</fluent-contextmenu-item>
-                                <fluent-contextmenu-item url="#textbox">Textbox</fluent-contextmenu-item>
-                                <fluent-contextmenu-item url="#contextmenu">Context Menu</fluent-contextmenu-item>
-                                <fluent-contextmenu-item url="#expander">Expander</fluent-contextmenu-item>
-                                <fluent-contextmenu-item url="#code">Code</fluent-contextmenu-item>
+                                <fluent-menu-item url="#button">Button</fluent-menu-item>
+                                <fluent-menu-item url="#textbox">Textbox</fluent-menu-item>
+                                <fluent-menu-item url="#contextmenu">Context Menu</fluent-menu-item>
+                                <fluent-menu-item url="#expander">Expander</fluent-menu-item>
+                                <fluent-menu-item url="#code">Code</fluent-menu-item>
                             </fluent-contextmenu>
                         </div>
                     </fluent-expander>
-                    <fluent-expander header="Default and selectable" expanded> 
+                    <fluent-expander header="Default and selectable"> 
                         <div class="fluent-content">
                             <p>Hover it to show menu.</p>
                             <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
                                                             &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-contextmenu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-contextmenu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-contextmenu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-contextmenu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-contextmenu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-contextmenu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-contextmenu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-contextmenu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;hr&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#contextmenu&#34; selectable selected&gt;1st option&lt;/fluent-contextmenu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#expander&#34; selectable&gt;2nd option&lt;/fluent-contextmenu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#code&#34; selectable&gt;3rd option&lt;/fluent-contextmenu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34; selectable selected&gt;1st option&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34; selectable&gt;2nd option&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34; selectable&gt;3rd option&lt;/fluent-menu-item&gt;
                                                             &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
                             <fluent-contextmenu header="Navigation" url="#">
-                                <fluent-contextmenu-item url="#button">Button</fluent-contextmenu-item>
-                                <fluent-contextmenu-item url="#textbox">Textbox</fluent-contextmenu-item>
-                                <fluent-contextmenu-item url="#contextmenu">Context Menu</fluent-contextmenu-item>
-                                <fluent-contextmenu-item url="#expander">Expander</fluent-contextmenu-item>
-                                <fluent-contextmenu-item url="#code">Code</fluent-contextmenu-item>
+                                <fluent-menu-item url="#button">Button</fluent-menu-item>
+                                <fluent-menu-item url="#textbox">Textbox</fluent-menu-item>
+                                <fluent-menu-item url="#contextmenu">Context Menu</fluent-menu-item>
+                                <fluent-menu-item url="#expander">Expander</fluent-menu-item>
+                                <fluent-menu-item url="#code">Code</fluent-menu-item>
                                 <hr>
-                                <fluent-contextmenu-item selectable selected>1st option</fluent-contextmenu-item>
-                                <fluent-contextmenu-item selectable>2nd option</fluent-contextmenu-item>
-                                <fluent-contextmenu-item selectable>3rd option</fluent-contextmenu-item>
+                                <fluent-menu-item selectable selected>1st option</fluent-menu-item>
+                                <fluent-menu-item selectable>2nd option</fluent-menu-item>
+                                <fluent-menu-item selectable>3rd option</fluent-menu-item>
                             </fluent-contextmenu>
                         </div>
                     </fluent-expander>
@@ -219,20 +220,20 @@
                     <p>Click on expander to show it's content.</p>
                     <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
                                                     &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-contextmenu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-contextmenu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-contextmenu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-contextmenu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-menu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
                                                     &lt;/fluent-contextmenu&gt;
 
                                                     &lt;!-- Attribute &#34;expanded&#34; expands the expander on load. --&gt;
                                                     &lt;fluent-contextmenu header=&#34;Navigation&#34; expanded&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-contextmenu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-contextmenu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-contextmenu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-contextmenu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-contextmenu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-contextmenu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-menu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
                                                     &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
                     <fluent-expander header="Normal">
                         <div class="fluent-content">
@@ -283,21 +284,36 @@
                 <section id="border">
                     <h2>Border</h2>
                     <p>Custom element "Border" with content.</p>
-                    <fluent-expander header="Border with some content">
-                        <div class="fluent-content">
-                            <p>
-                                Background border with header and button.
-                            </p>
-                            <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
-                                                            &lt;/fluent-border&gt;</code></fluent-border><br>
-                            <fluent-border>
-                                <h3>Button</h3>
-                                <button>Fluent button</button>
-                            </fluent-border>
-                        </div>
-                    </fluent-expander>
+                    <div class="fluent-content">
+                        <p>
+                            Background border with header and button.
+                        </p>
+                        <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
+                                                        &lt;/fluent-border&gt;</code></fluent-border><br>
+                        <fluent-border>
+                            <h3>Button</h3>
+                            <button>Fluent button</button>
+                        </fluent-border>
+                    </div>
+                </section>
+            </fluent-page>
+            <!-- Menu -->
+            <fluent-page>
+                <section id="menu">
+                    <h2>Menu</h2>
+                    <p>Custom element for navigating on your webpage.</p>
+                    <div class="fluent-content">
+                        <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
+                                                        &lt;/fluent-border&gt;</code></fluent-border><br>
+                        <fluent-menu>
+                            <fluent-menu-item selectable>Test</fluent-menu-item>
+                            <fluent-menu-item selectable>Test</fluent-menu-item>
+                        </fluent-menu>
+                    </div>
                 </section>
             </fluent-page>
         </fluent-page-switcher>

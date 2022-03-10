@@ -8,7 +8,7 @@ class ContextMenu extends HTMLElement {
             this.outerHTML =    '<div' + ' style="' + this.style.cssText + '" ' + 
                                 'class="fluent-context-menu-container" style="">' +
                                 '<a href="' + Url + '">' + Header + '</a><div class="fluent-context-menu">' +
-                                '<ul>' +
+                                '<ul class="fluent-menu-list">' +
                                 this.innerHTML +
                                 '</ul></div>' +
                                 '</div>'
@@ -18,12 +18,9 @@ class ContextMenu extends HTMLElement {
 
 customElements.define('fluent-contextmenu', ContextMenu);
 
-// Context menu item
-class ContextMenuItem extends HTMLElement {
+// Menu item
+class MenuItem extends HTMLElement {
     connectedCallback() {
-        const Url = this.attributes.Url != null ? this.attributes.Url.value : "#";
-        const Selected = this.attributes.Selected != null ? "selected" : "";
-
         setTimeout( () => {
             // Check if is selectable
             if (!this.hasAttribute("selectable")) {
@@ -42,7 +39,7 @@ class ContextMenuItem extends HTMLElement {
     }
 }
 
-customElements.define('fluent-contextmenu-item', ContextMenuItem);
+customElements.define('fluent-menu-item', MenuItem);
 
 // Expander
 
@@ -98,3 +95,21 @@ class ToggleButton extends HTMLElement {
 }
 
 customElements.define('fluent-togglebutton', ToggleButton);
+
+// Menu
+class Menu extends HTMLElement {
+    connectedCallback() {
+        const Header =this.attributes.Header != null ? this.attributes.Header.value : "";
+        const Url = this.attributes.Url != null ? this.attributes.Url.value : "#";
+
+        setTimeout( () =>
+            this.outerHTML =    '<div class="fluent-menu">' +
+                                '<ul class="fluent-menu-list">' +
+                                this.innerHTML +
+                                '</ul></div>' +
+                                '</div>'
+        );
+    }
+}
+
+customElements.define('fluent-menu', Menu);
