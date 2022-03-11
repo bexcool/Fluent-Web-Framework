@@ -57,10 +57,17 @@ body {
     color: var(--text-color);
     margin: 0;
     min-height: 100vh;
+    transition: 0.25s ease-in-out;
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -ms-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
 }
 
 body.mica-effect {
+    background-color: var(--dark-color);
     background: var(--background-image) no-repeat fixed;
+    background-size: cover;
 }
 
 body::-webkit-scrollbar {

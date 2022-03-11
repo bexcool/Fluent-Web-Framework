@@ -10,7 +10,7 @@
     <script type="text/javascript" src="../src/js/fluent_elements.js"></script>
 </head>
 
-<body onload="InitializeFluent(); InitializeAnimations();" useMica>
+<body onload="InitializeFluent(); InitializeAnimations(); EnableMica();">
     <div style="margin: 0 0 0 10em;">
         <h1>Fluent Web Framework Showcase</h1>
         <br><br>
@@ -18,6 +18,8 @@
             <fluent-menu style="width: 20em;">
                 <p>Dark and light theme.</p>
                 <button onclick="SwitchTheme();">Switch theme</button>
+                <button onclick="EnableMica();">Enable Mica</button>
+                <button onclick="DisableMica();">Disable Mica</button>
                 <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 0)" selectable selected>Button</fluent-menu-item>
                 <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 1)" selectable>Textbox</fluent-menu-item>
                 <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 2)" selectable>Checkbox</fluent-menu-item>

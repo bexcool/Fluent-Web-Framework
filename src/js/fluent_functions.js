@@ -103,6 +103,16 @@ function SetLightTheme() {
     localStorage.setItem("CurrentTheme", "Light");
 }
 
+// Enable Mica Effect
+function EnableMica() {
+    document.body.classList.add("mica-effect");
+}
+
+// Disable Mica Effect
+function DisableMica() {
+    document.body.classList.remove("mica-effect");
+}
+
 // Loads last theme
 function LoadLastTheme() {
     if (localStorage.getItem("CurrentTheme") == "Light") {
@@ -131,10 +141,6 @@ function InitializeFluent() {
 
         // Initialize Pages and Page Switchers
         InitializePages();
-
-        //#region Load Mica Effect
-        if (document.body.hasAttribute("useMica")) document.body.classList.add("mica-effect");
-        //#endregion
 
         //#region Remove focus from elements when clicked
         const buttons = document.querySelectorAll("button, a.fluent-menu-item");
