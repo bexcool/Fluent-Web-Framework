@@ -5,7 +5,7 @@ class ContextMenu extends HTMLElement {
         const Url = this.attributes.Url != null ? this.attributes.Url.value : "#";
 
         setTimeout( () =>
-            this.outerHTML =    '<div' + ' style="' + this.style.cssText + '" ' + 
+            this.outerHTML =    '<div style="' + this.style.cssText + '" ' + 
                                 'class="fluent-context-menu-container" style="">' +
                                 '<a href="' + Url + '">' + Header + '</a><div class="fluent-context-menu">' +
                                 '<ul class="fluent-menu-list">' +
@@ -49,20 +49,20 @@ class Expander extends HTMLElement {
 
         setTimeout( () => {
             if (this.hasAttribute("expanded")) {
-                this.outerHTML =    '<div' + ' style="' + this.style.cssText + '" ' +
-                                'class="fluent-expander"><div class="fluent-expander-header">' +
-                                '<p>' + Header + '</p><div><img class="fluent-expander-arrow" style="transform: rotate(180deg)" src="https://resources.bexcool.eu/fluentwebframework/src/img/arrow_down.svg"></div></div>' +
-                                '<div class="fluent-expander-body expanded">' +
-                                this.innerHTML +
-                                '</div></div>';
+                this.outerHTML =    '<div style="' + this.style.cssText + '" ' +
+                                    'class="fluent-expander"><div class="fluent-expander-header">' +
+                                    '<p>' + Header + '</p><div><img class="fluent-expander-arrow" style="transform: rotate(180deg)" src="https://resources.bexcool.eu/fluentwebframework/src/img/arrow_down.svg"></div></div>' +
+                                    '<div class="fluent-expander-body-container"><div class="fluent-expander-body expanded">' +
+                                    this.innerHTML +
+                                    '</div></div></div>';
             }
             else {
-                this.outerHTML =    '<div' + ' style="' + this.style.cssText + '" ' +
-                                'class="fluent-expander"><div class="fluent-expander-header">' +
-                                '<p>' + Header + '</p><div><img class="fluent-expander-arrow" src="https://resources.bexcool.eu/fluentwebframework/src/img/arrow_down.svg"></div></div>' +
-                                '<div class="fluent-expander-body">' +
-                                this.innerHTML +
-                                '</div></div>';
+                this.outerHTML =    '<div style="' + this.style.cssText + '" ' +
+                                    'class="fluent-expander"><div class="fluent-expander-header">' +
+                                    '<p>' + Header + '</p><div><img class="fluent-expander-arrow" src="https://resources.bexcool.eu/fluentwebframework/src/img/arrow_down.svg"></div></div>' +
+                                    '<div class="fluent-expander-body-container"><div class="fluent-expander-body">' +
+                                    this.innerHTML +
+                                    '</div></div></div>';
             }
         });
     }
@@ -75,7 +75,7 @@ customElements.define('fluent-expander', Expander);
 class Border extends HTMLElement {
     connectedCallback() {
         setTimeout( () => 
-            this.outerHTML =    '<div' + ' style="' + this.style.cssText + '" ' + 
+            this.outerHTML =    '<div style="' + this.style.cssText + '" ' + 
                                 'class="fluent-background-border">' + this.innerHTML + '</div>'
         );
     }
@@ -88,7 +88,7 @@ customElements.define('fluent-border', Border);
 class ToggleButton extends HTMLElement {
     connectedCallback() {
         setTimeout( () => 
-            this.outerHTML =    '<button' + ' style="' + this.style.cssText + '" ' + 
+            this.outerHTML =    '<button style="' + this.style.cssText + '" ' + 
                                 'class="fluent-button">' + this.innerHTML + '</button>'
         );
     }

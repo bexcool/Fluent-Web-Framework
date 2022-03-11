@@ -1,20 +1,20 @@
 /* Define variables */
 
 :root {
-    /* Global colors */
+    /* --- Global colors --- */
     --black-white-color: white;
     --dark-color: rgb(32, 32, 32);
     --dark-border-color: rgb(25, 25, 25, 0.75);
     --darker-color: rgb(39, 39, 39);
     --light-color: hsla(0, 0%, 100%, 5.12%);
     --light-trans-color: rgba(43, 43, 43, 0.7);
-    --light-hover-color: rgb(45, 45, 45);
+    --light-hover-color: hsla(0, 0%, 100%, .084);
     --lighter-hover-color: rgb(55, 55, 55);
     --lighter-press-color: rgb(51, 51, 51);
     --light-border-color: rgb(47, 47, 47);
     --light-dark-color: rgb(33, 33, 33);
     --very-light-color: rgb(145, 145, 145);
-    --focus-color: rgba(45, 45, 45, 0.5);
+    --focus-color: rgba(255, 255, 255, 0.043);
     --text-color-inverted: black;
     --text-focus-color-inverted: rgba(0, 0, 0, 0.75);
     --text-color: white;
@@ -34,12 +34,19 @@
 
     /* Slider (input range) */
     --slider-thumb-border-color: rgb(69, 69, 69);
+
+    /* --- Variables --- */
+    --expander-expand-height: "0px";
+    --background-image: "../img/background_dark.png";
 }
 
 /* HTML */
 
 html {
     scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 /* Body */
@@ -49,7 +56,11 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
     color: var(--text-color);
     margin: 0;
-    height: 100%;
+    min-height: 100vh;
+}
+
+body.mica-effect {
+    background: var(--background-image) no-repeat fixed;
 }
 
 body::-webkit-scrollbar {
@@ -617,7 +628,7 @@ legend {
 }
 
 .fluent-context-menu-container ul li a:hover, .fluent-context-menu-standalone ul li a:hover, .fluent-menu ul li a:hover {
-    background-color: var(--lighter-hover-color);
+    background-color: var(--light-hover-color);
 }
 
 .fluent-context-menu-container ul li a:focus, .fluent-context-menu-standalone ul li a:focus, .fluent-menu ul li a:focus {
@@ -685,15 +696,15 @@ a.fluent-menu-item:hover {
 }
 
 .fluent-menu-item-select-selected {
+    position: absolute;
+    padding: 0;
     width: 3px;
-    height: 1.2em;
+    height: 1.15em;
     opacity: 0;
     background-color: var(--accent-color);
     display: inline-block; 
     border-radius: 10px; 
-    position: absolute; 
-    margin-left: -15px; 
-    margin-top: 0.1em;
+    margin: 0.1em 0 0.1em -15px;
 }
 
 @keyframes fluent-menu-item-select-up {
@@ -706,11 +717,11 @@ a.fluent-menu-item:hover {
 }
 
     100% {
-        transform: translateY(-0.6em) scaleY(2);
-        -webkit-transform: translateY(-0.6em) scaleY(2);
-        -moz-transform: translateY(-0.6em) scaleY(2);
-        -ms-transform: translateY(-0.6em) scaleY(2);
-        -o-transform: translateY(-0.6em) scaleY(2);
+        transform: translateY(-0.575em) scaleY(2);
+        -webkit-transform: translateY(-0.575em) scaleY(2);
+        -moz-transform: translateY(-0.575em) scaleY(2);
+        -ms-transform: translateY(-0.575em) scaleY(2);
+        -o-transform: translateY(-0.575em) scaleY(2);
 }
 }
 
@@ -724,21 +735,21 @@ a.fluent-menu-item:hover {
 }
 
     100% {
-        transform: translateY(0.6em) scaleY(2);
-        -webkit-transform: translateY(0.6em) scaleY(2);
-        -moz-transform: translateY(0.6em) scaleY(2);
-        -ms-transform: translateY(0.6em) scaleY(2);
-        -o-transform: translateY(0.6em) scaleY(2);
+        transform: translateY(0.575em) scaleY(2);
+        -webkit-transform: translateY(0.575em) scaleY(2);
+        -moz-transform: translateY(0.575em) scaleY(2);
+        -ms-transform: translateY(0.575em) scaleY(2);
+        -o-transform: translateY(0.575em) scaleY(2);
 }
 }
 
 @keyframes fluent-menu-item-select-up-reverse {
     0% {
-        transform: translateY(-0.6em) scaleY(2);
-        -webkit-transform: translateY(-0.6em) scaleY(2);
-        -moz-transform: translateY(-0.6em) scaleY(2);
-        -ms-transform: translateY(-0.6em) scaleY(2);
-        -o-transform: translateY(-0.6em) scaleY(2);
+        transform: translateY(-0.575em) scaleY(2);
+        -webkit-transform: translateY(-0.575em) scaleY(2);
+        -moz-transform: translateY(-0.575em) scaleY(2);
+        -ms-transform: translateY(-0.575em) scaleY(2);
+        -o-transform: translateY(-0.575em) scaleY(2);
 }
 
     100% {
@@ -752,11 +763,11 @@ a.fluent-menu-item:hover {
 
 @keyframes fluent-menu-item-select-down-reverse {
     0% {
-        transform: translateY(0.6em) scaleY(2);
-        -webkit-transform: translateY(0.6em) scaleY(2);
-        -moz-transform: translateY(0.6em) scaleY(2);
-        -ms-transform: translateY(0.6em) scaleY(2);
-        -o-transform: translateY(0.6em) scaleY(2);
+        transform: translateY(0.575em) scaleY(2);
+        -webkit-transform: translateY(0.575em) scaleY(2);
+        -moz-transform: translateY(0.575em) scaleY(2);
+        -ms-transform: translateY(0.575em) scaleY(2);
+        -o-transform: translateY(0.575em) scaleY(2);
 }
 
     100% {
@@ -892,6 +903,10 @@ p, .fluent-body {
 
 /* Expander */
 
+.fluent-expander {
+    margin: 2em 0 0 0;
+}
+
 .fluent-expander-header {
     color: var(--text-color);
     border: var(--dark-border-color) solid 0.4px;
@@ -912,7 +927,6 @@ p, .fluent-body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 2em 0 0 0;
 }
 
 .fluent-expander-header:cl {
@@ -964,12 +978,15 @@ p, .fluent-body {
     -moz-border-radius: 0px 0px 4px 4px;
     -ms-border-radius: 0px 0px 4px 4px;
     -o-border-radius: 0px 0px 4px 4px;
-    overflow: visible;
 }
 
 .fluent-expander-body.expanded {
     border-top: rgba(0, 0, 0, 0) solid 0.4px;
     display: block;
+}
+
+.fluent-expander-body-container {
+    height: fit-content;
 }
 
 .fluent-expander-arrow {
@@ -984,6 +1001,17 @@ p, .fluent-body {
     -moz-transition: 0.2s ease-in-out;
     -ms-transition: 0.2s ease-in-out;
     -o-transition: 0.2s ease-in-out;
+}
+
+@keyframes fluent-expander-expand {
+    
+    0% { margin-top: calc(var(--expander-expand-height) * -1); }
+    100% { margin-top: 0px; }
+}
+
+@keyframes fluent-expander-expand-reverse {
+    0% { margin-top: 0px; }
+    100% { margin-top: calc(var(--expander-expand-height) * -1); }
 }
 
 /* Combobox */
@@ -1231,6 +1259,7 @@ fluent-page-switcher {
 fluent-web-container {
     display: flex;
     height: 100%;
+    bottom: 0;
 }
 
 /* Main Content */
@@ -1251,4 +1280,5 @@ fluent-web-container {
     -ms-border-radius: 8px 0 0 0;
     -o-border-radius: 8px 0 0 0;
     flex:1;
+    min-height: 40rem
 }
