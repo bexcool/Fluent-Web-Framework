@@ -97,13 +97,11 @@ class ToggleButton extends HTMLElement {
 customElements.define('fluent-togglebutton', ToggleButton);
 
 // Menu
+
 class Menu extends HTMLElement {
     connectedCallback() {
-        const Header =this.attributes.Header != null ? this.attributes.Header.value : "";
-        const Url = this.attributes.Url != null ? this.attributes.Url.value : "#";
-
         setTimeout( () =>
-            this.outerHTML =    '<div class="fluent-menu">' +
+            this.outerHTML =    '<div class="fluent-menu"' + AttributesToString(this) + '>' +
                                 '<ul class="fluent-menu-list">' +
                                 this.innerHTML +
                                 '</ul></div>' +
@@ -113,3 +111,17 @@ class Menu extends HTMLElement {
 }
 
 customElements.define('fluent-menu', Menu);
+
+// Menu
+
+class MainContent extends HTMLElement {
+    connectedCallback() {
+        setTimeout( () =>
+            this.outerHTML =    '<div class="fluent-main-content"' + AttributesToString(this) + '>' +
+                                this.innerHTML +
+                                '</div>'
+        );
+    }
+}
+
+customElements.define('fluent-main-content', MainContent);

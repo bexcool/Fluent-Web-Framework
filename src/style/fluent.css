@@ -48,6 +48,8 @@ body {
     background-color: var(--dark-color);
     font-family: "Segoe UI", Arial, sans-serif;
     color: var(--text-color);
+    margin: 0;
+    height: 100%;
 }
 
 body::-webkit-scrollbar {
@@ -646,11 +648,11 @@ legend {
     cursor: default;
 }
 
-.fluent-context-menu-container a.fluent-menu-item-select.selected {
+.fluent-context-menu-container a.fluent-menu-item-select.selected, .fluent-menu a.fluent-menu-item-select.selected {
     background-color: var(--light-hover-color);
 }
 
-.fluent-context-menu-container a.fluent-menu-item-select.selected:hover {
+.fluent-context-menu-container a.fluent-menu-item-select.selected:hover, .fluent-menu a.fluent-menu-item-select.selected:hover {
     background-color: var(--focus-color);
 }
 
@@ -680,6 +682,18 @@ a.fluent-menu-item:hover {
 .fluent-menu-item-select {
     overflow: hidden;
     cursor: default;
+}
+
+.fluent-menu-item-select-selected {
+    width: 3px;
+    height: 1.2em;
+    opacity: 0;
+    background-color: var(--accent-color);
+    display: inline-block; 
+    border-radius: 10px; 
+    position: absolute; 
+    margin-left: -15px; 
+    margin-top: 0.1em;
 }
 
 @keyframes fluent-menu-item-select-up {
@@ -788,10 +802,8 @@ a.fluent-menu-item:hover {
     list-style: none;
     padding: 3px;
     margin-top: 0;
-    width: auto;
+    width: 100%;
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.4px;
-    background: var(--light-trans-color);
     backdrop-filter: blur(15px);
     outline: var(--text-color);
     border-radius: 8px;
@@ -807,7 +819,6 @@ a.fluent-menu-item:hover {
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     overflow: hidden;
-    position: absolute;
     margin: -1.5em;
     padding: 1.5em;
     margin-top: 0;
@@ -1213,4 +1224,31 @@ fluent-page {
 fluent-page-switcher {
     display: flex;
     align-items: stretch;
+}
+
+/* Web Container */
+
+fluent-web-container {
+    display: flex;
+    height: 100%;
+}
+
+/* Main Content */
+
+.fluent-main-content {
+    border: var(--dark-border-color) solid 1px;
+    border-right: none;
+    border-bottom: none;
+    background-color: var(--darker-color);
+    padding: 3em;
+    margin-left: 5em;
+    width: auto;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px 0 0 0;
+    -webkit-border-radius: 8px 0 0 0;
+    -moz-border-radius: 8px 0 0 0;
+    -ms-border-radius: 8px 0 0 0;
+    -o-border-radius: 8px 0 0 0;
+    flex:1;
 }

@@ -424,64 +424,85 @@ function InitSelectableMenuItems() {
                 if (menu_items.length != 0) {
                     for (const menu_item_select of menu_items) {
                         menu_item_select.addEventListener("click", function (e) {
-                            e.preventDefault();
-                            let i = 0, newItemIndex, oldItemIndex;
-        
-                            // Get new selected menu item
-                            for (const menu_item of menu_items) {
-                                if (menu_item == menu_item_select) newItemIndex = i;
-        
-                                i++;
-                            }
-        
-                            i = 0;
-        
-                            for (const menu_item_select_old of menu_items) {
-                                if (menu_item_select_old.hasAttribute("selected")) {
-                                    menu_item_select_old.classList.remove("selected");
-                                    menu_item_select_old.removeAttribute("selected");
-        
-                                    oldItemIndex = i;
-        
-                                    // Animate accent colored div movement
-                                    if (newItemIndex > oldItemIndex) {
-                                        menu_item_select_old.firstChild.style.animation = "fluent-menu-item-select-down 0.3s ease-in";
+                            if (!menu_item_select.hasAttribute("selected")) {
+                                e.preventDefault();
+                                let i = 0, newItemIndex, oldItemIndex, oldExists = false;
+            
+                                // Get new selected menu item
+                                for (const menu_item of menu_items) {
+                                    if (menu_item == menu_item_select) newItemIndex = i;
+            
+                                    i++;
+                                }
+            
+                                i = 0;
+            
+                                for (const menu_item_select_old of menu_items) {
+                                    if (menu_item_select_old.hasAttribute("selected")) {
+                                        oldExists = true;
+    
+                                        menu_item_select_old.classList.remove("selected");
+                                        menu_item_select_old.removeAttribute("selected");
+            
+                                        oldItemIndex = i;
+            
+                                        // Animate accent colored div movement
+                                        if (newItemIndex > oldItemIndex) {
+                                            menu_item_select_old.firstChild.style.animation = "fluent-menu-item-select-down 0.3s ease-in";
+                                        }
+                                        else { 
+                                            menu_item_select_old.firstChild.style.animation = "fluent-menu-item-select-up 0.3s ease-in";
+                                        }
+            
+                                        setTimeout(function () {
+                                            menu_item_select_old.firstChild.remove();
+                                        }, 280);
                                     }
-                                    else { 
-                                        menu_item_select_old.firstChild.style.animation = "fluent-menu-item-select-up 0.3s ease-in";
-                                    }
-        
+            
+                                    i++;
+                                }
+            
+                                i = 0;
+            
+                                menu_item_select.classList.add("selected");
+                                menu_item_select.setAttribute("selected", "");
+            
+                                if (oldExists) {
+                                    var active_element = document.createElement("div");
+    
+                                    active_element.classList.add("fluent-menu-item-select-selected");
+                                    menu_item_select.prepend(active_element);
+                                    active_element.style.overflow = "hidden";
+                
                                     setTimeout(function () {
-                                        menu_item_select_old.firstChild.remove();
+                                        active_element.style.opacity = "1";
+                
+                                        // Animate accent colored div movement
+                                        if (newItemIndex > oldItemIndex) {
+                                            active_element.style.animation = "fluent-menu-item-select-up-reverse 0.3s ease-out";
+                                        }
+                                        else { 
+                                            active_element.style.animation = "fluent-menu-item-select-down-reverse 0.3s ease-out";
+                                        }
                                     }, 280);
+                                } else {
+                                    var active_element = document.createElement("div");
+            
+                                    active_element.classList.add("fluent-menu-item-select-selected");
+                                    menu_item_select.prepend(active_element);
+                                    
+                                    active_element.animate(
+                                        [
+                                            // keyframes
+                                            { transform: 'scaleY(0)', opacity: '0' },
+                                            { transform: 'scaleY(1)', opacity: '1' }
+                                        ],
+                                        {
+                                            // timing options
+                                            duration: 90
+                                        });
                                 }
-        
-                                i++;
                             }
-        
-                            i = 0;
-        
-                            menu_item_select.classList.add("selected");
-                            menu_item_select.setAttribute("selected", "");
-        
-                            var active_element = document.createElement("div");
-        
-                            const cssString = "width: 3px; height: 1.2em; opacity: 0; will-change: transform; background-color:" + getComputedStyle(doc).getPropertyValue("--accent-color") + "; display: inline-block; border-radius: 10px; position: absolute; margin-left: -15px; margin-top: 0.1em;";
-                            active_element.style.cssText = cssString;
-                            menu_item_select.prepend(active_element);
-                            active_element.style.overflow = "hidden";
-        
-                            setTimeout(function () {
-                                active_element.style.opacity = "1";
-        
-                                // Animate accent colored div movement
-                                if (newItemIndex > oldItemIndex) {
-                                    active_element.style.animation = "fluent-menu-item-select-up-reverse 0.3s ease-out";
-                                }
-                                else { 
-                                    active_element.style.animation = "fluent-menu-item-select-down-reverse 0.3s ease-out";
-                                }
-                            }, 280);
                         });
         
                         if (menu_item_select.hasAttribute("selected")) {
@@ -489,8 +510,7 @@ function InitSelectableMenuItems() {
         
                             var active_element = document.createElement("div");
         
-                            const cssString = "width: 3px; height: 1.2em; background-color:" + getComputedStyle(doc).getPropertyValue("--accent-color") + "; display: inline-block; border-radius: 10px; position: absolute; margin-left: -15px; margin-top: 0.1em;";
-                            active_element.style.cssText = cssString;
+                            active_element.classList.add("fluent-menu-item-select-selected");
                             menu_item_select.prepend(active_element);
         
                             active_element.animate(
@@ -503,6 +523,8 @@ function InitSelectableMenuItems() {
                                     // timing options
                                     duration: 90
                                 });
+
+                            active_element.style.opacity = "1";
                         }
                     }
                 }

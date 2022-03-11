@@ -11,156 +11,204 @@
 </head>
 
 <body onload="InitializeFluent(); InitializeAnimations();">
-    <div style="width: 60%; margin: auto; margin-bottom: 10em;">
+    <div style="margin: 0 0 0 10em;">
         <h1>Fluent Web Framework Showcase</h1>
-        <p>Dark and light theme.</p>
-        <button onclick="SwitchTheme();">Switch theme</button>
         <br><br>
-        <button onclick="SetActivePageIndex('page-switcher-test', 0)">Button</button>
-        <button onclick="SetActivePageIndex('page-switcher-test', 1)">Textbox</button>
-        <button onclick="SetActivePageIndex('page-switcher-test', 2)">Checkbox</button>
-        <button onclick="SetActivePageIndex('page-switcher-test', 3)">Slider</button>
-        <button onclick="SetActivePageIndex('page-switcher-test', 4)">Table</button>
-        <button onclick="SetActivePageIndex('page-switcher-test', 5)">Context menu</button>
-        <button onclick="SetActivePageIndex('page-switcher-test', 6)">Expander</button>
-        <button onclick="SetActivePageIndex('page-switcher-test', 7)">Code</button>
-        <button onclick="SetActivePageIndex('page-switcher-test', 8)">Flyout</button>
-        <button onclick="SetActivePageIndex('page-switcher-test', 9)">Border</button>
-        <button onclick="SetActivePageIndex('page-switcher-test', 10)">Menu</button>
-        <!--
-        <fluent-contextmenu header="Pages">
-            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 0)" selectable>Button</fluent-menu-item>
-            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 1)" selectable>Textbox</fluent-menu-item>
-            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 2)" selectable>Checkbox</fluent-menu-item>
-            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 3)" selectable>Slider</fluent-menu-item>
-            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 4)" selectable>Table</fluent-menu-item>
-            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 5)" selectable>Context menu</fluent-menu-item>
-            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 6)" selectable>Expander</fluent-menu-item>
-            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 7)" selectable>Code</fluent-menu-item>
-            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 8)" selectable>Flyout</fluent-menu-item>
-            <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 9)" selectable>Border</fluent-menu-item>
-        </fluent-contextmenu>
-        -->
-        <fluent-page-switcher id="page-switcher-test" active-page="10">
-            <!-- Button section -->
-            <fluent-page>
-                <section id="button">
-                    <h2>Button</h2>
-                    <p>Redesigned button and input submit.</p>
-                    <fluent-expander header="Normal">
-                        <div class="fluent-content">
-                            <p>Normal button.</p>
-                            <fluent-border><code sh="HTML"> &lt;button&gt;Click me!&lt;/button&gt;
-                                                            &lt;!-- Can be used as &lt;input type=&#34;submit&#34;&gt; --&gt;
-                                                            &lt;input type=&#34;submit&#34; value&#61;&#34;Click me!&#34;&gt;</code></fluent-border><br>
-                            <button>Click me!</button>
-                        </div>
-                    </fluent-expander>
-                    <fluent-expander header="Accent">
-                        <div class="fluent-content">
-                            <p>Accent button.</p>
-                            <fluent-border><code sh="HTML">&lt;button accent&gt;I am an accent button&lt;/button&gt;</code></fluent-border><br>
-                            <button accent>I am an accent button</button>
-                        </div>
-                    </fluent-expander>
-                    <fluent-expander header="Hyperlink">
-                        <div class="fluent-content">
-                            <p>Hyperlink button.</p>
-                            <fluent-border><code sh="HTML">&lt;button hyperlink&gt;Hyperlink&lt;/button&gt;</code></fluent-border><br>
-                            <button hyperlink>Hyperlink</button>
-                        </div>
-                    </fluent-expander>
-                </section>
-            </fluent-page>
-            <!-- Textbox section -->
-            <fluent-page>
-                <section id="textbox">
-                    <h2>Textbox</h2>
-                    <p>Redesigned input text.</p>
-                    <fluent-expander header="Input Text">
-                        <div class="fluent-content">
-                            <p>Redesigned input type="text" with more attributes.</p>
-                            <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;clear_btn&#34; shows clear text button. --&gt;
-                                                            &lt;input type=&#34;text&#34; value=&#34;BeXCool&#34; clear_btn&gt;
-                                                            &lt;input type=&#34;text&#34; placeholder=&#34;Type here&#34;&gt;</code></fluent-border><br>
-                            <input type="text" value="BeXCool" clear_btn><br>
-                            <input type="text" placeholder="Type here">
-                        </div>
-                    </fluent-expander>
-                    <fluent-expander header="Input Password">
-                        <div class="fluent-content">
-                            <p>Redesigned input type="password" with more attributes.</p>
-                            <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;showpass_btn&#34; shows button for showing password. --&gt;
-                                                            &lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn&gt;
-                                                            &lt;!-- Attribute &#34;showpass&#34; shows password. --&gt;
-                                                            &lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn showpass&gt;
-                                                            &lt;input type=&#34;password&#34; placeholder=&#34;Type password&#34;&gt;</code></fluent-border><br>
-                            <input type="password" value="1234" showpass_btn><br>
-                            <input type="password" value="1234" showpass_btn showpass><br>
-                            <input type="password" placeholder="Type here">
-                        </div>
-                    </fluent-expander>
-                </section>
-            </fluent-page>
-            <!-- Check box -->
-            <fluent-page>
-                <section id="border">
-                    <h2>Check box</h2>
-                    <p>Redesigned input checkbox.</p>
-                    <h3>Usage</h3>
-                    <fluent-border><code sh="HTML"> &lt;input type=&#34;checkbox&#34; id=&#34;mycheck&#34;&gt;&lt;label for=&#34;mycheck&#34;&gt;Am I a checkbox?&lt;/label&gt;</code></fluent-border><br>
-                    <input type="checkbox" id="mycheck"><label for="mycheck">Am I a checkbox?</label>
-                </section>
-            </fluent-page>
-            <!-- Slider -->
-            <fluent-page>
-                <section if="slider">
-                    <h2>Slider</h2>
-                    <p>Redesigned input range.</p>
-                    <fluent-expander header="Horizontal">
-                        <div class="fluent-content">
-                            <p>Hover it to show menu.</p>
+        <fluent-web-container>
+            <fluent-menu style="width: 20em;">
+                <p>Dark and light theme.</p>
+                <button onclick="SwitchTheme();">Switch theme</button>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 0)" selectable selected>Button</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 1)" selectable>Textbox</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 2)" selectable>Checkbox</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 3)" selectable>Slider</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 4)" selectable>Table</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 5)" selectable>Context menu</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 6)" selectable>Expander</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 7)" selectable>Code</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 8)" selectable>Flyout</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 9)" selectable>Border</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 10)" selectable>Menu</fluent-menu-item>
+            </fluent-menu>
+            
+            <fluent-main-content>
+                <fluent-page-switcher id="page-switcher-test" active-page="0">
+                    <!-- Button section -->
+                    <fluent-page>
+                        <section id="button">
+                            <h2>Button</h2>
+                            <p>Redesigned button and input submit.</p>
+                            <fluent-expander header="Normal">
+                                <div class="fluent-content">
+                                    <p>Normal button.</p>
+                                    <fluent-border><code sh="HTML"> &lt;button&gt;Click me!&lt;/button&gt;
+                                                                    &lt;!-- Can be used as &lt;input type=&#34;submit&#34;&gt; --&gt;
+                                                                    &lt;input type=&#34;submit&#34; value&#61;&#34;Click me!&#34;&gt;</code></fluent-border><br>
+                                    <button>Click me!</button>
+                                </div>
+                            </fluent-expander>
+                            <fluent-expander header="Accent">
+                                <div class="fluent-content">
+                                    <p>Accent button.</p>
+                                    <fluent-border><code sh="HTML">&lt;button accent&gt;I am an accent button&lt;/button&gt;</code></fluent-border><br>
+                                    <button accent>I am an accent button</button>
+                                </div>
+                            </fluent-expander>
+                            <fluent-expander header="Hyperlink">
+                                <div class="fluent-content">
+                                    <p>Hyperlink button.</p>
+                                    <fluent-border><code sh="HTML">&lt;button hyperlink&gt;Hyperlink&lt;/button&gt;</code></fluent-border><br>
+                                    <button hyperlink>Hyperlink</button>
+                                </div>
+                            </fluent-expander>
+                        </section>
+                    </fluent-page>
+                    <!-- Textbox section -->
+                    <fluent-page>
+                        <section id="textbox">
+                            <h2>Textbox</h2>
+                            <p>Redesigned input text.</p>
+                            <fluent-expander header="Input Text">
+                                <div class="fluent-content">
+                                    <p>Redesigned input type="text" with more attributes.</p>
+                                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;clear_btn&#34; shows clear text button. --&gt;
+                                                                    &lt;input type=&#34;text&#34; value=&#34;BeXCool&#34; clear_btn&gt;
+                                                                    &lt;input type=&#34;text&#34; placeholder=&#34;Type here&#34;&gt;</code></fluent-border><br>
+                                    <input type="text" value="BeXCool" clear_btn><br>
+                                    <input type="text" placeholder="Type here">
+                                </div>
+                            </fluent-expander>
+                            <fluent-expander header="Input Password">
+                                <div class="fluent-content">
+                                    <p>Redesigned input type="password" with more attributes.</p>
+                                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;showpass_btn&#34; shows button for showing password. --&gt;
+                                                                    &lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn&gt;
+                                                                    &lt;!-- Attribute &#34;showpass&#34; shows password. --&gt;
+                                                                    &lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn showpass&gt;
+                                                                    &lt;input type=&#34;password&#34; placeholder=&#34;Type password&#34;&gt;</code></fluent-border><br>
+                                    <input type="password" value="1234" showpass_btn><br>
+                                    <input type="password" value="1234" showpass_btn showpass><br>
+                                    <input type="password" placeholder="Type here">
+                                </div>
+                            </fluent-expander>
+                        </section>
+                    </fluent-page>
+                    <!-- Check box -->
+                    <fluent-page>
+                        <section id="border">
+                            <h2>Check box</h2>
+                            <p>Redesigned input checkbox.</p>
+                            <h3>Usage</h3>
+                            <fluent-border><code sh="HTML"> &lt;input type=&#34;checkbox&#34; id=&#34;mycheck&#34;&gt;&lt;label for=&#34;mycheck&#34;&gt;Am I a checkbox?&lt;/label&gt;</code></fluent-border><br>
+                            <input type="checkbox" id="mycheck"><label for="mycheck">Am I a checkbox?</label>
+                        </section>
+                    </fluent-page>
+                    <!-- Slider -->
+                    <fluent-page>
+                        <section if="slider">
+                            <h2>Slider</h2>
+                            <p>Redesigned input range.</p>
+                            <fluent-expander header="Horizontal">
+                                <div class="fluent-content">
+                                    <p>Hover it to show menu.</p>
+                                    <fluent-border><code sh="HTML"> &lt;input type=&#34;range&#34;&gt;</code></fluent-border><br>
+                                    <input type="range">
+                                </div>
+                            </fluent-expander>
+                        </section>
+                    </fluent-page>
+                    <!-- Table -->
+                    <fluent-page>
+                        <section if="table">
+                            <h2>Table</h2>
+                            <p>Redesigned table.</p>
+                            <h3>Usage</h3>
                             <fluent-border><code sh="HTML"> &lt;input type=&#34;range&#34;&gt;</code></fluent-border><br>
-                            <input type="range">
-                        </div>
-                    </fluent-expander>
-                </section>
-            </fluent-page>
-            <!-- Table -->
-            <fluent-page>
-                <section if="table">
-                    <h2>Table</h2>
-                    <p>Redesigned table.</p>
-                    <h3>Usage</h3>
-                    <fluent-border><code sh="HTML"> &lt;input type=&#34;range&#34;&gt;</code></fluent-border><br>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Header number 1</th>
-                                <th>Header 2</th>
-                                <th>Header 3</th>
-                                <th>Header 4</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Value Decimal</td>
-                                <td>Value</td>
-                                <td>Value</td>
-                                <td>Value</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-            </fluent-page>
-            <!-- Context menu section -->
-            <fluent-page>
-                <section id="contextmenu">
-                    <h2>Context Menu</h2>
-                    <p>Custom element with items.</p>
-                    <fluent-expander header="Default">
-                        <div class="fluent-content">
-                            <p>Hover it to show menu.</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Header number 1</th>
+                                        <th>Header 2</th>
+                                        <th>Header 3</th>
+                                        <th>Header 4</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Value Decimal</td>
+                                        <td>Value</td>
+                                        <td>Value</td>
+                                        <td>Value</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </fluent-page>
+                    <!-- Context menu section -->
+                    <fluent-page>
+                        <section id="contextmenu">
+                            <h2>Context Menu</h2>
+                            <p>Custom element with items.</p>
+                            <fluent-expander header="Default">
+                                <div class="fluent-content">
+                                    <p>Hover it to show menu.</p>
+                                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
+                                                                    &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
+                                                                    &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
+                                    <fluent-contextmenu header="Navigation" url="#">
+                                        <fluent-menu-item url="#button">Button</fluent-menu-item>
+                                        <fluent-menu-item url="#textbox">Textbox</fluent-menu-item>
+                                        <fluent-menu-item url="#contextmenu">Context Menu</fluent-menu-item>
+                                        <fluent-menu-item url="#expander">Expander</fluent-menu-item>
+                                        <fluent-menu-item url="#code">Code</fluent-menu-item>
+                                    </fluent-contextmenu>
+                                </div>
+                            </fluent-expander>
+                            <fluent-expander header="Default and selectable"> 
+                                <div class="fluent-content">
+                                    <p>Hover it to show menu.</p>
+                                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
+                                                                    &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;hr&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34; selectable selected&gt;1st option&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34; selectable&gt;2nd option&lt;/fluent-menu-item&gt;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34; selectable&gt;3rd option&lt;/fluent-menu-item&gt;
+                                                                    &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
+                                    <fluent-contextmenu header="Navigation" url="#">
+                                        <fluent-menu-item url="#button">Button</fluent-menu-item>
+                                        <fluent-menu-item url="#textbox">Textbox</fluent-menu-item>
+                                        <fluent-menu-item url="#contextmenu">Context Menu</fluent-menu-item>
+                                        <fluent-menu-item url="#expander">Expander</fluent-menu-item>
+                                        <fluent-menu-item url="#code">Code</fluent-menu-item>
+                                        <hr>
+                                        <fluent-menu-item selectable selected>1st option</fluent-menu-item>
+                                        <fluent-menu-item selectable>2nd option</fluent-menu-item>
+                                        <fluent-menu-item selectable>3rd option</fluent-menu-item>
+                                    </fluent-contextmenu>
+                                </div>
+                            </fluent-expander>
+                        </section>
+                    </fluent-page>
+                    <!-- Expander section -->
+                    <fluent-page>
+                        <section id="expander">
+                            <h2>Expander</h2>
+                            <p>Custom element which can be opened or closed.</p>
+                            <h3>Usage</h3>
+                            <p>Click on expander to show it's content.</p>
                             <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
                                                             &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
@@ -168,154 +216,99 @@
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
-                                                            &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
-                            <fluent-contextmenu header="Navigation" url="#">
-                                <fluent-menu-item url="#button">Button</fluent-menu-item>
-                                <fluent-menu-item url="#textbox">Textbox</fluent-menu-item>
-                                <fluent-menu-item url="#contextmenu">Context Menu</fluent-menu-item>
-                                <fluent-menu-item url="#expander">Expander</fluent-menu-item>
-                                <fluent-menu-item url="#code">Code</fluent-menu-item>
-                            </fluent-contextmenu>
-                        </div>
-                    </fluent-expander>
-                    <fluent-expander header="Default and selectable"> 
-                        <div class="fluent-content">
-                            <p>Hover it to show menu.</p>
-                            <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
-                                                            &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
+                                                            &lt;/fluent-contextmenu&gt;
+        
+                                                            &lt;!-- Attribute &#34;expanded&#34; expands the expander on load. --&gt;
+                                                            &lt;fluent-contextmenu header=&#34;Navigation&#34; expanded&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-menu-item&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;hr&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34; selectable selected&gt;1st option&lt;/fluent-menu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34; selectable&gt;2nd option&lt;/fluent-menu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34; selectable&gt;3rd option&lt;/fluent-menu-item&gt;
                                                             &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
-                            <fluent-contextmenu header="Navigation" url="#">
-                                <fluent-menu-item url="#button">Button</fluent-menu-item>
-                                <fluent-menu-item url="#textbox">Textbox</fluent-menu-item>
-                                <fluent-menu-item url="#contextmenu">Context Menu</fluent-menu-item>
-                                <fluent-menu-item url="#expander">Expander</fluent-menu-item>
-                                <fluent-menu-item url="#code">Code</fluent-menu-item>
-                                <hr>
-                                <fluent-menu-item selectable selected>1st option</fluent-menu-item>
-                                <fluent-menu-item selectable>2nd option</fluent-menu-item>
-                                <fluent-menu-item selectable>3rd option</fluent-menu-item>
-                            </fluent-contextmenu>
-                        </div>
-                    </fluent-expander>
-                </section>
-            </fluent-page>
-            <!-- Expander section -->
-            <fluent-page>
-                <section id="expander">
-                    <h2>Expander</h2>
-                    <p>Custom element which can be opened or closed.</p>
-                    <h3>Usage</h3>
-                    <p>Click on expander to show it's content.</p>
-                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
-                                                    &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-menu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
-                                                    &lt;/fluent-contextmenu&gt;
-
-                                                    &lt;!-- Attribute &#34;expanded&#34; expands the expander on load. --&gt;
-                                                    &lt;fluent-contextmenu header=&#34;Navigation&#34; expanded&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-menu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
-                                                    &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
-                    <fluent-expander header="Normal">
-                        <div class="fluent-content">
-                            <button>Button</button>
-                        </div>
-                    </fluent-expander>
-                    <fluent-expander header="Expanded" expanded>
-                        <div class="fluent-content">
-                            <button>Button</button>
-                        </div>
-                    </fluent-expander>
-                </section>
-            </fluent-page>
-            <!-- Code -->
-            <fluent-page>
-                <section id="code">
-                    <h2>Code</h2>
-                    <p>Redesigned code element with custom elements.</p>
-                    <fluent-expander header="Syntax highlighted HTML">
-                        <div class="fluent-content">
-                            <p>Supported syntax highlighting (sh attribute): HTML, CSS, JS.</p>
-                            <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;sh&#34; is syntax highlighting. --&gt;
-                                                            &lt;code sh=&#34;HTML&#34;&gt;&AMP;nbsp;&AMP;nbsp;&AMP;nbsp;&AMP;nbsp;&AMP;lt;button&AMP;gt;Click me!&AMP;lt;/button&AMP;gt;&lt;/code&gt;</code></fluent-border><br>
-                            <code sh="HTML">&lt;button&gt;Click me!&lt;/button&gt;</code>
-                        </div>
-                    </fluent-expander>
-                </section>
-            </fluent-page>
-            <!-- Flyout -->
-            <fluent-page>
-                <section id="flyout">
-                    <h2>Flyout</h2>
-                    <p>Custom element "Flyout" with text that shows on the top of the parent element.</p>
-                    <p>
-                        Call function ShowFlyout(element, string, delay).
-                        <ul>
-                            <li><strong>element</strong> = Show flyout above this element.</li>
-                            <li><strong>string</strong> = Text to show in flyout.</li>
-                            <li><strong>delay</strong> = How long will flyout be visible (in milliseconds).</li>
-                        </ul>
-                    </p>
-                    <fluent-border><code sh="HTML"> &lt;button onclick=&#34;ShowFlyout(this, 'This is flyout', 2000);&#34;&gt;Show flyout!&lt;/button&gt;</code></fluent-border><br>
-                    <button onclick="ShowFlyout(this, 'This is flyout', 2000);">Show flyout!</button>
-                </section>
-            </fluent-page>
-            <!-- Border -->
-            <fluent-page>
-                <section id="border">
-                    <h2>Border</h2>
-                    <p>Custom element "Border" with content.</p>
-                    <div class="fluent-content">
-                        <p>
-                            Background border with header and button.
-                        </p>
-                        <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
-                                                        &lt;/fluent-border&gt;</code></fluent-border><br>
-                        <fluent-border>
-                            <h3>Button</h3>
-                            <button>Fluent button</button>
-                        </fluent-border>
-                    </div>
-                </section>
-            </fluent-page>
-            <!-- Menu -->
-            <fluent-page>
-                <section id="menu">
-                    <h2>Menu</h2>
-                    <p>Custom element for navigating on your webpage.</p>
-                    <div class="fluent-content">
-                        <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
-                                                        &lt;/fluent-border&gt;</code></fluent-border><br>
-                        <fluent-menu>
-                            <fluent-menu-item selectable>Test</fluent-menu-item>
-                            <fluent-menu-item selectable>Test</fluent-menu-item>
-                        </fluent-menu>
-                    </div>
-                </section>
-            </fluent-page>
-        </fluent-page-switcher>
+                            <fluent-expander header="Normal">
+                                <div class="fluent-content">
+                                    <button>Button</button>
+                                </div>
+                            </fluent-expander>
+                            <fluent-expander header="Expanded" expanded>
+                                <div class="fluent-content">
+                                    <button>Button</button>
+                                </div>
+                            </fluent-expander>
+                        </section>
+                    </fluent-page>
+                    <!-- Code -->
+                    <fluent-page>
+                        <section id="code">
+                            <h2>Code</h2>
+                            <p>Redesigned code element with custom elements.</p>
+                            <fluent-expander header="Syntax highlighted HTML">
+                                <div class="fluent-content">
+                                    <p>Supported syntax highlighting (sh attribute): HTML, CSS, JS.</p>
+                                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;sh&#34; is syntax highlighting. --&gt;
+                                                                    &lt;code sh=&#34;HTML&#34;&gt;&AMP;nbsp;&AMP;nbsp;&AMP;nbsp;&AMP;nbsp;&AMP;lt;button&AMP;gt;Click me!&AMP;lt;/button&AMP;gt;&lt;/code&gt;</code></fluent-border><br>
+                                    <code sh="HTML">&lt;button&gt;Click me!&lt;/button&gt;</code>
+                                </div>
+                            </fluent-expander>
+                        </section>
+                    </fluent-page>
+                    <!-- Flyout -->
+                    <fluent-page>
+                        <section id="flyout">
+                            <h2>Flyout</h2>
+                            <p>Custom element "Flyout" with text that shows on the top of the parent element.</p>
+                            <p>
+                                Call function ShowFlyout(element, string, delay).
+                                <ul>
+                                    <li><strong>element</strong> = Show flyout above this element.</li>
+                                    <li><strong>string</strong> = Text to show in flyout.</li>
+                                    <li><strong>delay</strong> = How long will flyout be visible (in milliseconds).</li>
+                                </ul>
+                            </p>
+                            <fluent-border><code sh="HTML"> &lt;button onclick=&#34;ShowFlyout(this, 'This is flyout', 2000);&#34;&gt;Show flyout!&lt;/button&gt;</code></fluent-border><br>
+                            <button onclick="ShowFlyout(this, 'This is flyout', 2000);">Show flyout!</button>
+                        </section>
+                    </fluent-page>
+                    <!-- Border -->
+                    <fluent-page>
+                        <section id="border">
+                            <h2>Border</h2>
+                            <p>Custom element "Border" with content.</p>
+                            <div class="fluent-content">
+                                <p>
+                                    Background border with header and button.
+                                </p>
+                                <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
+                                                                &lt;/fluent-border&gt;</code></fluent-border><br>
+                                <fluent-border>
+                                    <h3>Button</h3>
+                                    <button>Fluent button</button>
+                                </fluent-border>
+                            </div>
+                        </section>
+                    </fluent-page>
+                    <!-- Menu -->
+                    <fluent-page>
+                        <section id="menu">
+                            <h2>Menu</h2>
+                            <p>Custom element for navigating on your webpage.</p>
+                            <div class="fluent-content">
+                                <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
+                                                                &lt;/fluent-border&gt;</code></fluent-border><br>
+                                <fluent-menu>
+                                    <fluent-menu-item selectable>Test</fluent-menu-item>
+                                    <fluent-menu-item selectable>Test</fluent-menu-item>
+                                </fluent-menu>
+                            </div>
+                        </section>
+                    </fluent-page>
+                </fluent-page-switcher>
+            </fluent-web-container>
+            </fluent-main-content>
     </div>
 </body>
