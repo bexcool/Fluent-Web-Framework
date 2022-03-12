@@ -700,10 +700,9 @@ function MakeFluentElements() {
     }
 
     // Set menu item's icon
-    const menu_items = document.querySelectorAll(".fluent-menu-item, .fluent-menu-item-select");
+    const menu_items = document.querySelectorAll(".fluent-menu-item, .fluent-menu-item-select, .fluent-menu-item-expander-header");
 
     for (const menu_item of menu_items) {
-        console.log("gg");
         if (menu_item.hasAttribute("icon")) menu_item.style.backgroundImage = 'url(' + menu_item.getAttribute("icon") + ')';
         else {
             menu_item.style.backgroundImage = "none";

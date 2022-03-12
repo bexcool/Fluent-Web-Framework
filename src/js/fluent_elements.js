@@ -48,7 +48,7 @@ class MenuItemExpander extends HTMLElement {
         setTimeout( () => {
             if (this.hasAttribute("expanded")) {
                 this.outerHTML =    '<div style="' + this.style.cssText + '" ' +
-                                    'class="fluent-menu-item-expander"><div class="fluent-menu-item-expander-header">' +
+                                    'class="fluent-menu-item-expander"><div class="fluent-menu-item-expander-header" ' + (this.attributes.icon != null ? 'icon="' + this.attributes.icon.value + '"' : "") + '>' +
                                     '<p>' + Header + '</p><div><img class="fluent-menu-item-expander-arrow" style="transform: rotate(180deg)" src="https://resources.bexcool.eu/fluentwebframework/src/img/arrow_down.svg"></div></div>' +
                                     '<div class="fluent-menu-item-expander-body-container"><div class="fluent-menu-item-expander-body expanded">' +
                                     this.innerHTML +
@@ -56,7 +56,7 @@ class MenuItemExpander extends HTMLElement {
             }
             else {
                 this.outerHTML =    '<div style="' + this.style.cssText + '" ' +
-                                    'class="fluent-menu-item-expander"><div class="fluent-menu-item-expander-header">' +
+                                    'class="fluent-menu-item-expander"><div class="fluent-menu-item-expander-header" ' + (this.attributes.icon != null ? 'icon="' + this.attributes.icon.value + '"' : "") + '>' +
                                     '<p>' + Header + '</p><div><img class="fluent-menu-item-expander-arrow" src="https://resources.bexcool.eu/fluentwebframework/src/img/arrow_down.svg"></div></div>' +
                                     '<div class="fluent-menu-item-expander-body-container"><div class="fluent-menu-item-expander-body">' +
                                     this.innerHTML +

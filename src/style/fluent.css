@@ -622,7 +622,6 @@ legend {
 }
 
 .fluent-context-menu-container ul li a, .fluent-context-menu-standalone ul li a, .fluent-menu ul li a {
-    background-image: url("../img/icons/ic_fluent_window_16_regular.svg");
     background-repeat: no-repeat;
     background-size: 1.5em;
     background-position-x: 1.2em;
@@ -794,6 +793,10 @@ a.fluent-menu-item:hover {
 /* Menu Expander */
 
 .fluent-menu-item-expander-header {
+    background-repeat: no-repeat;
+    background-size: 1.35em;
+    background-position-x: 0.65em;
+    background-position-y: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -801,7 +804,7 @@ a.fluent-menu-item:hover {
     border: none;
     margin: 5px;
     margin-bottom: 0;
-    padding: 6px 20px 7px;
+    padding: 6px 20px 7px 45px;
     background-color: rgba(0, 0, 0, 0);
     transition: 0.1s ease-in-out;
     outline: var(--text-color);
