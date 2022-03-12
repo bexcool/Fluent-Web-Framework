@@ -575,7 +575,7 @@ legend {
     padding: 0px 15px;
 }
 
-/* Custom context menu */
+/* Context menu and menu */
 
 .fluent-context-menu-container {
     position: relative;
@@ -638,7 +638,7 @@ legend {
     background-color: var(--light-hover-color);
 }
 
-.fluent-context-menu-container ul li a:focus, .fluent-context-menu-standalone ul li a:focus, .fluent-menu ul li a:focus {
+.fluent-context-menu-container ul li a.press, .fluent-context-menu-standalone ul li a.press, .fluent-menu ul li a.press {
     background-color: var(--focus-color);
 }
 
@@ -784,6 +784,83 @@ a.fluent-menu-item:hover {
         -ms-transform: translateY(0em) scaleY(1);
         -o-transform: translateY(0em) scaleY(1);
 }
+}
+
+/* Menu Expander */
+
+.fluent-menu-item-expander-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    border: none;
+    margin: 5px;
+    margin-bottom: 0;
+    padding: 6px 20px 7px;
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.1s ease-in-out;
+    outline: var(--text-color);
+    border-radius: 4px;
+    width: auto;
+    overflow: hidden;
+}
+
+.fluent-menu-item-expander-header:hover {
+    background-color: var(--light-hover-color);
+}
+
+.fluent-menu-item-expander-header:cl {
+    background-color: var(--light-hover-color);
+}
+
+.fluent-menu-item-expander-header p {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0;
+    font-size: 13.33px;
+}
+
+.fluent-menu-item-expander-header div {
+    display: flex;
+    align-items: center;
+    overflow: visible;
+}
+
+.fluent-menu-item-expander-header.press {
+    background-color: var(--focus-color);
+}
+
+.fluent-menu-item-expander-body {
+    margin-left: 2em;
+    color: var(--text-color);
+    display: none;
+}
+
+.fluent-menu-item-expander-body.expanded {
+    border-top: rgba(0, 0, 0, 0) solid 0.4px;
+    display: block;
+}
+
+.fluent-menu-item-expander-body-container {
+    height: fit-content;
+}
+
+.fluent-menu-item-expander-arrow {
+    height: 0.8em;
+    pointer-events: none;
+    margin: 0;
+    margin-right: -0.7em;
+    filter: invert(var(--icon-color));
+    -webkit-filter: invert(var(--icon-color));
+    transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -ms-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
 }
 
 /* Context Menu Standalone */

@@ -33,13 +33,40 @@ class MenuItem extends HTMLElement {
                                     this.innerHTML || "" +
                                     '</a></li>'
             }
-
-            //if (Initialized) InitializeFluent();
         });
     }
 }
 
 customElements.define('fluent-menu-item', MenuItem);
+
+// Menu item expander
+
+class MenuItemExpander extends HTMLElement {
+    connectedCallback() {
+        const Header = this.attributes.Header != null ? this.attributes.Header.value : "";
+
+        setTimeout( () => {
+            if (this.hasAttribute("expanded")) {
+                this.outerHTML =    '<div style="' + this.style.cssText + '" ' +
+                                    'class="fluent-menu-item-expander"><div class="fluent-menu-item-expander-header">' +
+                                    '<p>' + Header + '</p><div><img class="fluent-menu-item-expander-arrow" style="transform: rotate(180deg)" src="https://resources.bexcool.eu/fluentwebframework/src/img/arrow_down.svg"></div></div>' +
+                                    '<div class="fluent-menu-item-expander-body-container"><div class="fluent-menu-item-expander-body expanded">' +
+                                    this.innerHTML +
+                                    '</div></div></div>';
+            }
+            else {
+                this.outerHTML =    '<div style="' + this.style.cssText + '" ' +
+                                    'class="fluent-menu-item-expander"><div class="fluent-menu-item-expander-header">' +
+                                    '<p>' + Header + '</p><div><img class="fluent-menu-item-expander-arrow" src="https://resources.bexcool.eu/fluentwebframework/src/img/arrow_down.svg"></div></div>' +
+                                    '<div class="fluent-menu-item-expander-body-container"><div class="fluent-menu-item-expander-body">' +
+                                    this.innerHTML +
+                                    '</div></div></div>';
+            }
+        });
+    }
+}
+
+customElements.define('fluent-menu-item-expander', MenuItemExpander);
 
 // Expander
 

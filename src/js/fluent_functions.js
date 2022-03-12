@@ -132,6 +132,7 @@ function InitializeFluent() {
 
         // Initialize Expanders
         InitExpanders();
+        InitMenuExpanders()
 
         // Initialize Code Elements
         MakeFluentElements();
@@ -145,6 +146,8 @@ function InitializeFluent() {
         //#region Remove focus from elements when clicked
         const buttons = document.querySelectorAll("button, a.fluent-menu-item");
         const expanders = document.querySelectorAll(".fluent-expander-header");
+        const menu_item_expanders = document.querySelectorAll(".fluent-menu-item-expander-header");
+        const menu_items_select = document.querySelectorAll(".fluent-menu-item-select");
 
         for (const button of buttons) {
             button.addEventListener("click", function (e) {
@@ -155,6 +158,14 @@ function InitializeFluent() {
         document.addEventListener("click", function (e) {
             for (const exp of expanders) if (exp.classList.contains("press")) {
                 exp.classList.remove("press");
+            }
+
+            for (const item of menu_item_expanders) if (item.classList.contains("press")) {
+                item.classList.remove("press");
+            }
+
+            for (const item of menu_items_select) if (item.classList.contains("press")) {
+                item.classList.remove("press");
             }
         });
         //#endregion
@@ -367,123 +378,185 @@ function InitExpanders() {
     }
 }
 
+function InitMenuExpanders() {
+    // Initialize expander header
+    const expanders = document.querySelectorAll(".fluent-menu-item-expander-header");
+
+    if (expanders.length != 0) {
+        for (const expander of expanders) {
+
+            const expander_body = expander.parentElement.lastElementChild.lastElementChild;
+            const expander_arrow = expander.lastElementChild.firstElementChild;
+            
+            expander.addEventListener("mousedown", (e) => {
+                e.preventDefault();
+
+                expander.classList.add("press");
+            });
+
+            // Bind expander open/close
+            expander.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                expander.parentElement.lastElementChild.style.overflow = "hidden";
+                expander.style.overflow = "hidden";
+                expander.parentElement.lastElementChild.style.position = "relative";
+
+                if (expander_body.classList.contains("expanded")) {
+
+                    document.documentElement.style.setProperty("--expander-expand-height", (expander_body.scrollHeight) + "px");
+                    expander_body.style.animation = "fluent-expander-expand-reverse 0.3s ease-out";
+
+                    setTimeout(() => {
+                        expander_arrow.style.transform = "rotate(0deg)"
+                    }, 200);
+
+                    setTimeout(function () {
+                        expander_body.classList.remove("expanded");
+                    }, 280);
+                }
+                else {
+                    expander_body.classList.add("expanded");
+
+                    document.documentElement.style.setProperty("--expander-expand-height", (expander_body.scrollHeight) + "px");
+                    expander_body.style.animation = "fluent-expander-expand 0.15s ease-in";
+
+                    setTimeout(() => expander_arrow.style.transform = "rotate(180deg)", 150);
+                }
+
+                setTimeout(() => { 
+                    expander.parentElement.lastElementChild.style.overflow = "visible";
+                    expander.style.overflow = "visible";
+                    expander.parentElement.lastElementChild.style.position = "static";
+                }, 300);
+            });
+        }
+    }
+}
+
 function InitSelectableMenuItems() {
-        // Set selectable buttons active when clicked
-        const menus = document.querySelectorAll(".fluent-menu-list");
-        var doc = document.documentElement;
+    // Set selectable buttons active when clicked
+    const menus = document.querySelectorAll(".fluent-menu-list");
+    var doc = document.documentElement;
 
-        if (menus.length != 0) {
-            for (const menu of menus) {
-                const menu_items = menu.querySelectorAll(".fluent-menu-item-select");
-                if (menu_items.length != 0) {
-                    for (const menu_item_select of menu_items) {
-                        menu_item_select.addEventListener("click", function (e) {
-                            if (!menu_item_select.hasAttribute("selected")) {
-                                e.preventDefault();
-                                let i = 0, newItemIndex, oldItemIndex, oldExists = false;
+    if (menus.length != 0) {
+        for (const menu of menus) {
+            const menu_items = menu.querySelectorAll(".fluent-menu-item-select");
+            if (menu_items.length != 0) {
+                for (const menu_item_select of menu_items) {
+                    menu_item_select.addEventListener("mousedown", (e) => {
+                        e.preventDefault();
             
-                                // Get new selected menu item
-                                for (const menu_item of menu_items) {
-                                    if (menu_item == menu_item_select) newItemIndex = i;
-            
-                                    i++;
-                                }
-            
-                                i = 0;
-            
-                                for (const menu_item_select_old of menu_items) {
-                                    if (menu_item_select_old.hasAttribute("selected")) {
-                                        oldExists = true;
-    
-                                        menu_item_select_old.classList.remove("selected");
-                                        menu_item_select_old.removeAttribute("selected");
-            
-                                        oldItemIndex = i;
-            
-                                        // Animate accent colored div movement
-                                        if (newItemIndex > oldItemIndex) {
-                                            menu_item_select_old.firstChild.style.animation = "fluent-menu-item-select-down 0.3s ease-in";
-                                        }
-                                        else { 
-                                            menu_item_select_old.firstChild.style.animation = "fluent-menu-item-select-up 0.3s ease-in";
-                                        }
-            
-                                        setTimeout(function () {
-                                            menu_item_select_old.firstChild.remove();
-                                        }, 280);
-                                    }
-            
-                                    i++;
-                                }
-            
-                                i = 0;
-            
-                                menu_item_select.classList.add("selected");
-                                menu_item_select.setAttribute("selected", "");
-            
-                                if (oldExists) {
-                                    var active_element = document.createElement("div");
-    
-                                    active_element.classList.add("fluent-menu-item-select-selected");
-                                    menu_item_select.prepend(active_element);
-                                    active_element.style.overflow = "hidden";
-                
-                                    setTimeout(function () {
-                                        active_element.style.opacity = "1";
-                
-                                        // Animate accent colored div movement
-                                        if (newItemIndex > oldItemIndex) {
-                                            active_element.style.animation = "fluent-menu-item-select-up-reverse 0.3s ease-out";
-                                        }
-                                        else { 
-                                            active_element.style.animation = "fluent-menu-item-select-down-reverse 0.3s ease-out";
-                                        }
-                                    }, 280);
-                                } else {
-                                    var active_element = document.createElement("div");
-            
-                                    active_element.classList.add("fluent-menu-item-select-selected");
-                                    menu_item_select.prepend(active_element);
-                                    
-                                    active_element.animate(
-                                        [
-                                            // keyframes
-                                            { transform: 'scaleY(0)', opacity: '0' },
-                                            { transform: 'scaleY(1)', opacity: '1' }
-                                        ],
-                                        {
-                                            // timing options
-                                            duration: 90
-                                        });
-                                }
+                        menu_item_select.classList.add("press");
+                    });
+
+                    menu_item_select.addEventListener("click", function (e) {
+                        if (!menu_item_select.hasAttribute("selected")) {
+                            e.preventDefault();
+                            let i = 0, newItemIndex, oldItemIndex, oldExists = false;
+        
+                            // Get new selected menu item
+                            for (const menu_item of menu_items) {
+                                if (menu_item == menu_item_select) newItemIndex = i;
+        
+                                i++;
                             }
-                        });
         
-                        if (menu_item_select.hasAttribute("selected")) {
-                            menu_item_select.classList.add("selected");
+                            i = 0;
         
-                            var active_element = document.createElement("div");
-        
-                            active_element.classList.add("fluent-menu-item-select-selected");
-                            menu_item_select.prepend(active_element);
-        
-                            active_element.animate(
-                                [
-                                    // keyframes
-                                    { transform: 'scaleY(0)', opacity: '0' },
-                                    { transform: 'scaleY(1)', opacity: '1' }
-                                ],
-                                {
-                                    // timing options
-                                    duration: 90
-                                });
+                            for (const menu_item_select_old of menu_items) {
+                                if (menu_item_select_old.hasAttribute("selected")) {
+                                    oldExists = true;
 
-                            active_element.style.opacity = "1";
+                                    menu_item_select_old.classList.remove("selected");
+                                    menu_item_select_old.removeAttribute("selected");
+        
+                                    oldItemIndex = i;
+        
+                                    // Animate accent colored div movement
+                                    if (newItemIndex > oldItemIndex) {
+                                        menu_item_select_old.firstChild.style.animation = "fluent-menu-item-select-down 0.3s ease-in";
+                                    }
+                                    else { 
+                                        menu_item_select_old.firstChild.style.animation = "fluent-menu-item-select-up 0.3s ease-in";
+                                    }
+        
+                                    setTimeout(function () {
+                                        menu_item_select_old.firstChild.remove();
+                                    }, 280);
+                                }
+        
+                                i++;
+                            }
+        
+                            i = 0;
+        
+                            menu_item_select.classList.add("selected");
+                            menu_item_select.setAttribute("selected", "");
+        
+                            if (oldExists) {
+                                var active_element = document.createElement("div");
+
+                                active_element.classList.add("fluent-menu-item-select-selected");
+                                menu_item_select.prepend(active_element);
+                                active_element.style.overflow = "hidden";
+            
+                                setTimeout(function () {
+                                    active_element.style.opacity = "1";
+            
+                                    // Animate accent colored div movement
+                                    if (newItemIndex > oldItemIndex) {
+                                        active_element.style.animation = "fluent-menu-item-select-up-reverse 0.3s ease-out";
+                                    }
+                                    else { 
+                                        active_element.style.animation = "fluent-menu-item-select-down-reverse 0.3s ease-out";
+                                    }
+                                }, 280);
+                            } else {
+                                var active_element = document.createElement("div");
+        
+                                active_element.classList.add("fluent-menu-item-select-selected");
+                                menu_item_select.prepend(active_element);
+                                
+                                active_element.animate(
+                                    [
+                                        // keyframes
+                                        { transform: 'scaleY(0)', opacity: '0' },
+                                        { transform: 'scaleY(1)', opacity: '1' }
+                                    ],
+                                    {
+                                        // timing options
+                                        duration: 90
+                                    });
+                            }
                         }
+                    });
+    
+                    if (menu_item_select.hasAttribute("selected")) {
+                        menu_item_select.classList.add("selected");
+    
+                        var active_element = document.createElement("div");
+    
+                        active_element.classList.add("fluent-menu-item-select-selected");
+                        menu_item_select.prepend(active_element);
+    
+                        active_element.animate(
+                            [
+                                // keyframes
+                                { transform: 'scaleY(0)', opacity: '0' },
+                                { transform: 'scaleY(1)', opacity: '1' }
+                            ],
+                            {
+                                // timing options
+                                duration: 90
+                            });
+
+                        active_element.style.opacity = "1";
                     }
                 }
             }
         }
+    }
 }
 
 function InitializePages() {
