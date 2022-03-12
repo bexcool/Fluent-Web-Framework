@@ -793,10 +793,6 @@ a.fluent-menu-item:hover {
 /* Menu Expander */
 
 .fluent-menu-item-expander-header {
-    background-repeat: no-repeat;
-    background-size: 1.35em;
-    background-position-x: 0.65em;
-    background-position-y: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -811,6 +807,10 @@ a.fluent-menu-item:hover {
     border-radius: 4px;
     width: auto;
     overflow: hidden;
+}
+
+.fluent-menu-item-expander-header .fluent-menu-item-icon {
+    height: 1.25em;
 }
 
 .fluent-menu-item-expander-header:hover {
@@ -931,6 +931,15 @@ a.fluent-menu-item:hover {
 /* Menu item icon */
 .fluent-menu-item-icon {
     position: absolute;
+    filter: invert(var(--icon-color));
+    -webkit-filter: invert(var(--icon-color));
+    transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -ms-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    height: 1.4em;
+    margin-left: -35px;
 }
 
 /* Hr spacer */

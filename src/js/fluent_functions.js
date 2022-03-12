@@ -538,7 +538,7 @@ function InitSelectableMenuItems() {
                         menu_item_select.classList.add("selected");
     
                         var active_element = document.createElement("div");
-    
+                        if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-15px";
                         active_element.classList.add("fluent-menu-item-select-selected");
                         menu_item_select.prepend(active_element);
     
@@ -703,8 +703,12 @@ function MakeFluentElements() {
     const menu_items = document.querySelectorAll(".fluent-menu-item, .fluent-menu-item-select, .fluent-menu-item-expander-header");
 
     for (const menu_item of menu_items) {
-        if (menu_item.hasAttribute("icon")) menu_item.style.backgroundImage = 'url(' + menu_item.getAttribute("icon") + ')';
-        else {
+        if (menu_item.hasAttribute("icon")) {
+            var icon = document.createElement("img");
+            icon.classList.add("fluent-menu-item-icon");
+            icon.setAttribute("src", menu_item.getAttribute("icon"));
+            menu_item.prepend(icon)
+        } else {
             menu_item.style.backgroundImage = "none";
             menu_item.style.paddingLeft = "20px";
         }
