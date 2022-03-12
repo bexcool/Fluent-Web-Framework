@@ -622,10 +622,15 @@ legend {
 }
 
 .fluent-context-menu-container ul li a, .fluent-context-menu-standalone ul li a, .fluent-menu ul li a {
+    background-image: url("../img/icons/ic_fluent_window_16_regular.svg");
+    background-repeat: no-repeat;
+    background-size: 1.5em;
+    background-position-x: 1.2em;
+    background-position-y: center;
     color: var(--text-color);
     border: none;
     margin: 5px;
-    padding: 6px 20px 7px;
+    padding: 6px 50px 7px;
     background-color: rgba(0, 0, 0, 0);
     transition: 0.1s ease-in-out;
     outline: var(--text-color);
@@ -711,7 +716,7 @@ a.fluent-menu-item:hover {
     background-color: var(--accent-color);
     display: inline-block; 
     border-radius: 10px; 
-    margin: 0.1em 0 0.1em -15px;
+    margin: 0.1em 0 0.1em -45px;
 }
 
 @keyframes fluent-menu-item-select-up {
@@ -918,6 +923,11 @@ a.fluent-menu-item:hover {
     padding: 1.5em;
     margin-top: 0;
     padding-top: 0;
+}
+
+/* Menu item icon */
+.fluent-menu-item-icon {
+    position: absolute;
 }
 
 /* Hr spacer */
