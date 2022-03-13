@@ -56,7 +56,6 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
     color: var(--text-color);
     margin: 0;
-    min-height: 100vh;
     transition: 0.25s ease-in-out;
     -webkit-transition: 0.25s ease-in-out;
     -moz-transition: 0.25s ease-in-out;
@@ -921,9 +920,8 @@ a.fluent-menu-item:hover {
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     overflow: hidden;
-    margin: -1.5em;
+    margin: 0;
     padding: 1.5em;
-    margin-top: 0;
     padding-top: 0;
 }
 
@@ -1437,8 +1435,6 @@ fluent-web-container {
     padding: 3em;
     margin-left: 5em;
     width: auto;
-    right: 0;
-    bottom: 0;
     border-radius: 8px 0 0 0;
     -webkit-border-radius: 8px 0 0 0;
     -moz-border-radius: 8px 0 0 0;

@@ -307,7 +307,7 @@ function InitializeFluent() {
         //#endregion
 
         Initialized = true;
-    }, 50)
+    }, 100)
 }
 
 function InitExpanders() {
@@ -397,7 +397,6 @@ function InitMenuExpanders() {
             // Bind expander open/close
             expander.addEventListener("click", (e) => {
                 e.preventDefault();
-
                 expander.parentElement.lastElementChild.style.overflow = "hidden";
                 expander.style.overflow = "hidden";
                 expander.parentElement.lastElementChild.style.position = "relative";
@@ -414,8 +413,8 @@ function InitMenuExpanders() {
                     setTimeout(function () {
                         expander_body.classList.remove("expanded");
                     }, 280);
-                }
-                else {
+                } else {
+                    expander.parentElement.lastElementChild.style.marginBottom = "-5px";
                     expander_body.classList.add("expanded");
 
                     document.documentElement.style.setProperty("--expander-expand-height", (expander_body.scrollHeight) + "px");
@@ -425,9 +424,11 @@ function InitMenuExpanders() {
                 }
 
                 setTimeout(() => { 
+                    expander.parentElement.lastElementChild.style.marginBottom = "0";
                     expander.parentElement.lastElementChild.style.overflow = "visible";
                     expander.style.overflow = "visible";
                     expander.parentElement.lastElementChild.style.position = "static";
+                    console.log("fffff");
                 }, 300);
             });
         }
