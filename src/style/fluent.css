@@ -13,7 +13,7 @@
     --lighter-press-color: rgb(51, 51, 51);
     --light-border-color: rgb(47, 47, 47);
     --light-dark-color: rgb(33, 33, 33);
-    --very-light-color: rgb(145, 145, 145);
+    --very-light-color: rgb(145, 145, 145, 0.75);
     --focus-color: rgba(255, 255, 255, 0.043);
     --text-color-inverted: black;
     --text-focus-color-inverted: rgba(0, 0, 0, 0.75);
@@ -599,8 +599,8 @@ legend {
     margin-top: 0;
     width: auto;
     color: var(--text-color);
-    border: var(--light-border-color) solid 0.4px;
-    background: var(--light-trans-color);
+    border: var(--dark-border-color) solid 0.4px;
+    background: var(--light-color);
     backdrop-filter: blur(15px);
     outline: var(--text-color);
     border-radius: 8px;
@@ -629,7 +629,7 @@ legend {
     color: var(--text-color);
     border: none;
     margin: 5px;
-    padding: 6px 50px 7px;
+    padding: 6px 42px 7px;
     background-color: rgba(0, 0, 0, 0);
     transition: 0.1s ease-in-out;
     outline: var(--text-color);
@@ -715,7 +715,7 @@ a.fluent-menu-item:hover {
     background-color: var(--accent-color);
     display: inline-block; 
     border-radius: 10px; 
-    margin: 0.1em 0 0.1em -45px;
+    margin: 0.1em 0 0.1em -42px;
 }
 
 @keyframes fluent-menu-item-select-up {
@@ -849,7 +849,6 @@ a.fluent-menu-item:hover {
 }
 
 .fluent-menu-item-expander-body.expanded {
-    border-top: rgba(0, 0, 0, 0) solid 0.4px;
     display: block;
 }
 
@@ -929,6 +928,7 @@ a.fluent-menu-item:hover {
 }
 
 /* Menu item icon */
+
 .fluent-menu-item-icon {
     position: absolute;
     filter: invert(var(--icon-color));
@@ -939,7 +939,7 @@ a.fluent-menu-item:hover {
     -ms-transition: 0.2s ease-in-out;
     -o-transition: 0.2s ease-in-out;
     height: 1.4em;
-    margin-left: -35px;
+    margin-left: -31.5px;
 }
 
 /* Hr spacer */
@@ -1328,17 +1328,76 @@ code {
 /* Table */
 
 table {
+    display: inline-block;
+    background-clip: padding-box;
     border-collapse: collapse;
+    margin: 1.5em 0;
+    border: var(--dark-border-color) solid 0.4px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+th {
+    background-color: var(--light-color);
+    padding: 0.5em 3.5em;
+    font-weight: 600;
+}
+
+tr > th:first-child {
+    border-radius: 4px 0 0 0;
+    -webkit-border-radius: 4px 0 0 0;
+    -moz-border-radius: 4px 0 0 0;
+    -ms-border-radius: 4px 0 0 0;
+    -o-border-radius: 4px 0 0 0;
+}
+
+tr > th:last-child {
+    border-radius: 0 4px 0 0;
+    -webkit-border-radius: 0 4px 0 0;
+    -moz-border-radius: 0 4px 0 0;
+    -ms-border-radius: 0 4px 0 0;
+    -o-border-radius: 0 4px 0 0;
+}
+
+tbody > tr:last-child > td:first-child {
+    background-color: var(--darker-color);
+    border-radius: 0 0 0 4px;
+    -webkit-border-radius: 0 0 0 4px;
+    -moz-border-radius: 0 0 0 4px;
+    -ms-border-radius: 0 0 0 4px;
+    -o-border-radius: 0 0 0 4px;
+}
+
+tbody > tr:last-child > td:last-child {
+    background-color: var(--darker-color);
+    border-radius: 0 0 4px 0;
+    -webkit-border-radius: 0 0 4px 0;
+    -moz-border-radius: 0 0 4px 0;
+    -ms-border-radius: 0 0 4px 0;
+    -o-border-radius: 0 0 4px 0;
+}
+
+tbody tr td {
+    background-color: var(--darker-color);
 }
 
 td {
-    border-bottom: 1px solid var(--dark-border-color);
+    padding: 1.5em 1em;
 }
-/*
-body {
-    background-image: url("https://fluent-svelte.vercel.app/bloom-mica-dark.png");
-    background-attachment: fixed;
-}*/
+
+tbody tr {
+    vertical-align: middle;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    border-bottom: 0.4px solid var(--light-border-color);
+}
+
+tbody > tr:last-child {
+    border-bottom: none;
+}
 
 /* Page */
 

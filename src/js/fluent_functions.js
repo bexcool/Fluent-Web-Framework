@@ -31,7 +31,7 @@ function SetDarkTheme() {
     doc.style.setProperty("--light-hover-color", "hsla(0, 0%, 100%, .084)");
     doc.style.setProperty("--lighter-hover-color", "rgb(55, 55, 55)");
     doc.style.setProperty("--lighter-press-color", "rgb(51, 51, 51)");
-    doc.style.setProperty("--light-border-color", "rgb(47, 47, 47)");
+    doc.style.setProperty("--light-border-color", "rgba(25, 25, 25, 0.25)");
     doc.style.setProperty("--focus-color", "rgba(255, 255, 255, 0.043)");
     doc.style.setProperty("--text-color-inverted", "black");
     doc.style.setProperty("--text-focus-color-inverted", "rgba(0, 0, 0, 0.75)");
@@ -74,7 +74,7 @@ function SetLightTheme() {
     doc.style.setProperty("--light-hover-color", "rgb(0, 0, 0, 0.03)");
     doc.style.setProperty("--lighter-hover-color", "rgb(242, 242, 242)");
     doc.style.setProperty("--lighter-press-color", "rgb(245, 245, 245)");
-    doc.style.setProperty("--light-border-color", "rgb(203, 203, 203)");
+    doc.style.setProperty("--light-border-color", "rgba(220, 220, 220, 0.4)");
     doc.style.setProperty("--focus-color", "rgb(0, 0, 0, 0.02)");
     doc.style.setProperty("--text-color-inverted", "white");
     doc.style.setProperty("--text-focus-color-inverted", "rgba(255, 255, 255, 0.75)");
@@ -135,7 +135,7 @@ function InitializeFluent() {
         InitMenuExpanders()
 
         // Initialize Code Elements
-        MakeFluentElements();
+        InitFluentElements();
 
         // Initialize Selectable Buttons
         InitSelectableMenuItems();
@@ -307,7 +307,7 @@ function InitializeFluent() {
         //#endregion
 
         Initialized = true;
-    }, 30)
+    }, 50)
 }
 
 function InitExpanders() {
@@ -498,7 +498,7 @@ function InitSelectableMenuItems() {
                                 var active_element = document.createElement("div");
 
                                 active_element.classList.add("fluent-menu-item-select-selected");
-                                if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-15px";
+                                if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
                                 menu_item_select.prepend(active_element);
                                 active_element.style.overflow = "hidden";
             
@@ -517,7 +517,7 @@ function InitSelectableMenuItems() {
                                 var active_element = document.createElement("div");
         
                                 active_element.classList.add("fluent-menu-item-select-selected");
-                                if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-15px";
+                                if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
                                 menu_item_select.prepend(active_element);
                                 
                                 active_element.animate(
@@ -530,6 +530,8 @@ function InitSelectableMenuItems() {
                                         // timing options
                                         duration: 90
                                     });
+                                    active_element.style.opacity = "1";
+                                    
                             }
                         }
                     });
@@ -538,7 +540,7 @@ function InitSelectableMenuItems() {
                         menu_item_select.classList.add("selected");
     
                         var active_element = document.createElement("div");
-                        if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-15px";
+                        if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
                         active_element.classList.add("fluent-menu-item-select-selected");
                         menu_item_select.prepend(active_element);
     
@@ -564,9 +566,16 @@ function InitSelectableMenuItems() {
 function InitializePages() {
     for (const page_switcher of document.querySelectorAll("fluent-page-switcher")) {
         // Show current page
-        page_switcher.children[page_switcher.getAttribute("active-page")].style.display = "block";
+        if (page_switcher.hasAttribute("active-page")) page_switcher.children[page_switcher.getAttribute("active-page")].style.display = "block";
+        else if (page_switcher.children.length > 0)
+        {       
+            page_switcher.setAttribute("active-page", "0");
 
-        for (const page of page_switcher.querySelectorAll("fluent-page")) console.log("lol");
+            // Show current page
+            const active_page = page_switcher.children[0];
+            active_page.style.display = "block";
+            active_page.style.animation="fluent-page-fade-up 0.3s ease-in-out";
+        }
     }
 }
 
@@ -585,7 +594,7 @@ function SetActivePageIndex(page_switcher_id, index) {
     }
 }
 
-function MakeFluentElements() {
+function InitFluentElements() {
     // Code
     let doc = document.documentElement;
 
@@ -707,11 +716,20 @@ function MakeFluentElements() {
             var icon = document.createElement("img");
             icon.classList.add("fluent-menu-item-icon");
             icon.setAttribute("src", menu_item.getAttribute("icon"));
-            menu_item.prepend(icon)
+            menu_item.prepend(icon);
         } else {
             menu_item.style.backgroundImage = "none";
             menu_item.style.paddingLeft = "20px";
         }
+    }
+
+    // Prevent click on context menu
+    const context_menus = document.querySelectorAll(".fluent-context-menu-container");
+
+    for (const context_menu of context_menus) {
+        context_menu.addEventListener("click", (e) => {
+            e.preventDefault();
+        });
     }
 }
 

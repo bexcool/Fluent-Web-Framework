@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <title>Fluent Style</title>
     <link rel="stylesheet" href="../src/style/fluent.css" type="text/css">
+    <script type="text/javascript" src="../src/js/fluent_elements.js"></script>
     <script type="text/javascript" src="../src/js/fluent_functions.js"></script>
     <script type="text/javascript" src="../src/js/fluent_animations.js"></script>
-    <script type="text/javascript" src="../src/js/fluent_elements.js"></script>
 </head>
 
 <body onload="InitializeFluent(); InitializeAnimations(); EnableMica();">
@@ -19,24 +19,30 @@
                 <p>Dark and light theme.</p>
                 <button onclick="SwitchTheme();">Switch theme</button>
                 <button onclick="EnableMica();">Enable Mica</button>
-                <button onclick="DisableMica();">Disable Mica</button>
+                <button onclick="DisableMica();" style="margin-bottom: 10px;">Disable Mica</button>
                 <fluent-menu-item-expander header="Controls" icon="./icons/ic_fluent_cursor_hover_16_regular.svg">
-                    <fluent-menu-item icon="./icons/ic_fluent_cursor_hover_16_regular.svg" onclick="SetActivePageIndex('page-switcher-test', 0)" selectable>Button</fluent-menu-item>
+                    <fluent-menu-item icon="./icons/ic_fluent_cursor_hover_16_regular.svg" onclick="SetActivePageIndex('page-switcher-test', 0)" selectable selected>Button</fluent-menu-item>
                     <fluent-menu-item icon="./icons/ic_fluent_textbox_16_regular.svg" onclick="SetActivePageIndex('page-switcher-test', 1)" selectable>Textbox</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 2)" selectable>Checkbox</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 3)" selectable>Slider</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 4)" selectable>Table</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 5)" selectable selected>Context menu</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 5)" selectable>Context menu</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 6)" selectable>Expander</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 7)" selectable>Code</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 8)" selectable>Flyout</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 9)" selectable>Border</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 10)" selectable>Menu</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher-test', 11)" selectable>Page switcher</fluent-menu-item>
+                </fluent-menu-item-expander>
+                <fluent-menu-item-expander header="Functions" icon="./icons/ic_fluent_cursor_hover_16_regular.svg">
+                    <fluent-menu-item onclick="SetDarkTheme();" selectable>Initialize</fluent-menu-item>
+                    <fluent-menu-item onclick="SetDarkTheme();" selectable>Themes</fluent-menu-item>
+                    <fluent-menu-item onclick="SetDarkTheme();" selectable>Mica</fluent-menu-item>
                 </fluent-menu-item-expander>
             </fluent-menu>
             
             <fluent-main-content>
-                <fluent-page-switcher id="page-switcher-test" active-page="5">
+                <fluent-page-switcher id="page-switcher-test" active-page="0">
                     <!-- Button section -->
                     <fluent-page>
                         <section id="button">
@@ -262,14 +268,35 @@
                         <section id="flyout">
                             <h2>Flyout</h2>
                             <p>Custom element "Flyout" with text that shows on the top of the parent element.</p>
-                            <p>
-                                Call function ShowFlyout(element, string, delay).
-                                <ul>
-                                    <li><strong>element</strong> = Show flyout above this element.</li>
-                                    <li><strong>string</strong> = Text to show in flyout.</li>
-                                    <li><strong>delay</strong> = How long will flyout be visible (in milliseconds).</li>
-                                </ul>
-                            </p>
+                            <h3>Functions</h3>
+                            <fluent-border><code sh="JS">ShowFlyout(this, 'This is flyout', 2000);</code></fluent-border>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>element</td>
+                                        <td>element</td>
+                                        <td>Show flyout above this element.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>string</td>
+                                        <td>string</td>
+                                        <td>Text to show in flyout.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>delay</td>
+                                        <td>int</td>
+                                        <td>How long will flyout be visible (in milliseconds).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h3>Usage</h3>
                             <fluent-border><code sh="HTML"> &lt;button onclick=&#34;ShowFlyout(this, 'This is flyout', 2000);&#34;&gt;Show flyout!&lt;/button&gt;</code></fluent-border><br>
                             <button onclick="ShowFlyout(this, 'This is flyout', 2000);">Show flyout!</button>
                         </section>
@@ -279,36 +306,96 @@
                         <section id="border">
                             <h2>Border</h2>
                             <p>Custom element "Border" with content.</p>
-                            <div class="fluent-content">
-                                <p>
-                                    Background border with header and button.
-                                </p>
-                                <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
-                                                                &lt;/fluent-border&gt;</code></fluent-border><br>
-                                <fluent-border>
-                                    <h3>Button</h3>
-                                    <button>Fluent button</button>
-                                </fluent-border>
-                            </div>
+                            <p>
+                                Background border with header and button.
+                            </p>
+                            <h3>Usage</h3>
+                            <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
+                                                            &lt;/fluent-border&gt;</code></fluent-border><br>
+                            <fluent-border>
+                                <h3>Button</h3>
+                                <button>Fluent button</button>
+                            </fluent-border>
                         </section>
                     </fluent-page>
                     <!-- Menu -->
                     <fluent-page>
                         <section id="menu">
                             <h2>Menu</h2>
-                            <p>Custom element for navigating on your webpage.</p>
-                            <div class="fluent-content">
-                                <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
-                                                                &lt;/fluent-border&gt;</code></fluent-border><br>
-                                <fluent-menu>
-                                    <fluent-menu-item selectable>Test</fluent-menu-item>
-                                    <fluent-menu-item selectable>Test</fluent-menu-item>
-                                </fluent-menu>
-                            </div>
+                            <p>Custom element for navigating on your webpage. Menu item expander works like normal expander.</p>
+                            <h3>Usage</h3>
+                            <fluent-border><code sh="HTML"> &lt;fluent-menu style="width: 25%;"&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item icon="./icons/ic_fluent_cursor_hover_16_regular.svg" selectable selected&gt;Button&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable&gt;Accessories&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item-expander header="More"&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable&gt;Info&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable&gt;Donate&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable&gt;About&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-menu-item-expander&gt;
+                                                            &lt;/fluent-menu&gt</code></fluent-border><br>
+                            <fluent-menu style="width: 25%;">
+                                <fluent-menu-item icon="./icons/ic_fluent_cursor_hover_16_regular.svg" selectable selected>Button</fluent-menu-item>
+                                <fluent-menu-item selectable>Accessories</fluent-menu-item>
+                                <fluent-menu-item-expander header="More">
+                                    <fluent-menu-item selectable>Info</fluent-menu-item>
+                                    <fluent-menu-item selectable>Donate</fluent-menu-item>
+                                    <fluent-menu-item selectable>About</fluent-menu-item>
+                                </fluent-menu-item-expander>
+                            </fluent-menu>
+                        </section>
+                    </fluent-page>
+                    <!-- Page switcher -->
+                    <fluent-page>
+                        <section id="page-switcher">
+                            <h2>Page switcher</h2>
+                            <p>Custom element for switching between pages. Makes your webpage pages a lot easier.</p>
+                            <h3>Functions</h3>
+                            <fluent-border><code sh="JS">SetActivePageIndex('showcase-page-switcher', 0);</code></fluent-border>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>page_switcher_id</td>
+                                        <td>string</td>
+                                        <td>ID of the Page switcher.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>index</td>
+                                        <td>int</td>
+                                        <td>Page's index.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h3>Usage</h3>
+                            <fluent-border><code sh="HTML"> &lt;button onclick="SetActivePageIndex('showcase-page-switcher', 0)"&gt;Open Page 1&lt;/button&gt;
+                                                            &lt;button onclick="SetActivePageIndex('showcase-page-switcher', 1)"&gt;Open Page 2&lt;/button&gt;
+
+                                                            &lt;fluent-page-switcher id="showcase-page-switcher"&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-page&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Page 1&lt;/h2&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-page&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-page&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Page 2&lt;/h2&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-page&gt;
+                                                            &lt;/fluent-page-switcher&gt;</code></fluent-border><br>
+                            <button onclick="SetActivePageIndex('showcase-page-switcher', 0);">Open Page 1</button>
+                            <button onclick="SetActivePageIndex('showcase-page-switcher', 1);">Open Page 2</button>
+                            <fluent-page-switcher id="showcase-page-switcher">
+                                <fluent-page>
+                                    <h2>Page 1</h2>
+                                </fluent-page>
+                                <fluent-page>
+                                    <h2>Page 2</h2>
+                                </fluent-page>
+                            </fluent-page-switcher>
                         </section>
                     </fluent-page>
                 </fluent-page-switcher>

@@ -139,7 +139,7 @@ class Menu extends HTMLElement {
 
 customElements.define('fluent-menu', Menu);
 
-// Menu
+// Main content
 
 class MainContent extends HTMLElement {
     connectedCallback() {
