@@ -1441,5 +1441,43 @@ fluent-web-container {
     -ms-border-radius: 8px 0 0 0;
     -o-border-radius: 8px 0 0 0;
     flex:1;
-    min-height: 40rem
+    min-height: 40rem;
+}
+
+.fluent-loading-icon {
+    z-index: 100001;
+    height: 20em;
+    width: 20em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10em;
+    margin-left: -10em;
+}
+
+.fluent-loading-background {
+    z-index: 100000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--dark-color);
+    transition: all .5s ease-in;
+    -webkit-transition: all .5s ease-in;
+    -moz-transition: all .5s ease-in;
+    -ms-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+}
+
+/* Default Animations */
+
+@keyframes fluent-fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fluent-fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }

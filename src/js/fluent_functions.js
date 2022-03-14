@@ -1,6 +1,10 @@
 // Variables
 var Initialized = false;
 
+    // Splash screen
+    var splash_background;
+    var splash_image;
+
 // Imports
 
 
@@ -124,6 +128,20 @@ function LoadLastTheme() {
 }
 
 function InitializeFluent() {
+    // Prepare splash screen
+    splash_background = document.createElement("div");
+    splash_background.id = "fluent-splash-screen";
+    splash_background.classList.add("fluent-loading-background");
+
+    document.body.style.overflow = "hidden";
+    document.body.prepend(splash_background);
+
+    splash_image = document.createElement("object");
+    splash_image.classList.add("fluent-loading-icon");
+
+    splash_background.prepend(splash_image);
+    splash_background.style.display = "none";
+
     setTimeout( () => {
         var webDocument = document.documentElement;
 
@@ -307,7 +325,35 @@ function InitializeFluent() {
         //#endregion
 
         Initialized = true;
-    }, 100)
+    }, 100);
+
+}
+
+function ShowSplashScreen(duration = 0, fadeIn = false, image = "") {
+    document.body.style.overflow = "hidden";
+
+    if (image == "") {
+        splash_image.type="image/svg+xml";
+        splash_image.data="https://resources.bexcool.eu/fluentwebframework/src/img/icons/web.png";
+    } else {
+        splash_image.src = image;
+    }
+    
+    splash_background.style.display = "block";
+    if (fadeIn) {
+        //splash_background.style.animation = "fluent-fade-in .3s ease-in";
+        setTimeout(() => {
+            splash_background.style.opacity = "1";
+        }, 10);
+    }
+
+    setTimeout(() => {
+        splash_background.style.opacity = "0";
+        setTimeout(() => {
+            splash_background.style.display = "none";
+            document.body.style.overflow = "auto";
+        }, 500);
+    }, duration);
 }
 
 function InitExpanders() {
@@ -499,7 +545,7 @@ function InitSelectableMenuItems() {
                                 var active_element = document.createElement("div");
 
                                 active_element.classList.add("fluent-menu-item-select-selected");
-                                if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
+                                //if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
                                 menu_item_select.prepend(active_element);
                                 active_element.style.overflow = "hidden";
             
@@ -518,7 +564,7 @@ function InitSelectableMenuItems() {
                                 var active_element = document.createElement("div");
         
                                 active_element.classList.add("fluent-menu-item-select-selected");
-                                if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
+                                //if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
                                 menu_item_select.prepend(active_element);
                                 
                                 active_element.animate(
@@ -541,7 +587,7 @@ function InitSelectableMenuItems() {
                         menu_item_select.classList.add("selected");
     
                         var active_element = document.createElement("div");
-                        if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
+                        //if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
                         active_element.classList.add("fluent-menu-item-select-selected");
                         menu_item_select.prepend(active_element);
     
@@ -719,8 +765,7 @@ function InitFluentElements() {
             icon.setAttribute("src", menu_item.getAttribute("icon"));
             menu_item.prepend(icon);
         } else {
-            menu_item.style.backgroundImage = "none";
-            menu_item.style.paddingLeft = "20px";
+            //menu_item.style.paddingLeft = "20px";
         }
     }
 
