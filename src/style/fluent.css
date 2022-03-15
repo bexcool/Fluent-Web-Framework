@@ -852,6 +852,10 @@ a.fluent-menu-item:hover {
     flex-direction: column;
 }
 
+.fluent-menu-item-expander-body.expanded li a {
+    margin-bottom: 0;
+}
+
 .fluent-menu-item-expander-body-container {
     height: fit-content;
 }
@@ -937,7 +941,7 @@ a.fluent-menu-item:hover {
     -moz-transition: 0.2s ease-in-out;
     -ms-transition: 0.2s ease-in-out;
     -o-transition: 0.2s ease-in-out;
-    height: 1.4em;
+    height: 1.425em;
     margin-left: -31.5px;
 }
 
@@ -1443,7 +1447,7 @@ fluent-web-container {
     -ms-border-radius: 8px 0 0 0;
     -o-border-radius: 8px 0 0 0;
     flex:1;
-    min-height: 40rem;
+    min-height: 45rem;
 }
 
 .fluent-loading-icon {
