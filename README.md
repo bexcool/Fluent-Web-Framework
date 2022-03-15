@@ -1,7 +1,8 @@
 # Fluent Web Framwork
  Framework for creating fluent Windows 11 design for your website.
  
-## Small showcase (better controls showcase is in [framework's webpage](https://resources.bexcool.eu/fluentwebframework/showcase/index.html))
+## Documentation
+Visit [Fluent Web Framework webpage](https://resources.bexcool.eu/fluentwebframework/showcase/index.html) - still in progress
 ### Some controls
 ![obrazek](https://user-images.githubusercontent.com/53868994/151600056-709ddcb5-838a-4f69-a518-a249130aa712.png)
 ### Expander
@@ -18,9 +19,6 @@
 - Accurate colors.
 - Custom elements for easier usage.
 - Light and Dark theme.
-
-## Showcase
-Visit [Fluent Web Framework webpage](https://resources.bexcool.eu/fluentwebframework/showcase/index.html) - still in progress
 
 ## Usage
 ### CSS
