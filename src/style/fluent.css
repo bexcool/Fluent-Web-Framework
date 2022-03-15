@@ -799,7 +799,7 @@ a.fluent-menu-item:hover {
     border: none;
     margin: 5px;
     margin-bottom: 0;
-    padding: 6px 20px 7px 45px;
+    padding: 6px 20px 7px 40px;
     background-color: rgba(0, 0, 0, 0);
     transition: 0.1s ease-in-out;
     outline: var(--text-color);
@@ -848,7 +848,8 @@ a.fluent-menu-item:hover {
 }
 
 .fluent-menu-item-expander-body.expanded {
-    display: block;
+    display:flex;
+    flex-direction: column;
 }
 
 .fluent-menu-item-expander-body-container {
@@ -1015,6 +1016,7 @@ p, .fluent-body {
     color: var(--text-color);
     border: var(--dark-border-color) solid 0.4px;
     padding: 0 0.4em 0 1em;
+    margin: 0;
     background-color: var(--light-color);
     transition: 0.1s ease-in-out;
     border-radius: 4px 4px 4px 4px;
@@ -1463,11 +1465,11 @@ fluent-web-container {
     bottom: 0;
     left: 0;
     background-color: var(--dark-color);
-    transition: all .5s ease-in;
-    -webkit-transition: all .5s ease-in;
-    -moz-transition: all .5s ease-in;
-    -ms-transition: all .5s ease-in;
-    -o-transition: all .5s ease-in;
+    transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -ms-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
 }
 
 /* Default Animations */

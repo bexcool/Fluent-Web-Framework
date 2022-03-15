@@ -110,20 +110,27 @@ function SetLightTheme() {
 // Enable Mica Effect
 function EnableMica() {
     document.body.classList.add("mica-effect");
+    localStorage.setItem("Mica", "true");
 }
 
 // Disable Mica Effect
 function DisableMica() {
     document.body.classList.remove("mica-effect");
+    localStorage.setItem("Mica", "false");
 }
 
 // Loads last theme
 function LoadLastTheme() {
     if (localStorage.getItem("CurrentTheme") == "Light") {
         SetLightTheme();
-    }
-    else {
+    } else {
         SetDarkTheme();
+    }
+
+    if (localStorage.getItem("Mica") == "true") {
+        EnableMica();
+    } else {
+        DisableMica();
     }
 }
 
@@ -341,7 +348,6 @@ function ShowSplashScreen(duration = 0, fadeIn = false, image = "") {
     
     splash_background.style.display = "block";
     if (fadeIn) {
-        //splash_background.style.animation = "fluent-fade-in .3s ease-in";
         setTimeout(() => {
             splash_background.style.opacity = "1";
         }, 10);
@@ -352,7 +358,7 @@ function ShowSplashScreen(duration = 0, fadeIn = false, image = "") {
         setTimeout(() => {
             splash_background.style.display = "none";
             document.body.style.overflow = "auto";
-        }, 500);
+        }, 200);
     }, duration);
 }
 
@@ -452,29 +458,26 @@ function InitMenuExpanders() {
                     document.documentElement.style.setProperty("--expander-expand-height", (expander_body.scrollHeight) + "px");
                     expander_body.style.animation = "fluent-expander-expand-reverse 0.3s ease-out";
 
-                    setTimeout(() => {
-                        expander_arrow.style.transform = "rotate(0deg)"
-                    }, 200);
-
                     setTimeout(function () {
                         expander_body.classList.remove("expanded");
-                    }, 280);
+                    }, 290);
+
+                    // Rotate arrow
+                    setTimeout(() => expander_arrow.style.transform = "rotate(0deg)", 200);
                 } else {
-                    expander.parentElement.lastElementChild.style.marginBottom = "-5px";
                     expander_body.classList.add("expanded");
 
                     document.documentElement.style.setProperty("--expander-expand-height", (expander_body.scrollHeight) + "px");
                     expander_body.style.animation = "fluent-expander-expand 0.15s ease-in";
 
+                    // Rotate arrow
                     setTimeout(() => expander_arrow.style.transform = "rotate(180deg)", 150);
                 }
 
                 setTimeout(() => { 
-                    expander.parentElement.lastElementChild.style.marginBottom = "0";
+                    expander.parentElement.lastElementChild.style.position = "static";
                     expander.parentElement.lastElementChild.style.overflow = "visible";
                     expander.style.overflow = "visible";
-                    expander.parentElement.lastElementChild.style.position = "static";
-                    console.log("fffff");
                 }, 300);
             });
         }

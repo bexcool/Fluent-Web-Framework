@@ -10,7 +10,7 @@
     <script type="text/javascript" src="../src/js/fluent_animations.js"></script>
 </head>
 
-<body onload="InitializeFluent(); ShowSplashScreen(200); InitializeAnimations(); EnableMica();">
+<body onload="InitializeFluent(); ShowSplashScreen(200); InitializeAnimations();">
     <div style="margin: 0 0 0 10em;">
         <h1>Fluent Web Framework</h1>
         <br><br>
@@ -27,18 +27,39 @@
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 3)" selectable>Slider</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 4)" icon="./icons/ic_fluent_table_16_regular.svg" selectable>Table</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 5)" selectable>Context menu</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 6)" selectable>Expander</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 6)" icon="./icons/ic_fluent_arrow_square_down_20_regular.svg" selectable>Expander</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 7)" selectable>Code</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 8)" selectable>Flyout</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 9)" selectable>Border</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 9)" icon="./icons/ic_fluent_border_outside_20_regular.svg" selectable>Border</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 10)" selectable>Menu</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 11)" selectable>Page switcher</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 11)" icon="./icons/ic_fluent_slide_multiple_24_regular.svg" selectable>Page switcher</fluent-menu-item>
                 </fluent-menu-item-expander>
-                <fluent-menu-item-expander header="Functions" icon="./icons/ic_fluent_cursor_hover_16_regular.svg">
+                <fluent-menu-item-expander header="Functions" icon="./icons/ic_fluent_content_settings_16_regular.svg">
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="./icons/ic_fluent_content_settings_16_regular.svg" selectable>Initialize</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="./icons/ic_fluent_weather_moon_16_regular.svg" selectable>Themes</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="./icons/ic_fluent_window_16_regular.svg" selectable>Mica</fluent-menu-item>
+                    <fluent-menu-item-expander header="Functions" icon="./icons/ic_fluent_content_settings_16_regular.svg">
+                        <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="./icons/ic_fluent_content_settings_16_regular.svg" selectable>Initialize</fluent-menu-item>
+                        <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="./icons/ic_fluent_weather_moon_16_regular.svg" selectable>Themes</fluent-menu-item>
+                        <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="./icons/ic_fluent_window_16_regular.svg" selectable>Mica</fluent-menu-item>
+                        <fluent-menu-item-expander header="Functions" icon="./icons/ic_fluent_content_settings_16_regular.svg">
+                            <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="./icons/ic_fluent_content_settings_16_regular.svg" selectable>Initialize</fluent-menu-item>
+                            <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="./icons/ic_fluent_weather_moon_16_regular.svg" selectable>Themes</fluent-menu-item>
+                            <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="./icons/ic_fluent_window_16_regular.svg" selectable>Mica</fluent-menu-item>
+                            <fluent-menu-item-expander header="Functions" icon="./icons/ic_fluent_content_settings_16_regular.svg">
+                                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="./icons/ic_fluent_content_settings_16_regular.svg" selectable>Initialize</fluent-menu-item>
+                                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="./icons/ic_fluent_weather_moon_16_regular.svg" selectable>Themes</fluent-menu-item>
+                                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="./icons/ic_fluent_window_16_regular.svg" selectable>Mica</fluent-menu-item>
+                                <fluent-menu-item-expander header="Functions" icon="./icons/ic_fluent_content_settings_16_regular.svg">
+                                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="./icons/ic_fluent_content_settings_16_regular.svg" selectable>Initialize</fluent-menu-item>
+                                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="./icons/ic_fluent_weather_moon_16_regular.svg" selectable>Themes</fluent-menu-item>
+                                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="./icons/ic_fluent_window_16_regular.svg" selectable>Mica</fluent-menu-item>
+                                </fluent-menu-item-expander>
+                            </fluent-menu-item-expander>
+                        </fluent-menu-item-expander>
+                    </fluent-menu-item-expander>
                 </fluent-menu-item-expander>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="./icons/ic_fluent_info_12_regular.svg" selectable>About</fluent-menu-item>
             </fluent-menu>
             
             <fluent-main-content>
@@ -396,6 +417,24 @@
                                     <h2>Page 2</h2>
                                 </fluent-page>
                             </fluent-page-switcher>
+                        </section>
+                    </fluent-page>
+                    <fluent-page>
+                        <section id="initialize">
+                            <h2>Initialize</h2>
+                            <p>Important functions to initialize fluent framework.</p>
+                        </section>
+                    </fluent-page>
+                    <fluent-page>
+                        <section id="initialize">
+                            <h2>Themes</h2>
+                            <p>Fluent has light and dark theme.</p>
+                        </section>
+                    </fluent-page>
+                    <fluent-page>
+                        <section id="initialize">
+                            <h2>Mica</h2>
+                            <p>Functions to enable Mica effect.</p>
                         </section>
                     </fluent-page>
                 </fluent-page-switcher>
