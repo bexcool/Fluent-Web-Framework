@@ -38,8 +38,8 @@ This file contains core functions of the framework.<br>
 https://resources.bexcool.eu/fluentwebframework/src/js/fluent_functions.min.js
 ```
 #### Fluent Elements
-This file constains custom elements for easier usage.
-Don't use if you only want to use CSS.
+This file constains custom elements for easier usage.<br>
+Don't use if you only want to use CSS.<br>
 Recommended when using JS.
 ```
 https://resources.bexcool.eu/fluentwebframework/src/js/fluent_elements.min.js
