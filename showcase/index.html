@@ -9,7 +9,7 @@
     <script type="text/javascript" src="../src/js/fluent_functions.js"></script>
 </head>
 
-<body onload="InitializeFluent(); ShowSplashScreen(200); InitializeAnimations();">
+<body onload="InitializeFluent(); ShowSplashScreen(350);">
     <div style="margin: 0 0 0 10em;">
         <h1>Fluent Web Framework</h1>
         <fluent-web-container>
@@ -20,25 +20,25 @@
                 <button onclick="DisableMica();" style="margin-bottom: 10px;">Disable Mica</button>
                 <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 0)" icon="./icons/ic_fluent_emoji_hand_20_regular.svg" selectable selected>Introduction</fluent-menu-item>
                 <fluent-menu-item-expander header="Controls" icon="./icons/ic_fluent_cursor_hover_16_regular.svg">
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 1)" icon="./icons/ic_fluent_cursor_hover_16_regular.svg" selectable>Button</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 2)" icon="./icons/ic_fluent_textbox_16_regular.svg" selectable>Textbox</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 1)" icon="./icons/ic_fluent_border_outside_20_regular.svg" selectable>Border</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 2)" icon="./icons/ic_fluent_cursor_hover_16_regular.svg" selectable>Button</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 3)" icon="./icons/ic_fluent_checkbox_checked_16_regular.svg" selectable>Checkbox</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 4)" icon="./icons/ic_fluent_options_16_regular.svg" selectable>Slider</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 5)" icon="./icons/ic_fluent_table_16_regular.svg" selectable>Table</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 6)" icon="./icons/ic_fluent_multiselect_ltr_16_regular.svg" selectable>Context menu</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 7)" icon="./icons/ic_fluent_arrow_square_down_24_regular.svg" selectable>Expander</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 8)" icon="./icons/ic_fluent_code_16_regular.svg" selectable>Code</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 9)" icon="./icons/ic_fluent_tooltip_quote_20_regular.svg" selectable>Flyout</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 10)" icon="./icons/ic_fluent_border_outside_20_regular.svg" selectable>Border</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 11)" icon="./icons/ic_fluent_group_list_24_regular.svg" selectable>Menu</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="./icons/ic_fluent_slide_multiple_24_regular.svg" selectable>Page switcher</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="./icons/ic_fluent_broad_activity_feed_16_regular.svg" selectable>Web container</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="./icons/ic_fluent_textbox_align_center_20_regular.svg" selectable>Label</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 4)" icon="./icons/ic_fluent_code_16_regular.svg" selectable>Code</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 5)" icon="./icons/ic_fluent_multiselect_ltr_16_regular.svg" selectable>Context menu</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 6)" icon="./icons/ic_fluent_arrow_square_down_24_regular.svg" selectable>Expander</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 7)" icon="./icons/ic_fluent_tooltip_quote_20_regular.svg" selectable>Flyout</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 8)" icon="./icons/ic_fluent_textbox_align_center_20_regular.svg" selectable>Label</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 9)" icon="./icons/ic_fluent_group_list_24_regular.svg" selectable>Menu</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 10)" icon="./icons/ic_fluent_slide_multiple_24_regular.svg" selectable>Page switcher</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 11)" icon="./icons/ic_fluent_options_16_regular.svg" selectable>Slider</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="./icons/ic_fluent_table_16_regular.svg" selectable>Table</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="./icons/ic_fluent_textbox_16_regular.svg" selectable>Textbox</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="./icons/ic_fluent_broad_activity_feed_16_regular.svg" selectable>Web container</fluent-menu-item>
                 </fluent-menu-item-expander>
                 <fluent-menu-item-expander header="Functions" icon="./icons/ic_fluent_braces_20_regular.svg">
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 15)" icon="./icons/ic_fluent_content_settings_16_regular.svg" selectable>Initialize</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 16)" icon="./icons/ic_fluent_weather_moon_16_regular.svg" selectable>Themes</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 17)" icon="./icons/ic_fluent_window_16_regular.svg" selectable>Mica</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 16)" icon="./icons/ic_fluent_window_16_regular.svg" selectable>Mica</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 17)" icon="./icons/ic_fluent_weather_moon_16_regular.svg" selectable>Themes</fluent-menu-item>
                 </fluent-menu-item-expander>
                 <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 18)" icon="./icons/ic_fluent_info_12_regular.svg" selectable>About</fluent-menu-item>
             </fluent-menu>
@@ -54,64 +54,62 @@
                             <p>Fluent Web Framework is still in development. Documentation is being updated.</p>
                         </section>
                     </fluent-page>
+                    <!-- Border section -->
+                    <fluent-page>
+                        <section id="border">
+                            <h2>Border</h2>
+                            <p>Custom element "Border" with content.</p>
+                            <h3>Usage</h3>
+                            <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
+                                                            &lt;/fluent-border&gt;</code></fluent-border><br>
+                            <fluent-border>
+                                <h3>Button</h3>
+                                <button>Fluent button</button>
+                            </fluent-border>
+                        </section>
+                    </fluent-page>
                     <!-- Button section -->
                     <fluent-page>
                         <section id="button">
                             <h2>Button</h2>
                             <p>Redesigned button and input submit.</p>
-                            <fluent-expander header="Normal">
-                                <div class="fluent-content">
-                                    <p>Normal button.</p>
-                                    <fluent-border><code sh="HTML"> &lt;button&gt;Click me!&lt;/button&gt;
-                                                                    &lt;!-- Can be used as &lt;input type=&#34;submit&#34;&gt; --&gt;
-                                                                    &lt;input type=&#34;submit&#34; value&#61;&#34;Click me!&#34;&gt;</code></fluent-border><br>
-                                    <button>Click me!</button>
-                                </div>
-                            </fluent-expander>
-                            <fluent-expander header="Accent">
-                                <div class="fluent-content">
-                                    <p>Accent button.</p>
-                                    <fluent-border><code sh="HTML">&lt;button accent&gt;I am an accent button&lt;/button&gt;</code></fluent-border><br>
-                                    <button accent>I am an accent button</button>
-                                </div>
-                            </fluent-expander>
-                            <fluent-expander header="Hyperlink">
-                                <div class="fluent-content">
-                                    <p>Hyperlink button.</p>
-                                    <fluent-border><code sh="HTML">&lt;button hyperlink&gt;Hyperlink&lt;/button&gt;</code></fluent-border><br>
-                                    <button hyperlink>Hyperlink</button>
-                                </div>
-                            </fluent-expander>
-                        </section>
-                    </fluent-page>
-                    <!-- Textbox section -->
-                    <fluent-page>
-                        <section id="textbox">
-                            <h2>Textbox</h2>
-                            <p>Redesigned input text.</p>
-                            <fluent-expander header="Input Text">
-                                <div class="fluent-content">
-                                    <p>Redesigned input type="text" with more attributes.</p>
-                                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;clear_btn&#34; shows clear text button. --&gt;
-                                                                    &lt;input type=&#34;text&#34; value=&#34;BeXCool&#34; clear_btn&gt;
-                                                                    &lt;input type=&#34;text&#34; placeholder=&#34;Type here&#34;&gt;</code></fluent-border><br>
-                                    <input type="text" value="BeXCool" clear_btn><br>
-                                    <input type="text" placeholder="Type here">
-                                </div>
-                            </fluent-expander>
-                            <fluent-expander header="Input Password">
-                                <div class="fluent-content">
-                                    <p>Redesigned input type="password" with more attributes.</p>
-                                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;showpass_btn&#34; shows button for showing password. --&gt;
-                                                                    &lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn&gt;
-                                                                    &lt;!-- Attribute &#34;showpass&#34; shows password. --&gt;
-                                                                    &lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn showpass&gt;
-                                                                    &lt;input type=&#34;password&#34; placeholder=&#34;Type password&#34;&gt;</code></fluent-border><br>
-                                    <input type="password" value="1234" showpass_btn><br>
-                                    <input type="password" value="1234" showpass_btn showpass><br>
-                                    <input type="password" placeholder="Type here">
-                                </div>
-                            </fluent-expander>
+                            <h3>Usage</h3>
+                            <h4>Styles</h4>
+                            <p>Buttons can be used in 3 variants.</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Variant</th>
+                                        <th>Preview</th>
+                                        <th>Usage</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>standard</td>
+                                        <td><button>Standard button</button></td>
+                                        <td><fluent-border><code sh="HTML"> &lt;button&gt;Standard button&lt;/button&gt;
+                                            &lt;!-- Can be used as &lt;input type=&#34;submit&#34;&gt; --&gt;
+                                            &lt;input type=&#34;submit&#34; value&#61;&#34;Standard button&#34;&gt;</code></fluent-border></td>
+                                        <td>Secondary actions or actions that are not important.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>accent</td>
+                                        <td><button accent>Accent button</button></td>
+                                        <td><fluent-border><code sh="HTML">&lt;button accent&gt;Accent button&lt;/button&gt;</code></fluent-border></td>
+                                        <td>Primary actions that are important to the user.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hyperlink</td>
+                                        <td><button hyperlink>Hyperlink button</button></td>
+                                        <td><fluent-border><code sh="HTML">&lt;button hyperlink&gt;Hyperlink button&lt;/button&gt;</code></fluent-border></td>
+                                        <td>Primary actions that are important to the user.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </section>
                     </fluent-page>
                     <!-- Check box -->
@@ -124,45 +122,19 @@
                             <input type="checkbox" id="mycheck"><label for="mycheck">Am I a checkbox?</label>
                         </section>
                     </fluent-page>
-                    <!-- Slider -->
+                    <!-- Code section -->
                     <fluent-page>
-                        <section if="slider">
-                            <h2>Slider</h2>
-                            <p>Redesigned input range.</p>
-                            <fluent-expander header="Horizontal">
+                        <section id="code">
+                            <h2>Code</h2>
+                            <p>Redesigned code element with custom elements.</p>
+                            <fluent-expander header="Syntax highlighted HTML">
                                 <div class="fluent-content">
-                                    <p>Hover it to show menu.</p>
-                                    <fluent-border><code sh="HTML"> &lt;input type=&#34;range&#34;&gt;</code></fluent-border><br>
-                                    <input type="range">
+                                    <p>Supported syntax highlighting (sh attribute): HTML, CSS, JS.</p>
+                                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;sh&#34; is syntax highlighting. --&gt;
+                                                                    &lt;code sh=&#34;HTML&#34;&gt;&AMP;nbsp;&AMP;nbsp;&AMP;nbsp;&AMP;nbsp;&AMP;lt;button&AMP;gt;Click me!&AMP;lt;/button&AMP;gt;&lt;/code&gt;</code></fluent-border><br>
+                                    <code sh="HTML">&lt;button&gt;Click me!&lt;/button&gt;</code>
                                 </div>
                             </fluent-expander>
-                        </section>
-                    </fluent-page>
-                    <!-- Table -->
-                    <fluent-page>
-                        <section if="table">
-                            <h2>Table</h2>
-                            <p>Redesigned table.</p>
-                            <h3>Usage</h3>
-                            <fluent-border><code sh="HTML"> &lt;input type=&#34;range&#34;&gt;</code></fluent-border><br>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Header number 1</th>
-                                        <th>Header 2</th>
-                                        <th>Header 3</th>
-                                        <th>Header 4</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Value Decimal</td>
-                                        <td>Value</td>
-                                        <td>Value</td>
-                                        <td>Value</td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </section>
                     </fluent-page>
                     <!-- Context menu section -->
@@ -259,21 +231,6 @@
                             </fluent-expander>
                         </section>
                     </fluent-page>
-                    <!-- Code section -->
-                    <fluent-page>
-                        <section id="code">
-                            <h2>Code</h2>
-                            <p>Redesigned code element with custom elements.</p>
-                            <fluent-expander header="Syntax highlighted HTML">
-                                <div class="fluent-content">
-                                    <p>Supported syntax highlighting (sh attribute): HTML, CSS, JS.</p>
-                                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;sh&#34; is syntax highlighting. --&gt;
-                                                                    &lt;code sh=&#34;HTML&#34;&gt;&AMP;nbsp;&AMP;nbsp;&AMP;nbsp;&AMP;nbsp;&AMP;lt;button&AMP;gt;Click me!&AMP;lt;/button&AMP;gt;&lt;/code&gt;</code></fluent-border><br>
-                                    <code sh="HTML">&lt;button&gt;Click me!&lt;/button&gt;</code>
-                                </div>
-                            </fluent-expander>
-                        </section>
-                    </fluent-page>
                     <!-- Flyout section -->
                     <fluent-page>
                         <section id="flyout">
@@ -312,23 +269,14 @@
                             <button onclick="ShowFlyout(this, 'This is flyout', 2000);">Show flyout!</button>
                         </section>
                     </fluent-page>
-                    <!-- Border section -->
+                    <!-- Label section -->
                     <fluent-page>
-                        <section id="border">
-                            <h2>Border</h2>
-                            <p>Custom element "Border" with content.</p>
-                            <p>
-                                Background border with header and button.
-                            </p>
+                        <section id="label">
+                            <h2>Label</h2>
+                            <p>Text in a colored border.</p>
                             <h3>Usage</h3>
-                            <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
-                                                            &lt;/fluent-border&gt;</code></fluent-border><br>
-                            <fluent-border>
-                                <h3>Button</h3>
-                                <button>Fluent button</button>
-                            </fluent-border>
+                            <fluent-border><code sh="HTML"> label </code></fluent-border><br>
+                            <fluent-label>Testing label</fluent-label>
                         </section>
                     </fluent-page>
                     <!-- Menu section -->
@@ -409,6 +357,77 @@
                             </fluent-page-switcher>
                         </section>
                     </fluent-page>
+                    <!-- Slider -->
+                    <fluent-page>
+                        <section if="slider">
+                            <h2>Slider</h2>
+                            <p>Redesigned input range.</p>
+                            <fluent-expander header="Horizontal">
+                                <div class="fluent-content">
+                                    <p>Hover it to show menu.</p>
+                                    <fluent-border><code sh="HTML"> &lt;input type=&#34;range&#34;&gt;</code></fluent-border><br>
+                                    <input type="range">
+                                </div>
+                            </fluent-expander>
+                        </section>
+                    </fluent-page>
+                    <!-- Table -->
+                    <fluent-page>
+                        <section if="table">
+                            <h2>Table</h2>
+                            <p>Redesigned table.</p>
+                            <h3>Usage</h3>
+                            <fluent-border><code sh="HTML"> &lt;input type=&#34;range&#34;&gt;</code></fluent-border><br>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Header number 1</th>
+                                        <th>Header 2</th>
+                                        <th>Header 3</th>
+                                        <th>Header 4</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Value Decimal</td>
+                                        <td>Value</td>
+                                        <td>Value</td>
+                                        <td>Value</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </fluent-page>
+                    <!-- Textbox section -->
+                    <fluent-page>
+                        <section id="textbox">
+                            <h2>Textbox</h2>
+                            <p>Redesigned input text.</p>
+                            <fluent-expander header="Input Text">
+                                <div class="fluent-content">
+                                    <p>Redesigned input type="text" with more attributes.</p>
+                                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;clear_btn&#34; shows clear text button. --&gt;
+                                                                    &lt;input type=&#34;text&#34; value=&#34;BeXCool&#34; clear_btn&gt;
+                                                                    &lt;input type=&#34;text&#34; placeholder=&#34;Type here&#34;&gt;</code></fluent-border><br>
+                                    <input type="text" value="BeXCool" clear_btn><br>
+                                    <input type="text" placeholder="Type here">
+                                </div>
+                            </fluent-expander>
+                            <fluent-expander header="Input Password">
+                                <div class="fluent-content">
+                                    <p>Redesigned input type="password" with more attributes.</p>
+                                    <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;showpass_btn&#34; shows button for showing password. --&gt;
+                                                                    &lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn&gt;
+                                                                    &lt;!-- Attribute &#34;showpass&#34; shows password. --&gt;
+                                                                    &lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn showpass&gt;
+                                                                    &lt;input type=&#34;password&#34; placeholder=&#34;Type password&#34;&gt;</code></fluent-border><br>
+                                    <input type="password" value="1234" showpass_btn><br>
+                                    <input type="password" value="1234" showpass_btn showpass><br>
+                                    <input type="password" placeholder="Type here">
+                                </div>
+                            </fluent-expander>
+                        </section>
+                    </fluent-page>
                     <!-- Web container section -->
                     <fluent-page>
                         <section id="web-container">
@@ -446,25 +465,6 @@
                             </fluent-web-container>
                         </section>
                     </fluent-page>
-                    <!-- Web Container -->
-                    <fluent-page>
-                        <section id="label">
-                            <h2>Label</h2>
-                            <p>Text in a colored border.</p>
-                            <h3>Usage</h3>
-                            <fluent-border><code sh="HTML"> &lt;button onclick="SetActivePageIndex('showcase-page-switcher', 0)"&gt;Open Page 1&lt;/button&gt;
-                                                            &lt;button onclick="SetActivePageIndex('showcase-page-switcher', 1)"&gt;Open Page 2&lt;/button&gt;
-
-                                                            &lt;fluent-page-switcher id="showcase-page-switcher"&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-page&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Page 1&lt;/h2&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-page&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-page&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Page 2&lt;/h2&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-page&gt;
-                                                            &lt;/fluent-page-switcher&gt;</code></fluent-border><br>
-                        </section>
-                    </fluent-page>
                     <!-- Initialize section -->
                     <fluent-page>
                         <section id="initialize">
@@ -472,18 +472,18 @@
                             <p>Important functions to initialize fluent framework.</p>
                         </section>
                     </fluent-page>
+                    <!-- Mica section -->
+                    <fluent-page>
+                        <section id="initialize">
+                            <h2>Mica</h2>
+                            <p>Functions to enable Mica effect.</p>
+                        </section>
+                    </fluent-page>
                     <!-- Themes section -->
                     <fluent-page>
                         <section id="themes">
                             <h2>Themes</h2>
                             <p>Fluent has light and dark theme.</p>
-                        </section>
-                    </fluent-page>
-                    <!-- Initialize section -->
-                    <fluent-page>
-                        <section id="initialize">
-                            <h2>Mica</h2>
-                            <p>Functions to enable Mica effect.</p>
                         </section>
                     </fluent-page>
                     <!-- About section -->

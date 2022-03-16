@@ -148,6 +148,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 /* Hyperlink button accent */
 
 .fluent-hyperlink-button-accent {
+    cursor: default;
     margin: 0.2em;
     color: var(--accent-color);
     border: none;
@@ -1486,4 +1487,18 @@ fluent-web-container {
 @keyframes fluent-fade-out {
     0% { opacity: 1; }
     100% { opacity: 0; }
+}
+
+/* Label */
+
+.fluent-label {
+    padding: 0.225em;
+    font-size: 14px;
+    border: solid var(--dark-border-color) 1px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    background-color: var(--light-color);
 }

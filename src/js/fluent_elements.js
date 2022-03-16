@@ -152,3 +152,29 @@ class MainContent extends HTMLElement {
 }
 
 customElements.define('fluent-main-content', MainContent);
+
+// Button
+
+class Button extends HTMLElement {
+    connectedCallback() {
+        setTimeout(() => {
+            if (this.hasAttribute("accent")) {
+                this.outerHTML = '<a class="fluent-button-accent" href="#"' + AttributesToString(this) + ' >' + this.innerHTML + '</a>';
+            }
+        });
+    }
+}
+
+customElements.define('fluent-button', Button);
+
+// Label
+
+class Label extends HTMLElement {
+    connectedCallback() {
+        setTimeout(() => {
+            this.outerHTML = '<span class="fluent-label"' + AttributesToString(this) + ' >' + this.innerHTML + '</span>';
+        });
+    }
+}
+
+customElements.define('fluent-label', Label);
