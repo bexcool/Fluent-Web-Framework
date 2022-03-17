@@ -1507,6 +1507,11 @@ fluent-web-container {
     -o-border-radius: 4px;
     background-color: var(--light-color);
     font-size: 13.33px;
+    transition: 0.25s ease-in-out;
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -ms-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
 }
 
 /* Mica effect */
