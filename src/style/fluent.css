@@ -1349,7 +1349,7 @@ table {
 
 th {
     background-color: var(--light-color);
-    padding: 0.5em 3.5em;
+    padding: 0.5em 2.2em;
     font-weight: 600;
 }
 
@@ -1470,7 +1470,7 @@ fluent-web-container {
 
 .fluent-loading-background {
     z-index: 100000;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
@@ -1499,7 +1499,6 @@ fluent-web-container {
 
 .fluent-label {
     padding: 0.225em;
-    font-size: 14px;
     border: solid var(--dark-border-color) 1px;
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -1507,6 +1506,7 @@ fluent-web-container {
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
     background-color: var(--light-color);
+    font-size: 13.33px;
 }
 
 /* Mica effect */
