@@ -1429,6 +1429,7 @@ fluent-page-switcher {
 /* Web Container */
 
 fluent-web-container {
+    margin-top: 2.5em;
     display: flex;
     min-height: fit-content;
     bottom: 0;
