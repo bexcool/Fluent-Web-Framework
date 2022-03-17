@@ -56,17 +56,12 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
     color: var(--text-color);
     margin: 0;
+    height: 100%;
     transition: 0.25s ease-in-out;
     -webkit-transition: 0.25s ease-in-out;
     -moz-transition: 0.25s ease-in-out;
     -ms-transition: 0.25s ease-in-out;
     -o-transition: 0.25s ease-in-out;
-}
-
-body.mica-effect {
-    background-color: var(--dark-color);
-    background: var(--background-image) no-repeat fixed;
-    background-size: cover;
 }
 
 body::-webkit-scrollbar {
@@ -545,6 +540,7 @@ select[multiselect]option:focus {
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     padding: 1em;
+    margin: 1em 0;
 }
 
 /* Form */
@@ -960,6 +956,7 @@ hr {
 h1, .fluent-display {
     font-size: 68px;
     font-weight: 600;
+    margin-bottom: 0.25em;
 }
 
 /* h2 */
@@ -967,6 +964,7 @@ h1, .fluent-display {
 h2, .fluent-title-large {
     font-size: 40px;
     font-weight: 600;
+    margin-bottom: 0.35em;
 }
 
 /* h3 */
@@ -974,6 +972,8 @@ h2, .fluent-title-large {
 h3, .fluent-title {
     font-size: 28px;
     font-weight: 600;
+    margin-top: 0.3em;
+    margin-bottom: 0.4em;
 }
 
 /* h4 */
@@ -981,6 +981,8 @@ h3, .fluent-title {
 h4, .fluent-subtitle {
     font-size: 20px;
     font-weight: 600;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
 }
 
 /* h5 */
@@ -1428,8 +1430,10 @@ fluent-page-switcher {
 
 fluent-web-container {
     display: flex;
-    height: 100%;
+    min-height: fit-content;
     bottom: 0;
+    min-height: 100%;
+    align-items: stretch;
 }
 
 /* Main Content */
@@ -1448,7 +1452,8 @@ fluent-web-container {
     -ms-border-radius: 8px 0 0 0;
     -o-border-radius: 8px 0 0 0;
     flex:1;
-    min-height: 45rem;
+    flex-grow: 1;
+    min-height: fit-content;
 }
 
 .fluent-loading-icon {
@@ -1501,4 +1506,21 @@ fluent-web-container {
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
     background-color: var(--light-color);
+}
+
+/* Mica effect */
+
+.fluent-mica-effect {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -10000;
+}
+
+.fluent-mica-effect.mica-enabled {
+    background-color: var(--dark-color);
+    background: var(--background-image) no-repeat fixed;
+    background-size: cover;
 }

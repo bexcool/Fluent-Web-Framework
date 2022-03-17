@@ -109,13 +109,13 @@ function SetLightTheme() {
 
 // Enable Mica Effect
 function EnableMica() {
-    document.body.classList.add("mica-effect");
+    document.documentElement.getElementsByClassName("fluent-mica-effect")[0].classList.add("mica-enabled");
     localStorage.setItem("Mica", "true");
 }
 
 // Disable Mica Effect
 function DisableMica() {
-    document.body.classList.remove("mica-effect");
+    document.documentElement.getElementsByClassName("fluent-mica-effect")[0].classList.remove("mica-enabled");
     localStorage.setItem("Mica", "false");
 }
 
@@ -152,9 +152,6 @@ function InitializeFluent() {
     setTimeout( () => {
         var webDocument = document.documentElement;
 
-        // Load last theme
-        LoadLastTheme();
-
         // Initialize Expanders
         InitExpanders();
         InitMenuExpanders()
@@ -167,6 +164,9 @@ function InitializeFluent() {
 
         // Initialize Pages and Page Switchers
         InitializePages();
+
+        // Load last theme
+        LoadLastTheme();
 
         //#region Remove focus from elements when clicked
         const buttons = document.querySelectorAll("button, a.fluent-menu-item");
@@ -821,6 +821,11 @@ function InitFluentElements() {
                     menu_child.style.boxShadow = '';
             });
     }
+
+    // Initialize Mica effect
+    const mica = document.createElement("div");
+    mica.classList.add("fluent-mica-effect");
+    document.body.appendChild(mica);
 }
 
 //#region Fluent functions
