@@ -37,7 +37,7 @@
 
     /* --- Variables --- */
     --expander-expand-height: "0px";
-    --background-image: "../img/background_dark.png";
+    --background-image: "var(https://resources.bexcool.eu/fluentwebframework/src/img/background_dark.png)";
 }
 
 /* HTML */
@@ -1053,6 +1053,7 @@ p, .fluent-body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    margin-right: 1em;
 }
 
 .fluent-expander-header div {

@@ -33,8 +33,8 @@ function SetDarkTheme() {
     doc.style.setProperty("--light-color", "hsla(0, 0%, 100%, 5.12%)");
     doc.style.setProperty("--light-trans-color", "rgba(40, 40, 40, 0.7)");
     doc.style.setProperty("--light-hover-color", "hsla(0, 0%, 100%, .084)");
-    doc.style.setProperty("--lighter-hover-color", "rgb(55, 55, 55)");
-    doc.style.setProperty("--lighter-press-color", "rgb(51, 51, 51)");
+    doc.style.setProperty("--lighter-hover-color", "rgba(100, 100, 100, 0.25)");
+    doc.style.setProperty("--lighter-press-color", "rgba(100, 100, 100, 0.125)");
     doc.style.setProperty("--light-border-color", "rgba(25, 25, 25, 0.25)");
     doc.style.setProperty("--focus-color", "rgba(255, 255, 255, 0.043)");
     doc.style.setProperty("--text-color-inverted", "black");
@@ -59,7 +59,7 @@ function SetDarkTheme() {
     doc.style.setProperty("--slider-thumb-border-color", "rgb(69, 69, 69)");
 
     // Background
-    doc.style.setProperty("--background-image", "url(../img/background_dark.png)")
+    doc.style.setProperty("--background-image", "url(https://resources.bexcool.eu/fluentwebframework/src/img/background_dark.png)")
 
     localStorage.setItem("CurrentTheme", "Dark");
 }
@@ -102,7 +102,7 @@ function SetLightTheme() {
     doc.style.setProperty("--slider-thumb-border-color", "white");
 
     // Background
-    doc.style.setProperty("--background-image", "url(../img/background_light.png)")
+    doc.style.setProperty("--background-image", "url(https://resources.bexcool.eu/fluentwebframework/src/img/background_light.png)")
 
     localStorage.setItem("CurrentTheme", "Light");
 }
@@ -678,6 +678,7 @@ function InitFluentElements() {
     const buttons = document.querySelectorAll("button");
 
     for (const button of buttons) {
+        // Set styles
         if (button.hasAttribute("accent")){
             button.outerHTML =  '<button style="' + button.style.cssText + '" class="fluent-button-accent" accent>' + 
                                     button.innerHTML +
@@ -687,6 +688,18 @@ function InitFluentElements() {
             button.outerHTML =  '<button style="' + button.style.cssText + '" class="fluent-hyperlink-button-accent" hyperlink>' + 
                                     button.innerHTML +
                                 '</button>';
+        }
+
+        // Get URL attribute
+        if (button.hasAttribute("url")) {
+            button.addEventListener("click", () => {
+                window.open(button.getAttribute("url"), "_self"); 
+            });
+        }
+        else if (button.hasAttribute("urlnew")) {
+            button.addEventListener("click", () => {
+                window.open(button.getAttribute("urlnew")); 
+            });
         }
     }
 
