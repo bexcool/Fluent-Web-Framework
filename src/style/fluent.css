@@ -796,7 +796,7 @@ a.fluent-menu-item:hover {
     border: none;
     margin: 5px;
     margin-bottom: 0;
-    padding: 6px 20px 7px 40px;
+    padding: 6px 20px 7px 42px;
     background-color: rgba(0, 0, 0, 0);
     transition: 0.1s ease-in-out;
     outline: var(--text-color);
@@ -990,6 +990,8 @@ h4, .fluent-subtitle {
 h5, .fluent-body-large {
     font-size: 20px;
     font-weight: 400;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
 }
 
 /* h6 */
