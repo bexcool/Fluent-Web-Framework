@@ -1,4 +1,4 @@
-import { CDN_URL, FluentExpose, splash } from "../../fluent";
+import { CDN_URL, splash } from "../../fluent";
 
 export const showSplashScreen = (duration: number, fadeIn: boolean, image = `${CDN_URL}/img/icons/web.png`) => {
 	document.body.style.overflow = "hidden";
@@ -19,5 +19,3 @@ export const showSplashScreen = (duration: number, fadeIn: boolean, image = `${C
 		}, 200);
 	}, duration);
 };
-
-FluentExpose(showSplashScreen, true);

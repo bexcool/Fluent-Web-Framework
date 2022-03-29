@@ -11,4 +11,4 @@ export class MainContent extends HTMLElement implements FluentElement {
 	}
 }
 
-FluentRegister(MainContent);
+FluentRegister(MainContent, "fluent-main-content");

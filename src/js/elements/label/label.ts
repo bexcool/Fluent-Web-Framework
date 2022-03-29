@@ -11,4 +11,4 @@ export class Label extends HTMLElement implements FluentElement {
 	}
 }
 
-FluentRegister(Label);
+FluentRegister(Label, "fluent-label");

@@ -17,4 +17,4 @@ export class ContextMenu extends HTMLElement implements FluentElement {
 	}
 }
 
-FluentRegister(ContextMenu);
+FluentRegister(ContextMenu, "fluent-contextmenu");

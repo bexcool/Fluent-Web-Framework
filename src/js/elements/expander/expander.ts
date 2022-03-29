@@ -20,4 +20,4 @@ export class Expander extends HTMLElement implements FluentElement {
 	}
 }
 
-FluentRegister(Expander);
+FluentRegister(Expander, "fluent-expander");

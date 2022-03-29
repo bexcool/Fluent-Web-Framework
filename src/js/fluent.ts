@@ -24,10 +24,10 @@ const noPrefix = (window as any)?.FLUENT_NO_PREFIX ?? false;
 const prefix = "Fluent_";
 
 const makeGlobal = (val: any, name: string) => {
+	console.log("globalized", name, val);
 	(window as any)[name] = val;
 	if (noPrefix)
 		(window as any)[name.replace(prefix, "")] = val;
-	console.log({ name, noPrefix, val, prefix });
 };
 
 // For exposing consts (maybe variables)
@@ -44,6 +44,3 @@ export const FluentExpose = (fn: Function, namespace = false, name: string = fn.
 		name = `${prefix}${name}`;
 	makeGlobal(fn, name);
 };
-
-FluentDefine(CDN_URL, "CDN_URL", true);
-FluentExpose(isInitialized, true);

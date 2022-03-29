@@ -23,4 +23,4 @@ export class MenuItemExpander extends HTMLElement implements FluentElement {
 	}
 }
 
-FluentRegister(MenuItemExpander);
+FluentRegister(MenuItemExpander, "fluent-menu-item-expander");

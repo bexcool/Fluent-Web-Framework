@@ -10,4 +10,4 @@ export class Border extends HTMLElement implements FluentElement {
 	}
 }
 
-FluentRegister(Border);
+FluentRegister(Border, "fluent-border");

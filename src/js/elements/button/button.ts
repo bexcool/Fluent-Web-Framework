@@ -13,4 +13,4 @@ export class Button extends HTMLElement implements FluentElement {
 	}
 }
 
-FluentRegister(Button);
+FluentRegister(Button, "fluent-button");

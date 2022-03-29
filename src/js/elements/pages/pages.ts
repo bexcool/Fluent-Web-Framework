@@ -1,4 +1,3 @@
-import { FluentExpose } from "../../fluent";
 
 export const setActivePageIndex = (pageSwitcherId: string, index: number) => {
 	const pageSwitcher = document.getElementById(pageSwitcherId);
@@ -17,5 +16,3 @@ export const setActivePageIndex = (pageSwitcherId: string, index: number) => {
 		activePage.style.animation = "fluent-page-fade-up 0.3s ease-in-out";
 	}
 };
-
-FluentExpose(setActivePageIndex, true);

@@ -1,4 +1,4 @@
-import { FluentDefine, FluentExpose, KEY_THEME } from "../fluent";
+import { KEY_THEME } from "../fluent";
 
 interface Theme {
 	"black-white-color": string;
@@ -42,9 +42,7 @@ export const themes: { [k in Themes]: Themes } = {
 	"LIGHT": "LIGHT",
 };
 
-
 export const getActiveTheme = () => localStorage.getItem(KEY_THEME) as Themes ?? themes.DARK;
-
 
 export const setTheme = (theme: Themes) => {
 	if (theme === "DARK")
@@ -54,18 +52,12 @@ export const setTheme = (theme: Themes) => {
 	setDarkTheme();
 };
 
-
 export const switchTheme = () => {
 	if (getActiveTheme() === "DARK")
 		setTheme("LIGHT");
 	else
 		setTheme("DARK");
 };
-
-FluentDefine(themes, "themes", true);
-FluentExpose(getActiveTheme, true);
-FluentExpose(setTheme, true);
-FluentExpose(switchTheme, true);
 
 function setDarkTheme() {
 	_setTheme({

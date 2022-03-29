@@ -10,4 +10,4 @@ export class ToggleButton extends HTMLElement implements FluentElement {
 	}
 }
 
-FluentRegister(ToggleButton);
+FluentRegister(ToggleButton, "fluent-togglebutton");

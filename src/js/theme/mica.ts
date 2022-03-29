@@ -1,4 +1,4 @@
-import { FluentExpose, KEY_MICA } from "../fluent";
+import { KEY_MICA } from "../fluent";
 
 export const isMicaActive = () => (/true/i).test(localStorage.getItem(KEY_MICA) ?? "false");
 
@@ -11,7 +11,3 @@ export const disableMica = () => {
 	document.documentElement.getElementsByClassName("fluent-mica-effect")[0].classList.remove("mica-enabled");
 	localStorage.setItem("Mica", "false");
 };
-
-FluentExpose(isMicaActive, true);
-FluentExpose(enableMica, true);
-FluentExpose(disableMica, true);

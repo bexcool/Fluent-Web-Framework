@@ -1,5 +1,3 @@
-import { FluentExpose } from "../../fluent";
-
 export function showFlyout(element: HTMLElement, string: string, delay: number) {
 	const flyout = document.createElement("div");
 	const viewportOffset = element.getBoundingClientRect();
@@ -76,5 +74,3 @@ export function showFlyout(element: HTMLElement, string: string, delay: number) 
 		}
 	}, delay);
 }
-
-FluentExpose(showFlyout, true);
