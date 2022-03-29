@@ -22,23 +22,12 @@ Visit [Fluent Web Framework webpage](https://cdn.spej.eu/fwf/showcase/) - still 
 
 ## Usage
 ### CSS
-#### Fluent Style ***(required)***
-This file contains whole Fluent styling.<br>
 **This file is required.**
 ```
-https://cdn.spej.eu/fwf/style/fluent.min.css
+https://cdn.spej.eu/fwf/fluent-bundle.min.css
 ```
 ### JavaScript
-#### Fluent Functions ***(required)***
-This file contains core functions of the framework.<br>
 **This file is required.**
 ```
-https://cdn.spej.eu/fwf/js/fluent_functions.min.js
-```
-#### Fluent Elements
-This file constains custom elements for easier usage.<br>
-Don't use if you only want to use CSS.<br>
-Recommended when using JS.
-```
-https://cdn.spej.eu/fwf/js/fluent_elements.min.js
+https://cdn.spej.eu/fwf/fluent-bundle.min.js
 ```

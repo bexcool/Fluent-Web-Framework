@@ -8,64 +8,64 @@
     <script type="text/javascript" src="//cdn.spej.eu/fwf/fluent-bundle.min.js"></script>
 </head>
 
-<body onload="ShowSplashScreen(350);">
+<body onload="Fluent_showSplashScreen(350);">
     <div style="margin: 0 0 0 10em; height: 90%;">
         <h1>Fluent Web Framework</h1>
         <fluent-web-container>
             <fluent-menu style="width: 20em;">
                 <p>Dark and light theme.</p>
-                <button onclick="SwitchTheme();">Switch theme</button>
-                <button onclick="EnableMica();">Enable Mica</button>
-                <button onclick="DisableMica();" style="margin-bottom: 10px;">Disable Mica</button>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 0)"
+                <button onclick="Fluent_switchTheme();">Switch theme</button>
+                <button onclick="Fluent_enableMica();">Enable Mica</button>
+                <button onclick="Fluent_disableMica();" style="margin-bottom: 10px;">Disable Mica</button>
+                <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 0)"
                     icon="./icons/ic_fluent_emoji_hand_20_regular.svg" selectable selected>Introduction
                 </fluent-menu-item>
                 <fluent-menu-item-expander header="Controls" icon="./icons/ic_fluent_cursor_hover_16_regular.svg">
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 1)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 1)"
                         icon="./icons/ic_fluent_border_outside_20_regular.svg" selectable>Border</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 2)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 2)"
                         icon="./icons/ic_fluent_cursor_hover_16_regular.svg" selectable>Button</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 3)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 3)"
                         icon="./icons/ic_fluent_checkbox_checked_16_regular.svg" selectable>Checkbox</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 4)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 4)"
                         icon="./icons/ic_fluent_code_16_regular.svg" selectable>Code</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 5)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 5)"
                         icon="./icons/ic_fluent_multiselect_ltr_16_regular.svg" selectable>Context menu
                     </fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 6)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 6)"
                         icon="./icons/ic_fluent_text_bullet_list_ltr_16_regular.svg" selectable>Menu item
                     </fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 7)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 7)"
                         icon="./icons/ic_fluent_arrow_square_down_24_regular.svg" selectable>Expander</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 8)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 8)"
                         icon="./icons/ic_fluent_tooltip_quote_20_regular.svg" selectable>Flyout</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 9)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 9)"
                         icon="./icons/ic_fluent_textbox_align_center_20_regular.svg" selectable>Label</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 10)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 10)"
                         icon="./icons/ic_fluent_group_list_24_regular.svg" selectable>Menu</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 11)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 11)"
                         icon="./icons/ic_fluent_slide_multiple_24_regular.svg" selectable>Page switcher
                     </fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 12)"
                         icon="./icons/ic_fluent_options_16_regular.svg" selectable>Slider</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 13)"
                         icon="./icons/ic_fluent_table_16_regular.svg" selectable>Table</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 14)"
                         icon="./icons/ic_fluent_textbox_16_regular.svg" selectable>Textbox</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 15)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 15)"
                         icon="./icons/ic_fluent_broad_activity_feed_16_regular.svg" selectable>Web container
                     </fluent-menu-item>
                 </fluent-menu-item-expander>
                 <fluent-menu-item-expander header="Functions" icon="./icons/ic_fluent_braces_20_regular.svg">
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 16)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 16)"
                         icon="./icons/ic_fluent_content_settings_16_regular.svg" selectable>Initialize
                     </fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 17)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 17)"
                         icon="./icons/ic_fluent_window_16_regular.svg" selectable>Mica</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 18)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 18)"
                         icon="./icons/ic_fluent_weather_moon_16_regular.svg" selectable>Themes</fluent-menu-item>
                 </fluent-menu-item-expander>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 19)"
+                <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 19)"
                     icon="./icons/ic_fluent_info_12_regular.svg" selectable>About</fluent-menu-item>
             </fluent-menu>
 
@@ -254,10 +254,10 @@
                                         <td>
                                             <fluent-label consolas>JS</fluent-label>
                                         </td>
-                                        <td><code sh="JS">SetActivePageIndex('page-switcher', 1);</code></td>
+                                        <td><code sh="JS">Fluent_setActivePageIndex('page-switcher', 1);</code></td>
                                         <td>
                                             <fluent-border><code
-                                                    sh="HTML">&lt;code sh="JS"&gt;SetActivePageIndex('page-switcher', 1);&lt;/code&gt;</code>
+                                                    sh="HTML">&lt;code sh="JS"&gt;Fluent_setActivePageIndex('page-switcher', 1);&lt;/code&gt;</code>
                                             </fluent-border>
                                         </td>
                                     </tr>
@@ -404,7 +404,7 @@
                             <p>Custom element "Flyout" with text that shows on the top of the parent element.</p>
                             <h3>Usage</h3>
                             <h4>Functions</h4>
-                            <fluent-border><code sh="JS">ShowFlyout(this, 'This is flyout', 2000);</code>
+                            <fluent-border><code sh="JS">Fluent_showFlyout(this, 'This is flyout', 2000);</code>
                             </fluent-border>
                             <table>
                                 <thead>
@@ -433,9 +433,9 @@
                                 </tbody>
                             </table>
                             <fluent-border><code
-                                    sh="HTML"> &lt;button onclick=&#34;ShowFlyout(this, 'This is flyout', 2000);&#34;&gt;Show flyout!&lt;/button&gt;</code>
+                                    sh="HTML"> &lt;button onclick=&#34;Fluent_showFlyout(this, 'This is flyout', 2000);&#34;&gt;Show flyout!&lt;/button&gt;</code>
                             </fluent-border><br>
-                            <button onclick="ShowFlyout(this, 'This is flyout', 2000);">Show flyout!</button>
+                            <button onclick="Fluent_showFlyout(this, 'This is flyout', 2000);">Show flyout!</button>
                         </section>
                     </fluent-page>
                     <!-- Label section -->
@@ -538,7 +538,7 @@
                             <h3>Usage</h3>
                             <h4>Functions</h4>
                             <p>Set active page index.</p>
-                            <fluent-border><code sh="JS">SetActivePageIndex('showcase-page-switcher', 0);</code>
+                            <fluent-border><code sh="JS">Fluent_setActivePageIndex('showcase-page-switcher', 0);</code>
                             </fluent-border>
                             <table>
                                 <thead>
@@ -565,8 +565,8 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <fluent-border><code sh="HTML"> &lt;button onclick="SetActivePageIndex('showcase-page-switcher', 0)"&gt;Open Page 1&lt;/button&gt;
-                                                            &lt;button onclick="SetActivePageIndex('showcase-page-switcher', 1)"&gt;Open Page 2&lt;/button&gt;
+                            <fluent-border><code sh="HTML"> &lt;button onclick="Fluent_setActivePageIndex('showcase-page-switcher', 0)"&gt;Open Page 1&lt;/button&gt;
+                                                            &lt;button onclick="Fluent_setActivePageIndex('showcase-page-switcher', 1)"&gt;Open Page 2&lt;/button&gt;
 
                                                             &lt;fluent-page-switcher id="showcase-page-switcher"&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-page&gt;
@@ -576,8 +576,10 @@
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Page 2&lt;/h2&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-page&gt;
                                                             &lt;/fluent-page-switcher&gt;</code></fluent-border><br>
-                            <button onclick="SetActivePageIndex('showcase-page-switcher', 0);">Open Page 1</button>
-                            <button onclick="SetActivePageIndex('showcase-page-switcher', 1);">Open Page 2</button>
+                            <button onclick="Fluent_setActivePageIndex('showcase-page-switcher', 0);">Open Page
+                                1</button>
+                            <button onclick="Fluent_setActivePageIndex('showcase-page-switcher', 1);">Open Page
+                                2</button>
                             <fluent-page-switcher id="showcase-page-switcher">
                                 <fluent-page>
                                     <h2>Page 1</h2>
@@ -763,10 +765,10 @@
                             <fluent-border><code sh="HTML"> &lt;h1&gt;My Webpage&lt;/h1&gt;
                                                             &lt;fluent-web-container&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu style="width: 15em;"&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable selected onclick="SetActivePageIndex('showcase-page-switcher-web-container', 0)"&gt;Page 1&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable selected onclick="Fluent_setActivePageIndex('showcase-page-switcher-web-container', 0)"&gt;Page 1&lt;/fluent-menu-item&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item-expander header="More pages"&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable onclick="SetActivePageIndex('showcase-page-switcher-web-container', 1)"&gt;Page 2&lt;/fluent-menu-item&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable onclick="SetActivePageIndex('showcase-page-switcher-web-container', 2)"&gt;Page 3&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable onclick="Fluent_setActivePageIndex('showcase-page-switcher-web-container', 1)"&gt;Page 2&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable onclick="Fluent_setActivePageIndex('showcase-page-switcher-web-container', 2)"&gt;Page 3&lt;/fluent-menu-item&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-menu-item-expander&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-menu&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-main-content&gt;
@@ -787,14 +789,17 @@
                             <fluent-web-container>
                                 <fluent-menu style="width: 15em;">
                                     <fluent-menu-item selectable selected
-                                        onclick="SetActivePageIndex('showcase-page-switcher-web-container', 0)">Page 1
+                                        onclick="Fluent_setActivePageIndex('showcase-page-switcher-web-container', 0)">
+                                        Page 1
                                     </fluent-menu-item>
                                     <fluent-menu-item-expander header="More pages">
                                         <fluent-menu-item selectable
-                                            onclick="SetActivePageIndex('showcase-page-switcher-web-container', 1)">Page
+                                            onclick="Fluent_setActivePageIndex('showcase-page-switcher-web-container', 1)">
+                                            Page
                                             2</fluent-menu-item>
                                         <fluent-menu-item selectable
-                                            onclick="SetActivePageIndex('showcase-page-switcher-web-container', 2)">Page
+                                            onclick="Fluent_setActivePageIndex('showcase-page-switcher-web-container', 2)">
+                                            Page
                                             3</fluent-menu-item>
                                     </fluent-menu-item-expander>
                                 </fluent-menu>
