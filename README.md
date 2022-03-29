@@ -21,13 +21,14 @@ Visit [Fluent Web Framework webpage](https://cdn.spej.eu/fwf/showcase/) - still 
 - Light and Dark theme.
 
 ## Usage
-### CSS
-**This file is required.**
+```html
+In <head>
+<link rel="stylesheet" href="https://cdn.spej.eu/fwf/fluent-bundle.min.css">
+
+Before </body>
+<script src="https://cdn.spej.eu/fwf/fluent-bundle.min.js"></script>
 ```
-https://cdn.spej.eu/fwf/fluent-bundle.min.css
-```
-### JavaScript
-**This file is required.**
-```
-https://cdn.spej.eu/fwf/fluent-bundle.min.js
-```
+**Docs are not updated (yet)**
+### Compatibility with the vanilla.js project
+Setting `window.FLUENT_NO_PREFIX` to `true`  
+makes functions and variables available in the global namespace without the Fluent_ prefix this fork uses.
