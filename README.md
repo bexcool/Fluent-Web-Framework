@@ -2,7 +2,7 @@
  Framework for creating fluent Windows 11 design for your website.
  
 ## Documentation
-Visit [Fluent Web Framework webpage](https://resources.bexcool.eu/fluentwebframework/showcase/index.html) - still in progress
+Visit [Fluent Web Framework webpage](https://cdn.spej.eu/fwf/showcase/) - still in progress
 ### Some controls
 ![obrazek](https://user-images.githubusercontent.com/53868994/151600056-709ddcb5-838a-4f69-a518-a249130aa712.png)
 ### Expander
@@ -26,19 +26,19 @@ Visit [Fluent Web Framework webpage](https://resources.bexcool.eu/fluentwebframe
 This file contains whole Fluent styling.<br>
 **This file is required.**
 ```
-https://resources.bexcool.eu/fluentwebframework/src/style/fluent.min.css
+https://cdn.spej.eu/fwf/style/fluent.min.css
 ```
 ### JavaScript
 #### Fluent Functions ***(required)***
 This file contains core functions of the framework.<br>
 **This file is required.**
 ```
-https://resources.bexcool.eu/fluentwebframework/src/js/fluent_functions.min.js
+https://cdn.spej.eu/fwf/js/fluent_functions.min.js
 ```
 #### Fluent Elements
 This file constains custom elements for easier usage.<br>
 Don't use if you only want to use CSS.<br>
 Recommended when using JS.
 ```
-https://resources.bexcool.eu/fluentwebframework/src/js/fluent_elements.min.js
+https://cdn.spej.eu/fwf/js/fluent_elements.min.js
 ```
