@@ -111,7 +111,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     padding: 6px 6px 4px 10px;
 }
 
-/* Hyperlink button */
+/* Hyperlink button - UNUSED */
 
 .fluent-hyperlink-button {
     margin: 0.2em;
@@ -142,12 +142,12 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 
 /* Hyperlink button accent */
 
-.fluent-hyperlink-button-accent {
+.fluent-button-hyperlink {
     cursor: default;
     margin: 0.2em;
     color: var(--accent-color);
     border: none;
-    padding: 6px 11px 7px;
+    padding: 6px 12px 7px;
     background-color: rgba(0, 0, 0, 0);
     transition: 0.1s ease-in-out;
     outline: var(--text-color);
@@ -158,19 +158,19 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     -o-border-radius: 4px;
 }
 
-.fluent-hyperlink-button-accent:hover {
+.fluent-button-hyperlink:hover {
     background-color: var(--light-hover-color);
     cursor: pointer;
 }
 
-.fluent-hyperlink-button-accent:focus {
+.fluent-button-hyperlink:focus {
     background-color: var(--focus-color);
     color: var(--accent-focus-color);
 }
 
 /* Button */
 
-.fluent-button, input[type="submit"], button {
+.fluent-button, input[type="submit"], button, a {
     margin: 0.2em;
     color: var(--text-color);
     border: var(--button-border-color) solid 0.4px;
@@ -187,13 +187,17 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+    text-decoration: none;
+    user-select: none;
+    cursor: default;
+    font-size: 13.33px;
 }
 
-.fluent-button:hover, input[type="submit"]:hover, button:hover {
+.fluent-button:hover, input[type="submit"]:hover, button:hover, a:hover {
     background-color: var(--button-hover-color);
 }
 
-.fluent-button:focus, input[type="submit"]:focus, button:focus {
+.fluent-button:focus, input[type="submit"]:focus, button:focus, a:focus {
     background-color: var(--button-focus-color);
     color: var(--text-focus-color);
 }
@@ -207,6 +211,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     background-color: var(--accent-color);
     transition: 0.1s ease-in-out;
     border-radius: 4px;
+    cursor: default;
 }
 
 .fluent-button-accent:hover {
@@ -216,6 +221,16 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 .fluent-button-accent:focus {
     background-color: var(--accent-focus-color);
     color: var(--text-focus-color-inverted);
+}
+
+/* a */
+
+a, a.fluent-button-accent, a.fluent-button-hyperlink {
+    padding: 4px 11px 6px;
+}
+
+a.fluent-button-hyperlink {
+    padding: 5px 12px 7px;
 }
 
 /* Checkbox */
@@ -1462,18 +1477,14 @@ fluent-web-container {
 
 .fluent-loading-icon {
     z-index: 100001;
-    height: 20em;
-    width: 20em;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -10em;
-    margin-left: -10em;
 }
 
 .fluent-loading-background {
     z-index: 100000;
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
     right: 0;
     bottom: 0;

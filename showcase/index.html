@@ -24,24 +24,25 @@
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 2)" icon="./icons/ic_fluent_cursor_hover_16_regular.svg" selectable>Button</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 3)" icon="./icons/ic_fluent_checkbox_checked_16_regular.svg" selectable>Checkbox</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 4)" icon="./icons/ic_fluent_code_16_regular.svg" selectable>Code</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 5)" icon="./icons/ic_fluent_multiselect_ltr_16_regular.svg" selectable>Context menu</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 6)" icon="./icons/ic_fluent_text_bullet_list_ltr_16_regular.svg" selectable>Menu item</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 5)" icon="./icons/ic_fluent_window_header_horizontal_20_regular.svg" selectable>Content dialog</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 6)" icon="./icons/ic_fluent_multiselect_ltr_16_regular.svg" selectable>Context menu</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 7)" icon="./icons/ic_fluent_arrow_square_down_24_regular.svg" selectable>Expander</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 8)" icon="./icons/ic_fluent_tooltip_quote_20_regular.svg" selectable>Flyout</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 9)" icon="./icons/ic_fluent_textbox_align_center_20_regular.svg" selectable>Label</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 10)" icon="./icons/ic_fluent_group_list_24_regular.svg" selectable>Menu</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 11)" icon="./icons/ic_fluent_slide_multiple_24_regular.svg" selectable>Page switcher</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="./icons/ic_fluent_options_16_regular.svg" selectable>Slider</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="./icons/ic_fluent_table_16_regular.svg" selectable>Table</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="./icons/ic_fluent_textbox_16_regular.svg" selectable>Textbox</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 15)" icon="./icons/ic_fluent_broad_activity_feed_16_regular.svg" selectable>Web container</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 11)" icon="./icons/ic_fluent_text_bullet_list_ltr_16_regular.svg" selectable>Menu item</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="./icons/ic_fluent_slide_multiple_24_regular.svg" selectable>Page switcher</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="./icons/ic_fluent_options_16_regular.svg" selectable>Slider</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="./icons/ic_fluent_table_16_regular.svg" selectable>Table</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 15)" icon="./icons/ic_fluent_textbox_16_regular.svg" selectable>Textbox</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 16)" icon="./icons/ic_fluent_broad_activity_feed_16_regular.svg" selectable>Web container</fluent-menu-item>
                 </fluent-menu-item-expander>
                 <fluent-menu-item-expander header="Functions" icon="./icons/ic_fluent_braces_20_regular.svg">
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 16)" icon="./icons/ic_fluent_content_settings_16_regular.svg" selectable>Initialize</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 17)" icon="./icons/ic_fluent_window_16_regular.svg" selectable>Mica</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 18)" icon="./icons/ic_fluent_weather_moon_16_regular.svg" selectable>Themes</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 17)" icon="./icons/ic_fluent_content_settings_16_regular.svg" selectable>Initialize</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 18)" icon="./icons/ic_fluent_window_16_regular.svg" selectable>Mica</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 19)" icon="./icons/ic_fluent_weather_moon_16_regular.svg" selectable>Themes</fluent-menu-item>
                 </fluent-menu-item-expander>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 19)" icon="./icons/ic_fluent_info_12_regular.svg" selectable>About</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 20)" icon="./icons/ic_fluent_info_12_regular.svg" selectable>About</fluent-menu-item>
             </fluent-menu>
             
             <fluent-main-content>
@@ -93,20 +94,23 @@
                                         <td><fluent-label consolas>standard</fluent-label></td>
                                         <td><button>Standard button</button></td>
                                         <td><fluent-border><code sh="HTML"> &lt;button&gt;Standard button&lt;/button&gt;
-                                            &lt;!-- Can be used as &lt;input type=&#34;submit&#34;&gt; --&gt;
-                                            &lt;input type=&#34;submit&#34; value&#61;&#34;Standard button&#34;&gt;</code></fluent-border></td>
+                                                                            &lt;a href=&#34;#&#34;&gt;Standard button&lt;/a&gt;
+                                                                            &lt;!-- Can be used as &lt;input type=&#34;submit&#34;&gt; --&gt;
+                                                                            &lt;input type=&#34;submit&#34; value&#61;&#34;Standard button&#34;&gt;</code></fluent-border></td>
                                         <td>Secondary actions or actions that are not important.</td>
                                     </tr>
                                     <tr>
                                         <td><fluent-label consolas>accent</fluent-label></td>
                                         <td><button accent>Accent button</button></td>
-                                        <td><fluent-border><code sh="HTML">&lt;button accent&gt;Accent button&lt;/button&gt;</code></fluent-border></td>
+                                        <td><fluent-border><code sh="HTML"> &lt;button accent&gt;Accent button&lt;/button&gt;
+                                                                            &lt;a href=&#34;#&#34; accent&gt;Accent button&lt;/a&gt;</code></fluent-border></td>
                                         <td>Primary actions that are important to the user.</td>
                                     </tr>
                                     <tr>
                                         <td><fluent-label consolas>hyperlink</fluent-label></td>
                                         <td><button hyperlink>Hyperlink button</button></td>
-                                        <td><fluent-border><code sh="HTML">&lt;button hyperlink&gt;Hyperlink button&lt;/button&gt;</code></fluent-border></td>
+                                        <td><fluent-border><code sh="HTML"> &lt;button hyperlink&gt;Hyperlink button&lt;/button&gt;
+                                                                            &lt;a href=&#34;#&#34; hyperlink&gt;Hyperlink button&lt;/a&gt;</code></fluent-border></td>
                                         <td>Primary actions that are important to the user.</td>
                                     </tr>
                                 </tbody>
@@ -186,6 +190,14 @@
                             </table>
                         </section>
                     </fluent-page>
+                    <!-- Content dialog section -->
+                    <fluent-page>
+                        <section id="content-dialog">
+                            <h2>Content dialog</h2>
+                            <p>Element for displaying content in a dialog window.</p>
+                            <button hyperlink>Testing</button><a href="#" hyperlink>Testing</a><a accent href="#">Testing</a><a href="#">Testing</a><button>Testing</button>
+                        </section>
+                    </fluent-page>
                     <!-- Context menu section -->
                     <fluent-page>
                         <section id="contextmenu">
@@ -242,13 +254,6 @@
                                     </fluent-contextmenu>
                                 </div>
                             </fluent-expander>
-                        </section>
-                    </fluent-page>
-                    <!-- Menu item section -->
-                    <fluent-page>
-                        <section id="menu-item">
-                            <h2>Menu item</h2>
-                            <p>Element for <fluent-label consolas>fluent-menu</fluent-label> and <fluent-label consolas>fluent-context-menu</fluent-label>.</p>
                         </section>
                     </fluent-page>
                     <!-- Expander section -->
@@ -407,6 +412,13 @@
                                     <fluent-menu-item selectable>About</fluent-menu-item>
                                 </fluent-menu-item-expander>
                             </fluent-menu>
+                        </section>
+                    </fluent-page>
+                    <!-- Menu item section -->
+                    <fluent-page>
+                        <section id="menu-item">
+                            <h2>Menu item</h2>
+                            <p>Element for <fluent-label consolas>fluent-menu</fluent-label> and <fluent-label consolas>fluent-context-menu</fluent-label>.</p>
                         </section>
                     </fluent-page>
                     <!-- Page switcher -->

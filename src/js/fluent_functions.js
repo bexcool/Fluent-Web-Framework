@@ -170,6 +170,7 @@ function InitializeFluent() {
 
         //#region Remove focus from elements when clicked
         const buttons = document.querySelectorAll("button, a.fluent-menu-item");
+        const links = document.querySelectorAll("a");
         const expanders = document.querySelectorAll(".fluent-expander-header");
         const menu_item_expanders = document.querySelectorAll(".fluent-menu-item-expander-header");
         const menu_items_select = document.querySelectorAll(".fluent-menu-item-select");
@@ -177,6 +178,12 @@ function InitializeFluent() {
         for (const button of buttons) {
             button.addEventListener("click", function (e) {
                 for (const btn of buttons) btn.blur();
+            });
+        }
+
+        for (const link of links) {
+            link.addEventListener("click", function (e) {
+                for (const link of links) link.blur();
             });
         }
 
@@ -346,7 +353,7 @@ function ShowSplashScreen(duration = 0, fadeIn = false, image = "") {
         splash_image.src = image;
     }
     
-    splash_background.style.display = "block";
+    splash_background.style.display = "flex";
     if (fadeIn) {
         setTimeout(() => {
             splash_background.style.opacity = "1";
@@ -680,12 +687,12 @@ function InitFluentElements() {
     for (const button of buttons) {
         // Set styles
         if (button.hasAttribute("accent")){
-            button.outerHTML =  '<button style="' + button.style.cssText + '" class="fluent-button-accent" accent>' + 
+            button.outerHTML =  '<button class="fluent-button-accent"' + AttributesToString(button) + '>' + 
                                     button.innerHTML +
                                 '</button>';
         }
         else if (button.hasAttribute("hyperlink")) {
-            button.outerHTML =  '<button style="' + button.style.cssText + '" class="fluent-hyperlink-button-accent" hyperlink>' + 
+            button.outerHTML =  '<button class="fluent-button-hyperlink"' + AttributesToString(button) + '>' + 
                                     button.innerHTML +
                                 '</button>';
         }
@@ -700,6 +707,22 @@ function InitFluentElements() {
             button.addEventListener("click", () => {
                 window.open(button.getAttribute("urlnew")); 
             });
+        }
+    }
+
+    // a attributes
+    const links = document.querySelectorAll("a");
+
+    for (const link of links) {
+        if (link.hasAttribute("accent")) {
+            link.outerHTML =    '<a ' + AttributesToString(link) + ' class="fluent-button-accent">' +
+                                link.innerHTML + 
+                                '</a>';
+        }
+        else if (link.hasAttribute("hyperlink")) {
+            link.outerHTML =    '<a ' + AttributesToString(link) + ' class="fluent-button-hyperlink">' +
+                                link.innerHTML + 
+                                '</a>';
         }
     }
 
@@ -955,21 +978,24 @@ function CodeSyntaxHigh(elmnt, mode) {var lang = (mode || "html");
 var lang = (mode || "html");
 var elmntObj = (document.getElementById(elmnt) || elmnt);
 var elmntTxt = elmntObj.innerHTML;
-var tagcolor = "#006aff"; // Lighter blue
-var tagnamecolor = "brown";
-var attributecolor = "red";
-var attributevaluecolor = "#006aff";
-var commentcolor = "green";
-var cssselectorcolor = "brown";
-var csspropertycolor = "red";
-var csspropertyvaluecolor = "#006aff";
-var cssdelimitercolor = "black";
-var cssimportantcolor = "red";
-var jscolor = "black";
+/* HTML */
+var tagcolor = "darkgray"; // Lighter blue
+var tagnamecolor = "#569cd6";
+var attributecolor = "#9cdcfe";
+var attributevaluecolor = "#ce9178";
+var commentcolor = "#6a9955";
+/* CSS */
+var cssselectorcolor = "#d7ba7d";
+var csspropertycolor = "#569cd6";
+var csspropertyvaluecolor = "#ce9178";
+var cssdelimitercolor = "white";
+var cssimportantcolor = "#569cd6";
+/* JS */
+var jscolor = "#dcdcaa";
 var jskeywordcolor = "#006aff";
-var jsstringcolor = "brown";
-var jsnumbercolor = "red";
-var jspropertycolor = "black";
+var jsstringcolor = "#ce9178";
+var jsnumbercolor = "#b5cea8";
+var jspropertycolor = "#9cdcfe";
 
 /* New colors - need to set properties
 var tagcolor = "gray";
