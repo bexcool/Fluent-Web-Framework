@@ -2,6 +2,7 @@ import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import TerserWebpackPlugin from "terser-webpack-plugin";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -31,6 +32,17 @@ export default {
 				"sass-loader"
 			]
 		}
+		]
+	},
+	optimization: {
+		minimize: true,
+		minimizer: [
+			new TerserWebpackPlugin({
+				terserOptions: {
+					keep_classnames: true,
+					keep_fnames: true
+				}
+			})
 		]
 	},
 	output: {

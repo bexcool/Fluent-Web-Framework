@@ -27,6 +27,7 @@ const makeGlobal = (val: any, name: string) => {
 	(window as any)[name] = val;
 	if (noPrefix)
 		(window as any)[name.replace(prefix, "")] = val;
+	console.log({ name, noPrefix, val, prefix });
 };
 
 // For exposing consts (maybe variables)
