@@ -1,5 +1,6 @@
 // Variables
 var Initialized = false;
+var docEle = document.documentElement;
 
     // Splash screen
     var splash_background;
@@ -10,9 +11,7 @@ var Initialized = false;
 
 // Switch between Light and Dark themes
 function SwitchTheme() {
-    var myElement = document.documentElement;
-
-    if (getComputedStyle(myElement).getPropertyValue("--dark-color") == "rgb(32, 32, 32)") // Is dark theme?
+    if (getComputedStyle(docEle).getPropertyValue("--dark-color") == "rgb(32, 32, 32)") // Is dark theme?
     {
         SetLightTheme();
     }
@@ -23,88 +22,130 @@ function SwitchTheme() {
 
 // Set Dark theme
 function SetDarkTheme() {
-    var doc = document.documentElement;
 
     // Global colors
-    doc.style.setProperty("--black-white-color", "white");
-    doc.style.setProperty("--dark-color", "rgb(32, 32, 32)");
-    doc.style.setProperty("--dark-border-color", "rgb(25, 25, 25, 0.6)");
-    doc.style.setProperty("--darker-color", "hsla(0, 0%, 100%, 3.26%)");
-    doc.style.setProperty("--light-color", "hsla(0, 0%, 100%, 5.12%)");
-    doc.style.setProperty("--light-trans-color", "rgba(40, 40, 40, 0.7)");
-    doc.style.setProperty("--light-hover-color", "hsla(0, 0%, 100%, .084)");
-    doc.style.setProperty("--lighter-hover-color", "rgba(100, 100, 100, 0.25)");
-    doc.style.setProperty("--lighter-press-color", "rgba(100, 100, 100, 0.125)");
-    doc.style.setProperty("--light-border-color", "rgba(25, 25, 25, 0.25)");
-    doc.style.setProperty("--focus-color", "rgba(255, 255, 255, 0.043)");
-    doc.style.setProperty("--text-color-inverted", "black");
-    doc.style.setProperty("--text-focus-color-inverted", "rgba(0, 0, 0, 0.75)");
-    doc.style.setProperty("--text-color", "white");
-    doc.style.setProperty("--text-focus-color", "rgba(255, 255, 255, 0.75)");
-    doc.style.setProperty("--text-nobg-color", "rgb(185, 185, 185)");
-    doc.style.setProperty("--textbox-border-bottom-color", "rgb(180, 180, 180)");
-    doc.style.setProperty("--light-dark-color", "rgb(33, 33, 33)");
-    doc.style.setProperty("--accent-focus-color", "#42a1d2");
-    doc.style.setProperty("--accent-hover-color", "#47b1e8");
-    doc.style.setProperty("--accent-color", "#4cc2ff");
-    doc.style.setProperty("--icon-color", "0");
+    docEle.style.setProperty("--black-white-color", "white");
+    docEle.style.setProperty("--dark-color", "rgb(32, 32, 32)");
+    docEle.style.setProperty("--dark-border-color", "rgb(25, 25, 25, 0.6)");
+    docEle.style.setProperty("--darker-color", "hsla(0, 0%, 100%, 3.26%)");
+    docEle.style.setProperty("--light-color", "hsla(0, 0%, 100%, 5.12%)");
+    docEle.style.setProperty("--light-trans-color", "rgba(40, 40, 40, 0.7)");
+    docEle.style.setProperty("--light-hover-color", "hsla(0, 0%, 100%, .084)");
+    docEle.style.setProperty("--lighter-hover-color", "rgba(100, 100, 100, 0.25)");
+    docEle.style.setProperty("--lighter-press-color", "rgba(100, 100, 100, 0.125)");
+    docEle.style.setProperty("--light-border-color", "rgba(25, 25, 25, 0.25)");
+    docEle.style.setProperty("--focus-color", "rgba(255, 255, 255, 0.043)");
+    docEle.style.setProperty("--text-color-inverted", "black");
+    docEle.style.setProperty("--text-focus-color-inverted", "rgba(0, 0, 0, 0.75)");
+    docEle.style.setProperty("--text-color", "white");
+    docEle.style.setProperty("--text-focus-color", "rgba(255, 255, 255, 0.75)");
+    docEle.style.setProperty("--text-nobg-color", "rgb(185, 185, 185)");
+    docEle.style.setProperty("--textbox-border-bottom-color", "rgb(180, 180, 180)");
+    docEle.style.setProperty("--light-dark-color", "rgb(33, 33, 33)");
+    docEle.style.setProperty("--accent-focus-color", "#42a1d2");
+    docEle.style.setProperty("--accent-hover-color", "#47b1e8");
+    docEle.style.setProperty("--accent-color", "#4cc2ff");
+    docEle.style.setProperty("--icon-color", "0");
+
+    // Syntax Highlighting
+    docEle.style.setProperty("--HTML-tagcolor", "darkgray");
+    docEle.style.setProperty("--HTML-tagnamecolor", "#569cd6");
+    docEle.style.setProperty("--HTML-attributecolor", "#9cdcfe");
+    docEle.style.setProperty("--HTML-attributevaluecolor", "#ce9178");
+    docEle.style.setProperty("--HTML-commentcolor", "#6a9955");
+    docEle.style.setProperty("--CSS-selectorcolor", "#d7ba7d");
+    docEle.style.setProperty("--CSS-propertycolor", "#569cd6");
+    docEle.style.setProperty("--CSS-propertyvaluecolor", "#ce9178");
+    docEle.style.setProperty("--CSS-delimitercolor", "white");
+    docEle.style.setProperty("--CSS-importantcolor", "#569cd6");
+    docEle.style.setProperty("--JS-color", "#dcdcaa");
+    docEle.style.setProperty("--JS-keywordcolor", "#006aff");
+    docEle.style.setProperty("--JS-stringcolor", "#ce9178");
+    docEle.style.setProperty("--JS-numbercolor", "#b5cea8");
+    docEle.style.setProperty("--JS-propertycolor", "#9cdcfe");
 
     // Button
-    doc.style.setProperty("--button-color", "hsla(0, 0%, 100%, .061");
-    doc.style.setProperty("--button-hover-color", "rgba(255, 255, 255, 0.089)");
-    doc.style.setProperty("--button-focus-color", "rgba(255, 255, 255, 0.040)");
-    doc.style.setProperty("--button-border-color", "rgba(63, 63, 63, 0.5)");
+    docEle.style.setProperty("--button-color", "hsla(0, 0%, 100%, .061");
+    docEle.style.setProperty("--button-hover-color", "rgba(255, 255, 255, 0.089)");
+    docEle.style.setProperty("--button-focus-color", "rgba(255, 255, 255, 0.040)");
+    docEle.style.setProperty("--button-border-color", "rgba(63, 63, 63, 0.5)");
 
     // Slider
-    doc.style.setProperty("--slider-thumb-border-color", "rgb(69, 69, 69)");
+    docEle.style.setProperty("--slider-thumb-border-color", "rgb(69, 69, 69)");
 
     // Background
-    doc.style.setProperty("--background-image", "url(https://resources.bexcool.eu/fluentwebframework/src/img/background_dark.png)")
+    docEle.style.setProperty("--background-image", "url(https://resources.bexcool.eu/fluentwebframework/src/img/background_dark.png)")
 
     localStorage.setItem("CurrentTheme", "Dark");
+    
+    // Refresh code elements
+    for (const code of document.querySelectorAll("code")) {
+        code.dispatchEvent(new Event('code_RefreshSH'));
+    }
 }
 
 // Set Light theme
 function SetLightTheme() {
-    var doc = document.documentElement;
 
     // Global colors
-    doc.style.setProperty("--black-white-color", "black");
-    doc.style.setProperty("--dark-color", "rgb(238, 238, 238)");
-    doc.style.setProperty("--dark-border-color", "rgb(225, 225, 225)");
-    doc.style.setProperty("--darker-color", "hsla(0, 0%, 100%, 46.74%)");
-    doc.style.setProperty("--light-color", "hsla(0, 0%, 100%, 65.12%)");
-    doc.style.setProperty("--light-trans-color", "rgba(251, 251, 251, 0.7)");
-    doc.style.setProperty("--light-hover-color", "rgb(0, 0, 0, 0.03)");
-    doc.style.setProperty("--lighter-hover-color", "rgb(242, 242, 242)");
-    doc.style.setProperty("--lighter-press-color", "rgb(245, 245, 245)");
-    doc.style.setProperty("--light-border-color", "rgba(220, 220, 220, 0.4)");
-    doc.style.setProperty("--focus-color", "rgb(0, 0, 0, 0.02)");
-    doc.style.setProperty("--text-color-inverted", "white");
-    doc.style.setProperty("--text-focus-color-inverted", "rgba(255, 255, 255, 0.75)");
-    doc.style.setProperty("--text-color", "black");
-    doc.style.setProperty("--text-focus-color", "rgba(0, 0, 0, 0.55)");
-    doc.style.setProperty("--text-nobg-color", "rgb(50, 50, 50)");
-    doc.style.setProperty("--textbox-border-bottom-color", "rgb(110, 110, 110)");
-    doc.style.setProperty("--light-dark-color", "rgb(248, 248, 248)");
-    doc.style.setProperty("--accent-focus-color", "#3183ca");
-    doc.style.setProperty("--accent-hover-color", "#1975c5");
-    doc.style.setProperty("--accent-color", "#0067c0");
-    doc.style.setProperty("--icon-color", "0.7");
+    docEle.style.setProperty("--black-white-color", "black");
+    docEle.style.setProperty("--dark-color", "rgb(238, 238, 238)");
+    docEle.style.setProperty("--dark-border-color", "rgb(225, 225, 225)");
+    docEle.style.setProperty("--darker-color", "hsla(0, 0%, 100%, 46.74%)");
+    docEle.style.setProperty("--light-color", "hsla(0, 0%, 100%, 65.12%)");
+    docEle.style.setProperty("--light-trans-color", "rgba(251, 251, 251, 0.7)");
+    docEle.style.setProperty("--light-hover-color", "rgb(0, 0, 0, 0.03)");
+    docEle.style.setProperty("--lighter-hover-color", "rgb(242, 242, 242)");
+    docEle.style.setProperty("--lighter-press-color", "rgb(245, 245, 245)");
+    docEle.style.setProperty("--light-border-color", "rgba(220, 220, 220, 0.4)");
+    docEle.style.setProperty("--focus-color", "rgb(0, 0, 0, 0.02)");
+    docEle.style.setProperty("--text-color-inverted", "white");
+    docEle.style.setProperty("--text-focus-color-inverted", "rgba(255, 255, 255, 0.75)");
+    docEle.style.setProperty("--text-color", "black");
+    docEle.style.setProperty("--text-focus-color", "rgba(0, 0, 0, 0.55)");
+    docEle.style.setProperty("--text-nobg-color", "rgb(50, 50, 50)");
+    docEle.style.setProperty("--textbox-border-bottom-color", "rgb(110, 110, 110)");
+    docEle.style.setProperty("--light-dark-color", "rgb(248, 248, 248)");
+    docEle.style.setProperty("--accent-focus-color", "#3183ca");
+    docEle.style.setProperty("--accent-hover-color", "#1975c5");
+    docEle.style.setProperty("--accent-color", "#0067c0");
+    docEle.style.setProperty("--icon-color", "0.7");
+
+    // Syntax Highlighting
+    docEle.style.setProperty("--HTML-tagcolor", "#0000ff");
+    docEle.style.setProperty("--HTML-tagnamecolor", "#a31616");
+    docEle.style.setProperty("--HTML-attributecolor", "#ff0000");
+    docEle.style.setProperty("--HTML-attributevaluecolor", "#0000ff");
+    docEle.style.setProperty("--HTML-commentcolor", "#6a9955");
+    docEle.style.setProperty("--CSS-selectorcolor", "#d7ba7d");
+    docEle.style.setProperty("--CSS-propertycolor", "#569cd6");
+    docEle.style.setProperty("--CSS-propertyvaluecolor", "#ce9178");
+    docEle.style.setProperty("--CSS-delimitercolor", "white");
+    docEle.style.setProperty("--CSS-importantcolor", "#569cd6");
+    docEle.style.setProperty("--JS-color", "#dcdcaa");
+    docEle.style.setProperty("--JS-keywordcolor", "#006aff");
+    docEle.style.setProperty("--JS-stringcolor", "#ce9178");
+    docEle.style.setProperty("--JS-numbercolor", "#b5cea8");
+    docEle.style.setProperty("--JS-propertycolor", "#9cdcfe");
 
     // Button
-    doc.style.setProperty("--button-color", "hsla(0, 0%, 100%, .939");
-    doc.style.setProperty("--button-hover-color", "rgba(255, 255, 255, 0.611)");
-    doc.style.setProperty("--button-focus-color", "rgba(255, 255, 255, 0.040)");
-    doc.style.setProperty("--button-border-color", "rgba(150, 150, 150, 0.3)");
+    docEle.style.setProperty("--button-color", "hsla(0, 0%, 100%, .939");
+    docEle.style.setProperty("--button-hover-color", "rgba(255, 255, 255, 0.611)");
+    docEle.style.setProperty("--button-focus-color", "rgba(255, 255, 255, 0.040)");
+    docEle.style.setProperty("--button-border-color", "rgba(150, 150, 150, 0.3)");
 
     // Slider
-    doc.style.setProperty("--slider-thumb-border-color", "white");
+    docEle.style.setProperty("--slider-thumb-border-color", "white");
 
     // Background
-    doc.style.setProperty("--background-image", "url(https://resources.bexcool.eu/fluentwebframework/src/img/background_light.png)")
+    docEle.style.setProperty("--background-image", "url(https://resources.bexcool.eu/fluentwebframework/src/img/background_light.png)")
 
     localStorage.setItem("CurrentTheme", "Light");
+
+    // Refresh code elements
+    for (const code of document.querySelectorAll("code")) {
+        code.dispatchEvent(new Event('code_RefreshSH'));
+    }
 }
 
 // Enable Mica Effect
@@ -154,7 +195,7 @@ function InitializeFluent() {
 
         // Initialize Expanders
         InitExpanders();
-        InitMenuExpanders()
+        InitMenuExpanders();
 
         // Initialize Code Elements
         InitFluentElements();
@@ -678,7 +719,15 @@ function InitFluentElements() {
             ShowFlyout(code.parentElement.parentElement.children[1], "Code copied!", 1000);
         });
 
-        if (code.hasAttribute("sh")) CodeSyntaxHigh(code, code.getAttribute("sh").toLowerCase());
+        const codeContent = code.innerHTML;
+
+        code.addEventListener('code_RefreshSH', () => {
+            code.innerHTML = codeContent;
+
+            if (code.hasAttribute("sh")) {
+                CodeSyntaxHigh(code, code.getAttribute("sh").toLowerCase());
+            }
+        });
     }
 
     // Button attributes
@@ -979,41 +1028,24 @@ var lang = (mode || "html");
 var elmntObj = (document.getElementById(elmnt) || elmnt);
 var elmntTxt = elmntObj.innerHTML;
 /* HTML */
-var tagcolor = "darkgray"; // Lighter blue
-var tagnamecolor = "#569cd6";
-var attributecolor = "#9cdcfe";
-var attributevaluecolor = "#ce9178";
-var commentcolor = "#6a9955";
+var tagcolor = getComputedStyle(docEle).getPropertyValue("--HTML-tagcolor");
+var tagnamecolor = getComputedStyle(docEle).getPropertyValue("--HTML-tagnamecolor");
+var attributecolor = getComputedStyle(docEle).getPropertyValue("--HTML-attributecolor");
+var attributevaluecolor = getComputedStyle(docEle).getPropertyValue("--HTML-attributevaluecolor");
+var commentcolor = getComputedStyle(docEle).getPropertyValue("--HTML-commentcolor");
 /* CSS */
-var cssselectorcolor = "#d7ba7d";
-var csspropertycolor = "#569cd6";
-var csspropertyvaluecolor = "#ce9178";
-var cssdelimitercolor = "white";
-var cssimportantcolor = "#569cd6";
+var cssselectorcolor = getComputedStyle(docEle).getPropertyValue("--CSS-selectorcolor");
+var csspropertycolor = getComputedStyle(docEle).getPropertyValue("--CSS-propertycolor");
+var csspropertyvaluecolor = getComputedStyle(docEle).getPropertyValue("--CSS-propertyvaluecolor");
+var cssdelimitercolor = getComputedStyle(docEle).getPropertyValue("--CSS-delimitercolor");
+var cssimportantcolor = getComputedStyle(docEle).getPropertyValue("--CSS-importantcolor");
 /* JS */
-var jscolor = "#dcdcaa";
-var jskeywordcolor = "#006aff";
-var jsstringcolor = "#ce9178";
-var jsnumbercolor = "#b5cea8";
-var jspropertycolor = "#9cdcfe";
+var jscolor = getComputedStyle(docEle).getPropertyValue("--JS-color");
+var jskeywordcolor = getComputedStyle(docEle).getPropertyValue("--JS-keywordcolor");
+var jsstringcolor = getComputedStyle(docEle).getPropertyValue("--JS-stringcolor");
+var jsnumbercolor = getComputedStyle(docEle).getPropertyValue("--JS-numbercolor");
+var jspropertycolor = getComputedStyle(docEle).getPropertyValue("--JS-propertycolor");
 
-/* New colors - need to set properties
-var tagcolor = "gray";
-var tagnamecolor = "#569cd6";
-var attributecolor = "#9cdcfe";
-var attributevaluecolor = "#ce9178";
-var commentcolor = "green";
-var cssselectorcolor = "brown";
-var csspropertycolor = "red";
-var csspropertyvaluecolor = "#006aff";
-var cssdelimitercolor = "black";
-var cssimportantcolor = "red";
-var jscolor = "black";
-var jskeywordcolor = "#006aff";
-var jsstringcolor = "brown";
-var jsnumbercolor = "red";
-var jspropertycolor = "black";
-*/attributecolor
 elmntObj.style.fontFamily = "Consolas,'Courier New', monospace";
 if (!lang) {
 	lang = "html";

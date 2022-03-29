@@ -35,6 +35,23 @@
     /* Slider (input range) */
     --slider-thumb-border-color: rgb(69, 69, 69);
 
+    /* Syntax Highlight colors */
+    --HTML-tagcolor: darkgray;
+    --HTML-tagnamecolor: #569cd6;
+    --HTML-attributecolor: #9cdcfe;
+    --HTML-attributevaluecolor: #ce9178;
+    --HTML-commentcolor: #6a9955;
+    --CSS-selectorcolor: #d7ba7d;
+    --CSS-propertycolor: #569cd6;
+    --CSS-propertyvaluecolor: #ce9178;
+    --CSS-delimitercolor: white;
+    --CSS-importantcolor: #569cd6;
+    --JS-color: #dcdcaa;
+    --JS-keywordcolor: #006aff;
+    --JS-stringcolor: #ce9178;
+    --JS-numbercolor: #b5cea8;
+    --JS-propertycolor: #9cdcfe;
+
     /* --- Variables --- */
     --expander-expand-height: "0px";
     --background-image: "var(https://resources.bexcool.eu/fluentwebframework/src/img/background_dark.png)";
