@@ -2,7 +2,7 @@
  Framework for creating fluent Windows 11 design for your website.
  
 ## Documentation
-Visit [Fluent Web Framework webpage](https://cdn.spej.eu/fwf/showcase/) - still in progress
+Visit the [Fluent Web Framework](https://cdn.spej.eu/fwf/showcase/) - still in progress
 ### Some controls
 ![obrazek](https://user-images.githubusercontent.com/53868994/151600056-709ddcb5-838a-4f69-a518-a249130aa712.png)
 ### Expander
@@ -31,4 +31,4 @@ Before </body>
 **Docs are not updated (yet)**
 ### Compatibility with the vanilla.js project
 Setting `window.FLUENT_NO_PREFIX` to `true`  
-makes functions and variables available in the global namespace without the Fluent_ prefix this fork uses.
+makes functions and variables in the global namespace available without the Fluent_ prefix this project uses.
