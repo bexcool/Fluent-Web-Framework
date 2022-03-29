@@ -178,3 +178,15 @@ class Label extends HTMLElement {
 }
 
 customElements.define('fluent-label', Label);
+
+// Content dialog
+
+class ContentDialog extends HTMLElement {
+    connectedCallback() {
+        setTimeout(() => {
+            this.outerHTML = '<div class="fluent-content-dialog-background"><div class="fluent-content-dialog" ' + AttributesToString(this) + '>' + this.innerHTML + '</div></div>';
+        });
+    }
+}
+
+customElements.define('fluent-content-dialog', ContentDialog);

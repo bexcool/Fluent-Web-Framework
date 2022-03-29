@@ -197,7 +197,13 @@
                         <section id="content-dialog">
                             <h2>Content dialog</h2>
                             <p>Element for displaying content in a dialog window.</p>
-                            <button hyperlink>Testing</button><a href="#" hyperlink>Testing</a><a accent href="#">Testing</a><a href="#">Testing</a><button>Testing</button>
+                            <button onclick="ShowContentDialog('content-dialog-showcase');">Show content dialog</button>
+                            <fluent-content-dialog id="content-dialog-showcase">
+                                <h4>Content dialog</h4>
+                                <fluent-content-dialog-options>
+                                    <button onclick="HideContentDialog('content-dialog-showcase');" accent>Ok</button><button onclick="HideContentDialog('content-dialog-showcase');">Close</button>
+                                </fluent-content-dialog-options>
+                            </fluent-content-dialog>
                         </section>
                     </fluent-page>
                     <!-- Context menu section -->

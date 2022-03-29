@@ -6,12 +6,14 @@
     --dark-color: rgb(32, 32, 32);
     --dark-border-color: rgb(25, 25, 25, 0.75);
     --darker-color: rgb(39, 39, 39);
+    --darker-color-noa: rgb(43, 43, 43);
     --light-color: hsla(0, 0%, 100%, 5.12%);
     --light-trans-color: rgba(43, 43, 43, 0.7);
     --light-hover-color: hsla(0, 0%, 100%, .084);
     --lighter-hover-color: rgb(55, 55, 55);
     --lighter-press-color: rgb(51, 51, 51);
     --light-border-color: rgb(47, 47, 47);
+    --lighter-border-color: rgba(180, 180, 180, 0.4);
     --light-dark-color: rgb(33, 33, 33);
     --very-light-color: rgb(145, 145, 145, 0.75);
     --focus-color: rgba(255, 255, 255, 0.043);
@@ -1560,4 +1562,68 @@ fluent-web-container {
     background-color: var(--dark-color);
     background: var(--background-image) no-repeat fixed;
     background-size: cover;
+}
+
+/* Content dialog */
+
+@keyframes fluent-content-dialog-fade {
+    0% { opacity: 0; transform: scale(1.2); -webkit-transform: scale(1.2); -moz-transform: scale(1.2); -ms-transform: scale(1.2); -o-transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); -o-transform: scale(1); }
+}
+
+@keyframes fluent-content-dialog-fade-rev {
+    0% { opacity: 1; transform: scale(1); -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); -o-transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.2); -webkit-transform: scale(1.2); -moz-transform: scale(1.2); -ms-transform: scale(1.2); -o-transform: scale(1.2); }
+}
+
+.fluent-content-dialog-background {
+    background-color: rgba(0, 0, 0, 0.175);
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.fluent-content-dialog {
+    background-color: var(--darker-color-noa);
+    border-radius: 10px;
+    border: var(--lighter-border-color) solid 1px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 1.35em 1.5em 2em 1.5em;
+    min-width: 15em;
+    min-height: 8em;
+    overflow: hidden;
+}
+
+.fluent-content-dialog * {
+    flex-grow: 1;
+}
+
+fluent-content-dialog-options {
+    background-color: var(--dark-color);
+    border-top: var(--dark-border-color) solid 1px;
+    width: auto;
+    height: fit-content;
+    margin: 1.5em -1.5em -2em -1.5em;
+    display: flex;
+    justify-content: stretch;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5em;
+}
+
+fluent-content-dialog-options * {
+    flex: 1 1 0px;
+    margin: auto 0.5em;
 }

@@ -28,15 +28,17 @@ function SetDarkTheme() {
     docEle.style.setProperty("--dark-color", "rgb(32, 32, 32)");
     docEle.style.setProperty("--dark-border-color", "rgb(25, 25, 25, 0.6)");
     docEle.style.setProperty("--darker-color", "hsla(0, 0%, 100%, 3.26%)");
+    docEle.style.setProperty("--darker-color-noa", "rgb(43, 43, 43)")
     docEle.style.setProperty("--light-color", "hsla(0, 0%, 100%, 5.12%)");
     docEle.style.setProperty("--light-trans-color", "rgba(40, 40, 40, 0.7)");
     docEle.style.setProperty("--light-hover-color", "hsla(0, 0%, 100%, .084)");
     docEle.style.setProperty("--lighter-hover-color", "rgba(100, 100, 100, 0.25)");
     docEle.style.setProperty("--lighter-press-color", "rgba(100, 100, 100, 0.125)");
     docEle.style.setProperty("--light-border-color", "rgba(25, 25, 25, 0.25)");
+    docEle.style.setProperty("--lighter-border-color", "rgba(105, 105, 105, 0.25)");
     docEle.style.setProperty("--focus-color", "rgba(255, 255, 255, 0.043)");
     docEle.style.setProperty("--text-color-inverted", "black");
-    docEle.style.setProperty("--text-focus-color-inverted", "rgba(0, 0, 0, 0.75)");
+    docEle.style.setProperty("--text-focus-color-inverted", "rgba(0, 0, 0, 0.5)");
     docEle.style.setProperty("--text-color", "white");
     docEle.style.setProperty("--text-focus-color", "rgba(255, 255, 255, 0.75)");
     docEle.style.setProperty("--text-nobg-color", "rgb(185, 185, 185)");
@@ -98,9 +100,10 @@ function SetLightTheme() {
     docEle.style.setProperty("--lighter-hover-color", "rgb(242, 242, 242)");
     docEle.style.setProperty("--lighter-press-color", "rgb(245, 245, 245)");
     docEle.style.setProperty("--light-border-color", "rgba(220, 220, 220, 0.4)");
+    docEle.style.setProperty("--lighter-border-color", "rgba(180, 180, 180, 0.4)");
     docEle.style.setProperty("--focus-color", "rgb(0, 0, 0, 0.02)");
     docEle.style.setProperty("--text-color-inverted", "white");
-    docEle.style.setProperty("--text-focus-color-inverted", "rgba(255, 255, 255, 0.75)");
+    docEle.style.setProperty("--text-focus-color-inverted", "rgba(255, 255, 255, 0.5)");
     docEle.style.setProperty("--text-color", "black");
     docEle.style.setProperty("--text-focus-color", "rgba(0, 0, 0, 0.55)");
     docEle.style.setProperty("--text-nobg-color", "rgb(50, 50, 50)");
@@ -382,32 +385,6 @@ function InitializeFluent() {
         Initialized = true;
     }, 100);
 
-}
-
-function ShowSplashScreen(duration = 0, fadeIn = false, image = "") {
-    document.body.style.overflow = "hidden";
-
-    if (image == "") {
-        splash_image.type="image/svg+xml";
-        splash_image.data="https://resources.bexcool.eu/fluentwebframework/src/img/icons/web.png";
-    } else {
-        splash_image.src = image;
-    }
-    
-    splash_background.style.display = "flex";
-    if (fadeIn) {
-        setTimeout(() => {
-            splash_background.style.opacity = "1";
-        }, 10);
-    }
-
-    setTimeout(() => {
-        splash_background.style.opacity = "0";
-        setTimeout(() => {
-            splash_background.style.display = "none";
-            document.body.style.overflow = "auto";
-        }, 200);
-    }, duration);
 }
 
 function InitExpanders() {
@@ -930,6 +907,33 @@ function InitFluentElements() {
 
 //#region Fluent functions
 
+// Show splash screen
+function ShowSplashScreen(duration = 0, fadeIn = false, image = "") {
+    document.body.style.overflow = "hidden";
+
+    if (image == "") {
+        splash_image.type="image/svg+xml";
+        splash_image.data="https://resources.bexcool.eu/fluentwebframework/src/img/icons/web.png";
+    } else {
+        splash_image.src = image;
+    }
+    
+    splash_background.style.display = "flex";
+    if (fadeIn) {
+        setTimeout(() => {
+            splash_background.style.opacity = "1";
+        }, 10);
+    }
+
+    setTimeout(() => {
+        splash_background.style.opacity = "0";
+        setTimeout(() => {
+            splash_background.style.display = "none";
+            document.body.style.overflow = "auto";
+        }, 200);
+    }, duration);
+}
+
 // Show flyout
 function ShowFlyout(element, string, delay) {
     let flyout = document.createElement("div");
@@ -1005,6 +1009,28 @@ function ShowFlyout(element, string, delay) {
                 }, 50);
         }
     }, delay);
+}
+
+// Show content dialog
+function ShowContentDialog(id) {
+    const contentDialog = document.getElementById(id);
+
+    if (contentDialog != null) {
+        contentDialog.parentElement.style.animation = "fluent-content-dialog-fade 0.1s ease-in";
+        contentDialog.parentElement.style.display = "flex";
+        document.body.style.overflow = "hidden";
+        setTimeout(() => { contentDialog.parentElement.style.animation = "none"; }, 105);
+    }
+}
+
+// Hide content dialog
+function HideContentDialog(id) {
+    const contentDialog = document.getElementById(id);
+
+    if (contentDialog != null) {
+        contentDialog.parentElement.style.animation = "fluent-content-dialog-fade-rev 0.1s ease-out";
+        setTimeout(() => { contentDialog.parentElement.style.display = "none"; document.body.style.overflow = "auto"; }, 85);
+    }
 }
 
 //#endregion
