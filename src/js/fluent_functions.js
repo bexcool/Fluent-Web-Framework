@@ -59,10 +59,10 @@ function SetDarkTheme() {
     docEle.style.setProperty("--CSS-delimitercolor", "white");
     docEle.style.setProperty("--CSS-importantcolor", "#569cd6");
     docEle.style.setProperty("--JS-color", "#dcdcaa");
-    docEle.style.setProperty("--JS-keywordcolor", "#006aff");
+    docEle.style.setProperty("--JS-keywordcolor", "#569cd6");
     docEle.style.setProperty("--JS-stringcolor", "#ce9178");
     docEle.style.setProperty("--JS-numbercolor", "#b5cea8");
-    docEle.style.setProperty("--JS-propertycolor", "#9cdcfe");
+    docEle.style.setProperty("--JS-propertycolor", "#4fc1ff");
 
     // Button
     docEle.style.setProperty("--button-color", "hsla(0, 0%, 100%, .061");
@@ -117,16 +117,16 @@ function SetLightTheme() {
     docEle.style.setProperty("--HTML-attributecolor", "#ff0000");
     docEle.style.setProperty("--HTML-attributevaluecolor", "#0000ff");
     docEle.style.setProperty("--HTML-commentcolor", "#6a9955");
-    docEle.style.setProperty("--CSS-selectorcolor", "#d7ba7d");
-    docEle.style.setProperty("--CSS-propertycolor", "#569cd6");
-    docEle.style.setProperty("--CSS-propertyvaluecolor", "#ce9178");
-    docEle.style.setProperty("--CSS-delimitercolor", "white");
-    docEle.style.setProperty("--CSS-importantcolor", "#569cd6");
-    docEle.style.setProperty("--JS-color", "#dcdcaa");
-    docEle.style.setProperty("--JS-keywordcolor", "#006aff");
-    docEle.style.setProperty("--JS-stringcolor", "#ce9178");
-    docEle.style.setProperty("--JS-numbercolor", "#b5cea8");
-    docEle.style.setProperty("--JS-propertycolor", "#9cdcfe");
+    docEle.style.setProperty("--CSS-selectorcolor", "#800000");
+    docEle.style.setProperty("--CSS-propertycolor", "#ff0000");
+    docEle.style.setProperty("--CSS-propertyvaluecolor", "#0451a5");
+    docEle.style.setProperty("--CSS-delimitercolor", "#000");
+    docEle.style.setProperty("--CSS-importantcolor", "#000");
+    docEle.style.setProperty("--JS-color", "#795e26");
+    docEle.style.setProperty("--JS-keywordcolor", "#0000ff");
+    docEle.style.setProperty("--JS-stringcolor", "#a31616");
+    docEle.style.setProperty("--JS-numbercolor", "#098658");
+    docEle.style.setProperty("--JS-propertycolor", "#001080");
 
     // Button
     docEle.style.setProperty("--button-color", "hsla(0, 0%, 100%, .939");
