@@ -9,10 +9,16 @@ export const setInitialized = (v: boolean) => {
 
 export const docElement = document.documentElement;
 
-// TOOD: Make this const, but without undefined values
-export let splash: {
+export const splash: {
 	background: HTMLDivElement;
 	image: HTMLImageElement;
+} = {
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
+	background: undefined,
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
+	image: undefined
 };
 
 export const KEY_THEME = "Fluent.Theme";
