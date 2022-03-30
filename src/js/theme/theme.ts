@@ -1,4 +1,4 @@
-import { docElement, KEY_THEME } from "../fluent";
+import { CDN_URL, docElement, KEY_THEME } from "../fluent";
 
 interface Theme {
 	// Global colors
@@ -130,7 +130,7 @@ function setDarkTheme() {
 		// Slider
 		"slider-thumb-border-color": "rgb(69, 69, 69)",
 		// Background
-		"background-image": "url(https://cdn.spej.eu/fwf/img/background_dark.png)",
+		"background-image": `url(${CDN_URL}/img/background_dark.png)`,
 	}, themes.DARK);
 }
 
@@ -185,7 +185,7 @@ function setLightTheme() {
 		// Slider
 		"slider-thumb-border-color": "white",
 		// Background
-		"background-image": "url(https://cdn.spej.eu/fwf/img/background_light.png)",
+		"background-image": `url(${CDN_URL}/img/background_light.png)`,
 	}, themes.LIGHT);
 }
 

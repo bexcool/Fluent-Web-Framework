@@ -15,7 +15,7 @@ export class Expander extends HTMLElement implements FluentElement {
 				this.outerHTML = /*html*/`<div style="${this.style.cssText}" class="fluent-expander"><div class="fluent-expander-header"><p>${Header}</p><div><img class="fluent-expander-arrow" style="transform: rotate(180deg)" src="${CDN_URL}/img/arrow_down.svg"></div></div><div class="fluent-expander-body-container"><div class="fluent-expander-body expanded">${this.innerHTML}</div></div></div>`;
 			}
 			else {
-				this.outerHTML = /*html*/`<div style="${this.style.cssText}" class="fluent-expander"><div class="fluent-expander-header"><p>${Header}</p><div><img class="fluent-expander-arrow" src="https://cdn.spej.eu/fwf/img/arrow_down.svg"></div></div><div class="fluent-expander-body-container"><div class="fluent-expander-body">${this.innerHTML}</div></div></div>`;
+				this.outerHTML = /*html*/`<div style="${this.style.cssText}" class="fluent-expander"><div class="fluent-expander-header"><p>${Header}</p><div><img class="fluent-expander-arrow" src="${CDN_URL}/img/arrow_down.svg"></div></div><div class="fluent-expander-body-container"><div class="fluent-expander-body">${this.innerHTML}</div></div></div>`;
 			}
 		});
 	}
