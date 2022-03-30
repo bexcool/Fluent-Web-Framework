@@ -13,7 +13,7 @@ export class ContextMenu extends HTMLElement implements FluentElement {
 		const Url = this.attributes.Url != null ? this.attributes.Url.value : "#";
 
 		setTimeout(() =>
-			this.outerHTML = `<div style="${this.style.cssText}" class="fluent-context-menu-container" style=""><a href="${Url}">${Header}</a><div class="fluent-context-menu"><ul class="fluent-menu-list">${this.innerHTML}</ul></div></div>`);
+			this.outerHTML = /*html*/`<div style="${this.style.cssText}" class="fluent-context-menu-container"><a href="${Url}">${Header}</a><div class="fluent-context-menu"><ul class="fluent-menu-list">${this.innerHTML}</ul></div></div>`);
 	}
 }
 

@@ -6,7 +6,7 @@ export class MainContent extends HTMLElement implements FluentElement {
 
 	connectedCallback() {
 		setTimeout(() =>
-			this.outerHTML = `<div class="fluent-main-content" ${attributesToString(this)}>${this.innerHTML}</div>`
+			this.outerHTML = /*html*/`<div class="fluent-main-content" ${attributesToString(this)}>${this.innerHTML}</div>`
 		);
 	}
 }

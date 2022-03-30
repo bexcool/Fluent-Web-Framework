@@ -5,7 +5,7 @@ export class ToggleButton extends HTMLElement implements FluentElement {
 
 	connectedCallback() {
 		setTimeout(() =>
-			this.outerHTML = `<button style="${this.style.cssText}" class="fluent-button">${this.innerHTML}</button>`
+			this.outerHTML = /*html*/`<button style="${this.style.cssText}" class="fluent-button">${this.innerHTML}</button>`
 		);
 	}
 }

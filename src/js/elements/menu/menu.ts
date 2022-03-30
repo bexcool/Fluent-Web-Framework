@@ -6,7 +6,7 @@ export class Menu extends HTMLElement implements FluentElement {
 
 	connectedCallback() {
 		setTimeout(() =>
-			this.outerHTML = `<div class="fluent-menu" ${attributesToString(this)}><ul class="fluent-menu-list">${this.innerHTML}</ul></div></div>`
+			this.outerHTML = /*html*/`<div class="fluent-menu" ${attributesToString(this)}><ul class="fluent-menu-list">${this.innerHTML}</ul></div>`
 		);
 	}
 }

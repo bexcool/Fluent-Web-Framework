@@ -7,7 +7,7 @@ export class Button extends HTMLElement implements FluentElement {
 	connectedCallback() {
 		setTimeout(() => {
 			if (this.hasAttribute("accent")) {
-				this.outerHTML = `<a class="fluent-button-accent" href="#" ${attributesToString(this)}>${this.innerHTML}</a>`;
+				this.outerHTML = /*html*/`<a class="fluent-button-accent" href="#" ${attributesToString(this)}>${this.innerHTML}</a>`;
 			}
 		});
 	}

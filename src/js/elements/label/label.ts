@@ -6,7 +6,7 @@ export class Label extends HTMLElement implements FluentElement {
 
 	connectedCallback() {
 		setTimeout(() => {
-			this.outerHTML = `<span class="fluent-label" ${attributesToString(this)}>${this.innerHTML}</span>`;
+			this.outerHTML = /*html*/`<span class="fluent-label" ${attributesToString(this)}>${this.innerHTML}</span>`;
 		});
 	}
 }

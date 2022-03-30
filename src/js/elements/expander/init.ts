@@ -35,11 +35,7 @@ export default () => {
 				setTimeout(function () {
 					expanderBody.classList.remove("expanded");
 
-					expander.style.cssText = "border-radius: 4px 4px 4px 4px;" +
-						"-webkit-border-radius: 4px 4px 4px 4px;" +
-						"-moz-border-radius: 4px 4px 4px 4px;" +
-						"-ms-border-radius: 4px 4px 4px 4px;" +
-						"-o-border-radius: 4px 4px 4px 4px;";
+					expander.style.cssText = "border-radius: 4px 4px 4px 4px;";
 				}, 280);
 			}
 			else {
@@ -48,11 +44,7 @@ export default () => {
 				docElement.style.setProperty("--expander-expand-height", (expanderBody.scrollHeight) + "px");
 				expanderBody.style.animation = "fluent-expander-expand 0.15s ease-in";
 
-				expander.style.cssText = "border-radius: 4px 4px 0px 0px;" +
-					"-webkit-border-radius: 4px 4px 0px 0px;" +
-					"-moz-border-radius: 4px 4px 0px 0px;" +
-					"-ms-border-radius: 4px 4px 0px 0px;" +
-					"-o-border-radius: 4px 4px 0px 0px;";
+				expander.style.cssText = "border-radius: 4px 4px 0px 0px;";
 
 				setTimeout(() => expanderArrow.style.transform = "rotate(180deg)", 150);
 			}

@@ -5,7 +5,7 @@ export class Border extends HTMLElement implements FluentElement {
 
 	connectedCallback() {
 		setTimeout(() =>
-			this.outerHTML = `<div style="${this.style.cssText}" class="fluent-background-border">${this.innerHTML}</div>`
+			this.outerHTML = /*html*/`<div style="${this.style.cssText}" class="fluent-background-border">${this.innerHTML}</div>`
 		);
 	}
 }

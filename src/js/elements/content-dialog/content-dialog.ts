@@ -6,12 +6,7 @@ export class ContentDialog extends HTMLElement implements FluentElement {
 
 	connectedCallback() {
 		setTimeout(() => {
-			this.outerHTML = `
-			<div class="fluent-content-dialog-background">
-				<div class="fluent-content-dialog" ${attributesToString(this)}>
-					${this.innerHTML}
-				</div>
-			</div>`;
+			this.outerHTML = /*html*/`<div class="fluent-content-dialog-background"><div class="fluent-content-dialog" ${attributesToString(this)}>${this.innerHTML}</div></div>`;
 		});
 	}
 }
