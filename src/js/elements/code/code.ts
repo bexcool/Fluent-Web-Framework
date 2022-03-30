@@ -1,5 +1,8 @@
 /* eslint-disable */
 // @ts-nocheck
+import { docElement } from "../../fluent";
+
+// TODO: Completely rewrite this file, or even better - use a library
 
 export function codeSyntaxHigh(elmnt, mode) {
 	var lang = (mode || "html");
@@ -7,23 +10,23 @@ export function codeSyntaxHigh(elmnt, mode) {
 	const elmntObj = (document.getElementById(elmnt) || elmnt);
 	let elmntTxt = elmntObj.innerHTML;
 	/* HTML */
-	const tagcolor = getComputedStyle(docEle).getPropertyValue("--HTML-tagcolor"),
-		tagnamecolor = getComputedStyle(docEle).getPropertyValue("--HTML-tagnamecolor"),
-		attributecolor = getComputedStyle(docEle).getPropertyValue("--HTML-attributecolor"),
-		attributevaluecolor = getComputedStyle(docEle).getPropertyValue("--HTML-attributevaluecolor"),
-		commentcolor = getComputedStyle(docEle).getPropertyValue("--HTML-commentcolor");
+	const tagcolor = getComputedStyle(docElement).getPropertyValue("--HTML-tagcolor"),
+		tagnamecolor = getComputedStyle(docElement).getPropertyValue("--HTML-tagnamecolor"),
+		attributecolor = getComputedStyle(docElement).getPropertyValue("--HTML-attributecolor"),
+		attributevaluecolor = getComputedStyle(docElement).getPropertyValue("--HTML-attributevaluecolor"),
+		commentcolor = getComputedStyle(docElement).getPropertyValue("--HTML-commentcolor");
 	/* CSS */
-	const cssselectorcolor = getComputedStyle(docEle).getPropertyValue("--CSS-selectorcolor"),
-		csspropertycolor = getComputedStyle(docEle).getPropertyValue("--CSS-propertycolor"),
-		csspropertyvaluecolor = getComputedStyle(docEle).getPropertyValue("--CSS-propertyvaluecolor"),
-		cssdelimitercolor = getComputedStyle(docEle).getPropertyValue("--CSS-delimitercolor"),
-		cssimportantcolor = getComputedStyle(docEle).getPropertyValue("--CSS-importantcolor");
+	const cssselectorcolor = getComputedStyle(docElement).getPropertyValue("--CSS-selectorcolor"),
+		csspropertycolor = getComputedStyle(docElement).getPropertyValue("--CSS-propertycolor"),
+		csspropertyvaluecolor = getComputedStyle(docElement).getPropertyValue("--CSS-propertyvaluecolor"),
+		cssdelimitercolor = getComputedStyle(docElement).getPropertyValue("--CSS-delimitercolor"),
+		cssimportantcolor = getComputedStyle(docElement).getPropertyValue("--CSS-importantcolor");
 	/* JS */
-	const jscolor = getComputedStyle(docEle).getPropertyValue("--JS-color"),
-		jskeywordcolor = getComputedStyle(docEle).getPropertyValue("--JS-keywordcolor"),
-		jsstringcolor = getComputedStyle(docEle).getPropertyValue("--JS-stringcolor"),
-		jsnumbercolor = getComputedStyle(docEle).getPropertyValue("--JS-numbercolor"),
-		jspropertycolor = getComputedStyle(docEle).getPropertyValue("--JS-propertycolor");
+	const jscolor = getComputedStyle(docElement).getPropertyValue("--JS-color"),
+		jskeywordcolor = getComputedStyle(docElement).getPropertyValue("--JS-keywordcolor"),
+		jsstringcolor = getComputedStyle(docElement).getPropertyValue("--JS-stringcolor"),
+		jsnumbercolor = getComputedStyle(docElement).getPropertyValue("--JS-numbercolor"),
+		jspropertycolor = getComputedStyle(docElement).getPropertyValue("--JS-propertycolor");
 
 /* New colors - need to set properties
 var tagcolor = "gray";
