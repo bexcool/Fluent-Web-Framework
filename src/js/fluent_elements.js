@@ -77,7 +77,7 @@ class Expander extends HTMLElement {
         setTimeout( () => {
             if (this.hasAttribute("expanded")) {
                 this.outerHTML =    '<div style="' + this.style.cssText + '" ' +
-                                    'class="fluent-expander"><div class="fluent-expander-header">' +
+                                    'class="fluent-expander"><div class="fluent-expander-header" style="border-radius: 4px 4px 0px 0px; -webkit-border-radius: 4px 4px 0px 0px; -moz-border-radius: 4px 4px 0px 0px; -ms-border-radius: 4px 4px 0px 0px; -o-border-radius: 4px 4px 0px 0px;">' +
                                     '<p>' + Header + '</p><div><img class="fluent-expander-arrow" style="transform: rotate(180deg)" src="https://resources.bexcool.eu/fluentwebframework/src/img/arrow_down.svg"></div></div>' +
                                     '<div class="fluent-expander-body-container"><div class="fluent-expander-body expanded">' +
                                     this.innerHTML +
@@ -190,3 +190,15 @@ class ContentDialog extends HTMLElement {
 }
 
 customElements.define('fluent-content-dialog', ContentDialog);
+
+// Hyperlink
+
+class Hyperlink extends HTMLElement {
+    connectedCallback() {
+        setTimeout(() => {
+            this.outerHTML = '<a class="fluent-hyperlink" ' + AttributesToString(this) + '>' + this.innerHTML + '</a>';
+        });
+    }
+}
+
+customElements.define('fluent-hyperlink', Hyperlink);

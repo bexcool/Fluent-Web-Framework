@@ -24,7 +24,13 @@
     --text-nobg-color: rgb(185, 185, 185);
     --accent-focus-color: #42a1d2;
     --accent-hover-color: #47b1e8;
+    --accent-color-custom: none;
+    --accent-color-default-dark: #4cc2ff;
+    --accent-color-default-light: #0067c0;
     --accent-color: #4cc2ff;
+    --accent-color-1: #4cc2ff;
+    --accent-color-2: #4cc2ff;
+    --accent-color-3: #4cc2ff;
     --textbox-border-bottom-color: rgb(180, 180, 180);
     --icon-color: 0;
 
@@ -184,7 +190,37 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 
 .fluent-button-hyperlink:focus {
     background-color: var(--focus-color);
-    color: var(--accent-focus-color);
+    color: var(--accent-color-3);
+}
+
+/* Hyperlink */
+
+.fluent-hyperlink {
+    text-decoration: underline;
+    cursor: default;
+    margin: auto;
+    color: var(--accent-color);
+    border: none;
+    padding: unset;
+    background-color: unset;
+    transition: 0.1s ease-in-out;
+    outline: none;
+    border-radius: none;
+    -webkit-border-radius: none;
+    -moz-border-radius: none;
+    -ms-border-radius: none;
+    -o-border-radius: none;
+}
+
+.fluent-hyperlink:hover {
+    background-color: unset;
+    color: var(--accent-color-1);
+    cursor: pointer;
+}
+
+.fluent-hyperlink:focus {
+    background-color: unset;
+    color: var(--accent-color-3);
 }
 
 /* Button */
@@ -234,11 +270,11 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 }
 
 .fluent-button-accent:hover {
-    background-color: var(--accent-hover-color);
+    background-color: var(--accent-color-1);
 }
 
 .fluent-button-accent:focus {
-    background-color: var(--accent-focus-color);
+    background-color: var(--accent-color-2);
     color: var(--text-focus-color-inverted);
 }
 

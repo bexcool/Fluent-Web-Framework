@@ -38,7 +38,7 @@ function SetDarkTheme() {
     docEle.style.setProperty("--lighter-border-color", "rgba(105, 105, 105, 0.25)");
     docEle.style.setProperty("--focus-color", "rgba(255, 255, 255, 0.043)");
     docEle.style.setProperty("--text-color-inverted", "black");
-    docEle.style.setProperty("--text-focus-color-inverted", "rgba(0, 0, 0, 0.5)");
+    docEle.style.setProperty("--text-focus-color-inverted", "rgba(0, 0, 0, 0.45)");
     docEle.style.setProperty("--text-color", "white");
     docEle.style.setProperty("--text-focus-color", "rgba(255, 255, 255, 0.75)");
     docEle.style.setProperty("--text-nobg-color", "rgb(185, 185, 185)");
@@ -46,7 +46,10 @@ function SetDarkTheme() {
     docEle.style.setProperty("--light-dark-color", "rgb(33, 33, 33)");
     docEle.style.setProperty("--accent-focus-color", "#42a1d2");
     docEle.style.setProperty("--accent-hover-color", "#47b1e8");
-    docEle.style.setProperty("--accent-color", "#4cc2ff");
+    if (getComputedStyle(docEle).getPropertyValue("--accent-color-custom") == "none") docEle.style.setProperty("--accent-color", getComputedStyle(docEle).getPropertyValue("--accent-color-default-dark"));
+    docEle.style.setProperty("--accent-color-1", pSBC(-0.11, getComputedStyle(docEle).getPropertyValue("--accent-color"), false, true));
+    docEle.style.setProperty("--accent-color-2", pSBC(-0.21, getComputedStyle(docEle).getPropertyValue("--accent-color"), false, true));
+    docEle.style.setProperty("--accent-color-3", pSBC(-0.31, getComputedStyle(docEle).getPropertyValue("--accent-color"), false, true));
     docEle.style.setProperty("--icon-color", "0");
 
     // Syntax Highlighting
@@ -94,13 +97,14 @@ function SetLightTheme() {
     docEle.style.setProperty("--dark-color", "rgb(238, 238, 238)");
     docEle.style.setProperty("--dark-border-color", "rgb(225, 225, 225)");
     docEle.style.setProperty("--darker-color", "hsla(0, 0%, 100%, 46.74%)");
+    docEle.style.setProperty("--darker-color-noa", "rgb(245, 245, 245)")
     docEle.style.setProperty("--light-color", "hsla(0, 0%, 100%, 65.12%)");
     docEle.style.setProperty("--light-trans-color", "rgba(251, 251, 251, 0.7)");
     docEle.style.setProperty("--light-hover-color", "rgb(0, 0, 0, 0.03)");
     docEle.style.setProperty("--lighter-hover-color", "rgb(242, 242, 242)");
     docEle.style.setProperty("--lighter-press-color", "rgb(245, 245, 245)");
     docEle.style.setProperty("--light-border-color", "rgba(220, 220, 220, 0.4)");
-    docEle.style.setProperty("--lighter-border-color", "rgba(180, 180, 180, 0.4)");
+    docEle.style.setProperty("--lighter-border-color", "rgba(255, 255, 255, 1)");
     docEle.style.setProperty("--focus-color", "rgb(0, 0, 0, 0.02)");
     docEle.style.setProperty("--text-color-inverted", "white");
     docEle.style.setProperty("--text-focus-color-inverted", "rgba(255, 255, 255, 0.5)");
@@ -111,7 +115,10 @@ function SetLightTheme() {
     docEle.style.setProperty("--light-dark-color", "rgb(248, 248, 248)");
     docEle.style.setProperty("--accent-focus-color", "#3183ca");
     docEle.style.setProperty("--accent-hover-color", "#1975c5");
-    docEle.style.setProperty("--accent-color", "#0067c0");
+    if (getComputedStyle(docEle).getPropertyValue("--accent-color-custom") == "none") docEle.style.setProperty("--accent-color", getComputedStyle(docEle).getPropertyValue("--accent-color-default-light"));
+    docEle.style.setProperty("--accent-color-1", pSBC(0.1, getComputedStyle(docEle).getPropertyValue("--accent-color"), false, true));
+    docEle.style.setProperty("--accent-color-2", pSBC(0.2, getComputedStyle(docEle).getPropertyValue("--accent-color"), false, true));
+    docEle.style.setProperty("--accent-color-3", pSBC(0.3, getComputedStyle(docEle).getPropertyValue("--accent-color"), false, true));
     docEle.style.setProperty("--icon-color", "0.7");
 
     // Syntax Highlighting
@@ -1031,6 +1038,12 @@ function HideContentDialog(id) {
         contentDialog.parentElement.style.animation = "fluent-content-dialog-fade-rev 0.1s ease-out";
         setTimeout(() => { contentDialog.parentElement.style.display = "none"; document.body.style.overflow = "auto"; }, 85);
     }
+}
+
+function SetAccentColor(hex_dark, hex_light) {
+    docEle.style.setProperty("--accent-color-custom", "");
+    docEle.style.setProperty("--accent-color-default-dark", hex_dark);
+    docEle.style.setProperty("--accent-color-default-light", hex_light);
 }
 
 //#endregion
