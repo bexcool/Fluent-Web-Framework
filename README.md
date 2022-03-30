@@ -1,14 +1,16 @@
 # Fluent Web Framwork
 
- Framework for creating fluent Windows 11 design for your website.
+Framework for using Windows 11 Fluent design on the web.
 
 ## Documentation
 
 Visit the [Fluent Web Framework](https://cdn.spej.eu/fwf/showcase/) - still in progress
 
+Docs are not fully updated (yet)
+
 ### Some controls
 
-![obrazek](https://user-images.githubusercontent.com/53868994/151600056-709ddcb5-838a-4f69-a518-a249130aa712.png)
+![controls example](https://user-images.githubusercontent.com/53868994/151600056-709ddcb5-838a-4f69-a518-a249130aa712.png)
 
 ### Expander
 
@@ -18,7 +20,7 @@ Visit the [Fluent Web Framework](https://cdn.spej.eu/fwf/showcase/) - still in p
 </fluent-expander>
 ```
 
-![firefox_GWKvhDP0pl](https://user-images.githubusercontent.com/53868994/151600680-22a9beb1-b5e1-42b2-b3c4-115aed8be7fc.gif)
+![expander example](https://user-images.githubusercontent.com/53868994/151600680-22a9beb1-b5e1-42b2-b3c4-115aed8be7fc.gif)
 
 ## Features
 
@@ -38,9 +40,29 @@ Before </body>:
 <script src="https://cdn.spej.eu/fwf/fluent-bundle.min.js"></script>
 ```
 
-Docs are not fully updated (yet)
+## Options
 
-### Compatibility with the vanilla.js project
+```html
+<script>
+// Fluent Web Framework options
+const FLUENT = {
+   noPrefix: false,
+   enableCode: false,
+};
+Fluent_onReady(() => { // or Fluent_onInitialized
+   // Called when FWF is ready
+});
+</script>
+<!-- Import fluent-bundle.min.js here -->
+```
 
-Setting `window.FLUENT_NO_PREFIX` to `true`  
-makes functions and variables in the global namespace available without the Fluent_ prefix this project uses.
+### noPrefix - Compatibility with the original project
+
+Make functions and variables available without the `Fluent_` prefix and capitalizes the first letter.
+E.g. `Fluent_showSplashScreen()` becomes available as `ShowSplashScreen()`.
+Default: `false`
+
+### enableCode - Enable code highlighting
+
+Loads and enables code highlighting stuff.
+Default: `false`

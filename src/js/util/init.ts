@@ -211,6 +211,6 @@ export default () => {
 		}
 		//#endregion
 
-		setInitialized(true);
+		setInitialized();
 	}, 100);
 };

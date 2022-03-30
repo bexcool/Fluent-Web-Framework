@@ -1,14 +1,20 @@
+import { capitalize } from "./util/index";
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+type InitCallback = () => void;
+export const initializeCallbacks: InitCallback[] = [];
 let _Initialized = false;
-export const isInitialized = () => {
-	return _Initialized;
-};
-export const setInitialized = (v: boolean) => {
-	_Initialized = v;
+export const isInitialized = () => _Initialized;
+export const onInitialized = (cb: InitCallback) => initializeCallbacks.push(cb);
+export const setInitialized = () => {
+	// Only call once
+	if (!isInitialized()) {
+		_Initialized = true;
+		initializeCallbacks.forEach(cb => cb());
+	}
 };
 
 export const docElement = document.documentElement;
-
 export const splash: {
 	background: HTMLDivElement;
 	image: HTMLImageElement;
@@ -26,18 +32,21 @@ export const KEY_MICA = "Fluent.Mica";
 // Allows http:
 export const CDN_URL = "//cdn.spej.eu/fwf";
 
-export const enableCode = (window as any)?.FLUENT_ENABLE_CODE ?? false;
-
+// Config
+const config = (window as any)?.FLUENT;
+// TODO: Use an external syntax highlight library that would get loaded if this is true
+export const enableCode = config?.enableCode ?? false;
 // To keep compatibility with the vanilla js Fluent Framework,
 // Makes window more polluted
-const noPrefix = (window as any)?.FLUENT_NO_PREFIX ?? false;
+const noPrefix = config?.noPrefix ?? false;
 const prefix = "Fluent_";
+
 
 const makeGlobal = (val: any, name: string) => {
 	console.log("globalized", name, val);
 	(window as any)[name] = val;
 	if (noPrefix)
-		(window as any)[name.replace(prefix, "")] = val;
+		(window as any)[capitalize(name.replace(prefix, ""))] = val;
 };
 
 // For exposing consts (maybe variables)
