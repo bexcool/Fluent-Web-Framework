@@ -33,36 +33,9 @@ Docs are not fully updated (yet)
 ## Usage
 
 ```html
-In <head>:
+Somewhere in <head>:
 <link rel="stylesheet" href="https://cdn.spej.eu/fwf/fluent-bundle.min.css">
 
-Before </body>:
+After <body>:
 <script src="https://cdn.spej.eu/fwf/fluent-bundle.min.js"></script>
 ```
-
-## Options
-
-```html
-<script>
-// Fluent Web Framework options
-const FLUENT = {
-   noPrefix: false,
-   enableCode: false,
-};
-Fluent_onReady(() => { // or Fluent_onInitialized
-   // Called when FWF is ready
-});
-</script>
-<!-- Import fluent-bundle.min.js here -->
-```
-
-### noPrefix - Compatibility with the original project
-
-Make functions and variables available without the `Fluent_` prefix and capitalizes the first letter.
-E.g. `Fluent_showSplashScreen()` becomes available as `ShowSplashScreen()`.
-Default: `false`
-
-### enableCode - Enable code highlighting
-
-Loads and enables code highlighting stuff.
-Default: `false`
