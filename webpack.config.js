@@ -49,6 +49,7 @@ export default {
 						keep_fnames: true,
 					},
 					compress: {
+						inline: 0,
 						passes: 3,
 					}
 				}

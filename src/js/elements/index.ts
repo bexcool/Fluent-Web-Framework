@@ -4,6 +4,7 @@ import "./button/button";
 import "./button/togglebutton";
 import "./code/code";
 import "./content-dialog/content-dialog";
+import { hideContentDialog, showContentDialog } from "./content-dialog/content-dialog";
 import "./context-menu/context-menu";
 import "./expander/expander";
 import "./flyout/flyout";
@@ -23,4 +24,6 @@ export default () => {
 	FluentExpose(showSplashScreen, true);
 	FluentExpose(setActivePageIndex, true);
 	FluentExpose(showFlyout, true);
+	FluentExpose(showContentDialog, true);
+	FluentExpose(hideContentDialog, true);
 };
