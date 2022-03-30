@@ -1,4 +1,6 @@
 /* Define variables */
+$icon-color-light: 0.7;
+$icon-color-dark: 0;
 
 :root {
 	/* --- Global colors --- */
@@ -26,7 +28,7 @@
 	--accent-hover-color: #47b1e8;
 	--accent-color: #4cc2ff;
 	--textbox-border-bottom-color: #b4b4b4;
-	--icon-color: 0;
+	--icon-color: $icon-color-dark;
 
 	/* Syntax Highlight colors */
 	--HTML-tagcolor: darkgray;
@@ -897,9 +899,12 @@ a.fluent-menu-item:hover {
 	pointer-events: none;
 	margin: 0;
 	margin-right: -0.7em;
-	color: var(--icon-color);
-	filter: invert(1);
+	filter: invert($icon-color-light);
 	transition: 0.2s ease-in-out;
+
+	body.fluent-theme-dark & {
+		filter: invert($icon-color-dark);
+	}
 }
 
 /* Context Menu Standalone */
@@ -958,11 +963,14 @@ a.fluent-menu-item:hover {
 
 .fluent-menu-item-icon {
 	position: absolute;
-	color: var(--icon-color);
-	filter: invert(1);
+	filter: invert($icon-color-light);
 	transition: 0.2s ease-in-out;
 	height: 1.425em;
 	margin-left: -31.5px;
+
+	body.fluent-theme-dark & {
+		filter: invert($icon-color-dark);
+	}
 }
 
 /* Hr spacer */
@@ -1118,9 +1126,12 @@ p,
 	pointer-events: none;
 	margin: 0;
 	padding: 0.4em;
-	color: var(--icon-color);
-	filter: invert(1);
+	filter: invert($icon-color-light);
 	transition: 0.2s ease-in-out;
+
+	body.fluent-theme-dark & {
+		filter: invert($icon-color-dark);
+	}
 }
 
 @keyframes fluent-expander-expand {

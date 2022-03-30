@@ -189,9 +189,16 @@ function setLightTheme() {
 	}, themes.LIGHT);
 }
 
+
+// TODO: Rewrite themes to use only css, with javascript only changing the body class
+
 function _setTheme(theme: Theme, key: Themes) {
 	Object.entries(theme).forEach(c => docElement.style.setProperty(`--${c[0]}`, c[1]));
 	localStorage.setItem(KEY_THEME, key);
+
+	Object.values(themes).forEach(t =>
+		document.body.classList.remove(`fluent-theme-${t.toLowerCase()}`));
+	document.body.classList.add(`fluent-theme-${key.toLowerCase()}`);
 
 	document.querySelectorAll("code").forEach(code => {
 		code.dispatchEvent(new Event("code_RefreshSH"));
