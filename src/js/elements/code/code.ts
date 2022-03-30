@@ -1,26 +1,29 @@
 /* eslint-disable */
 // @ts-nocheck
 
-function CodeSyntaxHigh(elmnt, mode) {
+export function codeSyntaxHigh(elmnt, mode) {
 	var lang = (mode || "html");
 	var lang = (mode || "html");
 	const elmntObj = (document.getElementById(elmnt) || elmnt);
 	let elmntTxt = elmntObj.innerHTML;
-	const tagcolor = "#006aff"; // Lighter blue
-	const tagnamecolor = "brown";
-	const attributecolor = "red";
-	const attributevaluecolor = "#006aff";
-	const commentcolor = "green";
-	const cssselectorcolor = "brown";
-	const csspropertycolor = "red";
-	const csspropertyvaluecolor = "#006aff";
-	const cssdelimitercolor = "black";
-	const cssimportantcolor = "red";
-	const jscolor = "black";
-	const jskeywordcolor = "#006aff";
-	const jsstringcolor = "brown";
-	const jsnumbercolor = "red";
-	const jspropertycolor = "black";
+	/* HTML */
+	const tagcolor = getComputedStyle(docEle).getPropertyValue("--HTML-tagcolor"),
+		tagnamecolor = getComputedStyle(docEle).getPropertyValue("--HTML-tagnamecolor"),
+		attributecolor = getComputedStyle(docEle).getPropertyValue("--HTML-attributecolor"),
+		attributevaluecolor = getComputedStyle(docEle).getPropertyValue("--HTML-attributevaluecolor"),
+		commentcolor = getComputedStyle(docEle).getPropertyValue("--HTML-commentcolor");
+	/* CSS */
+	const cssselectorcolor = getComputedStyle(docEle).getPropertyValue("--CSS-selectorcolor"),
+		csspropertycolor = getComputedStyle(docEle).getPropertyValue("--CSS-propertycolor"),
+		csspropertyvaluecolor = getComputedStyle(docEle).getPropertyValue("--CSS-propertyvaluecolor"),
+		cssdelimitercolor = getComputedStyle(docEle).getPropertyValue("--CSS-delimitercolor"),
+		cssimportantcolor = getComputedStyle(docEle).getPropertyValue("--CSS-importantcolor");
+	/* JS */
+	const jscolor = getComputedStyle(docEle).getPropertyValue("--JS-color"),
+		jskeywordcolor = getComputedStyle(docEle).getPropertyValue("--JS-keywordcolor"),
+		jsstringcolor = getComputedStyle(docEle).getPropertyValue("--JS-stringcolor"),
+		jsnumbercolor = getComputedStyle(docEle).getPropertyValue("--JS-numbercolor"),
+		jspropertycolor = getComputedStyle(docEle).getPropertyValue("--JS-propertycolor");
 
 /* New colors - need to set properties
 var tagcolor = "gray";
@@ -433,14 +436,7 @@ var jspropertycolor = "black";
 	}
 }
 
-export function AttributesToString(element) {
-	let elementAtt = Array.from(element.attributes, ({ name, value }) => (!value ? `${name}` : `${name}="${value}"`));
-	elementAtt = elementAtt.join(" ");
-	elementAtt.trim();
-	return elementAtt;
-}
-
-const pSBC = (p, c0, c1, l) => {
+export const pSBC = (p, c0, c1?: any, l?: any) => {
 	let r, g, b, P, f, t, h, i = parseInt, m = Math.round, a = typeof (c1) == "string";
 	if (typeof (p) != "number" || p < -1 || p > 1 || typeof (c0) != "string" || (c0[0] != 'r' && c0[0] != '#') || (c1 && !a)) return null;
 	if (!this.pSBCr) this.pSBCr = (d) => {
@@ -466,7 +462,7 @@ const pSBC = (p, c0, c1, l) => {
 	else return "#" + (4294967296 + r * 16777216 + g * 65536 + b * 256 + (f ? m(a * 255) : 0)).toString(16).slice(1, f ? undefined : -2)
 }
 
-function addAlpha(color, opacity) {
+export function addAlpha(color, opacity) {
 	// coerce values so ti is between 0 and 1.
 	const _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
 	return color + _opacity.toString(16).toUpperCase();
@@ -506,7 +502,7 @@ export function colorNameToHex(colour: string) {
 	return false;
 }
 
-function getVisibleTextColor(rgba) {
+export function getVisibleTextColor(rgba) {
 	rgba = rgba.match(/\d+/g);
 
 	if ((rgba[0] * 0.299) + (rgba[1] * 0.587) + (rgba[2] * 0.114) > 186) {
@@ -516,7 +512,7 @@ function getVisibleTextColor(rgba) {
 	}
 }
 
-function hexToRgbA(hex) {
+export function hexToRgbA(hex) {
 	let c;
 	if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
 		c = hex.substring(1).split('');

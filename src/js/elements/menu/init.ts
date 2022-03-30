@@ -1,3 +1,5 @@
+import { docElement } from "../../fluent";
+
 export default () => {
 	InitMenuExpanders();
 	InitSelectableMenuItems();
@@ -126,7 +128,6 @@ function InitSelectableMenuItems() {
 }
 
 function InitMenuExpanders() {
-	const doc = document.documentElement;
 
 	// Initialize expander header
 	const expanders = document.querySelectorAll<HTMLElement>(".fluent-menu-item-expander-header");
@@ -150,7 +151,7 @@ function InitMenuExpanders() {
 			lastChild.style.position = "relative";
 
 			if (expanderBody.classList.contains("expanded")) {
-				doc.style.setProperty("--expander-expand-height", (expanderBody.scrollHeight) + "px");
+				docElement.style.setProperty("--expander-expand-height", (expanderBody.scrollHeight) + "px");
 				expanderBody.style.animation = "fluent-expander-expand-reverse 0.3s ease-out";
 
 				setTimeout(function () {
@@ -162,7 +163,7 @@ function InitMenuExpanders() {
 			} else {
 				expanderBody.classList.add("expanded");
 
-				doc.style.setProperty("--expander-expand-height", (expanderBody.scrollHeight ?? 0) + "px");
+				docElement.style.setProperty("--expander-expand-height", (expanderBody.scrollHeight ?? 0) + "px");
 				expanderBody.style.animation = "fluent-expander-expand 0.15s ease-in";
 
 				// Rotate arrow

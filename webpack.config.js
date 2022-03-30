@@ -9,6 +9,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 export default {
 	context: path.resolve(__dirname, "src"),
 	entry: "./js/index",
+	mode: "production",
 	module: {
 		rules: [{
 			test: /\.ts?$/,
@@ -31,7 +32,11 @@ export default {
 				"css-loader",
 				"sass-loader"
 			]
-		}
+		},
+		{
+			test: /\.html$/i,
+			loader: "html-loader",
+		},
 		]
 	},
 	optimization: {
@@ -39,8 +44,13 @@ export default {
 		minimizer: [
 			new TerserWebpackPlugin({
 				terserOptions: {
-					keep_classnames: true,
-					keep_fnames: true
+					mangle: {
+						keep_classnames: true,
+						keep_fnames: true,
+					},
+					compress: {
+						passes: 3,
+					}
 				}
 			})
 		]

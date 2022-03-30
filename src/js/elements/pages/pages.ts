@@ -1,4 +1,3 @@
-
 export const setActivePageIndex = (pageSwitcherId: string, index: number) => {
 	const pageSwitcher = document.getElementById(pageSwitcherId);
 

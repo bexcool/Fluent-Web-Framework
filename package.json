@@ -1,10 +1,11 @@
 {
   "name": "fluent-web-framework",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "description": "Framework for using Windows 11 Fluent design on the web.",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack && node postbuild.mjs",
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
@@ -33,7 +34,9 @@
     "css-loader": "^6.7.1",
     "eslint": "^8.12.0",
     "file-loader": "^6.2.0",
+    "html-loader": "^3.1.0",
     "mini-css-extract-plugin": "^2.6.0",
+    "prepend-file": "^2.0.1",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",

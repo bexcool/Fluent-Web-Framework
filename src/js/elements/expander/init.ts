@@ -1,3 +1,5 @@
+import { docElement } from "../../fluent";
+
 export default () => {
 	// Initialize expander header
 	const expanders = document.querySelectorAll<HTMLElement>(".fluent-expander-header");
@@ -23,7 +25,7 @@ export default () => {
 
 			if (expanderBody.classList.contains("expanded")) {
 
-				document.documentElement.style.setProperty("--expander-expand-height", (expanderBody.scrollHeight) + "px");
+				docElement.style.setProperty("--expander-expand-height", (expanderBody.scrollHeight) + "px");
 				expanderBody.style.animation = "fluent-expander-expand-reverse 0.3s ease-out";
 
 				setTimeout(() => {
@@ -43,7 +45,7 @@ export default () => {
 			else {
 				expanderBody.classList.add("expanded");
 
-				document.documentElement.style.setProperty("--expander-expand-height", (expanderBody.scrollHeight) + "px");
+				docElement.style.setProperty("--expander-expand-height", (expanderBody.scrollHeight) + "px");
 				expanderBody.style.animation = "fluent-expander-expand 0.15s ease-in";
 
 				expander.style.cssText = "border-radius: 4px 4px 0px 0px;" +

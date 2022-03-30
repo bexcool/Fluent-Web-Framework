@@ -1,4 +1,4 @@
-import { AttributesToString } from "../code/code";
+import { attributesToString } from "../../util/html";
 import { FluentElement, FluentRegister } from "../fluent-element";
 
 export class MainContent extends HTMLElement implements FluentElement {
@@ -6,7 +6,7 @@ export class MainContent extends HTMLElement implements FluentElement {
 
 	connectedCallback() {
 		setTimeout(() =>
-			this.outerHTML = `<div class="fluent-main-content" ${AttributesToString(this)}>${this.innerHTML}</div>`
+			this.outerHTML = `<div class="fluent-main-content" ${attributesToString(this)}>${this.innerHTML}</div>`
 		);
 	}
 }

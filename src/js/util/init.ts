@@ -1,4 +1,4 @@
-import initElements from "../elements/code/init";
+import { default as initCode, default as initElements } from "../elements/code/init";
 import initExpanders from "../elements/expander/init";
 import initMenus from "../elements/menu/init";
 import initPages from "../elements/pages/init";
@@ -20,11 +20,13 @@ export default () => {
 		initTheme();
 		initExpanders();
 		initElements();
+		initCode();
 		initMenus();
 		initPages();
 
 		//#region Remove focus from elements when clicked
 		const buttons = document.querySelectorAll<HTMLButtonElement>("button, a.fluent-menu-item");
+		const links = document.querySelectorAll("a");
 		const expanders = document.querySelectorAll(".fluent-expander-header");
 		const menuItemExpanders = document.querySelectorAll(".fluent-menu-item-expander-header");
 		const menuItemsSelect = document.querySelectorAll(".fluent-menu-item-select");
@@ -32,6 +34,12 @@ export default () => {
 		buttons.forEach(btn => {
 			btn.addEventListener("click", () => {
 				buttons.forEach(b => b.blur());
+			});
+		});
+
+		links.forEach(link => {
+			link.addEventListener("click", () => {
+				links.forEach(l => l.blur());
 			});
 		});
 

@@ -1,4 +1,4 @@
-import { AttributesToString } from "../code/code";
+import { attributesToString } from "../../util/html";
 import { FluentElement, FluentRegister } from "../fluent-element";
 
 export class Label extends HTMLElement implements FluentElement {
@@ -6,7 +6,7 @@ export class Label extends HTMLElement implements FluentElement {
 
 	connectedCallback() {
 		setTimeout(() => {
-			this.outerHTML = `<span class="fluent-label" ${AttributesToString(this)}>${this.innerHTML}</span>`;
+			this.outerHTML = `<span class="fluent-label" ${attributesToString(this)}>${this.innerHTML}</span>`;
 		});
 	}
 }

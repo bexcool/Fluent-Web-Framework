@@ -7,6 +7,8 @@ export const setInitialized = (v: boolean) => {
 	_Initialized = v;
 };
 
+export const docElement = document.documentElement;
+
 // TOOD: Make this const, but without undefined values
 export let splash: {
 	background: HTMLDivElement;
@@ -17,6 +19,8 @@ export const KEY_THEME = "Fluent.Theme";
 export const KEY_MICA = "Fluent.Mica";
 // Allows http:
 export const CDN_URL = "//cdn.spej.eu/fwf";
+
+export const enableCode = (window as any)?.FLUENT_ENABLE_CODE ?? false;
 
 // To keep compatibility with the vanilla js Fluent Framework,
 // Makes window more polluted

@@ -1,4 +1,4 @@
-import { AttributesToString } from "../code/code";
+import { attributesToString } from "../../util/html";
 import { FluentElement, FluentRegister } from "../fluent-element";
 
 export class MenuItem extends HTMLElement implements FluentElement {
@@ -8,11 +8,11 @@ export class MenuItem extends HTMLElement implements FluentElement {
 		setTimeout(() => {
 			// Check if is selectable
 			if (!this.hasAttribute("selectable")) {
-				this.outerHTML = `<li><a class="fluent-menu-item" ${AttributesToString(this)}>${this.innerHTML}` || "" +
+				this.outerHTML = `<li><a class="fluent-menu-item" ${attributesToString(this)}>${this.innerHTML}` || "" +
 					"</a></li>";
 			}
 			else {
-				this.outerHTML = `<li><a class="fluent-menu-item-select" ${AttributesToString(this)}>${this.innerHTML}` || "" +
+				this.outerHTML = `<li><a class="fluent-menu-item-select" ${attributesToString(this)}>${this.innerHTML}` || "" +
 					"</a></li>";
 			}
 		});
