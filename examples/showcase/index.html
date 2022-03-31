@@ -8,9 +8,19 @@
 </head>
 
 <body>
+    <script>
+        const FLUENT = {
+            // Could be enabled to allow users to try out stuff in the console
+            noPrefix: false,
+            enableCode: true,
+        };
+    </script>
     <script type="text/javascript" src="//cdn.spej.eu/fwf/fluent-bundle.min.js"></script>
     <script>
         Fluent_showSplashScreen(450);
+        Fluent_onInitialized(() => { console.log("Fluent initialize callback 1"); });
+        Fluent_onReady(() => { console.log("Fluent initialize callback 2"); });
+        Fluent_onReady(() => { console.log("Fluent initialize callback 3"); });
     </script>
 
     <div style="margin: 0 0 0 10em; height: 90%;">
@@ -873,34 +883,49 @@
                     <fluent-page>
                         <section id="config">
                             <h2>Config</h2>
-                            <p>Unlike in the original framework, you don't need to call any init functions.</p>
                             <fluent-border>
                                 <code sh="HTML">&lt;script&gt;
     // Fluent Web Framework options
     // Put this script before importing fluent-bundle.min.js
     const FLUENT = {
-        noPrefix: false,
-        enableCode: false,
+    &nbsp;&nbsp;&nbsp;&nbsp;noPrefix: false,
+    &nbsp;&nbsp;&nbsp;&nbsp;enableCode: false,
     };
 &lt;/script&gt;
 </code>
                             </fluent-border>
 
-                            <h3>noPrefix</h3>
-                            <p>
-                                Compatibility with the original project<br>
-                                Make functions and variables available without the `Fluent_` prefix and capitalizes the
-                                first letter.<br>
-                                E.g. Fluent_showSplashScreen() becomes available as ShowSplashScreen().<br>
-                                Default: false
-                            </p>
-
-                            <h3>enableCode</h3>
-                            <p>
-                                Enable code highlighting<br>
-                                Loads and enables code highlighting stuff.<br>
-                                Default: false
-                            </p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Option</th>
+                                        <th>Description</th>
+                                        <th>Type</th>
+                                        <th>Default</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>noPrefix</td>
+                                        <td>Compatibility with the original project<br>
+                                            Make functions and variables available without the `Fluent_` prefix and
+                                            capitalizes the
+                                            first letter.<br>
+                                            E.g. Fluent_showSplashScreen() becomes available as ShowSplashScreen().<br>
+                                        </td>
+                                        <td>boolean</td>
+                                        <td>false</td>
+                                    </tr>
+                                    <tr>
+                                        <td>noPrefix</td>
+                                        <td>Enable code highlighting<br>
+                                            Loads and enables code highlighting stuff.<br>
+                                        </td>
+                                        <td>boolean</td>
+                                        <td>false</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </section>
                     </fluent-page>
                     <!-- Mica section -->
@@ -968,17 +993,6 @@
         </fluent-web-container>
         </fluent-main-content>
     </div>
-
-    <script>
-        // None of this is necessary
-        const FLUENT = {
-            noPrefix: false,
-            enableCode: true,
-        };
-        Fluent_onInitialized(() => { console.log("Fluent initialize callback 1"); });
-        Fluent_onReady(() => { console.log("Fluent initialize callback 2"); });
-        Fluent_onReady(() => { console.log("Fluent initialize callback 3"); });
-    </script>
 </body>
 
 </html>
