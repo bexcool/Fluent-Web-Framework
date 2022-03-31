@@ -1,0 +1,113 @@
+@import "themes/themes";
+@import "button";
+@import "combobox";
+@import "content-dialog";
+@import "elements";
+@import "expander";
+@import "flyout";
+@import "hyperlink";
+@import "input";
+@import "label";
+@import "menu";
+@import "mica";
+@import "pages";
+@import "table";
+@import "web-container";
+
+.#{$prefix}svg {
+	margin-bottom: -0.2em;
+
+	&-path {
+		fill: var(--#{$prefix}black-white-color);
+	}
+}
+
+.#{$prefix}caption {
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.#{$prefix}content {
+	margin: 2em;
+}
+
+.#{$prefix}main-content {
+	border: var(--#{$prefix}dark-border-color) solid 1px;
+	border-right: none;
+	border-bottom: none;
+	background-color: var(--#{$prefix}darker-color);
+	padding: 3em;
+	margin-left: 5em;
+	width: auto;
+	border-radius: 8px 0 0 0;
+	flex: 1;
+	flex-grow: 1;
+	min-height: fit-content;
+}
+
+.#{$prefix}loading-icon {
+	z-index: 10001;
+}
+
+.#{$prefix}loading-background {
+	z-index: 10000;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: var(--#{$prefix}dark-color);
+	transition: all var(--#{$prefix}transition-duration) ease-in;
+}
+
+.#{$prefix}background-border {
+	width: fit-content;
+	height: fit-content;
+	color: var(--#{$prefix}text-color);
+	border: var(--#{$prefix}dark-border-color) solid 0.4px;
+	background-color: var(--#{$prefix}light-color);
+	border-radius: 10px;
+	padding: 1em;
+	margin: 1em 0;
+}
+
+.#{$prefix}code-container {
+	flex: auto;
+	justify-content: center;
+	padding-right: 3.5em;
+	overflow: auto;
+}
+
+.#{$prefix}code-copy-button {
+	margin: 0;
+	margin-left: 2em;
+	padding: 0.2em;
+	display: inline-block;
+	position: absolute;
+}
+
+code {
+	white-space: pre-line;
+	overflow: auto;
+}
+
+@keyframes #{$prefix}fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes #{$prefix}fade-out {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}

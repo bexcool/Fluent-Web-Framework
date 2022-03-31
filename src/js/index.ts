@@ -1,4 +1,4 @@
-import "../css/fluent.scss";
+import "../scss/index.scss";
 import animations from "./animations/index";
 import elements from "./elements/index";
 import { CDN_URL, FluentDefine, FluentExpose, isInitialized, onInitialized } from "./fluent";

@@ -1,0 +1,41 @@
+:root {
+	--#{$prefix}transition-duration: 0.225s;
+	--#{$prefix}expander-expand-height: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+	// margin: 0;
+	// padding: 0;
+	// height: 100%;
+}
+
+body {
+	--#{$prefix}font-family: "Segoe UI", Arial, sans-serif;
+	--#{$prefix}scrollbar-width: 23px;
+
+	background-color: var(--#{$prefix}dark-color);
+	font-family: var(--#{$prefix}font-family);
+	color: var(--#{$prefix}text-color);
+	transition: var(--#{$prefix}transition-duration) ease-in-out;
+	// margin: 0;
+	// height: 100%;
+
+	&::-webkit-scrollbar {
+		width: var(--#{$prefix}scrollbar-width);
+	}
+
+	&::-webkit-scrollbar-track {
+		background: var(--#{$prefix}dark-color);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: var(--#{$prefix}very-light-color);
+		border-radius: 20px;
+		border: 9px solid var(--#{$prefix}dark-color);
+
+		&:hover {
+			border: 7px solid var(--#{$prefix}dark-color);
+		}
+	}
+}

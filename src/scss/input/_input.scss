@@ -1,0 +1,268 @@
+.#{$prefix}show-password-input {
+	margin-left: -1.8em;
+	position: absolute;
+
+	&:hover {
+		filter: invert(0.3);
+	}
+}
+
+::-webkit-color-swatch,
+::-moz-color-swatch {
+	border-color: transparent;
+}
+
+input {
+	&[type="checkbox"] {
+		display: inline;
+		color: var(--#{$prefix}text-color);
+		border: #a0a0a0 solid 0.4px;
+		background-color: var(--#{$prefix}dark-color);
+		transition: 0.1s ease-in-out;
+		outline: var(--#{$prefix}text-color);
+		height: 1.5em;
+		width: 1.5em;
+		padding: 0 0.58em;
+		margin-right: 0.5em;
+		border-radius: 5px;
+		appearance: none;
+		-webkit-appearance: none;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 1em;
+
+		&:hover {
+			background-color: var(--#{$prefix}light-hover-color);
+		}
+
+		&:checked {
+			background-color: var(--#{$prefix}accent-hover-color);
+			border: var(--#{$prefix}accent-hover-color) solid 0.4px;
+			background-image: url("https://img.icons8.com/fluency-systems-regular/50/000000/checkmark--v1.png");
+
+			&:hover {
+				background-color: var(--#{$prefix}accent-color);
+				border: var(--#{$prefix}accent-color) solid 0.4px;
+				background-image: url("https://img.icons8.com/fluency-systems-regular/50/000000/checkmark--v1.png");
+			}
+		}
+	}
+
+	&[type="date"],
+	&[type="time"] {
+		margin: 0.2em;
+		color: var(--#{$prefix}text-color);
+		border: var(--#{$prefix}light-border-color) solid 0.4px;
+		padding: 7px 11px 5px;
+		background-color: var(--#{$prefix}light-color);
+		transition: 0.1s ease-in-out;
+		outline: var(--#{$prefix}text-color);
+		border-radius: 4px;
+	}
+
+	&[type="date"]:hover,
+	&[type="time"]:hover {
+		background-color: var(--#{$prefix}light-hover-color);
+	}
+
+	&[type="date"]:focus,
+	&[type="time"]:focus {
+		background-color: var(--#{$prefix}focus-color);
+		color: var(--#{$prefix}text-focus-color);
+	}
+
+	&[type="color"] {
+		margin: 0.2em;
+		height: 30px;
+		color: var(--#{$prefix}text-color);
+		border: var(--#{$prefix}light-border-color) solid 0.4px;
+		padding: 5px;
+		background-color: var(--#{$prefix}light-color);
+		transition: 0.1s ease-in-out;
+		outline: var(--#{$prefix}text-color);
+		border-radius: 4px;
+
+		&:hover {
+			background-color: var(--#{$prefix}light-hover-color);
+		}
+
+		&:focus {
+			background-color: var(--#{$prefix}focus-color);
+			color: var(--#{$prefix}text-focus-color);
+		}
+	}
+
+	&[type="file"] {
+		margin: 0.2em;
+		color: var(--#{$prefix}text-color);
+		border: var(--#{$prefix}light-border-color) solid 0.4px;
+		padding: 5px 11px 6px;
+		background-color: var(--#{$prefix}light-color);
+		transition: 0.1s ease-in-out;
+		outline: var(--#{$prefix}text-color);
+		border-radius: 4px;
+
+		&:hover {
+			background-color: var(--#{$prefix}light-hover-color);
+		}
+
+		&:focus {
+			background-color: var(--#{$prefix}focus-color);
+			color: var(--#{$prefix}text-focus-color);
+		}
+	}
+
+	::-webkit-file-upload-button {
+		color: var(--#{$prefix}text-color);
+		border: var(--#{$prefix}light-border-color) solid 0.4px;
+		padding: 5px 11px 6px;
+		background-color: var(--#{$prefix}light-color);
+		transition: 0.1s ease-in-out;
+		outline: var(--#{$prefix}text-color);
+		border-radius: 4px;
+	}
+
+	&[type="range"] {
+		height: 0.3em;
+		-webkit-appearance: none;
+		--#{$prefix}range: calc(var(--max) - var(--min));
+		--#{$prefix}ratio: calc((var(--value) - var(--min)) / var(--#{$prefix}range));
+		--#{$prefix}sx: calc(0.5 * 1em + var(--#{$prefix}ratio) * (100% - 1em));
+
+		&:focus {
+			outline: none;
+		}
+
+		&::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			margin-top: calc(0.5em * 0.5 - 1.75em * 0.5);
+			width: 1.75em;
+			height: 1.75em;
+			border-radius: 100%;
+			background: var(--#{$prefix}accent-color);
+			border: var(--#{$prefix}slider-thumb-border-color) solid 0.5em;
+			box-shadow: none;
+			transition: 0.1s;
+		}
+
+		&::-webkit-slider-runnable-track {
+			height: 0.3em;
+			border: none;
+			background: var(--#{$prefix}light-color);
+			box-shadow: none;
+		}
+
+		&::-webkit-slider-thumb {
+			&:hover {
+				margin-top: calc(0.35em * 0.5 - 1.65em * 0.5);
+				width: 1.8em;
+				height: 1.8em;
+				border: var(--#{$prefix}slider-thumb-border-color) solid 0.35em;
+			}
+
+			&:active {
+				margin-top: calc(0.6em * 0.5 - 1.7em * 0.5);
+				width: 1.7em;
+				height: 1.7em;
+				border: var(--#{$prefix}slider-thumb-border-color) solid 0.6em;
+			}
+		}
+
+		&::-webkit-slider-runnable-track {
+			background: linear-gradient(
+						var(--#{$prefix}accent-color),
+						var(--#{$prefix}accent-color)
+					)
+					(0 / var(--#{$prefix}sx)) 100% no-repeat,
+				var(--#{$prefix}very-light-color);
+		}
+
+		&::-moz-range-thumb {
+			width: 0.7em;
+			height: 0.7em;
+			border-radius: 100%;
+			background: var(--#{$prefix}accent-color);
+			border: var(--#{$prefix}slider-thumb-border-color) solid 0.5em;
+			box-shadow: none;
+			transition: 0.1s;
+		}
+
+		&::-moz-range-track {
+			height: 0.3em;
+			border: none;
+			background: var(--#{$prefix}light-color);
+			box-shadow: none;
+		}
+
+		&::-moz-range-thumb {
+			&:hover {
+				width: 1em;
+				height: 1em;
+				border: var(--#{$prefix}slider-thumb-border-color) solid 0.37em;
+			}
+
+			&:active {
+				width: 0.5em;
+				height: 0.5em;
+				border: var(--#{$prefix}slider-thumb-border-color) solid 0.54em;
+			}
+		}
+
+		&::-moz-range-track {
+			background: linear-gradient(
+						var(--#{$prefix}accent-color),
+						var(--#{$prefix}accent-color)
+					)
+					(0 / var(--#{$prefix}sx)) 100% no-repeat,
+				var(--#{$prefix}very-light-color);
+		}
+
+		&::-ms-fill-upper,
+		&::-ms-fill-lower {
+			background: transparent;
+			border-color: transparent;
+		}
+
+		&::-ms-thumb {
+			width: 1em;
+			height: 1em;
+			border-radius: 100%;
+			background: var(--#{$prefix}accent-color);
+			border: none;
+			box-shadow: none;
+			margin-top: 0;
+			box-sizing: border-box;
+		}
+
+		&::-ms-track {
+			height: 0.3em;
+			background: var(--#{$prefix}light-color);
+			border: none;
+			box-shadow: none;
+			box-sizing: border-box;
+		}
+
+		&::-ms-thumb {
+			&:hover {
+				width: 1em;
+				height: 1em;
+				border: var(--#{$prefix}slider-thumb-border-color) solid 0.37em;
+			}
+
+			&:active {
+				width: 0.5em;
+				height: 0.5em;
+				border: var(--#{$prefix}slider-thumb-border-color) solid 0.54em;
+			}
+		}
+
+		&::-ms-fill-lower {
+			height: 3em;
+			border-radius: 0.5em 0 0 0.5em;
+			margin: -undefined 0 -undefined -undefined;
+			background: var(--#{$prefix}accent-color);
+			border: none;
+			border-right-width: 0;
+		}
+	}
+}

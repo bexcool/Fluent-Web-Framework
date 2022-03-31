@@ -1,6 +1,6 @@
 {
   "name": "fluent-web-framework",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "type": "module",
   "description": "Framework for using Windows 11 Fluent design on the web.",
   "scripts": {

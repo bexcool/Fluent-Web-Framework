@@ -1,0 +1,51 @@
+.#{$prefix}button-accent {
+	color: var(--#{$prefix}text-color-inverted);
+	border: var(--#{$prefix}light-border-color) solid 0.4px;
+	padding: 5px 11px 6px;
+	background-color: var(--#{$prefix}accent-color);
+	transition: 0.1s ease-in-out;
+	border-radius: 4px;
+	cursor: default;
+
+	&:hover {
+		background-color: var(--#{$prefix}accent-color-1);
+	}
+
+	&:focus {
+		background-color: var(--#{$prefix}accent-color-2);
+		color: var(--#{$prefix}text-focus-color-inverted);
+	}
+}
+
+.fluent-button,
+input[type="submit"],
+button,
+a {
+	margin: 0.2em;
+	color: var(--#{$prefix}text-color);
+	border: var(--#{$prefix}button-border-color) solid 0.4px;
+	padding: 5px 11px 6px;
+	background-color: var(--#{$prefix}button-color);
+	transition: 0.1s ease-in-out;
+	outline: var(--#{$prefix}text-color);
+	border-radius: 4px;
+	text-decoration: none;
+	user-select: none;
+	cursor: default;
+	font-size: 13.33px;
+}
+
+.fluent-button:hover,
+input[type="submit"]:hover,
+button:hover,
+a:hover {
+	background-color: var(--#{$prefix}button-hover-color);
+}
+
+.fluent-button:focus,
+input[type="submit"]:focus,
+button:focus,
+a:focus {
+	background-color: var(--#{$prefix}button-focus-color);
+	color: var(--#{$prefix}text-focus-color);
+}

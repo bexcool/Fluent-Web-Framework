@@ -1,0 +1,58 @@
+a {
+	padding: 4px 11px 6px;
+
+	&.#{$prefix}button-accent {
+		padding: 4px 11px 6px;
+	}
+
+	&.#{$prefix}button-hyperlink {
+		padding: 4px 11px 6px;
+		padding: 5px 12px 7px;
+	}
+}
+
+.fluent-button-hyperlink {
+	cursor: default;
+	margin: 0.2em;
+	color: var(--#{$prefix}accent-color);
+	border: none;
+	padding: 6px 12px 7px;
+	background-color: rgba(0, 0, 0, 0);
+	transition: 0.1s ease-in-out;
+	outline: var(--#{$prefix}text-color);
+	border-radius: 4px;
+
+	&:hover {
+		background-color: var(--#{$prefix}light-hover-color);
+		cursor: pointer;
+	}
+
+	&:focus {
+		background-color: var(--#{$prefix}focus-color);
+		color: var(--#{$prefix}accent-color-3);
+	}
+}
+
+.fluent-hyperlink {
+	text-decoration: underline;
+	cursor: default;
+	margin: auto;
+	color: var(--#{$prefix}accent-color);
+	border: none;
+	padding: unset;
+	background-color: unset;
+	transition: 0.1s ease-in-out;
+	outline: none;
+	border-radius: none;
+
+	&:hover {
+		background-color: unset;
+		color: var(--#{$prefix}accent-color-1);
+		cursor: pointer;
+	}
+
+	&:focus {
+		background-color: unset;
+		color: var(--#{$prefix}accent-color-3);
+	}
+}

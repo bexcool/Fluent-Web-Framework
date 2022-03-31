@@ -60,31 +60,26 @@ var jspropertycolor = "black";
 	}
 	elmntObj.innerHTML = elmntTxt;
 
-	class extract {
-		constructor(str, start, end, func, repl) {
-			let s, e, d = "",
-				a = [];
-			while (str.search(start) > -1) {
-				s = str.search(start);
-				e = str.indexOf(end, s);
-				if (e == -1) {
-					e = str.length;
-				}
-				if (repl) {
-					a.push(func(str.substring(s, e + (end.length))));
-					str = str.substring(0, s) + repl + str.substr(e + (end.length));
-				} else {
-					d += str.substring(0, s);
-					d += func(str.substring(s, e + (end.length)));
-					str = str.substr(e + (end.length));
-				}
+	function extract(str, start, end, func, repl) {
+		let s, e, d = "",
+			a = [];
+		while (str.search(start) > -1) {
+			s = str.search(start);
+			e = str.indexOf(end, s);
+			if (e == -1) {
+				e = str.length;
 			}
-			this.rest = d + str;
-			this.arr = a;
+			if (repl) {
+				a.push(func(str.substring(s, e + (end.length))));
+				str = str.substring(0, s) + repl + str.substr(e + (end.length));
+			} else {
+				d += str.substring(0, s);
+				d += func(str.substring(s, e + (end.length)));
+				str = str.substr(e + (end.length));
+			}
 		}
-
-		rest = "";
-		arr = [];
+		this.rest = d + str;
+		this.arr = a;
 	}
 
 	function htmlMode(txt) {
@@ -231,7 +226,7 @@ var jspropertycolor = "black";
 		for (i = 0; i < comment.arr.length; i++) {
 			rest = rest.replace("W3CSSCOMMENTPOS", comment.arr[i]);
 		}
-		return "<span style=color:" + cssselectorcolor + ">" + rest + "</span>";
+		return `<span style=color:${cssselectorcolor}>${rest}</span>`;
 	}
 
 	function cssPropertyMode(txt) {
@@ -260,29 +255,29 @@ var jspropertycolor = "black";
 			done += cssPropertyValueMode(rest.substring(s, e + 1));
 			rest = rest.substr(e + 1);
 		}
-		return "<span style=color:" + csspropertycolor + ">" + done + rest + "</span>";
+		return `<span style=color:${csspropertycolor}>${done}${rest}</span>`;
 	}
 
 	function cssPropertyValueMode(txt) {
 		let rest = txt,
 			done = "",
 			s;
-		rest = "<span style=color:" + cssdelimitercolor + ">:</span>" + rest.substring(1);
+		rest = `<span style=color:${cssdelimitercolor}>:</span>${rest.substring(1)}`;
 		while (rest.search(/!important/i) > -1) {
 			s = rest.search(/!important/i);
 			done += rest.substring(0, s);
 			done += cssImportantMode(rest.substring(s, s + 10));
 			rest = rest.substr(s + 10);
 		}
-		result = done + rest;
-		if (result.substr(result.length - 1, 1) == ";" && result.substr(result.length - 6, 6) != "&nbsp;" && result.substr(result.length - 4, 4) != "&lt;" && result.substr(result.length - 4, 4) != "&gt;" && result.substr(result.length - 5, 5) != "&amp;") {
-			result = result.substring(0, result.length - 1) + "<span style=color:" + cssdelimitercolor + ">;</span>";
+		let result = done + rest;
+		if (result.substring(result.length - 1, 1) == ";" && result.substring(result.length - 6, 6) != "&nbsp;" && result.substring(result.length - 4, 4) != "&lt;" && result.substring(result.length - 4, 4) != "&gt;" && result.substring(result.length - 5, 5) != "&amp;") {
+			result = `${result.substring(0, result.length - 1)}<span style=color:${cssdelimitercolor}>;</span>`;
 		}
-		return "<span style=color:" + csspropertyvaluecolor + ">" + result + "</span>";
+		return `<span style=color:${csspropertyvaluecolor}>${result}</span>`;
 	}
 
 	function cssImportantMode(txt) {
-		return "<span style=color:" + cssimportantcolor + ";font-weight:bold;>" + txt + "</span>";
+		return `<span style=color:${cssimportantcolor};font-weight:bold;>${txt}</span>`;
 	}
 
 	function jsMode(txt) {
@@ -352,7 +347,7 @@ var jspropertycolor = "black";
 		if (s > -1) {
 			x = txt.substr(s + 1);
 			for (j = 0; j < x.length; j++) {
-				cc = x[j];
+				const cc = x[j];
 				for (i = 0; i < arr.length; i++) {
 					if (cc.indexOf(arr[i]) > -1) {
 						e = j;
