@@ -1,3 +1,5 @@
+import { config } from "../../config";
+
 export default () => {
 	const pageSwitchers = document.querySelectorAll("fluent-page-switcher");
 	pageSwitchers.forEach(pageSwitcher => {
@@ -8,11 +10,15 @@ export default () => {
 		}
 		// No active page, but has pages
 		else if (pageSwitcher.children.length > 0) {
-			pageSwitcher.setAttribute("active-page", "0");
+			let activePage = 0;
+			if (config.enableRouter) {
+				activePage = 1;
+			}
+			pageSwitcher.setAttribute("active-page", activePage.toString());
 
-			const activePage = pageSwitcher.children[0] as HTMLElement;
-			activePage.style.display = "block";
-			activePage.style.animation = "fluent-page-fade-up 0.3s ease-in-out";
+			const page = pageSwitcher.children[activePage] as HTMLElement;
+			page.style.display = "block";
+			page.style.animation = "fluent-page-fade-up 0.3s ease-in-out";
 		}
 	});
 };

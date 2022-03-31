@@ -62,6 +62,7 @@ export default {
 		filename: "fluent-bundle.min.js",
 		path: resolve(__dirname, "dist"),
 		clean: true,
+		publicPath: "//cdn.spej.eu/fwf/",
 	},
 	resolve: {
 		extensions: [".ts"]
