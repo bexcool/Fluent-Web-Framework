@@ -1,4 +1,4 @@
-import { docElement } from "../../fluent";
+import { CDN_URL, docElement } from "../../fluent";
 
 export default () => {
 	InitMenuExpanders();
@@ -14,7 +14,7 @@ function InitMenuIcons() {
 		if (menuItem.hasAttribute("icon")) {
 			const icon = document.createElement("img");
 			icon.classList.add("fluent-menu-item-icon");
-			icon.setAttribute("src", menuItem.getAttribute("icon") ?? "");
+			icon.setAttribute("src", menuItem.getAttribute("icon") ?? `${CDN_URL}/bexcool.png`);
 			menuItem.prepend(icon);
 		} else {
 			//menu_item.style.paddingLeft = "20px";

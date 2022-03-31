@@ -20,12 +20,12 @@ export default () => {
 	splash.background.prepend(splash.image);
 	splash.background.style.display = "none";
 
-	setTimeout(() => {
+	setTimeout(async () => {
 		initTheme();
 		initExpanders();
 		initElements();
 		initMenus();
-		initPages();
+		await initPages();
 		initCode();
 		initInputs();
 		initLabels();

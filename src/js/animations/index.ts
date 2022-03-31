@@ -1,7 +1,6 @@
 export default () => {
 	setTimeout(() => {
 		const contextMenus = document.querySelectorAll(".fluent-context-menu-container");
-		console.log(contextMenus.length);
 		contextMenus.forEach(contextMenu => {
 			const menuChild = contextMenu.querySelector(".fluent-context-menu ul") as HTMLElement;
 			contextMenu.addEventListener("mouseenter", () => {

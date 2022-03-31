@@ -1,19 +1,48 @@
 import { config } from "../../config";
+import { setActivePageIndex } from "./pages";
 
-export default () => {
+export default async () => {
 	const pageSwitchers = document.querySelectorAll("fluent-page-switcher");
-	pageSwitchers.forEach(pageSwitcher => {
+
+	pageSwitchers.forEach(async pageSwitcher => {
+		const useRouting = pageSwitcher.hasAttribute("use-routing");
+		let routerActivePage = -1;
+		// Register routes
+		if (config.enableRouter && useRouting) {
+			await import("../../router/index").then(r => {
+				const routedPages = pageSwitcher.querySelectorAll("fluent-page[routing]");
+
+				routedPages.forEach((page, i) => {
+					const { routerAddHandler, getHash } = r;
+					const pageSwitcherId = pageSwitcher.id;
+					const route = page.getAttribute("routing") || `${encodeURI(pageSwitcherId)}/${i}`;
+
+					routerAddHandler(route, () => {
+						setActivePageIndex(pageSwitcherId, i, false, route);
+					});
+					console.log(getHash(), route, getHash() === route);
+
+					if (getHash() === route)
+						routerActivePage = i;
+				});
+				console.log(r._router);
+			});
+		}
+
+		console.log(routerActivePage);
+
+		// Show active page in router
+		if (config.enableRouter && useRouting && routerActivePage !== -1) {
+			(pageSwitcher.children[+routerActivePage] as HTMLElement).style.display = "block";
+		}
 		// Show active page
-		if (pageSwitcher.hasAttribute("active-page")) {
+		else if (pageSwitcher.hasAttribute("active-page")) {
 			const activePage = pageSwitcher.getAttribute("active-page") ?? 0;
 			(pageSwitcher.children[+activePage] as HTMLElement).style.display = "block";
 		}
 		// No active page, but has pages
 		else if (pageSwitcher.children.length > 0) {
-			let activePage = 0;
-			if (config.enableRouter) {
-				activePage = 1;
-			}
+			const activePage = 0;
 			pageSwitcher.setAttribute("active-page", activePage.toString());
 
 			const page = pageSwitcher.children[activePage] as HTMLElement;

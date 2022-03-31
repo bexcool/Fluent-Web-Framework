@@ -1,4 +1,5 @@
 import { HandlerFn, Router } from "./lib";
+export { getHash } from "./lib";
 
 export let _router: Router;
 

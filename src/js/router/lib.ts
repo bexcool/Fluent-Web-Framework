@@ -26,6 +26,14 @@ const pathToRegexp = (path: Path | RegExp | Path[], keys: Keys, sensitive: boole
 	return new RegExp("^" + path + "$", sensitive ? "" : "i");
 };
 
+export const getHash = () => {
+	const hash = window.location.hash;
+	if (hash.startsWith("#/"))
+		return hash.substring(2);
+	else
+		return hash.substring(1);
+};
+
 class Route {
 	constructor(
 		public path: Path,
@@ -54,7 +62,7 @@ class Route {
 
 	run(params: Params) {
 		for (let i = 0, c = this.fns.length; i < c; i++) {
-			this.fns[i].apply(this, params);
+			console.log(this.fns[i](params), params);
 		}
 	}
 
@@ -91,7 +99,9 @@ class Route {
 
 export class Router {
 
-	constructor() {
+	constructor(
+		private w = window
+	) {
 		this.addListener();
 	}
 
@@ -99,7 +109,7 @@ export class Router {
 	map = new Map<string, Route>();
 
 	lookup(name: Path, obj: object) {
-		for (let i = 0, c = this.routes.length; i < c; i++) {
+		for (let i = 0; i < this.routes.length; i++) {
 			const route = this.routes[i];
 			if (route.name == name) {
 				return route.toURL(obj);
@@ -128,21 +138,13 @@ export class Router {
 		setTimeout(() => {
 			if (!path.startsWith("/"))
 				path = `/${path}`;
-			window.location.hash = path;
+			this.w.location.hash = path;
 			if (silent) {
 				setTimeout(() => {
 					this.addListener();
 				}, 1);
 			}
 		}, 1);
-	}
-
-	getHash() {
-		const hash = window.location.hash;
-		if (hash.startsWith("#/"))
-			return hash.substring(2);
-		else
-			return hash.substring(1);
 	}
 
 	checkRoute(hash: string, route: Route) {
@@ -155,8 +157,8 @@ export class Router {
 	}
 
 	reload() {
-		const hash = this.getHash();
-		for (let i = 0, c = this.routes.length; i < c; i++) {
+		const hash = getHash();
+		for (let i = 0; i < this.routes.length; i++) {
 			const route = this.routes[i];
 			if (this.checkRoute(hash, route)) {
 				return;
