@@ -24,6 +24,7 @@
         Fluent_onReady(() => { console.log("Fluent initialize callback 3"); });
         // If the user interacts after Fluent Web Framework is ready, gets called instantly
         const navigateToRouting = () => Fluent_onInitialized(() => Fluent_routerNavigate('routing'));
+        const navigateToPageSwitcher = () => Fluent_onInitialized(() => Fluent_routerNavigate('controls/page-switcher'));
     </script>
 
     <div style="margin: 0 0 0 10em; height: 90%;">
@@ -66,7 +67,8 @@
                     </fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 12, true)"
                         icon="./icons/ic_fluent_group_list_24_regular.svg" selectable>Menu</fluent-menu-item>
-                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 13, true)"
+                    <fluent-menu-item
+                        onclick="Fluent_setActivePageIndex('page-switcher', 13, true, 'controls/page-switcher')"
                         icon="./icons/ic_fluent_slide_multiple_24_regular.svg" selectable>Page switcher
                     </fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 14, true)"
@@ -1046,7 +1048,7 @@
                             </p>
 
                             <h3>Basic usage</h3>
-                            <p>Using Fluent pages (page switcher)</p>
+                            <p>Using Fluent pages (<a onclick="navigateToPageSwitcher()">page switcher</a>)</p>
                             <fluent-border>
                                 <code
                                     sh="JS">Fluent_setActivePageIndex('page-switcher-id', /*index*/0, /*routing*/true, /*route*/"example/route-1");</code>
@@ -1056,70 +1058,51 @@
                                 based on the id + index.
                             </p>
 
-                            <h3>API</h3>
-                            <p style="filter:invert(0.3)">
-                                <fluent-label consolas>route</fluent-label> always refers to a path, and is a
-                                <fluent-label consolas>string</fluent-label>
-                            </p>
-
+                            <p>Manually navigate:</p>
                             <fluent-border>
-                                <code sh="JS">Fluent_routerNavigate(route)</code>
+                                <code sh="JS">Fluent_routerNavigate("route");</code>
                             </fluent-border>
-                            <br>
-                            <br>
 
+                            <p>Define a route:</p>
                             <fluent-border>
-                                <code sh="JS">Fluent_routerAddHandler(route, handlerFunction)</code>
+                                <code sh="JS">Fluent_routerAddHandler("route", () => { 
+                                    /* handler function */ 
+                                });</code>
                             </fluent-border>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Option</th>
-                                        <th>Description</th>
-                                        <th>Type</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <fluent-label consolas>handlerFunction</fluent-label>
-                                        </td>
-                                        <td>Gets called everytime this route gets activated.</td>
-                                        <td>
-                                            <fluent-label consolas>Function</fluent-label>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <br>
 
+                            <p>Define multiple routes:</p>
                             <fluent-border>
-                                <code sh="JS">Fluent_routerAddHandlers(routes)</code>
+                                <code
+                                    sh="JS">Fluent_routerAddHandlers({ 
+                                        "route1": () => { }, 
+                                        "route2": () => { },
+                                    });</code>
                             </fluent-border>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Option</th>
-                                        <th>Description</th>
-                                        <th>Type</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <fluent-label consolas>routes</fluent-label>
-                                        </td>
-                                        <td>Multiple calls to
-                                            <fluent-label consolas>routerAddHandler</fluent-label> in one
-                                        </td>
-                                        <td>
-                                            Object of
-                                            <fluent-label consolas>route => handlerFunction</fluent-label>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <hr>
+
+                            <h3>Advanced usage</h3>
+                            <p>Define a route with parameters:</p>
+                            <fluent-border>
+                                <code
+                                    sh="JS">Fluent_routerAddHandler("play/:id", (id) => { 
+
+                                    });</code>
+                                <code
+                                    sh="JS">Fluent_routerAddHandler("play/?:id", (id) => { 
+                                        /* id might be undefined */ 
+                                    });</code>
+                            </fluent-border>
+
+                            <p>Define a wildcard route:</p>
+                            <fluent-border>
+                                <code
+                                    sh="JS">Fluent_routerAddHandler("list/*", () => {
+
+                                    });</code>
+                                <code
+                                    sh="JS">Fluent_routerAddHandler("*", () => { 
+                                        /* custom handler function for all routes */ 
+                                    });</code>
+                            </fluent-border>
 
                             <h3>Credits</h3>
                             <p>Fluent Router is based on Routie by jgallen23</p>
