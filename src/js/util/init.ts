@@ -1,5 +1,9 @@
+import initButtons from "../elements/button/init";
 import { default as initCode, default as initElements } from "../elements/code/init";
+import initContextMenus from "../elements/context-menu/init";
 import initExpanders from "../elements/expander/init";
+import initInputs from "../elements/input/init";
+import initLabels from "../elements/label/init";
 import initMenus from "../elements/menu/init";
 import initPages from "../elements/pages/init";
 import { setInitialized, splash } from "../fluent";
@@ -20,9 +24,13 @@ export default () => {
 		initTheme();
 		initExpanders();
 		initElements();
-		initCode();
 		initMenus();
 		initPages();
+		initCode();
+		initInputs();
+		initLabels();
+		initButtons();
+		initContextMenus();
 
 		//#region Remove focus from elements when clicked
 		const buttons = document.querySelectorAll<HTMLButtonElement>("button, a.fluent-menu-item");

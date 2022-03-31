@@ -3,7 +3,24 @@ import { docElement } from "../../fluent";
 export default () => {
 	InitMenuExpanders();
 	InitSelectableMenuItems();
+	InitMenuIcons();
 };
+
+function InitMenuIcons() {
+	// Set menu item's icon
+	const menuItems = document.querySelectorAll(".fluent-menu-item, .fluent-menu-item-select, .fluent-menu-item-expander-header");
+
+	menuItems.forEach(menuItem => {
+		if (menuItem.hasAttribute("icon")) {
+			const icon = document.createElement("img");
+			icon.classList.add("fluent-menu-item-icon");
+			icon.setAttribute("src", menuItem.getAttribute("icon") ?? "");
+			menuItem.prepend(icon);
+		} else {
+			//menu_item.style.paddingLeft = "20px";
+		}
+	});
+}
 
 function InitSelectableMenuItems() {
 	// Set selectable buttons active when clicked

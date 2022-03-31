@@ -5,9 +5,9 @@
 
 html {
 	scroll-behavior: smooth;
-	// margin: 0;
-	// padding: 0;
-	// height: 100%;
+	margin: 0;
+	padding: 0;
+	height: 100%;
 }
 
 body {
@@ -18,8 +18,8 @@ body {
 	font-family: var(--#{$prefix}font-family);
 	color: var(--#{$prefix}text-color);
 	transition: var(--#{$prefix}transition-duration) ease-in-out;
-	// margin: 0;
-	// height: 100%;
+	margin: 0;
+	height: 100%;
 
 	&::-webkit-scrollbar {
 		width: var(--#{$prefix}scrollbar-width);
