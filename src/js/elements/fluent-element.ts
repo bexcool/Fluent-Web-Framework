@@ -1,5 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface FluentElement {
-	flName?: string;
+
 }
 
 export const FluentRegister = (el: FluentElement & CustomElementConstructor, name: string) => {

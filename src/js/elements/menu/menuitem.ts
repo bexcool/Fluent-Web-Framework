@@ -2,8 +2,6 @@ import { attributesToString } from "../../util/html";
 import { FluentElement, FluentRegister } from "../fluent-element";
 
 export class MenuItem extends HTMLElement implements FluentElement {
-	flName = "fluent-menu-item";
-
 	connectedCallback() {
 		setTimeout(() => {
 			// Check if is selectable

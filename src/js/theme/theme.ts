@@ -1,3 +1,4 @@
+import { pSBC } from "../elements/code/code";
 import { CDN_URL, docElement, KEY_THEME } from "../fluent";
 
 interface Theme {
@@ -25,8 +26,10 @@ interface Theme {
 	"accent-focus-color": string;
 	"accent-hover-color": string;
 	"accent-color": string;
+	"accent-color-1": string;
+	"accent-color-2": string;
+	"accent-color-3": string;
 	"icon-color": string;
-
 	// Syntax Highlighting
 	"HTML-tagcolor": string;
 	"HTML-tagnamecolor": string;
@@ -96,7 +99,7 @@ function setDarkTheme() {
 		"lighter-border-color": "rgba(105, 105, 105, 0.25)",
 		"focus-color": "rgba(255, 255, 255, 0.043)",
 		"text-color-inverted": "black",
-		"text-focus-color-inverted": "rgba(0, 0, 0, 0.5)",
+		"text-focus-color-inverted": "rgba(0, 0, 0, 0.45)",
 		"text-color": "white",
 		"text-focus-color": "rgba(255, 255, 255, 0.75)",
 		"text-nobg-color": "rgb(185, 185, 185)",
@@ -105,6 +108,9 @@ function setDarkTheme() {
 		"accent-focus-color": "#42a1d2",
 		"accent-hover-color": "#47b1e8",
 		"accent-color": "#4cc2ff",
+		"accent-color-1": pSBC(-0.11, getComputedStyle(docElement).getPropertyValue("--accent-color"), false, true) ?? "",
+		"accent-color-2": pSBC(-0.21, getComputedStyle(docElement).getPropertyValue("--accent-color"), false, true) ?? "",
+		"accent-color-3": pSBC(-0.31, getComputedStyle(docElement).getPropertyValue("--accent-color"), false, true) ?? "",
 		"icon-color": "0",
 		// Syntax Highlighting
 		"HTML-tagcolor": "darkgray",
@@ -141,14 +147,14 @@ function setLightTheme() {
 		"dark-color": "rgb(238, 238, 238)",
 		"dark-border-color": "rgb(225, 225, 225)",
 		"darker-color": "hsla(0, 0%, 100%, 46.74%)",
-		"darker-color-noa": "",
+		"darker-color-noa": "rgb(245, 245, 245)",
 		"light-color": "hsla(0, 0%, 100%, 65.12%)",
 		"light-trans-color": "rgba(251, 251, 251, 0.7)",
 		"light-hover-color": "rgb(0, 0, 0, 0.03)",
 		"lighter-hover-color": "rgb(242, 242, 242)",
 		"lighter-press-color": "rgb(245, 245, 245)",
 		"light-border-color": "rgba(220, 220, 220, 0.4)",
-		"lighter-border-color": "rgba(180, 180, 180, 0.4)",
+		"lighter-border-color": "rgba(255, 255, 255, 1)",
 		"focus-color": "rgb(0, 0, 0, 0.02)",
 		"text-color-inverted": "white",
 		"text-focus-color-inverted": "rgba(255, 255, 255, 0.5)",
@@ -160,6 +166,9 @@ function setLightTheme() {
 		"accent-focus-color": "#3183ca",
 		"accent-hover-color": "#1975c5",
 		"accent-color": "#0067c0",
+		"accent-color-1": pSBC(0.1, getComputedStyle(docElement).getPropertyValue("--accent-color"), false, true) ?? "",
+		"accent-color-2": pSBC(0.2, getComputedStyle(docElement).getPropertyValue("--accent-color"), false, true) ?? "",
+		"accent-color-3": pSBC(0.3, getComputedStyle(docElement).getPropertyValue("--accent-color"), false, true) ?? "",
 		"icon-color": "0.7",
 		// Syntax Highlighting
 		"HTML-tagcolor": "#0000ff",

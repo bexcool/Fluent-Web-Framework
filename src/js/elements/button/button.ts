@@ -2,8 +2,6 @@ import { attributesToString } from "../../util/html";
 import { FluentElement, FluentRegister } from "../fluent-element";
 
 export class Button extends HTMLElement implements FluentElement {
-	flName = "fluent-button";
-
 	connectedCallback() {
 		setTimeout(() => {
 			if (this.hasAttribute("accent")) {

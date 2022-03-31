@@ -2,8 +2,6 @@ import { attributesToString } from "../../util/html";
 import { FluentElement, FluentRegister } from "../fluent-element";
 
 export class ContentDialog extends HTMLElement implements FluentElement {
-	flName = "fluent-content-dialog";
-
 	connectedCallback() {
 		setTimeout(() => {
 			this.outerHTML = /*html*/`<div class="fluent-content-dialog-background"><div class="fluent-content-dialog" ${attributesToString(this)}>${this.innerHTML}</div></div>`;
@@ -13,7 +11,7 @@ export class ContentDialog extends HTMLElement implements FluentElement {
 
 FluentRegister(ContentDialog, "fluent-content-dialog");
 
-
+// Show content dialog
 export const showContentDialog = (id: string) => {
 	const contentDialog = document.getElementById(id);
 

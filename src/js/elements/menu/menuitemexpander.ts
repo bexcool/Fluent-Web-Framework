@@ -2,8 +2,6 @@ import { CDN_URL } from "../../fluent";
 import { FluentElement, FluentRegister } from "../fluent-element";
 
 export class MenuItemExpander extends HTMLElement implements FluentElement {
-	flName = "fluent-menu-item-expander";
-
 	connectedCallback() {
 		// TODO: ???
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -9,6 +9,7 @@ import "./context-menu/context-menu";
 import "./expander/expander";
 import "./flyout/flyout";
 import { showFlyout } from "./flyout/flyout";
+import "./hyperlink/hyperlink";
 import "./label/label";
 import "./main-content/main-content";
 import "./menu/menu";

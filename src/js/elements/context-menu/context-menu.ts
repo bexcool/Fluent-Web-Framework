@@ -1,8 +1,6 @@
 import { FluentElement, FluentRegister } from "../fluent-element";
 
 export class ContextMenu extends HTMLElement implements FluentElement {
-	flName = "fluent-contextmenu";
-
 	connectedCallback() {
 		// TODO: ???
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
