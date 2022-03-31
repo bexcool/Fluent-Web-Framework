@@ -100,9 +100,9 @@
             </fluent-menu>
 
             <fluent-main-content>
-                <fluent-page-switcher id="page-switcher" active-page="0">
+                <fluent-page-switcher id="page-switcher" active-page="0" use-routing>
                     <!-- Introduction section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="introduction">
                             <h2>Welcome to Fluent Web Framework documentation!</h2>
                             <p>Here you'll learn how to use this framework.</p>
@@ -112,7 +112,7 @@
                         </section>
                     </fluent-page>
                     <!-- Border section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="border">
                             <h2>Border</h2>
                             <p>Custom element "Border" with content.</p>
@@ -128,7 +128,7 @@
                         </section>
                     </fluent-page>
                     <!-- Button section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="button">
                             <h2>Button</h2>
                             <p>Redesigned <fluent-label consolas>button</fluent-label> and <fluent-label consolas>input
@@ -226,7 +226,7 @@
                         </section>
                     </fluent-page>
                     <!-- Check box -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="border">
                             <h2>Check box</h2>
                             <p>Redesigned input checkbox.</p>
@@ -238,7 +238,7 @@
                         </section>
                     </fluent-page>
                     <!-- Code section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="code">
                             <h2>Code</h2>
                             <p>Remade code element.</p>
@@ -296,7 +296,7 @@
                         </section>
                     </fluent-page>
                     <!-- Content dialog section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="content-dialog">
                             <h2>Content dialog</h2>
                             <p>Element for displaying content in a dialog window.</p>
@@ -313,7 +313,7 @@
                         </section>
                     </fluent-page>
                     <!-- Context menu section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="contextmenu">
                             <h2>Context Menu</h2>
                             <p>Custom element with items.</p>
@@ -373,7 +373,7 @@
                         </section>
                     </fluent-page>
                     <!-- Menu item section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="menu-item">
                             <h2>Menu item</h2>
                             <p>Element for <fluent-label consolas>fluent-menu</fluent-label> and <fluent-label consolas>
@@ -381,7 +381,7 @@
                         </section>
                     </fluent-page>
                     <!-- Expander section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="expander">
                             <h2>Expander</h2>
                             <p>Custom element which can be opened or closed.</p>
@@ -445,7 +445,7 @@
                         </section>
                     </fluent-page>
                     <!-- Flyout section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="flyout">
                             <h2>Flyout</h2>
                             <p>Element with text that shows on the top of the parent element.</p>
@@ -486,7 +486,7 @@
                         </section>
                     </fluent-page>
                     <!-- Label section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="label">
                             <h2>Label</h2>
                             <p>Text in automatically adjusted background color and border.</p>
@@ -550,7 +550,7 @@
                         </section>
                     </fluent-page>
                     <!-- Hyperlink section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="flyout">
                             <h2>Hyperlink</h2>
                             <p>Element which can be put in text to redirect user to other page. Works the same like
@@ -560,7 +560,7 @@
                         </section>
                     </fluent-page>
                     <!-- Menu section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="menu">
                             <h2>Menu</h2>
                             <p>Custom element for navigating on your webpage. Menu item expander works like normal
@@ -588,7 +588,7 @@
                         </section>
                     </fluent-page>
                     <!-- Page switcher -->
-                    <fluent-page>
+                    <fluent-page routing="controls/page-switcher">
                         <section id="page-switcher">
                             <h2>Page switcher</h2>
                             <p>Custom element for switching between pages. Makes your webpage pages a lot easier.</p>
@@ -628,8 +628,9 @@
                                         </td>
                                         <td>boolean</td>
                                         <td>Use routing?<br>
-                                            See <a onclick="navigateToRouting()">router
-                                                docs</a></td>
+                                            See <fluent-hyperlink onclick="navigateToRouting()">router
+                                                docs</fluent-hyperlink>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -667,7 +668,7 @@
                         </section>
                     </fluent-page>
                     <!-- Slider -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section if="slider">
                             <h2>Slider</h2>
                             <p>Redesigned input range.</p>
@@ -682,7 +683,7 @@
                         </section>
                     </fluent-page>
                     <!-- Table -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section if="table">
                             <h2>Table</h2>
                             <p>Redesigned <fluent-label consolas>table</fluent-label> element.</p>
@@ -742,7 +743,7 @@
                         </section>
                     </fluent-page>
                     <!-- Textbox section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="textbox">
                             <h2>Textbox</h2>
                             <p>Redesigned <fluent-label consolas>input type="text"</fluent-label> and <fluent-label
@@ -833,7 +834,7 @@
                         </section>
                     </fluent-page>
                     <!-- Web container section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="web-container">
                             <h2>Web container</h2>
                             <p>Container for webpage content.<br>Web container splits webpage into 2 columns.</p>
@@ -896,7 +897,7 @@
                         </section>
                     </fluent-page>
                     <!-- Initialize section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="initialize">
                             <h2>Initialize</h2>
                             <p>Unlike in the original framework, you don't need to call any init functions.</p>
@@ -906,7 +907,7 @@
                         </section>
                     </fluent-page>
                     <!-- Config section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="config">
                             <h2>Config</h2>
                             <fluent-border>
@@ -955,8 +956,8 @@
                                         </td>
                                         <td>Basic routing using hash location
                                             (<fluent-label consolas>#/</fluent-label>)<br>
-                                            See <a onclick="navigateToRouting()">router
-                                                docs</a><br>
+                                            See <fluent-hyperlink onclick="navigateToRouting()">router
+                                                docs</fluent-hyperlink><br>
                                             Loads the router module. (not in the standard bundle)
                                         </td>
                                         <td>
@@ -985,7 +986,7 @@
                         </section>
                     </fluent-page>
                     <!-- Mica section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="mica">
                             <h2>Mica</h2>
                             <p>Enabled by default</p>
@@ -1004,7 +1005,7 @@
                         </section>
                     </fluent-page>
                     <!-- Themes section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="themes">
                             <h2>Themes</h2>
                             <p>DARK by default</p>
@@ -1037,18 +1038,20 @@
                         </section>
                     </fluent-page>
                     <!-- Routing section -->
-                    <fluent-page>
+                    <fluent-page routing="routing">
                         <section id="routing">
                             <h2>Routing</h2>
                             <fluent-label color="red">New!</fluent-label>
                             <p>
-                                Fluent implements a basic hash location router, that can be enabled by setting
+                                Fluent implements a basic hash location router, which can be enabled by setting
                                 <fluent-label consolas>enableRouter</fluent-label>
                                 to <fluent-label consolas>true</fluent-label>.
                             </p>
 
                             <h3>Basic usage</h3>
-                            <p>Using Fluent pages (<a onclick="navigateToPageSwitcher()">page switcher</a>)</p>
+                            <p>Using Fluent pages
+                                (<fluent-hyperlink onclick="navigateToPageSwitcher()">page switcher</fluent-hyperlink>)
+                            </p>
                             <fluent-border>
                                 <code
                                     sh="JS">Fluent_setActivePageIndex('page-switcher-id', /*index*/0, /*routing*/true, /*route*/"example/route-1");</code>
@@ -1083,12 +1086,12 @@
                             <p>Define a route with parameters:</p>
                             <fluent-border>
                                 <code
-                                    sh="JS">Fluent_routerAddHandler("play/:id", (id) => { 
-
+                                    sh="JS">Fluent_routerAddHandler("play/:id", (params) => { 
+                                        // params.id
                                     });</code>
                                 <code
-                                    sh="JS">Fluent_routerAddHandler("play/?:id", (id) => { 
-                                        /* id might be undefined */ 
+                                    sh="JS">Fluent_routerAddHandler("play/?:id", (params) => { 
+                                        /* params.id might be undefined */ 
                                     });</code>
                             </fluent-border>
 
@@ -1110,7 +1113,7 @@
                         </section>
                     </fluent-page>
                     <!-- About section -->
-                    <fluent-page>
+                    <fluent-page routing>
                         <section id="about">
                             <h2>About</h2>
                             <p>Originally created by Peter from BeXCool.</p>
