@@ -1,8 +1,9 @@
+import { config } from "../../config";
 import { CDN_URL, docElement } from "../../fluent";
 
-export default () => {
+export default async () => {
 	InitMenuExpanders();
-	InitSelectableMenuItems();
+	await InitSelectableMenuItems();
 	InitMenuIcons();
 };
 
@@ -22,20 +23,92 @@ function InitMenuIcons() {
 	});
 }
 
-function InitSelectableMenuItems() {
+async function InitSelectableMenuItems() {
+	// TODO: Tidy up this code
 	// Set selectable buttons active when clicked
 	const menus = document.querySelectorAll(".fluent-menu-list");
 
-	menus.forEach(menu => {
+	menus.forEach(async menu => {
 		const menuItems = menu.querySelectorAll(".fluent-menu-item-select");
+
+		const useRouting = menu.hasAttribute("experimental-use-routing");
+
+		if (config.enableRouter && useRouting)
+			await import("../../router/index").then(r => {
+				const { getHash } = r;
+				menuItems.forEach(menuItemSelect => {
+					const click = menuItemSelect.getAttribute("onclick");
+					if (click) {
+						// TODO: Won't really work being this simple
+						const args = /([\w.]+),([\d.]+),(true|false),([\w.]+)/.exec(click);
+						const id = args?.[0] ?? "", index = args?.[1] ?? 0, routing = args?.[2] ?? false, _route = args?.[3];
+						if (!routing)
+							return;
+						const route = _route || `${encodeURI(id)}/${index}`;
+
+						// TODO: This will break if it has a selected attr set in html
+						if (getHash() === route) {
+							menuItemSelect.setAttribute("selected", "");
+
+							menuItemSelect.classList.add("selected");
+
+							const active_element = document.createElement("div");
+							//if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
+							active_element.classList.add("fluent-menu-item-select-selected");
+							menuItemSelect.prepend(active_element);
+
+							active_element.animate(
+								[
+									// keyframes
+									{ transform: "scaleY(0)", opacity: "0" },
+									{ transform: "scaleY(1)", opacity: "1" }
+								],
+								{
+									// timing options
+									duration: 90
+								});
+
+							active_element.style.opacity = "1";
+						}
+
+						// Not needed
+						// routerAddHandler(route, () => {
+						// menuItemSelect.setAttribute("selected", "");
+						// });
+					}
+				});
+			});
+
 		menuItems.forEach(menuItemSelect => {
+			if (menuItemSelect.hasAttribute("selected")) {
+				menuItemSelect.classList.add("selected");
+
+				const active_element = document.createElement("div");
+				//if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
+				active_element.classList.add("fluent-menu-item-select-selected");
+				menuItemSelect.prepend(active_element);
+
+				active_element.animate(
+					[
+						// keyframes
+						{ transform: "scaleY(0)", opacity: "0" },
+						{ transform: "scaleY(1)", opacity: "1" }
+					],
+					{
+						// timing options
+						duration: 90
+					});
+
+				active_element.style.opacity = "1";
+			}
+
 			menuItemSelect.addEventListener("mousedown", (e) => {
 				e.preventDefault();
 
 				menuItemSelect.classList.add("press");
 			});
 
-			menuItemSelect.addEventListener("click", function (e) {
+			menuItemSelect.addEventListener("click", (e) => {
 				if (!menuItemSelect.hasAttribute("selected")) {
 					e.preventDefault();
 					let i = 0, newItemIndex = 0, oldItemIndex = 0, oldExists = false;
@@ -68,7 +141,6 @@ function InitSelectableMenuItems() {
 							setTimeout(() => {
 								firstChild.remove();
 							}, 280);
-
 						}
 
 						i++;
@@ -114,38 +186,14 @@ function InitSelectableMenuItems() {
 								duration: 90
 							});
 						active_element.style.opacity = "1";
-
 					}
 				}
 			});
-
-			if (menuItemSelect.hasAttribute("selected")) {
-				menuItemSelect.classList.add("selected");
-
-				const active_element = document.createElement("div");
-				//if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
-				active_element.classList.add("fluent-menu-item-select-selected");
-				menuItemSelect.prepend(active_element);
-
-				active_element.animate(
-					[
-						// keyframes
-						{ transform: "scaleY(0)", opacity: "0" },
-						{ transform: "scaleY(1)", opacity: "1" }
-					],
-					{
-						// timing options
-						duration: 90
-					});
-
-				active_element.style.opacity = "1";
-			}
 		});
 	});
 }
 
 function InitMenuExpanders() {
-
 	// Initialize expander header
 	const expanders = document.querySelectorAll<HTMLElement>(".fluent-menu-item-expander-header");
 

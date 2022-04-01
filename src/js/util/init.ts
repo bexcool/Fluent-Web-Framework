@@ -23,8 +23,8 @@ export default () => {
 	setTimeout(async () => {
 		initTheme();
 		initExpanders();
-		initMenus();
 		await initPages();
+		await initMenus();
 		initCode();
 		initInputs();
 		initLabels();

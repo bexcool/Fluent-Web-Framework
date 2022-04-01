@@ -2,6 +2,13 @@
 <html>
 
 <head>
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "baeh5i54b9");
+    </script>
     <meta charset="utf-8">
     <title>Fluent Style</title>
     <link rel="stylesheet" href="//cdn.spej.eu/fwf/fluent-bundle.min.css" type="text/css">
@@ -30,13 +37,13 @@
     <div style="margin: 0 0 0 10em; height: 90%;">
         <h1>Fluent Web Framework</h1>
         <fluent-web-container>
-            <fluent-menu style="width: 20em;">
+            <fluent-menu style="width: 20em;" experimental-use-routing>
                 <p>Dark and light theme.</p>
                 <button onclick="Fluent_switchTheme();">Switch theme</button>
                 <button onclick="Fluent_enableMica();">Enable Mica</button>
                 <button onclick="Fluent_disableMica();" style="margin-bottom: 10px;">Disable Mica</button>
                 <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 0, true)"
-                    icon="./icons/ic_fluent_emoji_hand_20_regular.svg" selectable selected>Introduction
+                    icon="./icons/ic_fluent_emoji_hand_20_regular.svg" selectable>Introduction
                 </fluent-menu-item>
                 <fluent-menu-item-expander header="Controls" icon="./icons/ic_fluent_cursor_hover_16_regular.svg">
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 1, true)"
@@ -1049,12 +1056,13 @@
                             </p>
 
                             <h3>Basic usage</h3>
-                            <p>Using Fluent pages
+                            <p>Using Fluent pages:
                                 (<fluent-hyperlink onclick="navigateToPageSwitcher()">page switcher</fluent-hyperlink>)
                             </p>
                             <fluent-border>
                                 <code
                                     sh="JS">Fluent_setActivePageIndex('page-switcher-id', /*index*/0, /*routing*/true, /*route*/"example/route-1");</code>
+                                <br>
                                 <code
                                     sh="HTML">&lt;fluent-page-switcher id="page-switcher" use-routing&gt;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-page routing="optional-route-name"&gt;
@@ -1064,7 +1072,14 @@
                             </fluent-border>
                             <p>
                                 If <fluent-label consolas>route</fluent-label> isn't specified, Fluent chooses a route
-                                based on the id + index.
+                                based on the id + index.<br>
+                                Route handlers created by Fluent don't have params (yet).
+                            </p>
+                            <p>
+                                <fluent-label color="red">Even newer!</fluent-label>
+                                Use <code sh="HTML">&lt;fluent-menu&gt;</code> with
+                                <fluent-label consolas>experimental-use-routing</fluent-label>
+                                and Fluent will try to match the selected item with the active route.
                             </p>
 
                             <p>Manually navigate:</p>
