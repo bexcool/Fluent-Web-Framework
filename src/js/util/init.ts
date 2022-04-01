@@ -1,5 +1,5 @@
 import initButtons from "../elements/button/init";
-import { default as initCode, default as initElements } from "../elements/code/init";
+import initCode from "../elements/code/init";
 import initContextMenus from "../elements/context-menu/init";
 import initExpanders from "../elements/expander/init";
 import initInputs from "../elements/input/init";
@@ -23,7 +23,6 @@ export default () => {
 	setTimeout(async () => {
 		initTheme();
 		initExpanders();
-		initElements();
 		initMenus();
 		await initPages();
 		initCode();

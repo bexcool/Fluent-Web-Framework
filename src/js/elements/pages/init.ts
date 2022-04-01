@@ -18,7 +18,8 @@ export default async () => {
 					const route = page.getAttribute("routing") || `${encodeURI(pageSwitcherId)}/${i}`;
 
 					routerAddHandler(route, () => {
-						setActivePageIndex(pageSwitcherId, i, false, route);
+						setActivePageIndex(pageSwitcherId, i, true, route);
+						console.log(route);
 					});
 					console.log(getHash(), route, getHash() === route);
 
@@ -33,7 +34,11 @@ export default async () => {
 
 		// Show active page in router
 		if (config.enableRouter && useRouting && routerActivePage !== -1) {
-			(pageSwitcher.children[+routerActivePage] as HTMLElement).style.display = "block";
+			pageSwitcher.setAttribute("active-page", routerActivePage.toString());
+
+			const page = pageSwitcher.children[routerActivePage] as HTMLElement;
+			page.style.display = "block";
+			page.style.animation = "fluent-page-fade-up 0.3s ease-in-out";
 		}
 		// Show active page
 		else if (pageSwitcher.hasAttribute("active-page")) {

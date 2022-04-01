@@ -181,10 +181,10 @@ export class Router {
 	}
 
 	addListener() {
-		window.addEventListener("hashchange", this.reload, false);
+		window.addEventListener("hashchange", () => this.reload(), false);
 	}
 
 	removeListener() {
-		window.removeEventListener("hashchange", this.reload);
+		window.removeEventListener("hashchange", () => this.reload());
 	}
 }
