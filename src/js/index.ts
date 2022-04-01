@@ -3,6 +3,7 @@ import animations from "./animations/index";
 import { config } from "./config";
 import elements from "./elements/index";
 import { CDN_URL, FluentDefine, FluentExpose, isInitialized, onInitialized } from "./fluent";
+import initIcons from "./icons";
 import theme from "./theme/index";
 import util from "./util/index";
 import init from "./util/init";
@@ -15,6 +16,7 @@ import init from "./util/init";
 	FluentExpose(isInitialized, true);
 	FluentExpose(onInitialized, true);
 	FluentExpose(onInitialized, true, "onReady");
+	await initIcons();
 	if (config.enableRouter) {
 		const router = await import("./router/index");
 		console.log("fluent router", "imported", "enabled");

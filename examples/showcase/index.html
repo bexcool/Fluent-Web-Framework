@@ -1055,6 +1055,12 @@
                             <fluent-border>
                                 <code
                                     sh="JS">Fluent_setActivePageIndex('page-switcher-id', /*index*/0, /*routing*/true, /*route*/"example/route-1");</code>
+                                <code
+                                    sh="HTML">&lt;fluent-page-switcher id="page-switcher" use-routing&gt;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-page routing="optional-route-name"&gt;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-page&gt;
+                                    &lt;/fluent-page-switcher&gt;</code>
                             </fluent-border>
                             <p>
                                 If <fluent-label consolas>route</fluent-label> isn't specified, Fluent chooses a route
