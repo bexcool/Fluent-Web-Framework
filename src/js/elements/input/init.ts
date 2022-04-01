@@ -6,7 +6,7 @@ export default () => {
 	const inputsText = document.querySelectorAll<HTMLInputElement>("input[type=\"text\"]");
 
 	inputsText.forEach(inputText => {
-		inputText.outerHTML = `<div class="fluent-textbox-container"><input ${attributesToString(inputText)} ><button class="fluent-clear-text-input-button">x</button></div>`;
+		inputText.outerHTML = `<div class="fluent-textbox-container"><input ${attributesToString(inputText)}><button class="fluent-input-button">x</button></div>`;
 	});
 
 	const inputsTextNew = document.querySelectorAll<HTMLInputElement>("input[type=\"text\"]");
@@ -28,7 +28,7 @@ export default () => {
 	const inputsPassword = document.querySelectorAll<HTMLInputElement>("input[type=\"password\"]");
 
 	inputsPassword.forEach(inputPassword => {
-		inputPassword.outerHTML = `<div class="fluent-textbox-container"><input ${attributesToString(inputPassword)}><a class="fluent-show-password-input" style="opacity: 0; display: none;">${getIcon("eye-closed")}</a></div>`;
+		inputPassword.outerHTML = `<div class="fluent-textbox-container"><input ${attributesToString(inputPassword)}><a class="fluent-input-button" icon style="opacity: 0; display: none;">${getIcon("eye-closed")}</a></div>`;
 	});
 
 	const inputsPasswordNew = document.querySelectorAll<HTMLInputElement>("input[type=\"password\"]");

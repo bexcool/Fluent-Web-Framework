@@ -11,7 +11,7 @@ export const getIcon = (icon: Icons): string => {
 
 export default async () => {
 	icons.forEach(async icon => {
-		const res = await (await fetch(`${CDN_URL}/icons/${icon}.svg`)).text();
+		const res = await (await fetch(`${CDN_URL}/img/icons/${icon}.svg`)).text();
 		_iconsStore.set(icon, res);
 	});
 };
