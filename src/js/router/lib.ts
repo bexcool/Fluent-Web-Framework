@@ -39,12 +39,13 @@ class Route {
 		public path: Path,
 		public name: string
 	) {
+		this.regex = pathToRegexp(this.path, this.keys, false, false);
 	}
 
 	keys: Keys = [];
 	fns: HandlerFn[] = [];
 	params: Params = {};
-	regex: RegExp = pathToRegexp(this.path, this.keys, false, false);
+	regex: RegExp;
 
 	addHandler(fn: HandlerFn) {
 		this.fns.push(fn);
@@ -62,7 +63,7 @@ class Route {
 
 	run(params: Params) {
 		for (let i = 0, c = this.fns.length; i < c; i++) {
-			console.log(this.fns[i](params), params);
+			this.fns[i](params);
 		}
 	}
 
@@ -100,7 +101,6 @@ class Route {
 export class Router {
 
 	constructor(
-		private w = window
 	) {
 		this.addListener();
 	}
@@ -138,7 +138,7 @@ export class Router {
 		setTimeout(() => {
 			if (!path.startsWith("/"))
 				path = `/${path}`;
-			this.w.location.hash = path;
+			window.location.hash = path;
 			if (silent) {
 				setTimeout(() => {
 					this.addListener();

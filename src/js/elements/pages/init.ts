@@ -19,18 +19,13 @@ export default async () => {
 
 					routerAddHandler(route, () => {
 						setActivePageIndex(pageSwitcherId, i, true, route);
-						console.log(route);
 					});
-					console.log(getHash(), route, getHash() === route);
 
 					if (getHash() === route)
 						routerActivePage = i;
 				});
-				console.log(r._router);
 			});
 		}
-
-		console.log(routerActivePage);
 
 		// Show active page in router
 		if (config.enableRouter && useRouting && routerActivePage !== -1) {

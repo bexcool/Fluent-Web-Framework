@@ -39,7 +39,6 @@ const prefix = "Fluent_";
 
 
 const makeGlobal = (val: any, name: string) => {
-	console.log("globalized", name, val);
 	(window as any)[name] = val;
 	if (config.noPrefix)
 		(window as any)[capitalize(name.replace(prefix, ""))] = val;

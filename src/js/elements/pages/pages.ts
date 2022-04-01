@@ -13,16 +13,15 @@ export const setActivePageIndex = (pageSwitcherId: string, index: number, routin
 		if (!routing) {
 			showCurrentPage(pageSwitcher, index);
 		} else if (!config.enableRouter) {
-			console.error("Cannot setActivePageIndex with routing but router being disabled");
+			throw new Error("Cannot use setActivePageIndex with 'routing' but router being disabled");
 		} else { // routing and router are enabled
 			import("../../router/index").then(r => {
 				const { routerAddHandler, routerNavigate, getHash, _router } = r;
 				route = route ?? `${encodeURI(pageSwitcherId)}/${index}`;
-				// Register the route if not already registered
+				// Register the route so we can go back, if not already registered
 				if (!_router.map.has(route))
 					routerAddHandler(route, () => {
 						setActivePageIndex(pageSwitcherId, index, true, route);
-						console.log(route);
 					});
 				// Navigate if not already done
 				if (getHash() !== route)

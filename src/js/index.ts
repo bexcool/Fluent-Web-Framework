@@ -10,8 +10,6 @@ import init from "./util/init";
 
 
 (async () => {
-	console.log(config);
-
 	FluentDefine(CDN_URL, "CDN_URL", true);
 	FluentExpose(isInitialized, true);
 	FluentExpose(onInitialized, true);
@@ -19,15 +17,12 @@ import init from "./util/init";
 	await initIcons();
 	if (config.enableRouter) {
 		const router = await import("./router/index");
-		console.log("fluent router", "imported", "enabled");
+		console.log("[fluent router]", "imported");
 		// init
 		router.default();
 		FluentExpose(router.routerAddHandler, true, "routerAddHandler");
 		FluentExpose(router.routerAddHandlers, true, "routerAddHandlers");
 		FluentExpose(router.routerNavigate, true, "routerNavigate");
-	}
-	else {
-		console.log("fluent router", "disabled");
 	}
 	util();
 	theme();
