@@ -13,11 +13,12 @@ export function showFlyout(element: HTMLElement, string: string, delay: number) 
 	flyout.appendChild(text);
 	flyout.style.top = element.offsetTop - flyout.offsetHeight - 10 + "px";
 	flyout.style.left = (element.offsetWidth / 2 - flyout.offsetWidth / 2) + viewportOffset.x + "px";
+
 	flyout.animate(
 		[
 			// keyframes
-			{ top: flyout.offsetTop + 5 + "px", opacity: "0" },
-			{ top: flyout.offsetTop, opacity: "1" }
+			{ top: `${flyout.offsetTop + 5}px`, opacity: "0" },
+			{ top: `${flyout.offsetTop}px`, opacity: "1" }
 		],
 		{
 			// timing options
