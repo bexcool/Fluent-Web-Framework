@@ -54,7 +54,7 @@
                         icon="./icons/ic_fluent_checkbox_checked_16_regular.svg" selectable>Checkbox</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 4, true)"
                         icon="./icons/ic_fluent_code_16_regular.svg" selectable>Code</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 5, true)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 5, true)"
                         icon="./icons/ic_fluent_window_header_horizontal_20_regular.svg" selectable>Content dialog
                     </fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 6, true)"
@@ -1077,7 +1077,7 @@
                             </p>
                             <p>
                                 <fluent-label color="red">Even newer!</fluent-label>
-                                Use <code sh="HTML">&lt;fluent-menu&gt;</code> with
+                                Use <fluent-label consolas>&lt;fluent-menu&gt;</fluent-label> with
                                 <fluent-label consolas>experimental-use-routing</fluent-label>
                                 and Fluent will try to match the selected item with the active route.
                             </p>
