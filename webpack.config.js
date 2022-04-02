@@ -12,33 +12,34 @@ export default {
 	entry: "./js/index",
 	mode: "production",
 	module: {
-		rules: [{
-			test: /\.(ts|tsx)$/,
-			use: "babel-loader",
-			exclude: /node_modules/,
-			include: resolve(__dirname, "src"),
-		},
-		{
-			test: /\.css$/,
-			use: [
-				"style-loader",
-				MiniCssExtractPlugin.loader,
-				"css-loader"
-			]
-		},
-		{
-			test: /\.scss$/,
-			use: [
-				"style-loader",
-				MiniCssExtractPlugin.loader,
-				"css-loader",
-				"sass-loader"
-			]
-		},
-		{
-			test: /\.html$/i,
-			loader: "html-loader",
-		},
+		rules: [
+			{
+				test: /\.(ts|tsx)$/,
+				use: "babel-loader",
+				exclude: /node_modules/,
+				include: resolve(__dirname, "src"),
+			},
+			{
+				test: /\.css$/,
+				use: [
+					"style-loader",
+					MiniCssExtractPlugin.loader,
+					"css-loader"
+				]
+			},
+			{
+				test: /\.scss$/,
+				use: [
+					"style-loader",
+					MiniCssExtractPlugin.loader,
+					"css-loader",
+					"sass-loader"
+				]
+			},
+			{
+				test: /\.svg$/,
+				type: "asset/source",
+			}
 		]
 	},
 	optimization: {

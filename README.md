@@ -39,3 +39,5 @@ Somewhere in <head>:
 After <body>:
 <script src="https://cdn.spej.eu/fwf/fluent-bundle.min.js"></script>
 ```
+
+NOT AFFILIATED WITH MICROSOFT
