@@ -6,7 +6,7 @@ const _cache: { [k in _Icons]?: string } = {};
 
 export default () => {
 	FluentDefine(_icons, "icons", true);
-	FluentDefine(_iconsUrl, "cdnUrlIcons", true);
+	FluentDefine(_iconsUrl, "CDN_URL_ICONS", true);
 	FluentExpose(getIcon, true);
 	FluentExpose(iconExists, true);
 };

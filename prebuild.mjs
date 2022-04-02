@@ -1,14 +1,14 @@
+import { lstatSync, writeFileSync } from "fs";
 import glob from "glob";
-import { dirname, resolve, sep, posix } from "path";
-import { writeFileSync, lstatSync } from "fs";
+import { dirname, posix, resolve, sep } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// Create a list of all icons
-console.time("Create icons listing");
+// Create a list of icons
 const iconsDir = resolve(__dirname, "node_modules", "@fluentui", "svg-icons", "icons") + sep;
 glob(iconsDir + "**/*", (err, res) => {
+	console.time("Create icons listing");
 	if (err)
 		throw new Error(`Could not get the icons listing: ${err.message}`);
 	const outputDir = resolve(__dirname, "src", "js", "icons") + sep;
