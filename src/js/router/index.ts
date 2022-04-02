@@ -1,3 +1,4 @@
+import { FluentExpose } from "../fluent";
 import { HandlerFn, Router } from "./lib";
 export { getHash } from "./lib";
 
@@ -5,6 +6,9 @@ export let _router: Router;
 
 export default () => {
 	_router = new Router();
+	FluentExpose(routerAddHandler, true);
+	FluentExpose(routerAddHandlers, true);
+	FluentExpose(routerNavigate, true);
 };
 
 export const routerNavigate = (path: string) => {

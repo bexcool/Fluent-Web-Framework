@@ -1,4 +1,5 @@
 import { config } from "../../config";
+import { mRouter } from "../../modules";
 import { setActivePageIndex } from "./pages";
 
 export default async () => {
@@ -9,21 +10,20 @@ export default async () => {
 		let routerActivePage = -1;
 		// Register routes
 		if (config.enableRouter && useRouting) {
-			await import("../../router/index").then(r => {
-				const routedPages = pageSwitcher.querySelectorAll("fluent-page[routing]");
+			const { routerAddHandler, getHash } = await mRouter();
 
-				routedPages.forEach((page, i) => {
-					const { routerAddHandler, getHash } = r;
-					const pageSwitcherId = pageSwitcher.id;
-					const route = page.getAttribute("routing") || `${encodeURI(pageSwitcherId)}/${i}`;
+			const routedPages = pageSwitcher.querySelectorAll("fluent-page[routing]");
 
-					routerAddHandler(route, () => {
-						setActivePageIndex(pageSwitcherId, i, true, route);
-					});
+			routedPages.forEach((page, i) => {
+				const pageSwitcherId = pageSwitcher.id;
+				const route = page.getAttribute("routing") || `${encodeURI(pageSwitcherId)}/${i}`;
 
-					if (getHash() === route)
-						routerActivePage = i;
+				routerAddHandler(route, () => {
+					setActivePageIndex(pageSwitcherId, i, true, route);
 				});
+
+				if (getHash() === route)
+					routerActivePage = i;
 			});
 		}
 

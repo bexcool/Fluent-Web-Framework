@@ -3,7 +3,7 @@ import animations from "./animations/index";
 import { config } from "./config";
 import elements from "./elements/index";
 import { CDN_URL, FluentDefine, FluentExpose, isInitialized, onInitialized } from "./fluent";
-import initIcons from "./icons";
+import { mCode, mIcons, mRouter } from "./modules";
 import theme from "./theme/index";
 import util from "./util/index";
 import init from "./util/init";
@@ -14,15 +14,19 @@ import init from "./util/init";
 	FluentExpose(isInitialized, true);
 	FluentExpose(onInitialized, true);
 	FluentExpose(onInitialized, true, "onReady");
-	await initIcons();
+	if (config.enableIcons) {
+		const code = await mCode();
+		console.log("[fluent code]", "imported");
+	}
 	if (config.enableRouter) {
-		const router = await import("./router/index");
+		const router = await mRouter();
 		console.log("[fluent router]", "imported");
-		// init
 		router.default();
-		FluentExpose(router.routerAddHandler, true, "routerAddHandler");
-		FluentExpose(router.routerAddHandlers, true, "routerAddHandlers");
-		FluentExpose(router.routerNavigate, true, "routerNavigate");
+	}
+	if (config.enableIcons) {
+		const icons = await mIcons();
+		console.log("[fluent icons]", "imported");
+		icons.default();
 	}
 	util();
 	theme();

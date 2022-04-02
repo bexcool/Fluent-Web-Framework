@@ -1,5 +1,12 @@
-import { getIcon } from "../../icons";
+// TODO: Fix vscode thinking it's invalid
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-ignore
+import iEye from "@fluentui/svg-icons/icons/eye_20_filled.svg";
+// @ts-ignore
+import iEyeOff from "@fluentui/svg-icons/icons/eye_20_regular.svg";
+// import iEyeOff from "svg-inline-loader!@fluentui/svg-icons/icons/eye_off_20_filled.svg";
 import { attributesToString } from "../../util/html";
+
 
 export default () => {
 	// Input text
@@ -28,7 +35,7 @@ export default () => {
 	const inputsPassword = document.querySelectorAll<HTMLInputElement>("input[type=\"password\"]");
 
 	inputsPassword.forEach(inputPassword => {
-		inputPassword.outerHTML = `<div class="fluent-textbox-container"><input ${attributesToString(inputPassword)}><a class="fluent-input-button" icon style="opacity: 0; display: none;">${getIcon("eye-closed")}</a></div>`;
+		inputPassword.outerHTML = `<div class="fluent-textbox-container"><input ${attributesToString(inputPassword)}><a class="fluent-input-button" icon style="opacity: 0; display: none;">${iEyeOff}</a></div>`;
 	});
 
 	const inputsPasswordNew = document.querySelectorAll<HTMLInputElement>("input[type=\"password\"]");
@@ -43,23 +50,23 @@ export default () => {
 
 		if (inputPassword.hasAttribute("showpass")) {
 			inputPassword.setAttribute("type", "text");
-			button.innerHTML = getIcon("eye-open");
+			button.innerHTML = iEye;
 		}
 		else {
 			inputPassword.setAttribute("type", "password");
-			button.innerHTML = getIcon("eye-closed");
+			button.innerHTML = iEyeOff;
 		}
 
 		button.addEventListener("click", () => {
 			if (inputPassword.getAttribute("type") == "password" && !inputPassword.hasAttribute("showpass")) {
 				inputPassword.setAttribute("type", "text");
 				inputPassword.setAttribute("showpass", "");
-				button.innerHTML = getIcon("eye-open");
+				button.innerHTML = iEye;
 			}
 			else {
 				inputPassword.setAttribute("type", "password");
 				inputPassword.removeAttribute("showpass");
-				button.innerHTML = getIcon("eye-closed");
+				button.innerHTML = iEyeOff;
 			}
 		});
 	});

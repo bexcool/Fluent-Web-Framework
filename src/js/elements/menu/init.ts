@@ -1,21 +1,39 @@
 import { config } from "../../config";
-import { CDN_URL, docElement } from "../../fluent";
+import { docElement } from "../../fluent";
+import { mIcons, mRouter } from "../../modules";
 
 export default async () => {
-	InitMenuExpanders();
+	await InitMenuExpanders();
 	await InitSelectableMenuItems();
 	InitMenuIcons();
 };
 
-function InitMenuIcons() {
+async function InitMenuIcons() {
 	// Set menu item's icon
 	const menuItems = document.querySelectorAll(".fluent-menu-item, .fluent-menu-item-select, .fluent-menu-item-expander-header");
 
-	menuItems.forEach(menuItem => {
+	menuItems.forEach(async menuItem => {
 		if (menuItem.hasAttribute("icon")) {
+			const iconVal = menuItem.getAttribute("icon");
+			if (!iconVal) return;
+			// Icon names don't have dots
+			if (config.enableIcons && !iconVal.includes(".")) {
+				// Fluent icon
+				const { getIcon } = await mIcons();
+				const val = await getIcon(iconVal);
+				if (val) {
+					const icon = new DOMParser().parseFromString(val, "image/svg+xml").documentElement;
+					icon.classList.add("fluent-menu-item-icon");
+					menuItem.prepend(icon);
+					return;
+				}
+				// Unknown icon, process it as image
+			}
+
+			// Image icon
 			const icon = document.createElement("img");
 			icon.classList.add("fluent-menu-item-icon");
-			icon.setAttribute("src", menuItem.getAttribute("icon") ?? `${CDN_URL}/bexcool.png`);
+			icon.setAttribute("src", iconVal);
 			menuItem.prepend(icon);
 		} else {
 			//menu_item.style.paddingLeft = "20px";
@@ -33,51 +51,51 @@ async function InitSelectableMenuItems() {
 
 		const useRouting = menu.hasAttribute("experimental-use-routing");
 
-		if (config.enableRouter && useRouting)
-			await import("../../router/index").then(r => {
-				const { getHash } = r;
-				menuItems.forEach(menuItemSelect => {
-					const click = menuItemSelect.getAttribute("onclick");
-					if (click) {
-						// TODO: Won't really work being this simple
-						const args = /([\w.]+),([\d.]+),(true|false),([\w.]+)/.exec(click);
-						const id = args?.[0] ?? "", index = args?.[1] ?? 0, routing = args?.[2] ?? false, _route = args?.[3];
-						if (!routing)
-							return;
-						const route = _route || `${encodeURI(id)}/${index}`;
+		if (config.enableRouter && useRouting) {
+			const { getHash } = await mRouter();
 
-						// TODO: This will break if it has a selected attr set in html
-						if (getHash() === route) {
-							menuItemSelect.setAttribute("selected", "");
+			menuItems.forEach(menuItemSelect => {
+				const click = menuItemSelect.getAttribute("onclick");
+				if (click) {
+					// TODO: Won't really work being this simple
+					const args = /([\w.]+),([\d.]+),(true|false),([\w.]+)/.exec(click);
+					const id = args?.[0] ?? "", index = args?.[1] ?? 0, routing = args?.[2] ?? false, _route = args?.[3];
+					if (!routing)
+						return;
+					const route = _route || `${encodeURI(id)}/${index}`;
 
-							menuItemSelect.classList.add("selected");
+					// TODO: This will break if it has a selected attr set in html
+					if (getHash() === route) {
+						menuItemSelect.setAttribute("selected", "");
 
-							const active_element = document.createElement("div");
-							//if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
-							active_element.classList.add("fluent-menu-item-select-selected");
-							menuItemSelect.prepend(active_element);
+						menuItemSelect.classList.add("selected");
 
-							active_element.animate(
-								[
-									// keyframes
-									{ transform: "scaleY(0)", opacity: "0" },
-									{ transform: "scaleY(1)", opacity: "1" }
-								],
-								{
-									// timing options
-									duration: 90
-								});
+						const active_element = document.createElement("div");
+						//if (!menu_item_select.hasAttribute("icon")) active_element.style.marginLeft = "-20px";
+						active_element.classList.add("fluent-menu-item-select-selected");
+						menuItemSelect.prepend(active_element);
 
-							active_element.style.opacity = "1";
-						}
+						active_element.animate(
+							[
+								// keyframes
+								{ transform: "scaleY(0)", opacity: "0" },
+								{ transform: "scaleY(1)", opacity: "1" }
+							],
+							{
+								// timing options
+								duration: 90
+							});
 
-						// Not needed
-						// routerAddHandler(route, () => {
-						// menuItemSelect.setAttribute("selected", "");
-						// });
+						active_element.style.opacity = "1";
 					}
-				});
+
+					// Not needed
+					// routerAddHandler(route, () => {
+					// menuItemSelect.setAttribute("selected", "");
+					// });
+				}
 			});
+		}
 
 		menuItems.forEach(menuItemSelect => {
 			if (menuItemSelect.hasAttribute("selected")) {

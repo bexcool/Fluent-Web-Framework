@@ -1,6 +1,7 @@
 import { config } from "../../config";
+import { mRouter } from "../../modules";
 
-export const setActivePageIndex = (pageSwitcherId: string, index: number, routing = false, route?: string) => {
+export const setActivePageIndex = async (pageSwitcherId: string, index: number, routing = false, route?: string) => {
 	const pageSwitcher = document.getElementById(pageSwitcherId);
 
 	if (!pageSwitcher) return;
@@ -15,20 +16,19 @@ export const setActivePageIndex = (pageSwitcherId: string, index: number, routin
 		} else if (!config.enableRouter) {
 			throw new Error("Cannot use setActivePageIndex with 'routing' but router being disabled");
 		} else { // routing and router are enabled
-			import("../../router/index").then(r => {
-				const { routerAddHandler, routerNavigate, getHash, _router } = r;
-				route = route ?? `${encodeURI(pageSwitcherId)}/${index}`;
-				// Register the route so we can go back, if not already registered
-				if (!_router.map.has(route))
-					routerAddHandler(route, () => {
-						setActivePageIndex(pageSwitcherId, index, true, route);
-					});
-				// Navigate if not already done
-				if (getHash() !== route)
-					routerNavigate(route);
+			const { routerAddHandler, routerNavigate, getHash, _router } = await mRouter();
 
-				showCurrentPage(pageSwitcher, index);
-			});
+			route = route ?? `${encodeURI(pageSwitcherId)}/${index}`;
+			// Register the route so we can go back, if not already registered
+			if (!_router.map.has(route))
+				routerAddHandler(route, () => {
+					setActivePageIndex(pageSwitcherId, index, true, route);
+				});
+			// Navigate if not already done
+			if (getHash() !== route)
+				routerNavigate(route);
+
+			showCurrentPage(pageSwitcher, index);
 		}
 	}
 };

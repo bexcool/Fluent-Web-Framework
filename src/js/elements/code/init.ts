@@ -1,4 +1,7 @@
-import { getIcon } from "../../icons";
+// TODO: Fix vscode thinking it's invalid
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-ignore
+import iCopy from "@fluentui/svg-icons/icons/copy_20_regular.svg";
 import { copyToClipboard } from "../../util/clipboard";
 import { attributesToString, decodeHtml } from "../../util/html";
 import { uniqueRand } from "../../util/math";
@@ -11,7 +14,7 @@ export default () => {
 	codes.forEach(code => {
 		const copyId = `flcode-${code.id || "cat"}${uniqueRand()}`;
 
-		code.outerHTML = `<div class="fluent-code-container"><div style="display: inline-block; margin: 0.225em 0;"><code ${attributesToString(code)} style="${code.style.cssText}">${code.innerHTML}</code></div><button class="fluent-code-copy-button" id="${copyId}">${getIcon("clipboard")}</button></div>`;
+		code.outerHTML = `<div class="fluent-code-container"><div style="display: inline-block; margin: 0.225em 0;"><code ${attributesToString(code)} style="${code.style.cssText}">${code.innerHTML}</code></div><button class="fluent-code-copy-button" id="${copyId}">${iCopy}</button></div>`;
 
 		// Copy button click
 		const copyButton = document.getElementById(copyId) as HTMLButtonElement;
