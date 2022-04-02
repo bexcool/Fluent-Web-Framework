@@ -21,18 +21,12 @@
             noPrefix: false,
             enableCode: true,
             enableRouter: true,
+            enableIcons: true,
         };
     </script>
     <script type="text/javascript" src="//cdn.spej.eu/fwf/fluent-bundle.min.js"></script>
-    <script>
-        Fluent_onReady(() => Fluent_showSplashScreen(450));
-        Fluent_onInitialized(() => { console.log("Fluent initialize callback 1"); });
-        Fluent_onReady(() => { console.log("Fluent initialize callback 2"); });
-        Fluent_onReady(() => { console.log("Fluent initialize callback 3"); });
-        // If the user interacts after Fluent Web Framework is ready, gets called instantly
-        const navigateToRouting = () => Fluent_onInitialized(() => Fluent_routerNavigate('routing'));
-        const navigateToPageSwitcher = () => Fluent_onInitialized(() => Fluent_routerNavigate('controls/page-switcher'));
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="./showcase.js"></script>
 
     <div style="margin: 0 0 0 10em; height: 90%;">
         <h1>Fluent Web Framework</h1>
@@ -42,74 +36,75 @@
                 <button onclick="Fluent_switchTheme();">Switch theme</button>
                 <button onclick="Fluent_enableMica();">Enable Mica</button>
                 <button onclick="Fluent_disableMica();" style="margin-bottom: 10px;">Disable Mica</button>
-                <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 0, true)"
-                    icon="./icons/ic_fluent_emoji_hand_20_regular.svg" selectable>Introduction
-                </fluent-menu-item>
-                <fluent-menu-item-expander header="Controls" icon="./icons/ic_fluent_cursor_hover_16_regular.svg">
+                <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 0, true, 'introduction')"
+                    icon="emoji_hand_20_regular" selectable>Introduction</fluent-menu-item>
+                <fluent-menu-item-expander header="Controls" icon="cursor_hover_20_regular">
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 1, true)"
-                        icon="./icons/ic_fluent_border_outside_20_regular.svg" selectable>Border</fluent-menu-item>
+                        icon="border_outside_20_regular" selectable>Border</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 2, true)"
-                        icon="./icons/ic_fluent_cursor_hover_16_regular.svg" selectable>Button</fluent-menu-item>
+                        icon="cursor_hover_20_regular" selectable>Button</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 3, true)"
-                        icon="./icons/ic_fluent_checkbox_checked_16_regular.svg" selectable>Checkbox</fluent-menu-item>
+                        icon="checkbox_checked_20_regular" selectable>Checkbox</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 4, true)"
-                        icon="./icons/ic_fluent_code_16_regular.svg" selectable>Code</fluent-menu-item>
+                        icon="code_20_regular" selectable>Code</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 5, true)"
-                        icon="./icons/ic_fluent_window_header_horizontal_20_regular.svg" selectable>Content dialog
+                        icon="window_header_horizontal_20_regular" selectable>Content dialog
                     </fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 6, true)"
-                        icon="./icons/ic_fluent_multiselect_ltr_16_regular.svg" selectable>Context menu
+                        icon="multiselect_ltr_20_regular" selectable>Context menu
                     </fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 7, true)"
-                        icon="./icons/ic_fluent_text_bullet_list_ltr_16_regular.svg" selectable>Menu item
+                        icon="text_bullet_list_ltr_20_regular" selectable>Menu item
                     </fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 8, true)"
-                        icon="./icons/ic_fluent_arrow_square_down_24_regular.svg" selectable>Expander</fluent-menu-item>
+                        icon="arrow_square_down_24_regular" selectable>Expander</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 9, true)"
-                        icon="./icons/ic_fluent_tooltip_quote_20_regular.svg" selectable>Flyout</fluent-menu-item>
+                        icon="tooltip_quote_20_regular" selectable>Flyout</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 10, true)"
-                        icon="./icons/ic_fluent_textbox_align_center_20_regular.svg" selectable>Label</fluent-menu-item>
+                        icon="textbox_align_center_20_regular" selectable>Label</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 11, true)"
-                        icon="./icons/ic_fluent_link_24_filled.svg" selectable>Hyperlink
+                        icon="link_24_filled" selectable>Hyperlink
                     </fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 12, true)"
-                        icon="./icons/ic_fluent_group_list_24_regular.svg" selectable>Menu</fluent-menu-item>
+                        icon="group_list_24_regular" selectable>Menu</fluent-menu-item>
                     <fluent-menu-item
                         onclick="Fluent_setActivePageIndex('page-switcher', 13, true, 'controls/page-switcher')"
-                        icon="./icons/ic_fluent_slide_multiple_24_regular.svg" selectable>Page switcher
+                        icon="slide_multiple_24_regular" selectable>Page switcher
                     </fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 14, true)"
-                        icon="./icons/ic_fluent_options_16_regular.svg" selectable>Slider</fluent-menu-item>
+                        icon="options_20_regular" selectable>Slider</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 15, true)"
-                        icon="./icons/ic_fluent_table_16_regular.svg" selectable>Table</fluent-menu-item>
+                        icon="table_20_regular" selectable>Table</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 16, true)"
-                        icon="./icons/ic_fluent_textbox_16_regular.svg" selectable>Textbox</fluent-menu-item>
+                        icon="textbox_20_regular" selectable>Textbox</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 17, true)"
-                        icon="./icons/ic_fluent_broad_activity_feed_16_regular.svg" selectable>Web container
+                        icon="broad_activity_feed_20_regular" selectable>Web container
                     </fluent-menu-item>
                 </fluent-menu-item-expander>
-                <fluent-menu-item-expander header="Functions" icon="./icons/ic_fluent_braces_20_regular.svg">
+                <fluent-menu-item-expander header="Functions" icon="braces_20_regular">
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 18, true)"
-                        icon="./icons/ic_fluent_flash_checkmark_24_filled.svg" selectable>Initialize
+                        icon="flash_checkmark_24_filled" selectable>Initialize
                     </fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 19, true)"
-                        icon="./icons/ic_fluent_content_settings_16_regular.svg" selectable>Config
+                        icon="content_settings_20_regular" selectable>Config
                     </fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 20, true)"
-                        icon="./icons/ic_fluent_window_16_regular.svg" selectable>Mica</fluent-menu-item>
+                        icon="window_20_regular" selectable>Mica</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 21, true)"
-                        icon="./icons/ic_fluent_weather_moon_16_regular.svg" selectable>Themes</fluent-menu-item>
+                        icon="weather_moon_20_regular" selectable>Themes</fluent-menu-item>
                 </fluent-menu-item-expander>
                 <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 22, true, 'routing')"
-                    icon="./icons/ic_fluent_location_24_filled.svg" selectable>Routing</fluent-menu-item>
-                <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 23, true)"
-                    icon="./icons/ic_fluent_info_12_regular.svg" selectable>About</fluent-menu-item>
+                    icon="location_24_filled" selectable>Routing</fluent-menu-item>
+                <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 23, true, 'icons')"
+                    icon="icons_24_regular" selectable>Icons</fluent-menu-item>
+                <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 24, true, 'about')"
+                    icon="info_20_regular" selectable>About</fluent-menu-item>
             </fluent-menu>
 
             <fluent-main-content>
                 <fluent-page-switcher id="page-switcher" active-page="0" use-routing>
                     <!-- Introduction section -->
-                    <fluent-page routing>
+                    <fluent-page routing="introduction">
                         <section id="introduction">
                             <h2>Welcome to Fluent Web Framework documentation!</h2>
                             <p>Here you'll learn how to use this framework.</p>
@@ -574,7 +569,7 @@
                                 expander.</p>
                             <h3>Usage</h3>
                             <fluent-border><code sh="HTML"> &lt;fluent-menu style="width: 25%;"&gt;
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item icon="./icons/ic_fluent_cursor_hover_16_regular.svg" selectable selected&gt;Button&lt;/fluent-menu-item&gt;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item icon="cursor_hover_20_regular" selectable selected&gt;Button&lt;/fluent-menu-item&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable&gt;Accessories&lt;/fluent-menu-item&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item-expander header="More"&gt;
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable&gt;Info&lt;/fluent-menu-item&gt;
@@ -583,7 +578,7 @@
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-menu-item-expander&gt;
                                                             &lt;/fluent-menu&gt</code></fluent-border><br>
                             <fluent-menu style="width: 25%;">
-                                <fluent-menu-item icon="./icons/ic_fluent_cursor_hover_16_regular.svg" selectable
+                                <fluent-menu-item icon="cursor_hover_20_regular" selectable
                                     selected>Button</fluent-menu-item>
                                 <fluent-menu-item selectable>Accessories</fluent-menu-item>
                                 <fluent-menu-item-expander header="More">
@@ -925,6 +920,7 @@
     &nbsp;&nbsp;&nbsp;&nbsp;noPrefix: false,
     &nbsp;&nbsp;&nbsp;&nbsp;enableRouter: false,
     &nbsp;&nbsp;&nbsp;&nbsp;enableCode: false,
+    &nbsp;&nbsp;&nbsp;&nbsp;enableIcons: false,
     };
 &lt;/script&gt;
 </code>
@@ -959,6 +955,20 @@
                                     </tr>
                                     <tr>
                                         <td>
+                                            <fluent-label consolas>enableCode</fluent-label>
+                                        </td>
+                                        <td>Enable code highlighting<br>
+                                            Loads and enables code highlighting stuff.
+                                        </td>
+                                        <td>
+                                            <fluent-label consolas>boolean</fluent-label>
+                                        </td>
+                                        <td>
+                                            <fluent-label consolas>false</fluent-label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
                                             <fluent-label consolas>enableRouter</fluent-label>
                                         </td>
                                         <td>Basic routing using hash location
@@ -976,10 +986,14 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <fluent-label consolas>enableCode</fluent-label>
+                                            <fluent-label consolas>enableIcons</fluent-label>
                                         </td>
-                                        <td>Enable code highlighting<br>
-                                            Loads and enables code highlighting stuff.
+                                        <td>Enable icons<br>
+                                            Gets a list of <b>ALL</b>
+                                            (<span id="config_enableIcons_iconsCount">at least 2</span>)
+                                            Fluent icons. (doesn't load the individual icons)<br>
+                                            See <fluent-hyperlink onclick="navigateToIcons()">icons
+                                                docs</fluent-hyperlink>
                                         </td>
                                         <td>
                                             <fluent-label consolas>boolean</fluent-label>
@@ -997,6 +1011,7 @@
                         <section id="mica">
                             <h2>Mica</h2>
                             <p>Enabled by default</p>
+                            <h3>API</h3>
                             <p>Get Mica effect status</p>
                             <fluent-border>
                                 <code sh="JS">Fluent_isMicaActive();</code>
@@ -1021,12 +1036,7 @@
                                 <code sh="JS">Fluent_themes
                                 </code>
                             </fluent-border>
-                            <p>Value: <span id="themes_FluentThemes_example"></span></p>
-                            <script>
-                                Fluent_onReady(() => {
-                                    document.getElementById("themes_FluentThemes_example").innerText = JSON.stringify(Fluent_themes);
-                                });
-                            </script>
+                            <p>Values: <span id="themes_FluentThemes_example"></span></p>
                             <p>Get current theme</p>
                             <fluent-border>
                                 <code sh="JS">Fluent_getActiveTheme();
@@ -1047,8 +1057,8 @@
                     <!-- Routing section -->
                     <fluent-page routing="routing">
                         <section id="routing">
-                            <h2>Routing</h2>
-                            <fluent-label color="red">New!</fluent-label>
+                            <h2>Routing <fluent-label color="red">New!</fluent-label>
+                            </h2>
                             <p>
                                 Fluent implements a basic hash location router, which can be enabled by setting
                                 <fluent-label consolas>enableRouter</fluent-label>
@@ -1133,8 +1143,46 @@
                             <a href="https://linkify.cz/r0Wa" target="_blank">Routie GitHub</a>
                         </section>
                     </fluent-page>
+                    <!-- Icons section -->
+                    <fluent-page routing="icons">
+                        <section id="icons">
+                            <h2>Icons<fluent-label color="red">New!</fluent-label>
+                            </h2>
+                            <p>Most elements that have an <fluent-label consolas>icon</fluent-label> attribute will
+                                automatically load the icon (if the name is valid).</p>
+
+                            <h3>API</h3>
+                            WIP
+
+                            <h3>List of icons</h3>
+
+                            <fluent-expander header="Regular">
+                                <div class="fluent-content">
+                                    <div id="icons_list_regular">
+                                        <button>Load</button>
+                                    </div>
+                                </div>
+                            </fluent-expander>
+
+                            <fluent-expander header="Filled">
+                                <div class="fluent-content">
+                                    <div id="icons_list_fill">
+                                        <button>Load</button>
+                                    </div>
+                                </div>
+                            </fluent-expander>
+
+                            <fluent-expander header="All">
+                                <div class="fluent-content">
+                                    <div id="icons_list_all">
+                                        <button>Load</button>
+                                    </div>
+                                </div>
+                            </fluent-expander>
+                        </section>
+                    </fluent-page>
                     <!-- About section -->
-                    <fluent-page routing>
+                    <fluent-page routing="about">
                         <section id="about">
                             <h2>About</h2>
                             <p>Originally created by Peter from BeXCool.</p>
