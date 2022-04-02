@@ -102,7 +102,7 @@ Fluent_onReady(() => {
 			const iconName = extractedFile.name.substring(extractedFile.name.indexOf("/") + 1).replace(".svg", "");
 			if (!Fluent_iconExists(iconName)) return;
 
-			loader.innerText = `Updating table ${irow}/${totalIcons} ${irow / totalIcons * 100}%`;
+			loader.innerText = `Updating table ${irow}/${totalIcons} ${(irow / totalIcons * 100).toFixed()}%`;
 
 			const row = bodyRef.insertRow();
 			const name = row.insertCell();
@@ -132,9 +132,9 @@ Fluent_onReady(() => {
 		document.getElementById("all_icons_filter").addEventListener("change", (e) => {
 			loader.style.display = "block";
 			bodyRef.innerHTML = "";
-			const filterVal = e.target.value.toLowerCase();
+			const filterVal = e.target.value.toLowerCase().split(/[\s,]+/);
 			Object.keys(iconList)
-				.filter(icon => (icon.toLowerCase().includes(filterVal)))
+				.filter(icon => filterVal.every(filval => icon.toLowerCase().includes(filval)))
 				.forEach(k => insertRow(iconList[k]));
 			loader.style.display = "none";
 			loader.innerText = "Updating table";
