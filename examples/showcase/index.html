@@ -64,7 +64,7 @@
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 10, true)"
                         icon="textbox_align_center_20_regular" selectable>Label</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 11, true)"
-                        icon="link_24_filled" selectable>Hyperlink
+                        icon="link_24_regular" selectable>Hyperlink
                     </fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 12, true)"
                         icon="group_list_24_regular" selectable>Menu</fluent-menu-item>
@@ -84,7 +84,7 @@
                 </fluent-menu-item-expander>
                 <fluent-menu-item-expander header="Functions" icon="braces_20_regular">
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 18, true)"
-                        icon="flash_checkmark_24_filled" selectable>Initialize
+                        icon="flash_checkmark_24_regular" selectable>Initialize
                     </fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 19, true)"
                         icon="content_settings_20_regular" selectable>Config
@@ -95,7 +95,7 @@
                         icon="weather_moon_20_regular" selectable>Themes</fluent-menu-item>
                 </fluent-menu-item-expander>
                 <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 22, true, 'routing')"
-                    icon="location_24_filled" selectable>Routing</fluent-menu-item>
+                    icon="location_24_regular" selectable>Routing</fluent-menu-item>
                 <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 23, true, 'icons')"
                     icon="icons_24_regular" selectable>Icons</fluent-menu-item>
                 <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 24, true, 'about')"
@@ -905,8 +905,10 @@
                             <h2>Initialize</h2>
                             <p>Unlike in the original framework, you don't need to call any init functions.</p>
                             <p>You can use one of these functions to listen for Fluent being fully initialized</p>
-                            <code sh="HTML">Fluent_onInitialized</code><br>
-                            <code sh="HTML">Fluent_onReady</code>
+                            <fluent-border>
+                                <code sh="HTML">Fluent_onInitialized</code><br>
+                                <code sh="HTML">Fluent_onReady</code>
+                            </fluent-border>
                         </section>
                     </fluent-page>
                     <!-- Config section -->
@@ -1072,7 +1074,7 @@
                             </p>
                             <fluent-border>
                                 <code
-                                    sh="JS">Fluent_setActivePageIndex('page-switcher-id', /*index*/0, /*routing*/true, /*route*/"example/route-1");</code>
+                                    sh="JS">Fluent_setActivePageIndex('page-switcher-id', 0, /*routing*/true, "example/route-1");</code>
                                 <br>
                                 <code
                                     sh="HTML">&lt;fluent-page-switcher id="page-switcher" use-routing&gt;
@@ -1147,23 +1149,38 @@
                     <!-- Icons section -->
                     <fluent-page routing="icons">
                         <section id="icons">
-                            <h2>Icons<fluent-label color="red">New!</fluent-label>
+                            <h2>Icons <fluent-label color="red">New!</fluent-label>
                             </h2>
                             <p>Most elements that have an <fluent-label consolas>icon</fluent-label> attribute will
                                 automatically load the icon (if the name is valid).</p>
 
                             <h3>API</h3>
-                            WIP
+                            <p>Get an icon as svg: (string)</p>
+                            <fluent-border>
+                                <code sh="JS">async Fluent_getIcon("iconName"); // "&lt;svg..."</code>
+                            </fluent-border>
+
+                            <p>Test if a string is a known icon:</p>
+                            <fluent-border>
+                                <code sh="JS">Fluent_iconExists("iconName"); // true|false</code>
+                            </fluent-border>
+
+                            <p>URL from where icons get fetched</p>
+                            <fluent-border>
+                                <code sh="JS">Fluent_CDN_URL_ICONS // "<span id="icons_icons_url"></span>"</code>
+                            </fluent-border>
+
+                            <p>List of all icons</p>
+                            <fluent-border>
+                                <code sh="JS">Fluent_icons // <span id="icons_icons_list"></span></code>
+                            </fluent-border>
 
                             <h3>List of icons</h3>
-
-                            <fluent-expander header="All">
-                                <div class="fluent-content">
-                                    <div id="icons_list_all">
-                                        <button>Load</button>
-                                    </div>
-                                </div>
-                            </fluent-expander>
+                            <p>There's currently <span id="icons_icons_count">0</span> icons</p>
+                            <div id="icons_list_all">
+                                <button>Load</button>
+                                <p>Might take a long time</p>
+                            </div>
                         </section>
                     </fluent-page>
                     <!-- About section -->

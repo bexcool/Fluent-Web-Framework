@@ -38,6 +38,12 @@ Fluent_onReady(() => {
 
 // Loading icon lists
 Fluent_onReady(() => {
+	document.getElementById("icons_icons_url").innerText = Fluent_CDN_URL_ICONS;
+	document.getElementById("icons_icons_list").innerText = JSON.stringify({ [Object.keys(Fluent_icons)[0]]: Object.values(Fluent_icons)[0] })
+		.replace(":", ": ")
+		.replace("}", ", ...}");
+	document.getElementById("icons_icons_count").innerText = Object.keys(Fluent_icons).length;
+
 	document.querySelector("#icons_list_all button").addEventListener("click", async e => {
 		e.preventDefault();
 		const listAllRef = document.querySelector("#icons_list_all");
@@ -67,7 +73,7 @@ Fluent_onReady(() => {
 		const bodyRef = document.getElementById("all_icons_body");
 
 		// Fetch with custom reader to handle percentage
-		const response = await fetch(`${Fluent_CDN_URL}/icons.tar`);
+		const response = await fetch(`${Fluent_CDN_URL_ICONS}.tar`);
 		const reader = response.body.getReader();
 		const contentLength = +response.headers.get("Content-Length");
 		const chunks = [];
@@ -80,7 +86,7 @@ Fluent_onReady(() => {
 			chunks.push(value);
 			receivedLength += value.length;
 
-			loaderProgress.innerText = `${(receivedLength / contentLength * 100).toFixed(2)}%`;
+			loaderProgress.innerText = `${(receivedLength / 1000).toFixed(0)}/${(contentLength / 1000).toFixed(0)} ${(receivedLength / contentLength * 100).toFixed(2)}%`;
 		}
 		loader.innerText = "Processing response";
 		loaderProgress.innerText = "0.00%";
