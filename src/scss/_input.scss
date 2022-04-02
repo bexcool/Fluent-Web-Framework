@@ -18,6 +18,12 @@
 
 		svg {
 			height: 100%;
+			filter: invert($icon-color-light);
+			fill: $white;
+
+			html.#{$theme-dark-specific} & {
+				filter: invert($icon-color-dark);
+			}
 		}
 	}
 

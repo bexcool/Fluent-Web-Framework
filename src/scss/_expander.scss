@@ -71,6 +71,7 @@
 	padding: 0.4em;
 	filter: invert($icon-color-light);
 	transition: 0.2s ease-in-out;
+	fill: $white;
 
 	html.#{$theme-dark-specific} & {
 		filter: invert($icon-color-dark);

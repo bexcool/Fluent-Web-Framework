@@ -87,6 +87,15 @@
 	padding: 0.2em;
 	display: inline-block;
 	position: absolute;
+	
+	svg {
+		fill: $white;
+		filter: invert($icon-color-light);
+
+		html.#{$theme-dark-specific} & {
+			filter: invert($icon-color-dark);
+		}
+	}
 }
 
 code {
