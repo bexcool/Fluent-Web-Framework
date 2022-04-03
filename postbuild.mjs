@@ -16,13 +16,16 @@ console.timeEnd("Add headers");
 
 
 // Create tar of icons
-console.time("Create icons.tar");
-tar.c(
-	{
-		file: resolve("dist") + sep + "icons.tar",
-		cwd: resolve("node_modules", "@fluentui", "svg-icons")
-	},
-	["icons"]
-).then(_ => {
-	console.timeEnd("Create icons.tar");
-});
+// eslint-disable-next-line no-undef
+if (process.argv.includes("--create-tar")) {
+	console.time("Create icons.tar");
+	tar.c(
+		{
+			file: resolve("dist") + sep + "icons.tar",
+			cwd: resolve("node_modules", "@fluentui", "svg-icons")
+		},
+		["icons"]
+	).then(_ => {
+		console.timeEnd("Create icons.tar");
+	});
+}
