@@ -34,10 +34,10 @@ Docs are not fully updated (yet)
 
 ```html
 Somewhere in <head>:
-<link rel="stylesheet" href="https://cdn.spej.eu/fwf/fluent-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.spej.eu/fwf/fluent.min.css">
 
 After <body>:
-<script src="https://cdn.spej.eu/fwf/fluent-bundle.min.js"></script>
+<script src="https://cdn.spej.eu/fwf/fluent.min.js"></script>
 ```
 
 NOT AFFILIATED WITH MICROSOFT
