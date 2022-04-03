@@ -6,18 +6,49 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+const babelOptions = {
+	presets: [
+		[
+			"@babel/preset-env",
+			{
+				useBuiltIns: "entry",
+				corejs: "3.21.1",
+			}
+		]
+	]
+};
+
 
 export default {
-	context: resolve(__dirname, "src"),
-	entry: "./js/index",
+	context: resolve(__dirname),
+	entry: {
+		fluent: "./src/js/index",
+	},
 	mode: "production",
+	stats: {
+		errorDetails: true,
+	},
+	resolve: {
+		modules: ["node_modules"],
+		extensions: [".ts"]
+	},
 	module: {
 		rules: [
 			{
-				test: /\.(ts|tsx)$/,
-				use: "babel-loader",
+				test: /\.ts$/,
+				use: [
+					{ loader: "babel-loader", options: babelOptions },
+					{ loader: "ts-loader" }
+				],
 				exclude: /node_modules/,
-				include: resolve(__dirname, "src"),
+				include: resolve("./src/js"),
+			},
+			{
+				test: /\.js$/,
+				use: [
+					{ loader: "babel-loader", options: babelOptions }
+				],
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.css$/,
@@ -60,20 +91,20 @@ export default {
 		]
 	},
 	output: {
-		filename: "fluent-bundle.min.js",
+		filename: "[name].min.js",
 		path: resolve(__dirname, "dist"),
 		clean: true,
 		publicPath: "//cdn.spej.eu/fwf/",
 	},
-	resolve: {
-		extensions: [".ts"]
-	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: "fluent-bundle.min.css"
+			filename: "[name].min.css"
 		}),
 		new CopyWebpackPlugin({
-			patterns: [{ from: "img", to: "img" }]
+			patterns: [
+				{ from: "src/img", to: "img" },
+				{ from: "examples", to: "" },
+			]
 		})
 	],
 };

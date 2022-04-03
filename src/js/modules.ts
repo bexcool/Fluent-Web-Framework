@@ -5,7 +5,7 @@ const error = (module: string) => new Error(`Cannot use ${module} module if disa
 export const mCode = async () => {
 	if (!config.enableCode)
 		throw error("code");
-	//return await import("./icons/index");
+	return await import("./elements/code/index");
 };
 
 export const mRouter = async () => {

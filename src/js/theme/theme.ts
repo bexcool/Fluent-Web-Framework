@@ -33,8 +33,4 @@ function _setTheme(key: Themes) {
 	docElement.classList.add(`fluent-theme-${key.toLowerCase()}`);
 
 	localStorage.setItem(KEY_THEME, key);
-
-	document.querySelectorAll("code").forEach(code => {
-		code.dispatchEvent(new Event("code_RefreshSH"));
-	});
 }

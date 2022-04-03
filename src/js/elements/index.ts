@@ -2,7 +2,6 @@ import { FluentExpose } from "../fluent";
 import "./border/border";
 import "./button/button";
 import "./button/togglebutton";
-import "./code/code";
 import "./content-dialog/content-dialog";
 import { hideContentDialog, showContentDialog } from "./content-dialog/content-dialog";
 import "./context-menu/context-menu";

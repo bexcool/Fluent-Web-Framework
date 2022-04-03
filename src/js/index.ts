@@ -14,9 +14,10 @@ import init from "./util/init";
 	FluentExpose(isInitialized, true);
 	FluentExpose(onInitialized, true);
 	FluentExpose(onInitialized, true, "onReady");
-	if (config.enableIcons) {
+	if (config.enableCode) {
 		const code = await mCode();
 		console.log("[fluent code]", "imported");
+		code.default();
 	}
 	if (config.enableRouter) {
 		const router = await mRouter();

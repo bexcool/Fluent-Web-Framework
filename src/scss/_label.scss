@@ -5,4 +5,8 @@
 	background-color: var(--#{$prefix}light-color);
 	font-size: 13.33px;
 	transition: var(--#{$prefix}transition-duration) ease-in-out;
+
+	&[consolas] {
+		font-family: Consolas, monaco, monospace;
+	}
 }
