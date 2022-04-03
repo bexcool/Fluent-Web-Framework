@@ -13,6 +13,7 @@ const navigate = {
 	routing() { this._securenav("routing"); },
 	icons() { this._securenav("icons"); },
 	about() { this._securenav("about"); },
+	config() { this._securenav("functions/config"); },
 	ctrlPageSwitcher() { this._securenav("controls/page-switcher"); },
 	ctrlCode() { this._securenav("controls/code"); },
 };
@@ -32,6 +33,11 @@ const getIconNamePretty = (icon) => {
 	return name;
 };
 
+Fluent_onReady(() => {
+	// The object also has functions
+	document.getElementById("code_available_languages").innerText = Object.keys(Prism.languages).filter(l => typeof l !== "function").join(", ");
+});
+
 // Update count of icons from icon list
 Fluent_onReady(() => {
 	document.getElementById("config_enableIcons_iconsCount").innerText = Object.keys(Fluent_icons).length;
@@ -44,7 +50,6 @@ Fluent_onReady(() => {
 
 // Loading icon lists
 Fluent_onReady(() => {
-	document.getElementById("icons_icons_url").innerText = Fluent_CDN_URL_ICONS;
 	document.getElementById("icons_icons_list").innerText = JSON.stringify({ [Object.keys(Fluent_icons)[0]]: Object.values(Fluent_icons)[0] })
 		.replace("{\"", "{ ")
 		.replace("\":", ": ")
