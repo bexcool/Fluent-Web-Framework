@@ -31,7 +31,7 @@
     <div style="margin: 0 0 0 10em; height: 90%;">
         <h1>Fluent Web Framework</h1>
         <fluent-web-container>
-            <fluent-menu style="width: 20em;" experimental-use-routing>
+            <fluent-menu style="min-width: 20em;" experimental-use-routing>
                 <p>Dark and light theme.</p>
                 <button onclick="Fluent_switchTheme();">Switch theme</button>
                 <button onclick="Fluent_enableMica();">Enable Mica</button>
@@ -1068,7 +1068,6 @@ var FLUENT = {
                             </p>
                             <fluent-border>
                                 <pre><code class="lang-js">Fluent_setActivePageIndex('page-switcher-id', 0, /*routing*/true, "example/route-1");</code></pre>
-                                <br>
                                 <pre><code class="lang-html">&lt;fluent-page-switcher id="page-switcher" use-routing&gt;
     &lt;fluent-page routing="optional-route-name"&gt;
         ...
