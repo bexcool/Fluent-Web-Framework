@@ -7,9 +7,15 @@ Fluent_onReady(() => { console.log("Fluent initialize callback 2"); });
 Fluent_onReady(() => { console.log("Fluent initialize callback 3"); });
 
 // If the user calls onInitialized after Fluent Web Framework is ready, gets called instantly
-const navigateToRouting = () => Fluent_onInitialized(() => Fluent_routerNavigate("routing"));
-const navigateToIcons = () => Fluent_onInitialized(() => Fluent_routerNavigate("icons"));
-const navigateToPageSwitcher = () => Fluent_onInitialized(() => Fluent_routerNavigate("controls/page-switcher"));
+const navigate = {
+	_securenav(route) { Fluent_onInitialized(() => Fluent_routerNavigate(route)); },
+	introduction() { this._securenav("introduction"); },
+	routing() { this._securenav("routing"); },
+	icons() { this._securenav("icons"); },
+	about() { this._securenav("about"); },
+	ctrlPageSwitcher() { this._securenav("controls/page-switcher"); },
+	ctrlCode() { this._securenav("controls/code"); },
+};
 
 const getIconNamePretty = (icon) => {
 	// Icon name could be: access_time_20_filled
@@ -40,23 +46,24 @@ Fluent_onReady(() => {
 Fluent_onReady(() => {
 	document.getElementById("icons_icons_url").innerText = Fluent_CDN_URL_ICONS;
 	document.getElementById("icons_icons_list").innerText = JSON.stringify({ [Object.keys(Fluent_icons)[0]]: Object.values(Fluent_icons)[0] })
-		.replace(":", ": ")
+		.replace("{\"", "{ ")
+		.replace("\":", ": ")
 		.replace("}", ", ...}");
 	document.getElementById("icons_icons_count").innerText = Object.keys(Fluent_icons).length;
 
 	document.querySelector("#icons_list_all button").addEventListener("click", async e => {
 		e.preventDefault();
 		const listAllRef = document.querySelector("#icons_list_all");
-		const loader = document.createElement("h3");
-		const loaderProgress = document.createElement("h3");
+		const loader = document.createElement("h4");
+		const loaderProgress = document.createElement("h5");
 		const totalIcons = Object.keys(Fluent_icons).length;
 		loader.innerText = `Loading ${totalIcons} icons`;
 		loaderProgress.innerHTML = "0.00%";
-		loader.append(loaderProgress);
 
 		const table = `
 				<style>
 					html.fluent-theme-dark #all_icons_body svg { fill: #fff; }
+					#all_icons_body td:nth-child(1) { text-align: right; }
 				</style>
 				<table>
 					<thead>
@@ -69,6 +76,7 @@ Fluent_onReady(() => {
 				</table>`;
 
 		listAllRef.innerHTML = table;
+		listAllRef.prepend(loaderProgress);
 		listAllRef.prepend(loader);
 		const bodyRef = document.getElementById("all_icons_body");
 
@@ -86,7 +94,7 @@ Fluent_onReady(() => {
 			chunks.push(value);
 			receivedLength += value.length;
 
-			loaderProgress.innerText = `${(receivedLength / 1000).toFixed(0)}/${(contentLength / 1000).toFixed(0)} ${(receivedLength / contentLength * 100).toFixed(2)}%`;
+			loaderProgress.innerText = `${(receivedLength / contentLength * 100).toFixed(2)}% - ${receivedLength}/${contentLength}`;
 		}
 		loader.innerText = "Processing response";
 		loaderProgress.innerText = "0.00%";
@@ -97,7 +105,9 @@ Fluent_onReady(() => {
 			position += chunk.length;
 			loaderProgress.innerText = `${(ic++ / chunks.length * 100).toFixed(2)}%`;
 		}
+
 		loader.innerText = "Updating table";
+		loaderProgress.innerText = "0.00%";
 		const iconsDone = [], iconsWanted = Object.keys(Fluent_icons);
 
 		// Do the untarring
@@ -108,14 +118,13 @@ Fluent_onReady(() => {
 			const iconName = extractedFile.name.substring(extractedFile.name.indexOf("/") + 1).replace(".svg", "");
 			if (!Fluent_iconExists(iconName)) return;
 
-			loader.innerText = `Updating table ${irow}/${totalIcons} ${(irow / totalIcons * 100).toFixed()}%`;
-
 			const row = bodyRef.insertRow();
 			const name = row.insertCell();
 			const iconRow = row.insertCell();
 			const value = row.insertCell();
 			name.appendChild(document.createTextNode(getIconNamePretty(iconName)));
 			value.appendChild(document.createTextNode(iconName));
+
 			// Icon
 			const iconEl = document.createElement("div");
 			iconEl.innerHTML = extractedFile.readAsString();
@@ -127,23 +136,32 @@ Fluent_onReady(() => {
 
 		untar(iconsTar)
 			.progress(extractedFile => {
+				loaderProgress.innerText = `${(irow / totalIcons * 100).toFixed()}% - ${irow}/${totalIcons}`;
 				insertRow(extractedFile);
 			})
 			.then(extractedFiles => {
-				loader.style.display = "none";
-				loader.innerText = "Updating table";
+				loader.style.visibility = "hidden";
+				loaderProgress.style.visibility = "hidden";
 				console.log("done", iconsDone.length, "wanted", totalIcons, "missing", iconsWanted.length);
 			});
 
 		document.getElementById("all_icons_filter").addEventListener("change", (e) => {
-			loader.style.display = "block";
+			loader.innerText = "Updating table";
+			loaderProgress.innerText = "0.00%";
+			loader.style.visibility = "visible";
+			loaderProgress.style.visibility = "visible";
+
 			bodyRef.innerHTML = "";
 			const filterVal = e.target.value.toLowerCase().split(/[\s,]+/);
 			Object.keys(iconList)
 				.filter(icon => filterVal.every(filval => icon.toLowerCase().includes(filval)))
-				.forEach(k => insertRow(iconList[k]));
-			loader.style.display = "none";
-			loader.innerText = "Updating table";
+				.forEach(k => {
+					loaderProgress.innerText = `${(irow / totalIcons * 100).toFixed()}% - ${irow}/${totalIcons}`;
+					insertRow(iconList[k]);
+				});
+
+			loader.style.visibility = "hidden";
+			loaderProgress.style.visibility = "hidden";
 		});
 	});
 });

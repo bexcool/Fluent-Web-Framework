@@ -25,7 +25,6 @@
         };
     </script>
     <script type="text/javascript" src="//cdn.spej.eu/fwf/fluent-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="./untar.js"></script>
     <script src="./showcase.js"></script>
 
@@ -46,7 +45,7 @@
                         icon="cursor_hover_20_regular" selectable>Button</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 3, true)"
                         icon="checkbox_checked_20_regular" selectable>Checkbox</fluent-menu-item>
-                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 4, true)"
+                    <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 4, true, 'controls/code')"
                         icon="code_20_regular" selectable>Code</fluent-menu-item>
                     <fluent-menu-item onclick="Fluent_setActivePageIndex('page-switcher', 5, true)"
                         icon="window_header_horizontal_20_regular" selectable>Content dialog
@@ -631,7 +630,7 @@
                                         </td>
                                         <td>boolean</td>
                                         <td>Use routing?<br>
-                                            See <fluent-hyperlink onclick="navigateToRouting()">router
+                                            See <fluent-hyperlink onclick="navigate.routing()">router
                                                 docs</fluent-hyperlink>
                                         </td>
                                     </tr>
@@ -976,7 +975,7 @@
                                         </td>
                                         <td>Basic routing using hash location
                                             (<fluent-label consolas>#/</fluent-label>)<br>
-                                            See <fluent-hyperlink onclick="navigateToRouting()">router
+                                            See <fluent-hyperlink onclick="navigate.routing()">router
                                                 docs</fluent-hyperlink><br>
                                             Loads the router module. (not in the standard bundle)
                                         </td>
@@ -995,7 +994,7 @@
                                             Gets a list of <b>ALL</b>
                                             (<span id="config_enableIcons_iconsCount">at least 2</span>)
                                             Fluent icons. (doesn't load the individual icons)<br>
-                                            See <fluent-hyperlink onclick="navigateToIcons()">icons
+                                            See <fluent-hyperlink onclick="navigate.icons()">icons
                                                 docs</fluent-hyperlink>
                                         </td>
                                         <td>
@@ -1070,7 +1069,8 @@
 
                             <h3>Basic usage</h3>
                             <p>Using Fluent pages:
-                                (<fluent-hyperlink onclick="navigateToPageSwitcher()">page switcher</fluent-hyperlink>)
+                                (<fluent-hyperlink
+                                    onclick="navigate.ctrlPageSwitcher()">page switcher</fluent-hyperlink>)
                             </p>
                             <fluent-border>
                                 <code
@@ -1157,7 +1157,7 @@
                             <h3>API</h3>
                             <p>Get an icon as svg: (string)</p>
                             <fluent-border>
-                                <code sh="JS">async Fluent_getIcon("iconName"); // "&lt;svg..."</code>
+                                <code sh="JS">await Fluent_getIcon("iconName"); // "&lt;svg..."|null</code>
                             </fluent-border>
 
                             <p>Test if a string is a known icon:</p>
