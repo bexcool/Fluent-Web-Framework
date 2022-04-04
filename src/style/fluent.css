@@ -1665,12 +1665,17 @@ fluent-content-dialog-options * {
 /* Icon */
 
 .fluent-icon {
+    filter: invert(var(--icon-color-inverted));
+    -webkit-filter: invert(var(--icon-color-inverted));
     pointer-events: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -o-user-select: none;
     user-select: none;
-    filter: invert(var(--icon-color-inverted));
-    -webkit-filter: invert(var(--icon-color-inverted));
+    transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -ms-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
 }
