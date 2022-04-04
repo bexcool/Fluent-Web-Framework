@@ -835,7 +835,7 @@ function InitFluentElements() {
         if (menu_item.hasAttribute("icon")) {
             var icon = document.createElement("img");
             icon.classList.add("fluent-menu-item-icon");
-            icon.setAttribute("src", menu_item.getAttribute("icon"));
+            icon.setAttribute("src", `https://cdn.spej.eu/fwf/icons/${menu_item.getAttribute("icon")}.svg`);
             menu_item.prepend(icon);
         } else {
             //menu_item.style.paddingLeft = "20px";
@@ -917,13 +917,9 @@ function InitFluentElements() {
     const icons = document.querySelectorAll("div.fluent-icon");
 
     for (const icon of icons) {
-        const iconSVG = document.createElement("object");
+        var iconSVG = document.createElement("img");
         iconSVG.classList.add("fluent-icon");
-        iconSVG.setAttribute("type", "image/svg+xml");
-
-        if (icon.hasAttribute("key")) {
-            iconSVG.setAttribute("data", `https://cdn.spej.eu/fwf/icons/${icon.getAttribute("key")}.svg`);
-        }
+        iconSVG.setAttribute("src", `https://cdn.spej.eu/fwf/icons/${icon.getAttribute("icon")}.svg`);
 
         icon.outerHTML = iconSVG.outerHTML;
     }

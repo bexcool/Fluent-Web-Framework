@@ -197,6 +197,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 /* Hyperlink */
 
 .fluent-hyperlink {
+    user-select: auto;
     text-decoration: underline;
     cursor: default;
     margin: auto;
@@ -1002,8 +1003,8 @@ a.fluent-menu-item:hover {
 
 .fluent-menu-item-icon {
     position: absolute;
-    filter: invert(var(--icon-color));
-    -webkit-filter: invert(var(--icon-color));
+    filter: invert(var(--icon-color-inverted));
+    -webkit-filter: invert(var(--icon-color-inverted));
     transition: 0.2s ease-in-out;
     -webkit-transition: 0.2s ease-in-out;
     -moz-transition: 0.2s ease-in-out;
@@ -1663,6 +1664,12 @@ fluent-content-dialog-options * {
 /* Icon */
 
 .fluent-icon {
+    pointer-events: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
     filter: invert(var(--icon-color-inverted));
     -webkit-filter: invert(var(--icon-color-inverted));
 }
