@@ -1637,6 +1637,7 @@ fluent-web-container {
     min-width: 15em;
     min-height: 8em;
     overflow: hidden;
+    box-shadow: 0px 5px 13px 5px rgba(0, 0, 0, 0.1);
 }
 
 .fluent-content-dialog * {
