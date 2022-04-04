@@ -29,12 +29,12 @@ input {
 		&:checked {
 			background-color: var(--#{$prefix}accent-hover-color);
 			border: var(--#{$prefix}accent-hover-color) solid 0.4px;
-			background-image: url("https://img.icons8.com/fluency-systems-regular/50/000000/checkmark--v1.png");
+			background-image: url("#{$cdn-url}/icons/checkmark_24_regular.svg");
 
 			&:hover {
 				background-color: var(--#{$prefix}accent-color);
 				border: var(--#{$prefix}accent-color) solid 0.4px;
-				background-image: url("https://img.icons8.com/fluency-systems-regular/50/000000/checkmark--v1.png");
+				background-image: url("#{$cdn-url}/icons/checkmark_24_regular.svg");
 			}
 		}
 	}
