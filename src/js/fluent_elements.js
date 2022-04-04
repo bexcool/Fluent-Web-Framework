@@ -202,3 +202,15 @@ class Hyperlink extends HTMLElement {
 }
 
 customElements.define('fluent-hyperlink', Hyperlink);
+
+// Icon
+
+class Icon extends HTMLElement {
+    connectedCallback() {
+        setTimeout(() => {
+            this.outerHTML = `<div class="fluent-icon" ${AttributesToString(this)}>`;
+        });
+    }
+}
+
+customElements.define('fluent-icon', Icon);

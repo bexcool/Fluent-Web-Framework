@@ -32,7 +32,8 @@
     --accent-color-2: #4cc2ff;
     --accent-color-3: #4cc2ff;
     --textbox-border-bottom-color: rgb(180, 180, 180);
-    --icon-color: 0;
+    --icon-color: 0%;
+    --icon-color-inverted: 30%;
 
     /* Button */
     --button-color: hsla(0, 0%, 100%, .061);
@@ -1657,4 +1658,11 @@ fluent-content-dialog-options {
 fluent-content-dialog-options * {
     flex: 1 1 0px;
     margin: auto 0.5em;
+}
+
+/* Icon */
+
+.fluent-icon {
+    filter: invert(var(--icon-color-inverted));
+    -webkit-filter: invert(var(--icon-color-inverted));
 }

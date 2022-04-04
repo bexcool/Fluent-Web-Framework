@@ -50,7 +50,8 @@ function SetDarkTheme() {
     docEle.style.setProperty("--accent-color-1", pSBC(-0.11, getComputedStyle(docEle).getPropertyValue("--accent-color"), false, true));
     docEle.style.setProperty("--accent-color-2", pSBC(-0.21, getComputedStyle(docEle).getPropertyValue("--accent-color"), false, true));
     docEle.style.setProperty("--accent-color-3", pSBC(-0.31, getComputedStyle(docEle).getPropertyValue("--accent-color"), false, true));
-    docEle.style.setProperty("--icon-color", "0");
+    docEle.style.setProperty("--icon-color", "0%");
+    docEle.style.setProperty("--icon-color-inverted", "100%");
 
     // Syntax Highlighting
     docEle.style.setProperty("--HTML-tagcolor", "darkgray");
@@ -119,7 +120,8 @@ function SetLightTheme() {
     docEle.style.setProperty("--accent-color-1", pSBC(0.1, getComputedStyle(docEle).getPropertyValue("--accent-color"), false, true));
     docEle.style.setProperty("--accent-color-2", pSBC(0.2, getComputedStyle(docEle).getPropertyValue("--accent-color"), false, true));
     docEle.style.setProperty("--accent-color-3", pSBC(0.3, getComputedStyle(docEle).getPropertyValue("--accent-color"), false, true));
-    docEle.style.setProperty("--icon-color", "0.7");
+    docEle.style.setProperty("--icon-color", "70%");
+    docEle.style.setProperty("--icon-color-inverted", "30%");
 
     // Syntax Highlighting
     docEle.style.setProperty("--HTML-tagcolor", "#0000ff");
@@ -909,6 +911,21 @@ function InitFluentElements() {
             label.style.borderColor = pSBC(-0.9, addAlpha(color, 0.9));
             label.style.color = label.style.backgroundColor.includes("#") ? getVisibleTextColor(hexToRgbA(label.style.backgroundColor)) : getVisibleTextColor(label.style.backgroundColor);
         }
+    }
+
+    // Initialize icons
+    const icons = document.querySelectorAll("div.fluent-icon");
+
+    for (const icon of icons) {
+        const iconSVG = document.createElement("object");
+        iconSVG.classList.add("fluent-icon");
+        iconSVG.setAttribute("type", "image/svg+xml");
+
+        if (icon.hasAttribute("key")) {
+            iconSVG.setAttribute("data", `https://cdn.spej.eu/fwf/icons/${icon.getAttribute("key")}.svg`);
+        }
+
+        icon.outerHTML = iconSVG.outerHTML;
     }
 }
 

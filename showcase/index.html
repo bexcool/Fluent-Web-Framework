@@ -29,21 +29,22 @@
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 7)" icon="./icons/ic_fluent_arrow_square_down_24_regular.svg" selectable>Expander</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 8)" icon="./icons/ic_fluent_tooltip_quote_20_regular.svg" selectable>Flyout</fluent-menu-item>
                     <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 9)" icon="./icons/ic_fluent_tooltip_quote_20_regular.svg" selectable>Hyperlink</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 10)" icon="./icons/ic_fluent_textbox_align_center_20_regular.svg" selectable>Label</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 11)" icon="./icons/ic_fluent_group_list_24_regular.svg" selectable>Menu</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="./icons/ic_fluent_text_bullet_list_ltr_16_regular.svg" selectable>Menu item</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="./icons/ic_fluent_slide_multiple_24_regular.svg" selectable>Page switcher</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="./icons/ic_fluent_options_16_regular.svg" selectable>Slider</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 15)" icon="./icons/ic_fluent_table_16_regular.svg" selectable>Table</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 16)" icon="./icons/ic_fluent_textbox_16_regular.svg" selectable>Textbox</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 17)" icon="./icons/ic_fluent_broad_activity_feed_16_regular.svg" selectable>Web container</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 10)" icon="./icons/ic_fluent_tooltip_quote_20_regular.svg" selectable>Icon</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 11)" icon="./icons/ic_fluent_textbox_align_center_20_regular.svg" selectable>Label</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="./icons/ic_fluent_group_list_24_regular.svg" selectable>Menu</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="./icons/ic_fluent_text_bullet_list_ltr_16_regular.svg" selectable>Menu item</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="./icons/ic_fluent_slide_multiple_24_regular.svg" selectable>Page switcher</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 15)" icon="./icons/ic_fluent_options_16_regular.svg" selectable>Slider</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 16)" icon="./icons/ic_fluent_table_16_regular.svg" selectable>Table</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 17)" icon="./icons/ic_fluent_textbox_16_regular.svg" selectable>Textbox</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 18)" icon="./icons/ic_fluent_broad_activity_feed_16_regular.svg" selectable>Web container</fluent-menu-item>
                 </fluent-menu-item-expander>
                 <fluent-menu-item-expander header="Functions" icon="./icons/ic_fluent_braces_20_regular.svg">
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 18)" icon="./icons/ic_fluent_content_settings_16_regular.svg" selectable>Initialize</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 19)" icon="./icons/ic_fluent_window_16_regular.svg" selectable>Mica</fluent-menu-item>
-                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 20)" icon="./icons/ic_fluent_weather_moon_16_regular.svg" selectable>Themes</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 19)" icon="./icons/ic_fluent_content_settings_16_regular.svg" selectable>Initialize</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 20)" icon="./icons/ic_fluent_window_16_regular.svg" selectable>Mica</fluent-menu-item>
+                    <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 21)" icon="./icons/ic_fluent_weather_moon_16_regular.svg" selectable>Themes</fluent-menu-item>
                 </fluent-menu-item-expander>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 21)" icon="./icons/ic_fluent_info_12_regular.svg" selectable>About</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 22)" icon="./icons/ic_fluent_info_12_regular.svg" selectable>About</fluent-menu-item>
             </fluent-menu>
             
             <fluent-main-content>
@@ -356,12 +357,21 @@
                             <button onclick="ShowFlyout(this, 'This is flyout', 2000);">Show flyout!</button>
                         </section>
                     </fluent-page>
-                    <!-- Flyout section -->
+                    <!-- Hyperlink section -->
                     <fluent-page>
                         <section id="flyout">
                             <h2>Hyperlink</h2>
                             <p>Element which can be put in text to redirect user to other page. Works the same like <fluent-label consolas>a</fluent-label> link.</p>
                             <h3>Usage</h3>
+                        </section>
+                    </fluent-page>
+                    <!-- Icon section -->
+                    <fluent-page>
+                        <section id="icon">
+                            <h2>Icon</h2>
+                            <p>Text in automatically adjusted background color and border.</p>
+                            <h3>Usage</h3>
+                            <fluent-icon key="emoji_hand_20_regular"/>
                         </section>
                     </fluent-page>
                     <!-- Label section -->
