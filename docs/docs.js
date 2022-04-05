@@ -1,24 +1,28 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-undef */
 
-Fluent_onReady(() => Fluent_showSplashScreen(450));
+import untar from "js-untar";
+
+Fluent_onReady(() => Fluent_showSplashScreen(450, false, `${Fluent_CDN_URL}/img/web.png`));
 Fluent_onInitialized(() => { console.log("Fluent initialize callback 1"); });
 Fluent_onReady(() => { console.log("Fluent initialize callback 2"); });
 Fluent_onReady(() => { console.log("Fluent initialize callback 3"); });
 
 // If the user calls onInitialized after Fluent Web Framework is ready, gets called instantly
-const navigate = {
+const navigate = window.navigate = {
 	_securenav(route) { Fluent_onInitialized(() => Fluent_routerNavigate(route)); },
 	introduction() { this._securenav("introduction"); },
 	routing() { this._securenav("routing"); },
 	icons() { this._securenav("icons"); },
 	about() { this._securenav("about"); },
-	config() { this._securenav("functions/config"); },
+	config() { this._securenav("config"); },
 	ctrlPageSwitcher() { this._securenav("controls/page-switcher"); },
 	ctrlCode() { this._securenav("controls/code"); },
 };
 
-const getIconNamePretty = (icon) => {
+const _PS_ID = window._PS_ID = "page-switcher";
+
+const getIconNamePretty = window.getIconNamePretty = (icon) => {
 	// Icon name could be: access_time_20_filled
 	// Get string before numbers: access_time_
 	let name = icon.split(/[0-9]/)[0];
@@ -32,6 +36,8 @@ const getIconNamePretty = (icon) => {
 	name = name.join(" ");
 	return name;
 };
+
+document.querySelectorAll("[set-date-year]").forEach(el => el.innerText = new Date().getFullYear());
 
 Fluent_onReady(() => {
 	// The object also has functions

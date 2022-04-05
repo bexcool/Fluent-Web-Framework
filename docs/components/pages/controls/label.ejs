@@ -1,0 +1,61 @@
+<h2>
+  <%- data.name %>
+</h2>
+<p>Text in automatically adjusted background color and border.</p>
+<h3>Usage</h3>
+<h4>Styling</h4>
+<p>Multiple styling attributes can be used on one label.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Preview</th>
+      <th>Usage</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>none</td>
+      <td>
+        <fluent-label>Label</fluent-label>
+      </td>
+      <td>
+        <fluent-border>
+          <pre><code class="lang-html">&lt;fluent-label&gt;Label&lt;/fluent-label&gt;</code></pre>
+        </fluent-border>
+      </td>
+      <td>Standard label without styling attributes.</td>
+    </tr>
+    <tr>
+      <td>
+        <fluent-label consolas>color</fluent-label>
+      </td>
+      <td>
+        <fluent-label color="red">Label</fluent-label>
+      </td>
+      <td>
+        <fluent-border>
+          <pre><code class="lang-html">&lt;fluent-label color="red"&gt;Label&lt;/fluent-label&gt;
+&lt;fluent-label color="#FF0000"&gt;Label&lt;/fluent-label&gt;</code></pre>
+        </fluent-border>
+      </td>
+      <td>Use any string color or a 6 digit long hex.</td>
+    </tr>
+    <tr>
+      <td>
+        <fluent-label consolas>consolas</fluent-label>
+      </td>
+      <td>
+        <fluent-label consolas>Label</fluent-label>
+      </td>
+      <td>
+        <fluent-border>
+          <pre><code class="lang-html">&lt;fluent-label consolas&gt;Label&lt;/fluent-label&gt;</code></pre>
+        </fluent-border>
+      </td>
+      <td>Label with Consolas font.<br>Use consolas for code attributes or for tags.
+      </td>
+    </tr>
+  </tbody>
+</table>

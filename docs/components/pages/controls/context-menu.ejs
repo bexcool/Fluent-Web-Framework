@@ -1,0 +1,61 @@
+<h2>
+  <%- data.name %>
+</h2>
+<p>Custom element with items.</p>
+<fluent-expander header="Standard">
+  <div class="fluent-content">
+    <p>Hover it to show menu.</p>
+    <fluent-border>
+      <pre><code class="lang-html">&lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
+&lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
+    &lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
+    &lt;fluent-menu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-menu-item&gt;
+    &lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+    &lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+    &lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
+&lt;/fluent-contextmenu&gt;</code></pre>
+    </fluent-border>
+    <br>
+    <fluent-contextmenu header="Navigation" url="#">
+      <fluent-menu-item url="#button">Button</fluent-menu-item>
+      <fluent-menu-item url="#textbox">Textbox</fluent-menu-item>
+      <fluent-menu-item url="#contextmenu">Context Menu</fluent-menu-item>
+      <fluent-menu-item url="#expander">Expander</fluent-menu-item>
+      <fluent-menu-item url="#code">Code</fluent-menu-item>
+    </fluent-contextmenu>
+  </div>
+</fluent-expander>
+<fluent-expander header="Standard and selectable">
+  <div class="fluent-content">
+    <p>Hover it to show menu.</p>
+    <fluent-border>
+      <pre><code class="lang-html">&lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
+&lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
+	&lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
+    &lt;fluent-menu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-menu-item&gt;
+    &lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+    &lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+    &lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
+    &lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+    &lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+    &lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
+    &lt;hr&gt;
+    &lt;fluent-menu-item url=&#34;#contextmenu&#34; selectable selected&gt;1st option&lt;/fluent-menu-item&gt;
+    &lt;fluent-menu-item url=&#34;#expander&#34; selectable&gt;2nd option&lt;/fluent-menu-item&gt;
+    &lt;fluent-menu-item url=&#34;#code&#34; selectable&gt;3rd option&lt;/fluent-menu-item&gt;
+&lt;/fluent-contextmenu&gt;</code></pre>
+    </fluent-border>
+    <br>
+    <fluent-contextmenu header="Navigation" url="#">
+      <fluent-menu-item url="#button">Button</fluent-menu-item>
+      <fluent-menu-item url="#textbox">Textbox</fluent-menu-item>
+      <fluent-menu-item url="#contextmenu">Context Menu</fluent-menu-item>
+      <fluent-menu-item url="#expander">Expander</fluent-menu-item>
+      <fluent-menu-item url="#code">Code</fluent-menu-item>
+      <hr>
+      <fluent-menu-item selectable selected>1st option</fluent-menu-item>
+      <fluent-menu-item selectable>2nd option</fluent-menu-item>
+      <fluent-menu-item selectable>3rd option</fluent-menu-item>
+    </fluent-contextmenu>
+  </div>
+</fluent-expander>

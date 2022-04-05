@@ -1,0 +1,39 @@
+<h2>
+  <%- data.name %>
+</h2>
+<p>Element with text that shows on the top of the parent element.</p>
+<h3>Usage</h3>
+<h4>Functions</h4>
+<fluent-border>
+  <pre><code class="lang-js">Fluent_showFlyout(this, 'This is flyout', 2000);</code></pre>
+</fluent-border>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>element</td>
+      <td>Element</td>
+      <td>Show flyout above this element.</td>
+    </tr>
+    <tr>
+      <td>string</td>
+      <td>string</td>
+      <td>Text to show in flyout.</td>
+    </tr>
+    <tr>
+      <td>delay</td>
+      <td>number</td>
+      <td>How long the flyout will be visible (in milliseconds).</td>
+    </tr>
+  </tbody>
+</table>
+<fluent-border>
+  <pre><code class="lang-html">&lt;button onclick=&#34;Fluent_showFlyout(this, 'This is flyout', 2000);&#34;&gt;Show flyout!&lt;/button&gt;</code></pre>
+</fluent-border><br>
+<button onclick="Fluent_showFlyout(this, 'This is flyout', 2000);">Show flyout!</button>

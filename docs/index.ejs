@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include("components/clarity.ejs") %>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.spej.eu/fwf/fluent.min.css">
+  <link rel="shortcut icon" href="https://cdn.spej.eu/fwf/img/application_window.ico">
+  <title><%- title %></title>
+</head>
+
+<body>
+  <div style="margin: 0 0 0 10em; height: 90%;">
+    <h1><%- title %></h1>
+    <fluent-web-container>
+      <%- include('components/menu.ejs') %>
+      <%- include('components/main-content.ejs') %>
+    </fluent-web-container>
+  </div>
+
+  <script>
+    var FLUENT = {
+      noPrefix: false,
+      enableCode: true,
+      enableRouter: true,
+      enableIcons: true,
+    };
+  </script>
+  <script src="https://cdn.spej.eu/fwf/fluent.min.js"></script>
+</body>
+
+</html>

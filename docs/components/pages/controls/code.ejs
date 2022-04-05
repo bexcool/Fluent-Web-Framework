@@ -1,0 +1,31 @@
+<h2>
+  <%- data.name %>
+</h2>
+<p>Remade code element.</p>
+<h3>Syntax highlighting</h3>
+<p>Fluent uses
+  <fluent-hyperlink href="https://linkify.cz/op5t-prism" target="_blank">Prism</fluent-hyperlink>
+  as its syntax highlighting engine.
+</p>
+<p>Needs to be enabled first,
+  see <fluent-hyperlink onclick="navigate.config()">config</fluent-hyperlink>.
+</p>
+<h3>Example usage</h3>
+<p>
+  Available languages:<br>
+  <fluent-label consolas id="code_available_languages"></fluent-label>
+</p>
+<p>CSS</p>
+<pre><code class="lang-css">.example-class {
+    margin: 2em;
+}</code></pre>
+<fluent-border>
+  <pre><code class="lang-html">&lt;pre>&lt;code class="lang-css">.example-class {
+    margin: 2em;
+}&lt;/code>&lt;/pre></code></pre>
+</fluent-border>
+<p>Javascript</p>
+<pre><code class="lang-js">console.log("Hello world!");</code></pre>
+<fluent-border>
+  <pre><code class="lang-html">&lt;pre>&lt;code class="lang-js">console.log("Hello world!");&lt;/code>&lt;/pre></code></pre>
+</fluent-border>

@@ -1,0 +1,12 @@
+<h2>
+  <%- data.name %>
+</h2>
+<p>Element for displaying content in a dialog window.</p>
+<button onclick="Fluent_showContentDialog('content-dialog-showcase');">Show content
+  dialog</button>
+<fluent-content-dialog id="content-dialog-showcase">
+  <h4>Content dialog</h4>
+  <fluent-content-dialog-options>
+    <button onclick="Fluent_hideContentDialog('content-dialog-showcase');" accent>Ok</button><button onclick="Fluent_hideContentDialog('content-dialog-showcase');">Close</button>
+  </fluent-content-dialog-options>
+</fluent-content-dialog>

@@ -1,4 +1,4 @@
-import { CDN_URL, splash } from "../../fluent";
+import { splash } from "../../fluent";
 
 export const showSplashScreen = (duration: number, fadeIn: boolean, image: string) => {
 	document.body.style.overflow = "hidden";

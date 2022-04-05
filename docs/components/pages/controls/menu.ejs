@@ -1,0 +1,26 @@
+<h2>
+  <%- data.name %>
+</h2>
+<p>Custom element for navigating on your webpage. Menu item expander works like normal
+  expander.</p>
+<h3>Usage</h3>
+<fluent-border>
+  <pre><code class="lang-html">&lt;fluent-menu style="width: 25%;"&gt;
+	&lt;fluent-menu-item icon="cursor_hover_20_regular" selectable selected&gt;Button&lt;/fluent-menu-item&gt;
+	&lt;fluent-menu-item selectable&gt;Accessories&lt;/fluent-menu-item&gt;
+	&lt;fluent-menu-item-expander header="More"&gt;
+		&lt;fluent-menu-item selectable&gt;Info&lt;/fluent-menu-item&gt;
+		&lt;fluent-menu-item selectable&gt;Donate&lt;/fluent-menu-item&gt;
+		&lt;fluent-menu-item selectable&gt;About&lt;/fluent-menu-item&gt;
+	&lt;/fluent-menu-item-expander&gt;
+&lt;/fluent-menu&gt</code></pre>
+</fluent-border><br>
+<fluent-menu style="width: 25%;">
+  <fluent-menu-item icon="cursor_hover_20_regular" selectable selected>Button</fluent-menu-item>
+  <fluent-menu-item selectable>Accessories</fluent-menu-item>
+  <fluent-menu-item-expander header="More">
+    <fluent-menu-item selectable>Info</fluent-menu-item>
+    <fluent-menu-item selectable>Donate</fluent-menu-item>
+    <fluent-menu-item selectable>About</fluent-menu-item>
+  </fluent-menu-item-expander>
+</fluent-menu>

@@ -1,0 +1,29 @@
+<h2>
+  <%- data.name %>&nbsp;<fluent-label color="red">New!</fluent-label>
+</h2>
+<p>Most elements that have an <fluent-label consolas>icon</fluent-label> attribute will
+  automatically load the icon (if the name is valid).</p>
+
+<h3>API</h3>
+<p>Get an icon as svg: (string)</p>
+<fluent-border>
+  <pre><code class="lang-js">await Fluent_getIcon("iconName"); // "&lt;svg..."|null</code></pre>
+</fluent-border>
+
+<p>Test if a string is a known icon:</p>
+<fluent-border>
+  <pre><code class="lang-js">Fluent_iconExists("iconName"); // true|false</code></pre>
+</fluent-border>
+
+<p>List of all icons</p>
+<fluent-border>
+  <pre><code class="lang-js">Fluent_icons</code></pre>
+  <fluent-label consolas id="icons_icons_list"></fluent-label>
+</fluent-border>
+
+<h3>List of icons</h3>
+<p>There's currently <span id="icons_icons_count">0</span> icons</p>
+<div id="icons_list_all">
+  <button>Load</button>
+  <p>Might take a long time</p>
+</div>

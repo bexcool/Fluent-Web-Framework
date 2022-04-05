@@ -1,0 +1,77 @@
+<h2>
+  <%- data.name %>
+</h2>
+<p>Custom element for switching between pages. Makes your webpage pages a lot easier.</p>
+<h3>Usage</h3>
+<h4>Functions</h4>
+<p>Set active page index.</p>
+<fluent-border>
+  <pre><code class="lang-js">Fluent_setActivePageIndex('showcase-page-switcher', 0, true, "example/route-1");</code></pre>
+</fluent-border>
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <fluent-label consolas>page_switcher_id</fluent-label>
+      </td>
+      <td>string</td>
+      <td>ID of the page switcher.</td>
+    </tr>
+    <tr>
+      <td>
+        <fluent-label consolas>index</fluent-label>
+      </td>
+      <td>number</td>
+      <td>Page's index.</td>
+    </tr>
+    <tr>
+      <td>
+        <fluent-label consolas>routing?</fluent-label>
+      </td>
+      <td>boolean</td>
+      <td>Use routing?<br>
+        See <fluent-hyperlink onclick="navigate.routing()">router
+          docs</fluent-hyperlink>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <fluent-label consolas>route?</fluent-label>
+      </td>
+      <td>string</td>
+      <td>Name of the route<br>
+        If unspecified, Fluent tries to choose a name for the route.</td>
+    </tr>
+  </tbody>
+</table>
+<fluent-border>
+  <pre><code class="lang-html"> &lt;button onclick="Fluent_setActivePageIndex('showcase-page-switcher', 0)"&gt;Open Page 1&lt;/button&gt;
+&lt;button onclick="Fluent_setActivePageIndex('showcase-page-switcher', 1)"&gt;Open Page 2&lt;/button&gt;
+&lt;fluent-page-switcher id="showcase-page-switcher"&gt;
+	&lt;fluent-page&gt;
+		&lt;h2&gt;Page 1&lt;/h2&gt;
+	&lt;/fluent-page&gt;
+	&lt;fluent-page&gt;
+		&lt;h2&gt;Page 2&lt;/h2&gt;
+	&lt;/fluent-page&gt;
+&lt;/fluent-page-switcher&gt;</code></pre>
+</fluent-border><br>
+<button onclick="Fluent_setActivePageIndex('showcase-page-switcher', 0);">Open Page
+  1</button>
+<button onclick="Fluent_setActivePageIndex('showcase-page-switcher', 1);">Open Page
+  2</button>
+<fluent-page-switcher id="showcase-page-switcher">
+  <fluent-page>
+    <h2>Page 1</h2>
+  </fluent-page>
+  <fluent-page>
+    <h2>Page 2</h2>
+  </fluent-page>
+</fluent-page-switcher>

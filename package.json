@@ -5,7 +5,7 @@
   "description": "Framework for using Windows 11 Fluent design on the web.",
   "scripts": {
     "build": "node prebuild.mjs && webpack && node postbuild.mjs",
-    "lint": "eslint"
+    "lint": "eslint && ejslint ./docs/index.ejs"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
   "dependencies": {
     "@fluentui/svg-icons": "^1.1.164",
     "core-js": "^3.21.1",
+    "ejs-lint": "^1.2.1",
+    "js-untar": "^2.0.0",
     "prismjs": "^1.27.0",
     "tslib": "^2.3.1"
   },
@@ -41,14 +43,17 @@
     "babel-polyfill": "^6.26.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.7.1",
+    "ejs": "^3.1.6",
     "eslint": "^8.12.0",
     "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
     "prepend-file": "^2.0.1",
     "sass": "^1.49.11",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
     "tar": "^6.1.11",
+    "template-ejs-loader": "^0.9.1",
     "terser-webpack-plugin": "^5.3.1",
     "ts-loader": "^9.2.8",
     "typescript": "^4.6.3",
