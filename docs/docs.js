@@ -52,7 +52,12 @@ Fluent_onReady(() => {
 // List of themes
 Fluent_onReady(() => {
 	document.getElementById("themes_FluentThemes_example").innerText = Object.keys(Fluent_themes).join(", ");
+
+	Fluent_onThemeChanged((theme) => {
+		document.getElementById("themes_activeTheme_example").innerText = theme;
+	}, true);
 });
+
 
 // Loading icon lists
 Fluent_onReady(() => {

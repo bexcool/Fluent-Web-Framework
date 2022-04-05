@@ -2,19 +2,26 @@
   <%- data.name %>
 </h2>
 <p>Fluent has a light and a dark theme.</p>
+<h3>Usage</h3>
 <fluent-border>
   <pre><code class="lang-JS">Fluent_themes</code></pre>
   <fluent-label consolas id="themes_FluentThemes_example"></fluent-label>
 </fluent-border>
-<p>Get current theme</p>
+<p>Get current theme:</p>
 <fluent-border>
   <pre><code class="lang-js">Fluent_getActiveTheme();</code></pre>
+  <fluent-label id="themes_activeTheme_example"></fluent-label>
 </fluent-border>
-<p>Set a theme</p>
+<p>Set a theme:</p>
 <fluent-border>
   <pre><code class="lang-js">Fluent_setTheme(/*theme from Fluent_themes*/);</code></pre>
 </fluent-border>
-<p>Switch the theme</p>
+<p>Switch the theme:</p>
 <fluent-border>
   <pre><code class="lang-js">Fluent_switchTheme();</code></pre>
+</fluent-border>
+<p>Listen for theme changes:</p>
+<fluent-border>
+  <pre><code class="lang-js">Fluent_onThemeChanged((newTheme) => { }, /*fire*/true);</code></pre>
+  If <fluent-label consolas>fire</fluent-label> is true, fires immediately with the current theme.
 </fluent-border>

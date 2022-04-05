@@ -3,7 +3,7 @@ import { capitalize } from "./util/index";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 type InitCallback = () => void;
-export const initializeCallbacks: InitCallback[] = [];
+const initializeCallbacks: InitCallback[] = [];
 let _Initialized = false;
 export const isInitialized = () => _Initialized;
 export const onInitialized = (cb: InitCallback) => {

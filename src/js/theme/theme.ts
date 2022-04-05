@@ -1,12 +1,15 @@
 import { docElement, KEY_THEME } from "../fluent";
 
+type ThemeChangeCallback = (theme: Themes) => void;
+const changeCallbacks: ThemeChangeCallback[] = [];
+
 // Could be optimized by it being an array, then converting to an object
 // using .reduce, but this is simply too small to be useful
 export type Themes = "DARK" | "LIGHT";
 export const themes: { [k in Themes]: Themes } = {
 	"DARK": "DARK",
 	"LIGHT": "LIGHT",
-};
+} as const;
 
 export const getActiveTheme = () => localStorage.getItem(KEY_THEME) as Themes ?? themes.DARK;
 
@@ -25,12 +28,19 @@ export const switchTheme = () => {
 		setTheme("DARK");
 };
 
-function _setTheme(key: Themes) {
+export const onThemeChanged = (cb: ThemeChangeCallback, fire: boolean) => {
+	changeCallbacks.push(cb);
+	if (fire)
+		cb(getActiveTheme());
+};
+
+function _setTheme(newTheme: Themes) {
 	// Could be written with an if, but easier to maintain
 	Object.values(themes)
-		.filter(t => t !== key)
+		.filter(t => t !== newTheme)
 		.forEach(t => docElement.classList.remove(`fluent-theme-${t.toLowerCase()}`));
-	docElement.classList.add(`fluent-theme-${key.toLowerCase()}`);
+	docElement.classList.add(`fluent-theme-${newTheme.toLowerCase()}`);
 
-	localStorage.setItem(KEY_THEME, key);
+	localStorage.setItem(KEY_THEME, newTheme);
+	changeCallbacks.forEach(cb => cb(newTheme));
 }
