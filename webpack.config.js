@@ -74,6 +74,9 @@ export default [
 			}),
 		],
 		dependencies: ["fluent"],
+		experiments: {
+			futureDefaults: true,
+		},
 	},
 	{
 		name: "fluent",
@@ -142,6 +145,7 @@ export default [
 			new CopyWebpackPlugin({
 				patterns: [
 					{ from: "../img", to: "img" },
+					{ from: "../../icons.tar.br", to: "docs/icons.tar.br" },
 				]
 			}),
 		],

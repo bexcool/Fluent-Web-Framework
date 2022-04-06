@@ -1,7 +1,7 @@
 import { FluentElement, FluentRegister } from "../elements/fluent-element";
 import { FluentDefine, FluentExpose } from "../fluent";
 import { _icons, _Icons, _iconsUrl } from "./list";
-export { _Icons as Icons } from "./list";
+// export { _Icons as Icons } from "./list";
 
 const _cache: { [k in _Icons]?: string } = {};
 
@@ -11,7 +11,7 @@ class Icon extends HTMLElement implements FluentElement {
 		setTimeout(async () => {
 			const icon = this.innerText;
 			if (iconExists(icon))
-				this.outerHTML = `<div class="fluent-icon">${await getIcon(icon)}</div>`;
+				this.outerHTML = `<div class="fluent-icon" icon="${icon}">${await getIcon(icon)}</div>`;
 		});
 	}
 }

@@ -1,6 +1,6 @@
 {
   "name": "fluent-web-framework",
-  "version": "0.5.0",
+  "version": "0.5.3",
   "type": "module",
   "description": "Framework for using Windows 11 Fluent design on the web.",
   "scripts": {
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/Spejik/Fluent-Web-Framework#readme",
   "dependencies": {
     "@fluentui/svg-icons": "^1.1.164",
+    "brotli-dec-wasm": "^1.2.0",
     "core-js": "^3.21.1",
     "ejs-lint": "^1.2.1",
     "js-untar": "^2.0.0",

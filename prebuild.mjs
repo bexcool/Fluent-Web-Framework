@@ -1,8 +1,10 @@
-import { lstatSync, writeFileSync } from "fs";
+import { spawn } from "child_process";
+import { lstatSync, readFileSync, writeFileSync } from "fs";
 import glob from "glob";
 import { dirname, posix, resolve, sep } from "path";
 import { fileURLToPath } from "url";
 
+const pkg = JSON.parse(readFileSync("./package.json", "utf8"));
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Create a list of icons
@@ -13,6 +15,18 @@ glob(iconsDir + "**/*", (err, res) => {
 		throw new Error(`Could not get the icons listing: ${err.message}`);
 	const outputDir = resolve(__dirname, "src", "js", "icons") + sep;
 	const outputFile = outputDir + "list.ts";
+
+	// Get the version of svg-icons we currently have a listing of
+	// Skip creating a new listing if same
+	const fileMeta = readFileSync(outputFile, "utf8").split("\n")[0].substring(2).trim().split(",");
+	if (fileMeta[0] === pkg.dependencies["@fluentui/svg-icons"] && fileMeta[1] === pkg.version) {
+		return console.log("Icon list up to date");
+	// Make a new listing + create a tar of the icons (without blocking)
+	} else {
+		const child = spawn("node", ["prebuild.create-tar.mjs"], { detached: true, stdio: "ignore" });
+		child.unref();
+		console.log("Creating icons.tar in a new process");
+	}
 
 	// Object of first icon segment => [icon names], used for grouping in output file
 	let iconsList = {};
@@ -38,16 +52,14 @@ glob(iconsDir + "**/*", (err, res) => {
 		});
 
 	// Template literal with quotes instead of JSON.stringify: https://linkify.cz/template-stringify-bench
-	// Convert to a grouped array (without []) of icons with comments
+	// Convert to a grouped array (without []) of icons
 	let lastGroup = "";
 	const iconsString = Object.entries(iconsList)
 		.map((group, i) => {
 			const isFirst = i === 0;
 			const isLast = i + 1 === Object.keys(iconsList).length;
+
 			const groupId = group[0];
-			// Capitalize the first letter
-			// For easier searching - g:
-			const comment = `g:${groupId[0].toUpperCase()}${groupId.slice(1)}`;
 			// Make the icon names a valid string and join them
 			const val = group[1].map(icon => `"${icon}"`).join(",");
 			let prefix = "", suffix = "";
@@ -60,7 +72,8 @@ glob(iconsDir + "**/*", (err, res) => {
 				// Don't insert \t at the end of array
 				if (!isLast) suffix += "\t";
 			}
-			return `${prefix}//${comment}\n\t${val}${suffix}`;
+			// Combine all of it together
+			return `${prefix}${val}${suffix}`;
 		})
 		.join("");
 	// Create group union types of all icons
@@ -85,7 +98,8 @@ glob(iconsDir + "**/*", (err, res) => {
 		})
 		.join("|");
 
-	const content = `/*
+	const content = `//${pkg.dependencies["@fluentui/svg-icons"]},${pkg.version}
+/*
 Generated file, DO NOT EDIT (changes will be lost anyway)
 */
 import { CDN_URL } from "../fluent";

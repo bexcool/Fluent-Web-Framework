@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 
 import untar from "js-untar";
+import {brotliDec} from "brotli-dec-wasm";
 
 Fluent_onReady(() => Fluent_showSplashScreen(450, false, `${Fluent_CDN_URL}/img/web.png`));
 Fluent_onInitialized(() => { console.log("Fluent initialize callback 1"); });
@@ -97,7 +98,7 @@ Fluent_onReady(() => {
 		const bodyRef = document.getElementById("all_icons_body");
 
 		// Fetch with custom reader to handle percentage
-		const response = await fetch(`${Fluent_CDN_URL_ICONS}.tar`);
+		const response = await fetch(`${Fluent_CDN_URL}/docs/icons.tar.br`);
 		const reader = response.body.getReader();
 		const contentLength = +response.headers.get("Content-Length");
 		const chunks = [];
@@ -112,6 +113,7 @@ Fluent_onReady(() => {
 
 			loaderProgress.innerText = `${(receivedLength / contentLength * 100).toFixed(2)}% - ${receivedLength}/${contentLength}`;
 		}
+		// Join and decompress response
 		loader.innerText = "Processing response";
 		loaderProgress.innerText = "0.00%";
 		const chunksAll = new Uint8Array(receivedLength);
@@ -121,15 +123,14 @@ Fluent_onReady(() => {
 			position += chunk.length;
 			loaderProgress.innerText = `${(ic++ / chunks.length * 100).toFixed(2)}%`;
 		}
+		const iconsTar = brotliDec(chunksAll).buffer;
 
 		loader.innerText = "Updating table";
 		loaderProgress.innerText = "0.00%";
 		const iconsDone = [], iconsWanted = Object.keys(Fluent_icons);
-
-		// Do the untarring
-		const iconsTar = chunksAll.buffer;
 		let iconList = {}, irow = 0;
 
+		// Do the untarring
 		const insertRow = (extractedFile) => {
 			const iconName = extractedFile.name.substring(extractedFile.name.indexOf("/") + 1).replace(".svg", "");
 			if (!Fluent_iconExists(iconName)) return;
