@@ -25,20 +25,20 @@ Visit [Fluent Web Framework webpage](https://resources.bexcool.eu/fluentwebframe
 #### Fluent Style ***(required)***
 This file contains whole Fluent styling.<br>
 **This file is required.**
-```
-https://resources.bexcool.eu/fluentwebframework/src/style/fluent.min.css
+``` HTML
+<script type="text/javascript" src"https://resources.bexcool.eu/fluentwebframework/src/style/fluent.min.css"></script>
 ```
 ### JavaScript
 #### Fluent Functions ***(required)***
 This file contains core functions of the framework.<br>
 **This file is required.**
-```
-https://resources.bexcool.eu/fluentwebframework/src/js/fluent_functions.min.js
+``` HTML
+<script type="text/javascript" src"https://resources.bexcool.eu/fluentwebframework/src/js/fluent_functions.min.js"></script>
 ```
 #### Fluent Elements
 This file constains custom elements for easier usage.<br>
 Don't use if you only want to use CSS.<br>
 Recommended when using JS.
-```
-https://resources.bexcool.eu/fluentwebframework/src/js/fluent_elements.min.js
+``` HTML
+<script type="text/javascript" src"https://resources.bexcool.eu/fluentwebframework/src/js/fluent_elements.min.js"></script>
 ```
