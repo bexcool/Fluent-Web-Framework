@@ -193,7 +193,6 @@ function InitializeFluent() {
     splash_background.id = "fluent-splash-screen";
     splash_background.classList.add("fluent-loading-background");
 
-    document.body.style.overflow = "hidden";
     document.body.prepend(splash_background);
 
     splash_image = document.createElement("object");
