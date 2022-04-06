@@ -4,9 +4,7 @@ Framework for using Windows 11 Fluent design on the web.
 
 ## Documentation
 
-Visit the [Fluent Web Framework](https://cdn.spej.eu/fwf/showcase/) - still in progress
-
-Docs are not fully updated (yet)
+Visit the [Fluent Web Framework documentation](https://cdn.spej.eu/fwf/docs/)
 
 ### Some controls
 
