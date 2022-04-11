@@ -8,7 +8,7 @@
     --darker-color: rgb(39, 39, 39);
     --dark-color: rgb(43, 43, 43);
     --light-color: hsla(0, 0%, 100%, 5.12%);
-    light-darker-color: rgba(43, 43, 43, 0.7);
+    --light-darker-color: rgba(43, 43, 43, 0.7);
     --light-hover-color: hsla(0, 0%, 100%, .084);
     --lighter-hover-color: rgb(55, 55, 55);
     --lighter-press-color: rgb(51, 51, 51);
