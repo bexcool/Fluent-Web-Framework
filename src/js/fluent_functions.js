@@ -3,15 +3,17 @@ var Initialized = false;
 var docEle = document.documentElement;
 
     // Splash screen
-    var splash_background;
-    var splash_image;
+    var splashBackground;
+    var splashImage;
 
 // Imports
 
+// Initialize Fluent
+window.addEventListener('load', () => InitializeFluent());
 
 // Switch between Light and Dark themes
 function SwitchTheme() {
-    if (getComputedStyle(docEle).getPropertyValue("--dark-color") == "rgb(32, 32, 32)") // Is dark theme?
+    if (getComputedStyle(docEle).getPropertyValue("--darker-color-noa") == "rgb(32, 32, 32)") // Is dark theme?
     {
         SetLightTheme();
     }
@@ -25,12 +27,12 @@ function SetDarkTheme() {
 
     // Global colors
     docEle.style.setProperty("--black-white-color", "white");
-    docEle.style.setProperty("--dark-color", "rgb(32, 32, 32)");
-    docEle.style.setProperty("--dark-border-color", "rgb(25, 25, 25, 0.6)");
     docEle.style.setProperty("--darker-color", "hsla(0, 0%, 100%, 3.26%)");
-    docEle.style.setProperty("--darker-color-noa", "rgb(43, 43, 43)")
+    docEle.style.setProperty("--darker-color-noa", "rgb(32, 32, 32)");
+    docEle.style.setProperty("--dark-color", "rgb(43, 43, 43)");
+    docEle.style.setProperty("--dark-border-color", "rgb(25, 25, 25, 0.6)");
     docEle.style.setProperty("--light-color", "hsla(0, 0%, 100%, 5.12%)");
-    docEle.style.setProperty("--light-trans-color", "rgba(40, 40, 40, 0.7)");
+    docEle.style.setProperty("--light-darker-color", "rgba(40, 40, 40, 0.7)");
     docEle.style.setProperty("--light-hover-color", "hsla(0, 0%, 100%, .084)");
     docEle.style.setProperty("--lighter-hover-color", "rgba(100, 100, 100, 0.25)");
     docEle.style.setProperty("--lighter-press-color", "rgba(100, 100, 100, 0.125)");
@@ -95,12 +97,12 @@ function SetLightTheme() {
 
     // Global colors
     docEle.style.setProperty("--black-white-color", "black");
-    docEle.style.setProperty("--dark-color", "rgb(238, 238, 238)");
-    docEle.style.setProperty("--dark-border-color", "rgb(225, 225, 225)");
     docEle.style.setProperty("--darker-color", "hsla(0, 0%, 100%, 46.74%)");
-    docEle.style.setProperty("--darker-color-noa", "rgb(245, 245, 245)")
+    docEle.style.setProperty("--darker-color-noa", "rgb(238, 238, 238)");
+    docEle.style.setProperty("--dark-color", "rgb(245, 245, 245)")
+    docEle.style.setProperty("--dark-border-color", "rgb(225, 225, 225)");
     docEle.style.setProperty("--light-color", "hsla(0, 0%, 100%, 65.12%)");
-    docEle.style.setProperty("--light-trans-color", "rgba(251, 251, 251, 0.7)");
+    docEle.style.setProperty("--light-darker-color", "rgba(251, 251, 251, 0.7)");
     docEle.style.setProperty("--light-hover-color", "rgb(0, 0, 0, 0.03)");
     docEle.style.setProperty("--lighter-hover-color", "rgb(242, 242, 242)");
     docEle.style.setProperty("--lighter-press-color", "rgb(245, 245, 245)");
@@ -188,21 +190,12 @@ function LoadLastTheme() {
 }
 
 function InitializeFluent() {
-    // Prepare splash screen
-    splash_background = document.createElement("div");
-    splash_background.id = "fluent-splash-screen";
-    splash_background.classList.add("fluent-loading-background");
-
-    document.body.prepend(splash_background);
-
-    splash_image = document.createElement("object");
-    splash_image.classList.add("fluent-loading-icon");
-
-    splash_background.prepend(splash_image);
-    splash_background.style.display = "none";
+    InitSplashScreen();
 
     setTimeout( () => {
         var webDocument = document.documentElement;
+
+        document.body.style.zoom = screen.logicalXDPI / screen.deviceXDPI;
 
         // Initialize Expanders
         InitExpanders();
@@ -219,6 +212,9 @@ function InitializeFluent() {
 
         // Load last theme
         LoadLastTheme();
+
+        // Initialize responsivity
+        InitResponsivity();
 
         //#region Remove focus from elements when clicked
         const buttons = document.querySelectorAll("button, a.fluent-menu-item");
@@ -393,6 +389,79 @@ function InitializeFluent() {
         Initialized = true;
     }, 100);
 
+}
+
+function InitResponsivity() {
+    // Create responsive title container
+    const responsiveTitleContainer = document.createElement("div");
+    responsiveTitleContainer.classList.add("fluent-responsive-title-container");
+    document.body.prepend(responsiveTitleContainer);
+
+    // Create title bar
+    const responsiveTitleBar = document.createElement("div");
+    responsiveTitleBar.classList.add("fluent-responsive-title-bar");
+    responsiveTitleContainer.prepend(responsiveTitleBar);
+
+    // Create title
+    const responsiveTitle = document.createElement("div");
+    responsiveTitle.prepend(document.querySelector("fluent-title-responsive"));
+    responsiveTitle.classList.add("fluent-responsive-title");
+    responsiveTitleBar.prepend(responsiveTitle);
+
+    const mainMenuParent = document.getElementById("fluent-main-menu").parentElement;
+    const mainMenu = document.getElementById("fluent-main-menu");
+
+    // Reposition menu
+    let media = window.matchMedia("(max-width: 1000px)");
+
+    if (media.matches) {
+        responsiveTitleContainer.append(mainMenu);
+    } else {
+        mainMenuParent.prepend(mainMenu);
+        document.body.style.overflow = "auto";
+    }
+
+    media.onchange = function () {
+        if (media.matches) {
+            responsiveTitleContainer.append(mainMenu);
+        } else {
+            mainMenuParent.prepend(mainMenu);
+            document.body.style.overflow = "auto";
+            if (responsiveTitleContainer.classList.contains("open")) {
+                responsiveTitleContainer.classList.remove("open");
+                document.body.style.overflow = "auto";
+            }   
+        }
+    };
+
+    // Add open menu button
+    const responsiveButton = document.createElement("button");
+    responsiveButton.innerHTML = "MENU";
+    responsiveButton.addEventListener("click", () => {
+        if (!responsiveTitleContainer.classList.contains("open")) {
+            document.body.style.overflow = "hidden";
+            responsiveTitleContainer.classList.add("open");
+        } else {
+            responsiveTitleContainer.classList.remove("open");
+            document.body.style.overflow = "auto";
+        }        
+    });
+    responsiveTitle.append(responsiveButton);
+}
+
+function InitSplashScreen() {
+    // Prepare splash screen
+    splashBackground = document.createElement("div");
+    splashBackground.id = "fluent-splash-screen";
+    splashBackground.classList.add("fluent-splash-background");
+
+    document.body.prepend(splashBackground);
+
+    splashImage = document.createElement("object");
+    splashImage.classList.add("fluent-splash-icon");
+
+    splashBackground.prepend(splashImage);
+    splashBackground.style.display = "none";
 }
 
 function InitExpanders() {
@@ -931,23 +1000,23 @@ function ShowSplashScreen(duration = 0, fadeIn = false, image = "") {
     document.body.style.overflow = "hidden";
 
     if (image == "") {
-        splash_image.type="image/svg+xml";
-        splash_image.data="https://resources.bexcool.eu/fluentwebframework/src/img/icons/web.png";
+        splashImage.type="image/svg+xml";
+        splashImage.data="https://resources.bexcool.eu/fluentwebframework/src/img/icons/web.png";
     } else {
-        splash_image.src = image;
+        splashImage.src = image;
     }
     
-    splash_background.style.display = "flex";
+    splashBackground.style.display = "flex";
     if (fadeIn) {
         setTimeout(() => {
-            splash_background.style.opacity = "1";
+            splashBackground.style.opacity = "1";
         }, 10);
     }
 
     setTimeout(() => {
-        splash_background.style.opacity = "0";
+        splashBackground.style.opacity = "0";
         setTimeout(() => {
-            splash_background.style.display = "none";
+            splashBackground.style.display = "none";
             document.body.style.overflow = "auto";
         }, 200);
     }, duration);
