@@ -20,7 +20,7 @@
 		width: auto;
 		color: var(--#{$prefix}text-color);
 		border: var(--#{$prefix}light-border-color) solid 0.4px;
-		background: var(--#{$prefix}light-trans-color);
+		background: var(--#{$prefix}light-darker-color);
 		backdrop-filter: blur(15px);
 		outline: var(--#{$prefix}text-color);
 		border-radius: 8px;
