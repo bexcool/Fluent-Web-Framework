@@ -87,9 +87,13 @@
                 <fluent-page>
                     <section id="button">
                         <h2>Button</h2>
+                        <div class="fluent-content">
+                            <a hyperlink href="#button-styles">Styles</a>
+                            <a hyperlink href="#button-attributes">Attributes</a>
+                        </div>
                         <p>Redesigned <fluent-label consolas>button</fluent-label> and <fluent-label consolas>input type="submit"</fluent-label>.</p>
                         <h3>Usage</h3>
-                        <h4>Styles</h4>
+                        <h4 id="button-styles">Styles</h4>
                         <p>Buttons can be used in 3 variants.</p>
                         <table>
                             <thead>
@@ -126,7 +130,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <h4>Attributes</h4>
+                        <h4 id="button-attributes">Attributes</h4>
                         <table>
                             <thead>
                                 <tr>
@@ -207,9 +211,13 @@
                 <fluent-page>
                     <section id="content-dialog">
                         <h2>Content dialog</h2>
+                        <div class="fluent-content">
+                            <a hyperlink href="#content-dialog-functions">Functions</a>
+                            <a hyperlink href="#content-dialog-sample">Sample</a>
+                        </div>
                         <p>Element for displaying content in a dialog window.</p>
                         <h3>Usage</h3>
-                        <h4>Functions</h4>
+                        <h4 id="content-dialog-functions">Functions</h4>
                         <fluent-border><code sh="JS">ShowContentDialog('content-dialog-id');</code></fluent-border>
                         <fluent-border><code sh="JS">HideContentDialog('content-dialog-id');</code></fluent-border>
                         <table>
@@ -228,7 +236,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <h4>Sample</h4>
+                        <h4 if="content-dialog-sample">Sample</h4>
                         <fluent-border><code sh="HTML"> &lt;button accent onclick=&#34;ShowFlyout(this, 'This is flyout', 2000);&#34;&gt;Show flyout!&lt;/button&gt;
 
                                                         &lt;fluent-content-dialog id="cd"&gt;
@@ -518,9 +526,14 @@
                 <fluent-page>
                     <section id="page-switcher">
                         <h2>Page switcher</h2>
+                        <div class="fluent-content">
+                            <a hyperlink href="#page-switcher-functions">Functions</a>
+                            <a hyperlink href="#page-switcher-attributes">Attributes</a>
+                            <a hyperlink href="#page-switcher-sample">Sample</a>
+                        </div>
                         <p>Custom element for switching between pages. Makes your webpage pages a lot easier.</p>
                         <h3>Usage</h3>
-                        <h4>Functions</h4>
+                        <h4 id="page-switcher-functions">Functions</h4>
                         <p>Set active page index.</p>
                         <fluent-border><code sh="JS">SetActivePageIndex('showcase-page-switcher', 0);</code></fluent-border>
                         <table>
@@ -544,6 +557,32 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <h4 id="page-switcher-attributes">Attributes</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Default value</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><fluent-label consolas>active-page</fluent-label></td>
+                                    <td>0</td>
+                                    <td>Index of the active page.</td>
+                                </tr>
+                                <tr>
+                                    <td><fluent-label consolas>fade</fluent-label></td>
+                                    <td><fluent-label>up</fluent-label></td>
+                                    <td>
+                                        Page's fade animation.<br>There are <strong>7 options</strong> - <fluent-label consolas>none</fluent-label>, <fluent-label consolas>up</fluent-label>, <fluent-label consolas>down</fluent-label>, 
+                                        <fluent-label consolas>left</fluent-label>, <fluent-label consolas>right</fluent-label>, <fluent-label consolas>scale-in</fluent-label>, <fluent-label consolas>scale-up</fluent-label>.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4 id="page-switcher-sample">Sample</h4>
                         <fluent-border><code sh="HTML"> &lt;button onclick="SetActivePageIndex('showcase-page-switcher', 0)"&gt;Open Page 1&lt;/button&gt;
                                                         &lt;button onclick="SetActivePageIndex('showcase-page-switcher', 1)"&gt;Open Page 2&lt;/button&gt;
 
@@ -588,6 +627,7 @@
                         <p>Redesigned <fluent-label consolas>table</fluent-label> element.</p>
                         <h3>Usage</h3>
                         <p>Tables are often used for showing some data.<br><strong>Remember to use</strong> <fluent-label consolas>thead</fluent-label> and <fluent-label consolas>tbody</fluent-label> elements.</p>
+                        <h4>Sample</h4>
                         <fluent-border><code sh="HTML"> &lt;table&gt;
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&lt;thead&gt;
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;

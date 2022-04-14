@@ -716,33 +716,43 @@ function InitSelectableMenuItems() {
 }
 
 function InitializePages() {
-    for (const page_switcher of document.querySelectorAll("fluent-page-switcher")) {
+    for (const pageSwitcher of document.querySelectorAll("fluent-page-switcher")) {
         // Show current page
-        if (page_switcher.hasAttribute("active-page")) page_switcher.children[page_switcher.getAttribute("active-page")].style.display = "block";
-        else if (page_switcher.children.length > 0)
+        if (pageSwitcher.hasAttribute("active-page")) pageSwitcher.children[pageSwitcher.getAttribute("active-page")].style.display = "block";
+        else if (pageSwitcher.children.length > 0)
         {       
-            page_switcher.setAttribute("active-page", "0");
+            pageSwitcher.setAttribute("active-page", "0");
 
             // Show current page
-            const active_page = page_switcher.children[0];
-            active_page.style.display = "block";
-            active_page.style.animation="fluent-page-fade-up 0.3s ease-in-out";
+            const activePage = pageSwitcher.children[0];
+            activePage.style.display = "block";
+
+            if (pageSwitcher.hasAttribute("fade")) {
+                activePage.style.animation = `fluent-page-fade-${pageSwitcher.getAttribute("fade")} 0.3s ease-in-out`;
+            } else {
+                activePage.style.animation= "fluent-page-fade-up 0.3s ease-in-out";
+            }
         }
     }
 }
 
 function SetActivePageIndex(page_switcher_id, index) {
-    const page_switcher = document.getElementById(page_switcher_id);
+    const pageSwitcher = document.getElementById(page_switcher_id);
 
-    if (page_switcher.hasAttribute("active-page")) {
+    if (pageSwitcher.hasAttribute("active-page")) {
         // Hide previous page
-        page_switcher.children[page_switcher.getAttribute("active-page")].style.display = "none";
+        pageSwitcher.children[pageSwitcher.getAttribute("active-page")].style.display = "none";
 
         // Show current page
-        page_switcher.setAttribute("active-page", index);
-        const active_page = page_switcher.children[page_switcher.getAttribute("active-page")];
-        active_page.style.display = "block";
-        active_page.style.animation="fluent-page-fade-up 0.3s ease-in-out";
+        pageSwitcher.setAttribute("active-page", index);
+        const activePage = pageSwitcher.children[pageSwitcher.getAttribute("active-page")];
+        activePage.style.display = "block";
+
+        if (pageSwitcher.hasAttribute("fade")) {
+            activePage.style.animation = `fluent-page-fade-${pageSwitcher.getAttribute("fade")} 0.3s ease-in-out`;
+        } else {
+            activePage.style.animation= "fluent-page-fade-up 0.3s ease-in-out";
+        }
     }
 }
 
