@@ -33,12 +33,12 @@ This file contains whole Fluent styling.<br>
 This file contains core functions of the framework.<br>
 **This file is required.**
 ``` HTML
-<script type="text/javascript" src"https://resources.bexcool.eu/fluentwebframework/src/js/fluent_functions.min.js"></script>
+<script type="text/javascript" src="https://resources.bexcool.eu/fluentwebframework/src/js/fluent_functions.min.js"></script>
 ```
 #### Fluent Elements
 This file constains custom elements for easier usage.<br>
 Don't use if you only want to use CSS.<br>
 Recommended when using JS.
 ``` HTML
-<script type="text/javascript" src"https://resources.bexcool.eu/fluentwebframework/src/js/fluent_elements.min.js"></script>
+<script type="text/javascript" src="https://resources.bexcool.eu/fluentwebframework/src/js/fluent_elements.min.js"></script>
 ```
