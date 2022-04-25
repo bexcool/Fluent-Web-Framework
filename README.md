@@ -26,7 +26,7 @@ Visit [Fluent Web Framework webpage](https://resources.bexcool.eu/fluentwebframe
 This file contains whole Fluent styling.<br>
 **This file is required.**
 ``` HTML
-<link rel="stylesheet" href="../src/style/fluent.min.css" type="text/css">
+<link rel="stylesheet" href="https://resources.bexcool.eu/fluentwebframework/src/style/fluent.min.css" type="text/css">
 ```
 ### JavaScript
 #### Fluent Functions ***(required)***
