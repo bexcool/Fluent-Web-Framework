@@ -3,7 +3,8 @@
  
 ## Documentation
 Visit [Fluent Web Framework webpage](https://resources.bexcool.eu/fluentwebframework/showcase/index.html) - still in progress
-### Some controls
+## Images
+![obrazek](https://user-images.githubusercontent.com/53868994/165145073-eef7991a-d615-4b04-913b-c4230efa45b7.png)
 ![obrazek](https://user-images.githubusercontent.com/53868994/151600056-709ddcb5-838a-4f69-a518-a249130aa712.png)
 ### Expander
 ```html
