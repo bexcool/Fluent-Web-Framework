@@ -250,17 +250,6 @@ function InitializeFluent() {
         });
         //#endregion
 
-        //#region Init sliders
-
-        for (const slider of document.querySelectorAll('input[type="range"]')) {
-            slider.style.setProperty('--value', slider.value);
-            slider.style.setProperty('--min', slider.min == '' ? '0' : slider.min);
-            slider.style.setProperty('--max', slider.max == '' ? '100' : slider.max);
-            slider.addEventListener('input', () => slider.style.setProperty('--value', slider.value));
-          }
-
-        //#endregion
-
         // ********************
         // Show custom context menu
         // ********************
@@ -392,6 +381,9 @@ function InitializeFluent() {
 }
 
 function InitResponsivity() {
+    
+
+    /*
     // Create responsive title container
     const responsiveTitleContainer = document.createElement("div");
     responsiveTitleContainer.classList.add("fluent-responsive-title-container");
@@ -447,6 +439,7 @@ function InitResponsivity() {
         }        
     });
     responsiveTitle.append(responsiveButton);
+    */
 }
 
 function InitSplashScreen() {
@@ -731,7 +724,7 @@ function InitializePages() {
                 activePage.style.animation = `fluent-page-fade-${pageSwitcher.getAttribute("fade")} 0.3s ease-in-out`;
             } else {
                 activePage.style.animation= "fluent-page-fade-up 0.3s ease-in-out";
-            }
+            } 
         }
     }
 }
@@ -749,9 +742,9 @@ function SetActivePageIndex(page_switcher_id, index) {
         activePage.style.display = "block";
 
         if (pageSwitcher.hasAttribute("fade")) {
-            activePage.style.animation = `fluent-page-fade-${pageSwitcher.getAttribute("fade")} 0.3s ease-in-out`;
+            activePage.lastElementChild.style.animation = `fluent-page-fade-${pageSwitcher.getAttribute("fade")} 0.3s ease-in-out`;
         } else {
-            activePage.style.animation= "fluent-page-fade-up 0.3s ease-in-out";
+            activePage.lastElementChild.style.animation= "fluent-page-fade-up 0.3s ease-in-out";
         }
     }
 }
@@ -759,10 +752,15 @@ function SetActivePageIndex(page_switcher_id, index) {
 function InitFluentElements() {
     let doc = document.documentElement;
 
+    // Initialize tabels
+    for (const table of document.querySelectorAll("table")) {
+        table.outerHTML = `<div class="fluent-table-container">${table.outerHTML}</div>`;
+    }
+
     // Code
     for (const code of document.querySelectorAll("code")) {
         code.outerHTML =    '<div class="fluent-code-container">' +
-                            '<div style="display: inline-block; margin: 0.225em 0;"><code ' + 
+                            '<div style="display: inline-block; margin: 0.225em 0; width: 100%;"><code ' + 
                             AttributesToString(code) +
                             ' style="' + code.style.cssText + '">' +
                             code.innerHTML + 
@@ -1001,6 +999,57 @@ function InitFluentElements() {
 
         icon.outerHTML = iconSVG.outerHTML;
     }
+
+    // Initialize sliders
+    for (const slider of document.querySelectorAll('input[type="range"]')) {
+        slider.style.setProperty('--value', slider.value);
+        slider.style.setProperty('--min', slider.min == '' ? '0' : slider.min);
+        slider.style.setProperty('--max', slider.max == '' ? '100' : slider.max);
+        slider.addEventListener('input', () => slider.style.setProperty('--value', slider.value));
+    }
+
+    // Initialize menus
+    for (const menu of document.querySelectorAll(".fluent-menu")) {
+        if (menu.hasAttribute("main")) {
+            menu.classList.add("main");
+        }
+    }
+
+    // Initialize page switchers
+    for (const pageSwitcher of document.querySelectorAll("fluent-page-switcher")) {
+        if (pageSwitcher.hasAttribute("main")) {
+            pageSwitcher.classList.add("main");
+        }
+    }
+
+    // Initialize pages
+    for (const page of document.querySelectorAll(".fluent-page-body")) {
+        if (page.parentElement.parentElement.hasAttribute("main")) {
+            page.classList.add("main");
+        }
+        
+        if (page.parentElement.firstElementChild.classList.length != 0 && page.parentElement.children.length == 2) {
+            const resize_ob = new ResizeObserver(function(entries) {
+                // since we are observing only a single element, so we access the first element in entries array
+                let rect = entries[0].contentRect;
+            
+                // current width & height
+                let width = rect.width;
+                let height = rect.height;
+            
+                console.log('Current Width : ' + width);
+                console.log('Current Height : ' + height);
+    
+                page.style.top = `calc(${height}px)`;
+            });
+        
+            // start observing for resize
+            resize_ob.observe(page.parentElement.firstElementChild);
+        }
+        else if (page.parentElement.children.length != 2) {
+            page.style.top = "0px";
+        }
+    }
 }
 
 //#region Fluent functions
@@ -1034,6 +1083,7 @@ function ShowSplashScreen(duration = 0, fadeIn = false, image = "") {
 
 // Show flyout
 function ShowFlyout(element, string, delay) {
+
     let flyout = document.createElement("div");
     let viewportOffset = element.getBoundingClientRect();
     let closedFlyout = false;
@@ -1048,8 +1098,9 @@ function ShowFlyout(element, string, delay) {
     text.innerHTML = string;
 
     flyout.appendChild(text);
-    flyout.style.top = element.offsetTop - flyout.offsetHeight - 10 + 'px';
-    flyout.style.left = (element.offsetWidth / 2 - flyout.offsetWidth / 2) + viewportOffset.x + 'px';
+    flyout.style.top = element.getBoundingClientRect().top - flyout.offsetHeight - 10 + 'px';
+    console.log("Flyout TOP: " + flyout.style.top);
+    flyout.style.left = (element.getBoundingClientRect().width / 2 - flyout.offsetWidth / 2) + viewportOffset.x + 'px';
     flyout.animate(
         [
             // keyframes
@@ -1063,7 +1114,7 @@ function ShowFlyout(element, string, delay) {
 
     // Close flyout
     setTimeout(() => {
-        document.addEventListener("click", (e) => {
+        document.addEventListener("mousedown", (e) => {
             if (e.target.offsetParent != flyout) {
                 closedFlyout = true;
                 
@@ -1107,6 +1158,28 @@ function ShowFlyout(element, string, delay) {
                 }, 50);
         }
     }, delay);
+    
+    document.addEventListener('wheel', () => {
+        if (!closedFlyout) {
+            closedFlyout = true;
+
+            flyout.animate(
+                [
+                    // keyframes
+                    { opacity: '1' },
+                    { opacity: '0' }
+                ],
+                {
+                    // timing options
+                    duration: 50
+                });
+                flyout.style.opacity = "0";
+            
+                setTimeout(() => {
+                    flyout.remove();
+                }, 50);
+        }
+    });
 }
 
 // Show content dialog
@@ -1663,5 +1736,16 @@ function hexToRgbA(hex){
     }
     throw new Error('Bad Hex');
 }
+
+function getAbsoluteHeight(el) {
+    // Get the DOM Node if you pass in a string
+    el = (typeof el === 'string') ? document.querySelector(el) : el; 
+  
+    var styles = window.getComputedStyle(el);
+    var margin = parseFloat(styles['marginTop']) +
+                 parseFloat(styles['marginBottom']);
+  
+    return Math.ceil(el.offsetHeight + margin);
+  }
 
 //#endregion

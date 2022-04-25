@@ -9,3 +9,17 @@
     -ms-border-radius: var(--border-radius);
     -o-border-radius: var(--border-radius);
 }
+
+/* Page header */
+
+.docs-page-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10em;
+}
+
+.docs-page-header .fluent-button-hyperlink {
+    display: inline-block;
+}

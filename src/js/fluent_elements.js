@@ -128,11 +128,14 @@ customElements.define('fluent-togglebutton', ToggleButton);
 class Menu extends HTMLElement {
     connectedCallback() {
         setTimeout( () =>
-            this.outerHTML =    '<div class="fluent-menu"' + AttributesToString(this) + '>' +
-                                '<ul class="fluent-menu-list">' +
-                                this.innerHTML +
-                                '</ul></div>' +
-                                '</div>'
+            this.outerHTML =    `<div class="fluent-menu" ${AttributesToString(this)}>
+                                    <h1 class="fluent-menu-header">
+                                        ${this.attributes.header != null ? this.attributes.header.value : ""}
+                                    </h1>
+                                    <ul class="fluent-menu-list">
+                                        ${this.innerHTML}
+                                    </ul>
+                                </div>`
         );
     }
 }
@@ -214,3 +217,44 @@ class Icon extends HTMLElement {
 }
 
 customElements.define('fluent-icon', Icon);
+
+// Page
+
+class Page extends HTMLElement {
+    connectedCallback() {
+        setTimeout(() => {
+            let isCustomHeader = false;
+            let customHeader;
+
+            for (const headerElement of Array.from(this.children)) {
+                if (headerElement.tagName.toLowerCase() == "fluent-page.header" && !isCustomHeader) {
+                    customHeader = headerElement;
+                    isCustomHeader = true;
+                }
+            }
+
+            this.outerHTML =    `<div class="fluent-page" ${AttributesToString(this)}>
+                                    ${this.attributes.header != null ? "<h2>" + this.attributes.header.value + "</h2>" :
+                                    isCustomHeader ? `<div ${AttributesToString(customHeader)}>${customHeader.innerHTML}</div>` : "" }
+                                    ${isCustomHeader ? customHeader.remove() == "undefind" ? "" : "" : " "}
+                                    <div class="fluent-page-body">
+                                        ${this.innerHTML}
+                                    </div>
+                                </div>`;
+        });
+    }
+}
+
+customElements.define('fluent-page', Page);
+
+// Page Title
+
+class PageTitle extends HTMLElement {
+    connectedCallback() {
+        setTimeout(() => {
+            this.outerHTML =    `<h2>${this.innerHTML}</h2>`;
+        });
+    }
+}
+
+customElements.define('fluent-page.title', PageTitle);

@@ -11,66 +11,91 @@
 </head>
 
 <body onload="ShowSplashScreen(400);">
-    <fluent-title-responsive>
-        <h2>Fluent</h2>
-    </fluent-title-responsive>
+    <!--
     <fluent-title>
         <h1>Fluent Web Framework</h1>
     </fluent-title>
+    -->
     <fluent-web-container>
-        <fluent-menu style="width: 20em;" id="fluent-main-menu">
+        <fluent-menu style="width: 20em;" id="fluent-main-menu" header="Fluent Web Framework" main>
             <p>Dark and light theme.</p>
             <button onclick="SwitchTheme();">Switch theme</button>
             <button onclick="EnableMica();">Enable Mica</button>
             <button onclick="DisableMica();" style="margin-bottom: 10px;">Disable Mica</button>
             <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 0)" icon="emoji_hand_20_regular" selectable selected>Introduction</fluent-menu-item>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 1)" icon="book_information_20_regular" selectable>Getting started</fluent-menu-item>
             <fluent-menu-item-expander header="Controls" icon="cursor_hover_16_regular">
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 1)" icon="border_outside_20_regular" selectable>Border</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 2)" icon="cursor_hover_16_regular" selectable>Button</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 3)" icon="checkbox_checked_16_regular" selectable>Checkbox</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 4)" icon="code_16_regular" selectable>Code</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 5)" icon="window_header_horizontal_20_regular" selectable>Content dialog</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 6)" icon="multiselect_ltr_16_regular" selectable>Context menu</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 7)" icon="arrow_square_down_24_regular" selectable>Expander</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 8)" icon="tooltip_quote_20_regular" selectable>Flyout</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 9)" icon="link_16_regular" selectable>Hyperlink</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 10)" icon="icons_20_regular" selectable>Icon</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 11)" icon="textbox_align_center_20_regular" selectable>Label</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="group_list_24_regular" selectable>Menu</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="text_bullet_list_ltr_16_regular" selectable>Menu item</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="slide_multiple_24_regular" selectable>Page switcher</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 15)" icon="options_16_regular" selectable>Slider</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 16)" icon="table_16_regular" selectable>Table</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 17)" icon="textbox_16_regular" selectable>Textbox</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 18)" icon="broad_activity_feed_16_regular" selectable>Web container</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 2)" icon="border_outside_20_regular" selectable>Border</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 3)" icon="cursor_hover_16_regular" selectable>Button</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 4)" icon="checkbox_checked_16_regular" selectable>Checkbox</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 5)" icon="code_16_regular" selectable>Code</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 6)" icon="window_header_horizontal_20_regular" selectable>Content dialog</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 7)" icon="multiselect_ltr_16_regular" selectable>Context menu</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 8)" icon="arrow_square_down_24_regular" selectable>Expander</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 9)" icon="tooltip_quote_20_regular" selectable>Flyout</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 10)" icon="link_16_regular" selectable>Hyperlink</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 11)" icon="icons_20_regular" selectable>Icon</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="textbox_align_center_20_regular" selectable>Label</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="group_list_24_regular" selectable>Menu</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="text_bullet_list_ltr_16_regular" selectable>Menu item</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 15)" icon="slide_multiple_24_regular" selectable>Page switcher</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 16)" icon="arrow_clockwise_dashes_20_regular" selectable>Progress ring</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 17)" icon="options_16_regular" selectable>Slider</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 18)" icon="table_16_regular" selectable>Table</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 19)" icon="textbox_16_regular" selectable>Textbox</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 20)" icon="toggle_left_16_regular" selectable>Toggle switch</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 21)" icon="broad_activity_feed_16_regular" selectable>Web container</fluent-menu-item>
             </fluent-menu-item-expander>
             <fluent-menu-item-expander header="Design" icon="design_ideas_16_regular">
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 19)" icon="paint_brush_16_regular" selectable>Colors</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 20)" icon="ruler_16_regular" selectable>Guidelines</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 22)" icon="paint_brush_16_regular" selectable>Colors</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 23)" icon="ruler_16_regular" selectable>Guidelines</fluent-menu-item>
             </fluent-menu-item-expander>
             <fluent-menu-item-expander header="Functions" icon="braces_20_regular">
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 21)" icon="content_settings_16_regular" selectable>Initialize</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 22)" icon="window_16_regular" selectable>Mica</fluent-menu-item>
-                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 23)" icon="weather_moon_16_regular" selectable>Themes</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 24)" icon="content_settings_16_regular" selectable>Initialize</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 25)" icon="window_16_regular" selectable>Mica</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 26)" icon="weather_moon_16_regular" selectable>Themes</fluent-menu-item>
             </fluent-menu-item-expander>
-            <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 24)" icon="info_12_regular" selectable>About</fluent-menu-item>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 27)" icon="info_12_regular" selectable>About</fluent-menu-item>
         </fluent-menu>
         
         <fluent-main-content>
-            <fluent-page-switcher id="page-switcher" active-page="0">
+            <fluent-page-switcher id="page-switcher" active-page="0" main>
                 <!-- Introduction section -->
-                <fluent-page>
+                <fluent-page header="Introduction">
+                    <fluent-page.header>
+                        <h1>Test</h1>
+                        <p>Testing out</p>
+                        <h2>Test</h2>
+                    </fluent-page.header>
                     <section id="introduction">
-                        <h2>Welcome to Fluent Web Framework documentation!</h2>
                         <p>Here you'll learn how to use this framework.</p>
                         <h3>Still in progress</h3>
                         <p>Fluent Web Framework is <strong>still in development</strong>.<br>Documentation is in development as well.</p>
+                        <svg tabindex="-1" class="progress-ring" width="32" height="32" viewBox="0 0 16 16"><circle cx="50%" cy="50%" r="7" stroke-dasharray="3" stroke-dashoffset="NaN" class="progress-ring"></circle></svg>
+                    </section>
+                </fluent-page>
+                <!-- Getting started section -->
+                <fluent-page>
+                    <fluent-page.header class="docs-page-header">
+                        <h2>Getting started</h2>
+                        <div>  
+                            <a hyperlink href="#start-prerequisites">Prerequisites</a>
+                            <a hyperlink href="#button-attributes">Attributes</a>
+                            <a hyperlink href="#start-prerequisites">Prerequisites</a>
+                            <a hyperlink href="#start-prerequisites">Prerequisites</a>
+                            <a hyperlink href="#start-prerequisites">Prerequisites</a>
+                        </div>
+                    </fluent-page.header>
+                    <section id="introduction">
+                        <p>Welcome to Fluent!</p>
+                        <p>
+                            This tutorial will show you how to start using the Fluent Web Framework.
+                        </p>
                     </section>
                 </fluent-page>
                 <!-- Border section -->
-                <fluent-page>
+                <fluent-page header="Border">
                     <section id="border">
-                        <h2>Border</h2>
                         <p>Custom element "Border" with content.</p>
                         <h3>Usage</h3>
                         <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
@@ -85,12 +110,14 @@
                 </fluent-page>
                 <!-- Button section -->
                 <fluent-page>
-                    <section id="button">
+                    <fluent-page.header class="docs-page-header">
                         <h2>Button</h2>
-                        <div class="fluent-content">
+                        <div>  
                             <a hyperlink href="#button-styles">Styles</a>
                             <a hyperlink href="#button-attributes">Attributes</a>
                         </div>
+                    </fluent-page.header>
+                    <section id="button">
                         <p>Redesigned <fluent-label consolas>button</fluent-label> and <fluent-label consolas>input type="submit"</fluent-label>.</p>
                         <h3>Usage</h3>
                         <h4 id="button-styles">Styles</h4>
@@ -158,9 +185,8 @@
                     </section>
                 </fluent-page>
                 <!-- Check box -->
-                <fluent-page>
-                    <section id="border">
-                        <h2>Check box</h2>
+                <fluent-page header="Checkbox">
+                    <section id="checkbox">
                         <p>Redesigned input checkbox.</p>
                         <h3>Usage</h3>
                         <fluent-border><code sh="HTML"> &lt;input type=&#34;checkbox&#34; id=&#34;mycheck&#34;&gt;&lt;label for=&#34;mycheck&#34;&gt;Am I a checkbox?&lt;/label&gt;</code></fluent-border><br>
@@ -168,9 +194,8 @@
                     </section>
                 </fluent-page>
                 <!-- Code section -->
-                <fluent-page>
+                <fluent-page header="Code">
                     <section id="code">
-                        <h2>Code</h2>
                         <p>Remade code element.</p>
                         <h4>Syntax highlighting</h4>
                         <table>
@@ -208,9 +233,8 @@
                     </section>
                 </fluent-page>
                 <!-- Content dialog section -->
-                <fluent-page>
+                <fluent-page header="Content dialog">
                     <section id="content-dialog">
-                        <h2>Content dialog</h2>
                         <div class="fluent-content">
                             <a hyperlink href="#content-dialog-functions">Functions</a>
                             <a hyperlink href="#content-dialog-sample">Sample</a>
@@ -271,13 +295,15 @@
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
                                                                 &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
-                                <fluent-contextmenu header="Navigation" url="#">
-                                    <fluent-menu-item url="#button">Button</fluent-menu-item>
-                                    <fluent-menu-item url="#textbox">Textbox</fluent-menu-item>
-                                    <fluent-menu-item url="#contextmenu">Context Menu</fluent-menu-item>
-                                    <fluent-menu-item url="#expander">Expander</fluent-menu-item>
-                                    <fluent-menu-item url="#code">Code</fluent-menu-item>
-                                </fluent-contextmenu>
+                                <div style="position: relative;">
+                                    <fluent-contextmenu header="Navigation" url="#">
+                                        <fluent-menu-item url="#button">Button</fluent-menu-item>
+                                        <fluent-menu-item url="#textbox">Textbox</fluent-menu-item>
+                                        <fluent-menu-item url="#contextmenu">Context Menu</fluent-menu-item>
+                                        <fluent-menu-item url="#expander">Expander</fluent-menu-item>
+                                        <fluent-menu-item url="#code">Code</fluent-menu-item>
+                                    </fluent-contextmenu>
+                                </div>
                             </div>
                         </fluent-expander>
                         <fluent-expander header="Standard and selectable"> 
@@ -606,6 +632,13 @@
                         </fluent-page-switcher>
                     </section>
                 </fluent-page>
+                <!-- Progress ring section -->
+                <fluent-page>
+                    <section id="progress-ring">
+                        <h2>Menu item</h2>
+                        <p>Element for <fluent-label consolas>fluent-menu</fluent-label> and <fluent-label consolas>fluent-context-menu</fluent-label>.</p>
+                    </section>
+                </fluent-page>
                 <!-- Slider -->
                 <fluent-page>
                     <section if="slider">
@@ -750,6 +783,12 @@
                                 </table>
                             </div>
                         </fluent-expander>
+                    </section>
+                </fluent-page>
+                <!-- Toggle switch section -->
+                <fluent-page>
+                    <section id="toggle-switch">
+                        <h2>Toggle switch</h2>
                     </section>
                 </fluent-page>
                 <!-- Web container section -->
