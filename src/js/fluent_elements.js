@@ -132,6 +132,9 @@ class Menu extends HTMLElement {
                                     <h1 class="fluent-menu-header">
                                         ${this.attributes.header != null ? this.attributes.header.value : ""}
                                     </h1>
+                                    <button class="fluent-menu-button">
+                                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 20" width="10"><path d="M2 4.5c0-.28.22-.5.5-.5h15a.5.5 0 010 1h-15a.5.5 0 01-.5-.5zm0 5c0-.28.22-.5.5-.5h15a.5.5 0 010 1h-15a.5.5 0 01-.5-.5zm.5 4.5a.5.5 0 000 1h15a.5.5 0 000-1h-15z"/></svg>
+                                    </button>
                                     <ul class="fluent-menu-list">
                                         ${this.innerHTML}
                                     </ul>
@@ -211,7 +214,7 @@ customElements.define('fluent-hyperlink', Hyperlink);
 class Icon extends HTMLElement {
     connectedCallback() {
         setTimeout(() => {
-            this.outerHTML = `<div class="fluent-icon" ${AttributesToString(this)}>`;
+            this.outerHTML = `<div class="fluent-icon" ${AttributesToString(this)}></div>`;
         });
     }
 }
@@ -247,7 +250,7 @@ class Page extends HTMLElement {
 
 customElements.define('fluent-page', Page);
 
-// Page Title
+// Page title
 
 class PageTitle extends HTMLElement {
     connectedCallback() {
@@ -258,3 +261,15 @@ class PageTitle extends HTMLElement {
 }
 
 customElements.define('fluent-page.title', PageTitle);
+
+// Progress ring
+
+class ProgressRing extends HTMLElement {
+    connectedCallback() {
+        setTimeout(() => {
+            this.outerHTML =    `<div class="progress-ring-container"><svg tabindex="-1" class="progress-ring" viewBox="0 0 16 16"><circle cx="50%" cy="50%" r="7" stroke-dasharray="3" stroke-dashoffset="NaN" class="progress-ring"></circle></svg></div>`;
+        });
+    }
+}
+
+customElements.define('fluent-progressring', ProgressRing);

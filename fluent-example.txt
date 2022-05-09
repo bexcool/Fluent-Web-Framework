@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Fluent styling - required -->
+        <link rel="stylesheet" href="https://resources.bexcool.eu/fluentwebframework/src/style/fluent.min.css" type="text/css">
+        <!-- Fluent core library - required -->
+        <script type="text/javascript" src="https://resources.bexcool.eu/fluentwebframework/src/js/fluent_functions.min.js"></script>
+        <!-- Custom elements - recommended -->
+        <script type="text/javascript" src="https://resources.bexcool.eu/fluentwebframework/src/js/fluent_elements.min.js"></script>
+        <title>My Fluent Webpage</title>
+    </head>
+    <body>
+        <!-- Contains whole webpage -->
+        <fluent-web-container>
+            <!-- Main menu (only one menu can have attribute "main") -->
+            <fluent-menu main header="BeBlog">
+                <fluent-menu-item selectable selected onclick="SetActivePageIndex('page-switcher', 0);" icon="emoji_hand_20_regular">Welcome</fluent-menu-item>
+			<fluent-menu-item selectable onclick="SetActivePageIndex('page-switcher', 1);" icon="info_12_regular">About</fluent-menu-item> 
+            </fluent-menu>
+            <!-- Main content of your webpage -->
+            <fluent-main-content>
+                <fluent-page-switcher main id="page-switcher">
+                    <!-- Welcome page -->
+            	    <fluent-page header="Welcome">
+            			<p>Welcome to my webpage!</p>
+            			<h3>Header</h3>
+            			<p>Some text.</h3>
+            	    </fluent-page>
+            		
+            	    <!-- About page -->
+            	    <fluent-page header="About">
+            			<p>Created by programmer using <fluent-hyperlink href="https://resources.bexcool.eu/fluentwebframework/showcase/index.html" target="_blank">Fluent Web Framework</fluent-hyperlink></p>
+			    </fluent-page>
+                </fluent-page-switcher>
+            </fluent-main-content>
+        </fluent-web-container>
+    </body>
+</html>		

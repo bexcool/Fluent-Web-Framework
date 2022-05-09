@@ -1,0 +1,27 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../src/style/fluent.css" type="text/css">
+        <title>BeBlog</title>
+    </head>
+    <body onload="setTimeout(() => DisableMica(), 120);">
+        <fluent-web-container>
+            <fluent-menu main header="BeBlog">
+                <fluent-menu-item selectable selected onclick="window.open('./index.html', '_self');">Main</fluent-menu-item>
+                <fluent-menu-item selectable onclick="window.open('./index2.html', '_self');">Articles</fluent-menu-item>
+                <fluent-menu-item selectable onclick="SetActivePageIndex('page-switcher', 2);">About</fluent-menu-item> 
+            </fluent-menu>
+            <fluent-main-content>
+                <fluent-page-switcher main id="page-switcher">
+                    <fluent-page header="Home">
+
+                    </fluent-page>            
+                </fluent-page-switcher>
+            </fluent-main-content>
+        </fluent-web-container>
+    </body>
+    <script type="text/javascript" src="../src/js/fluent_elements.js"></script>
+    <script type="text/javascript" src="../src/js/fluent_functions.js"></script>
+</html>

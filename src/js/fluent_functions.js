@@ -249,7 +249,8 @@ function InitializeFluent() {
             }
         });
         //#endregion
-
+        //#region později se kouknu
+        /*
         // ********************
         // Show custom context menu
         // ********************
@@ -310,7 +311,6 @@ function InitializeFluent() {
             });
         }
 
-        //#region Custom menu for input text
         // ********************
         // Custom menu for input text
         // ********************
@@ -373,6 +373,7 @@ function InitializeFluent() {
                 }
             });
         }
+        */
         //#endregion
 
         Initialized = true;
@@ -752,6 +753,9 @@ function SetActivePageIndex(page_switcher_id, index) {
 function InitFluentElements() {
     let doc = document.documentElement;
 
+    // Body
+    document.body.classList.add("anim");
+
     // Initialize tabels
     for (const table of document.querySelectorAll("table")) {
         table.outerHTML = `<div class="fluent-table-container">${table.outerHTML}</div>`;
@@ -760,7 +764,7 @@ function InitFluentElements() {
     // Code
     for (const code of document.querySelectorAll("code")) {
         code.outerHTML =    '<div class="fluent-code-container">' +
-                            '<div style="display: inline-block; margin: 0.225em 0; width: 100%;"><code ' + 
+                            '<div style="display: inline-block; margin: 0.225em 0; max-width: -moz-available; max-width: -webkit-fill-available;"><code ' + 
                             AttributesToString(code) +
                             ' style="' + code.style.cssText + '">' +
                             code.innerHTML + 
@@ -910,7 +914,6 @@ function InitFluentElements() {
     for (const menu_item of menu_items) {
         if (menu_item.hasAttribute("icon")) {
             var icon = document.createElement("img");
-            icon.classList.add("fluent-menu-item-icon");
             icon.setAttribute("src", `https://cdn.spej.eu/fwf/icons/${menu_item.getAttribute("icon")}.svg`);
             menu_item.prepend(icon);
         } else {
@@ -990,9 +993,7 @@ function InitFluentElements() {
     }
 
     // Initialize icons
-    const icons = document.querySelectorAll("div.fluent-icon");
-
-    for (const icon of icons) {
+    for (const icon of document.querySelectorAll("div.fluent-icon")) {
         var iconSVG = document.createElement("img");
         iconSVG.classList.add("fluent-icon");
         iconSVG.setAttribute("src", `https://cdn.spej.eu/fwf/icons/${icon.getAttribute("icon")}.svg`);
@@ -1012,6 +1013,39 @@ function InitFluentElements() {
     for (const menu of document.querySelectorAll(".fluent-menu")) {
         if (menu.hasAttribute("main")) {
             menu.classList.add("main");
+
+            const button = menu.children[1];
+    
+            let media = window.matchMedia("(max-width: 1200px)");
+    
+            if (media.matches) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+
+            button.addEventListener("click", () => {
+                if (menu.classList.contains("open")) {
+                    menu.lastElementChild.style.display = "none";
+                    menu.classList.remove("open");
+                } else {
+                    menu.lastElementChild.style.display = "block";
+                    menu.classList.add("open");
+                }
+            });
+    
+            media.onchange = () => {
+                if (media.matches) {
+                    button.style.display = "block";
+                    menu.lastElementChild.style.display = "none";
+                    menu.parentElement.lastElementChild.style.left = `10em`;
+                } else {
+                    button.style.display = "none";
+                    menu.lastElementChild.style.display = "block";
+                    menu.parentElement.lastElementChild.style.left = `30em`;
+                    menu.classList.remove("open");
+                }
+            };
         }
     }
 

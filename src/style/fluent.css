@@ -77,7 +77,7 @@ html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 /* Body */
@@ -88,6 +88,9 @@ body {
     color: var(--text-color);
     margin: 0;
     height: 100%;
+}
+
+body.anim {
     transition: 0.25s ease-in-out;
     -webkit-transition: 0.25s ease-in-out;
     -moz-transition: 0.25s ease-in-out;
@@ -95,27 +98,27 @@ body {
     -o-transition: 0.25s ease-in-out;
 }
 
-body::-webkit-scrollbar {
-    width: 23px;
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
     /* width of the entire scrollbar */
 }
 
-body::-webkit-scrollbar-track {
-    background: var(--darker-color-noa);
+::-webkit-scrollbar-track {
+    background: transparent;
     /* color of the tracking area */
 }
 
-body::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: var(--very-light-color);
     /* color of the scroll thumb */
     border-radius: 20px;
     /* roundness of the scroll thumb */
-    border: 9px solid var(--darker-color-noa);
     /* creates padding around scroll thumb */
 }
 
-body::-webkit-scrollbar-thumb:hover {
-    border: 7px solid var(--darker-color-noa);
+::-webkit-scrollbar-thumb:hover {
+    
     /* creates padding around scroll thumb */
 }
 
@@ -757,6 +760,19 @@ a.fluent-menu-item:hover {
     cursor: pointer;
 }
 
+.fluent-menu-item img {
+    position: absolute;
+    filter: invert(var(--icon-color-inverted));
+    -webkit-filter: invert(var(--icon-color-inverted));
+    transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -ms-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    height: 1.425em;
+    margin-left: -31.5px;
+}
+
 .fluent-context-menu {
     border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -779,6 +795,19 @@ a.fluent-menu-item:hover {
 .fluent-menu-item-select {
     overflow: hidden;
     cursor: default;
+}
+
+.fluent-menu-item-select img{
+    position: absolute;
+    filter: invert(var(--icon-color-inverted));
+    -webkit-filter: invert(var(--icon-color-inverted));
+    transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -ms-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    height: 1.425em;
+    margin-left: -31.5px;
 }
 
 .fluent-menu-item-select-selected {
@@ -884,6 +913,19 @@ a.fluent-menu-item:hover {
     overflow: hidden;
 }
 
+.fluent-menu-item-expander-header img:not(.fluent-menu-item-expander-arrow) {
+    position: absolute;
+    filter: invert(var(--icon-color-inverted));
+    -webkit-filter: invert(var(--icon-color-inverted));
+    transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -ms-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    height: 1.25em;
+    margin-left: -31.5px;
+}
+
 .fluent-menu-item-expander-header .fluent-menu-item-icon {
     height: 1.25em;
 }
@@ -982,12 +1024,7 @@ a.fluent-menu-item:hover {
 
 .fluent-menu {
     position: relative;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
-    overflow: hidden;
+    overflow: inherit;
     margin: 0;
     margin-left: 4em;
     padding: 1.5em;
@@ -1011,8 +1048,8 @@ a.fluent-menu-item:hover {
     backdrop-filter: blur(15px);
     outline: var(--text-color);
     border-radius: 8px;
-    transition: 0.1s ease-in-out;
     white-space: nowrap;
+    transition: 0.1s ease-in-out;
     -webkit-transition: 0.1s ease-in-out;
     -moz-transition: 0.1s ease-in-out;
     -ms-transition: 0.1s ease-in-out;
@@ -1021,15 +1058,77 @@ a.fluent-menu-item:hover {
     scrollbar-width: thin;
 }
 
+.fluent-menu ul::-webkit-scrollbar {
+    width: 7px;
+}
+
+.fluent-menu ul::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.fluent-menu ul::-webkit-scrollbar-thumb {
+    background-color: rgba(155, 155, 155, 0.5);
+    border-radius: 20px;
+    border: transparent;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
 .fluent-menu.main ul {
     position: absolute;
-    top: 10em;
+    top: 9.55em;
     bottom: 0;
     width: inherit;
 }
 
 .fluent-menu-header {
-    position: fixed;
+    position: relative;
+    width: 100vw;
+}
+
+.fluent-menu.main.open {
+    background-color: var(--darker-color-noa);
+    z-index: 10;
+    display: block;
+}
+
+.fluent-menu.main.open h1 {
+    z-index: 9;
+}
+
+.fluent-menu.main.open ul {
+    top: 12em;
+}
+
+/* Menu button */
+
+.fluent-menu-button {
+    z-index: 10;
+    position: relative;
+    display: none;
+    margin-top: 2em;
+    width: 2em;
+    height: 2em;
+    padding: 0;
+    justify-content: center;
+}
+
+.fluent-menu-button img {
+    width: 1.5em;
+    height: 1.5em;
+    margin: auto;
+    filter: invert(var(--icon-color-inverted));
+    -webkit-filter: invert(var(--icon-color-inverted));
+}
+
+.fluent-menu-button img:hover {
+    width: 1em;
+    height: 1.5em;
+    margin: auto;
+    filter: invert(var(--icon-color-inverted));
+    -webkit-filter: invert(var(--icon-color-inverted));
 }
 
 /* Menu item icon */
@@ -1348,7 +1447,7 @@ p, .fluent-body {
 }
 
 code {
-    white-space: pre-line;
+    white-space: pre-wrap;
     display: inline-block;
     min-width: max-content;
 }
@@ -1394,11 +1493,16 @@ code {
 /* Input Password Show */
 
 .fluent-show-password-input {
-    margin-left: -1.8em;
+    margin-left: -2em;
     position: absolute;
+    background: none;
+    border: none;
+    padding: 0;
 }
 
 .fluent-show-password-input:hover {
+    background: none;
+    border: none;
     filter: invert(0.3);
     -webkit-filter: invert(0.3);
 }
@@ -1455,6 +1559,7 @@ table {
     -moz-border-radius: var(--border-radius);
     -ms-border-radius: var(--border-radius);
     -o-border-radius: var(--border-radius);
+    margin-right: 1em;
 }
 
 th {
@@ -1643,7 +1748,6 @@ fluent-web-container {
     -o-border-radius: 8px 0 0 0;
     flex:1;
     flex-grow: 1;
-    min-height: fit-content;
     overflow-y: hidden;
 }
 
@@ -1948,12 +2052,17 @@ fluent-title-responsive {
 }
 
 /* Title */
+
 fluent-title {
     display: block;
     margin-left: 5em;
 }
 
+/* Progress ring */
+
 .progress-ring {
+    width: 100%;
+    height: 100%;
     fill: none;
     stroke: var(--accent-color);
     stroke-width: 1.5;
@@ -1963,6 +2072,11 @@ fluent-title {
     transform-origin: 50% 50%;
     animation: progress-ring-indeterminate 4s linear infinite;
     -webkit-animation: progress-ring-indeterminate 4s linear infinite;
+}
+
+.progress-ring-container {
+    width: 32px;
+    height: 32px;
 }
 
 @keyframes progress-ring-indeterminate {
