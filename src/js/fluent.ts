@@ -34,7 +34,7 @@ export const splash: {
 export const KEY_THEME = "Fluent.Theme";
 export const KEY_MICA = "Fluent.Mica";
 // Allows http:
-export const CDN_URL = "//cdn.spej.eu/fwf";
+export const CDN_URL = "//resources.bexcool.com/fwf";
 const prefix = "Fluent_";
 
 

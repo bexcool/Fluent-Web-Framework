@@ -52,11 +52,11 @@ export default [
 		output: {
 			path: resolve(__dirname, "dist", "docs"),
 			// clean: true,
-			publicPath: "https://cdn.spej.eu/fwf/docs/",
+			publicPath: "https://resources.bexcool.com/fwf/docs/",
 		},
 		plugins: [
 			new HtmlWebpackPlugin({
-				base: "https://cdn.spej.eu/fwf/docs/",
+				base: "https://resources.bexcool.com/fwf/docs/",
 				filename: "index.html",
 				template: "./index.ejs",
 				options: {
@@ -136,7 +136,7 @@ export default [
 			filename: "[name].min.js",
 			path: resolve(__dirname, "dist"),
 			clean: true,
-			publicPath: "https://cdn.spej.eu/fwf/",
+			publicPath: "https://resources.bexcool.com/fwf/",
 		},
 		plugins: [
 			new MiniCssExtractPlugin({
