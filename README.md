@@ -4,7 +4,7 @@ Framework for using Windows 11 Fluent design on the web.
 
 ## Documentation
 
-Visit the [Fluent Web Framework documentation](https://resources.bexcool.com/fwf/docs/)
+Visit the [Fluent Web Framework documentation](https://static.bexcool.com/fwf/docs/)
 
 ### Some controls
 
@@ -32,10 +32,10 @@ Visit the [Fluent Web Framework documentation](https://resources.bexcool.com/fwf
 
 ```html
 Somewhere in <head>:
-<link rel="stylesheet" href="https://resources.bexcool.com/fwf/fluent.min.css">
+<link rel="stylesheet" href="https://static.bexcool.com/fwf/fluent.min.css">
 
 After <body>:
-<script src="https://resources.bexcool.com/fwf/fluent.min.js"></script>
+<script src="https://static.bexcool.com/fwf/fluent.min.js"></script>
 ```
 
 NOT AFFILIATED WITH MICROSOFT

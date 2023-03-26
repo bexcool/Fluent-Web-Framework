@@ -1,6 +1,3 @@
-// TODO: Fix vscode thinking it's invalid
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-ignore
 import iChevronDown from "@fluentui/svg-icons/icons/chevron_down_24_regular.svg";
 import { FluentElement, FluentRegister } from "../fluent-element";
 

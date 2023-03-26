@@ -32,6 +32,11 @@ export const docsData = {
 					icon: "code_20_regular"
 				},
 				{
+					name: "Code Template",
+					route: "code-template",
+					icon: "code_20_filled"
+				},
+				{
 					name: "Content dialog",
 					route: "content-dialog",
 					icon: "window_header_horizontal_20_regular"

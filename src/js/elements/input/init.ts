@@ -1,8 +1,4 @@
-// TODO: Fix vscode thinking it's invalid
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-ignore
 import iEye from "@fluentui/svg-icons/icons/eye_20_filled.svg";
-// @ts-ignore
 import iEyeOff from "@fluentui/svg-icons/icons/eye_20_regular.svg";
 // import iEyeOff from "svg-inline-loader!@fluentui/svg-icons/icons/eye_off_20_filled.svg";
 import { attributesToString } from "../../util/html";

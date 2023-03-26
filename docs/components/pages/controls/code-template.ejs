@@ -1,0 +1,65 @@
+<h2>
+  <fluent-label color="red">New!</fluent-label>&nbsp;<%- data.name %>
+</h2>
+<p>Extension of the <fluent-hyperlink onclick="navigate.ctrlCode()">code</fluent-hyperlink> element.</p>
+<p>Automatically creates a &lt;code&gt; element and a working example of what's in the template.</p>
+<h3>Basic usage</h3>
+<p>With the default settings, all code gets inserted directly after the &lt;template&gt; element</p>
+<!-- No, this page can't use fluent-code due to the examples also being a template -->
+
+<fluent-border>
+  <pre><code class="lang-html">&lt;template fluent-code="html">
+  &lt;p>Hello, world!&lt;/p>
+  &lt;fluent-label>This is a label&lt;/fluent-label>
+&lt;/template></code></pre>
+</fluent-border>
+<br>
+<fluent-border>
+  <h4>Output</h4>
+  <template fluent-code="html">
+    <p>Hello, world!</p>
+    <fluent-label>This is a label</fluent-label>
+  </template>
+</fluent-border>
+
+<h3>Advanced usage</h3>
+<h4>Outlets</h4>
+<p>Code templates allow declaring the template somewhere and outputting the code and example somewhere else.</p>
+<p>Simply specifiy a
+  <fluent-label>outlet-id</fluent-label> attribute with the id of the element where Fluent should place the code and the
+  example.
+</p>
+<p>
+  <fluent-label>outlet-id</fluent-label> also supports separating the example and code, by passing two ids:
+  <fluent-label>outlet-id="&lt;CODE_ID>//&lt;EXAMPLE_ID>"</fluent-label><br>
+
+  You can also pass <fluent-label>$disable</fluent-label> instead of an id to disable the respective output:
+  <fluent-label>outlet-id="$disable//&lt;EXAMPLE_ID>"</fluent-label>
+</p>
+<p>Note that this replaces the specified element. For example, if you want to apply custom styling, you need to place it
+  outside of the outlet.</p>
+
+<fluent-border>
+  <pre><code class="lang-html">&lt;template fluent-code="html" outlet-id="outlet-code//outlet-example">
+  &lt;h4>Hello, world!&lt;/h4>
+  &lt;p>This is a This is a template&lt;/p>
+&lt;/template>
+
+&lt;div id="outlet-code">&lt/div>
+&lt;span style="color: pink">
+  &lt;div id="outlet-example">&lt/div>
+&lt;/span></code></pre>
+</fluent-border>
+
+<fluent-border>
+  <h4>Output</h4>
+  <div id="code-template-outlet-code"></div>
+  <span style="color: pink">
+    <div id="code-template-outlet-example"></div>
+  </span>
+
+  <template fluent-code="html" outlet-id="code-template-outlet-code//code-template-outlet-example">
+    <h4>Hello, world!</h4>
+    <p>This is a template</p>
+  </template>
+</fluent-border>

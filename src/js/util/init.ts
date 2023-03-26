@@ -21,11 +21,11 @@ export default () => {
 	splash.background.style.display = "none";
 
 	setTimeout(async () => {
+		initCode();
 		initTheme();
 		initExpanders();
 		await initPages();
 		await initMenus();
-		initCode();
 		initInputs();
 		initLabels();
 		initButtons();
