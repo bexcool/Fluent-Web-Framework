@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Fluent Style</title>
+    <link rel="stylesheet" href="../src/style/fluent.css" type="text/css">
+    <link rel="stylesheet" href="./docs.css" type="text/css">
+    <script type="text/javascript" src="../src/js/fluent_elements.js"></script>
+    <script type="text/javascript" src="../src/js/fluent_functions.js"></script>
+</head>
+
+<body onload="ShowSplashScreen(400);">
+    <fluent-title-responsive>
+        <h2>Fluent</h2>
+    </fluent-title-responsive>
+    <fluent-title>
+        <h1>Fluent Web Framework</h1>
+    </fluent-title>
+    <fluent-web-container>
+        <fluent-menu style="width: 20em;" id="fluent-main-menu">
+            <p>Dark and light theme.</p>
+            <button onclick="SwitchTheme();">Switch theme</button>
+            <button onclick="EnableMica();">Enable Mica</button>
+            <button onclick="DisableMica();" style="margin-bottom: 10px;">Disable Mica</button>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 0)" icon="emoji_hand_20_regular" selectable selected>Introduction</fluent-menu-item>
+            <fluent-menu-item-expander header="Controls" icon="cursor_hover_16_regular">
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 1)" icon="border_outside_20_regular" selectable>Border</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 2)" icon="cursor_hover_16_regular" selectable>Button</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 3)" icon="checkbox_checked_16_regular" selectable>Checkbox</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 4)" icon="code_16_regular" selectable>Code</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 5)" icon="window_header_horizontal_20_regular" selectable>Content dialog</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 6)" icon="multiselect_ltr_16_regular" selectable>Context menu</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 7)" icon="arrow_square_down_24_regular" selectable>Expander</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 8)" icon="tooltip_quote_20_regular" selectable>Flyout</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 9)" icon="link_16_regular" selectable>Hyperlink</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 10)" icon="icons_20_regular" selectable>Icon</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 11)" icon="textbox_align_center_20_regular" selectable>Label</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 12)" icon="group_list_24_regular" selectable>Menu</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 13)" icon="text_bullet_list_ltr_16_regular" selectable>Menu item</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 14)" icon="slide_multiple_24_regular" selectable>Page switcher</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 15)" icon="options_16_regular" selectable>Slider</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 16)" icon="table_16_regular" selectable>Table</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 17)" icon="textbox_16_regular" selectable>Textbox</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 18)" icon="broad_activity_feed_16_regular" selectable>Web container</fluent-menu-item>
+            </fluent-menu-item-expander>
+            <fluent-menu-item-expander header="Design" icon="design_ideas_16_regular">
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 19)" icon="paint_brush_16_regular" selectable>Colors</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 20)" icon="ruler_16_regular" selectable>Guidelines</fluent-menu-item>
+            </fluent-menu-item-expander>
+            <fluent-menu-item-expander header="Functions" icon="braces_20_regular">
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 21)" icon="content_settings_16_regular" selectable>Initialize</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 22)" icon="window_16_regular" selectable>Mica</fluent-menu-item>
+                <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 23)" icon="weather_moon_16_regular" selectable>Themes</fluent-menu-item>
+            </fluent-menu-item-expander>
+            <fluent-menu-item onclick="SetActivePageIndex('page-switcher', 24)" icon="info_12_regular" selectable>About</fluent-menu-item>
+        </fluent-menu>
+        
+        <fluent-main-content>
+            <fluent-page-switcher id="page-switcher" active-page="0">
+                <!-- Introduction section -->
+                <fluent-page>
+                    <section id="introduction">
+                        <h2>Welcome to Fluent Web Framework documentation!</h2>
+                        <p>Here you'll learn how to use this framework.</p>
+                        <h3>Still in progress</h3>
+                        <p>Fluent Web Framework is <strong>still in development</strong>.<br>Documentation is in development as well.</p>
+                    </section>
+                </fluent-page>
+                <!-- Border section -->
+                <fluent-page>
+                    <section id="border">
+                        <h2>Border</h2>
+                        <p>Custom element "Border" with content.</p>
+                        <h3>Usage</h3>
+                        <fluent-border><code sh="HTML"> &lt;fluent-border&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Buton&lt;/h3&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Fluent button&lt;/button&gt;
+                                                        &lt;/fluent-border&gt;</code></fluent-border><br>
+                        <fluent-border>
+                            <h3>Button</h3>
+                            <button>Fluent button</button>
+                        </fluent-border>
+                    </section>
+                </fluent-page>
+                <!-- Button section -->
+                <fluent-page>
+                    <section id="button">
+                        <h2>Button</h2>
+                        <p>Redesigned <fluent-label consolas>button</fluent-label> and <fluent-label consolas>input type="submit"</fluent-label>.</p>
+                        <h3>Usage</h3>
+                        <h4>Styles</h4>
+                        <p>Buttons can be used in 3 variants.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Variant</th>
+                                    <th>Preview</th>
+                                    <th>Usage</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><fluent-label consolas>standard</fluent-label></td>
+                                    <td><button>Standard button</button></td>
+                                    <td><fluent-border><code sh="HTML"> &lt;button&gt;Standard button&lt;/button&gt;
+                                                                        &lt;a href=&#34;#&#34;&gt;Standard button&lt;/a&gt;
+                                                                        &lt;!-- Can be used as &lt;input type=&#34;submit&#34;&gt; --&gt;
+                                                                        &lt;input type=&#34;submit&#34; value&#61;&#34;Standard button&#34;&gt;</code></fluent-border></td>
+                                    <td>Secondary actions or actions that are not important.</td>
+                                </tr>
+                                <tr>
+                                    <td><fluent-label consolas>accent</fluent-label></td>
+                                    <td><button accent>Accent button</button></td>
+                                    <td><fluent-border><code sh="HTML"> &lt;button accent&gt;Accent button&lt;/button&gt;
+                                                                        &lt;a href=&#34;#&#34; accent&gt;Accent button&lt;/a&gt;</code></fluent-border></td>
+                                    <td>Primary actions that are important to the user.</td>
+                                </tr>
+                                <tr>
+                                    <td><fluent-label consolas>hyperlink</fluent-label></td>
+                                    <td><button hyperlink>Hyperlink button</button></td>
+                                    <td><fluent-border><code sh="HTML"> &lt;button hyperlink&gt;Hyperlink button&lt;/button&gt;
+                                                                        &lt;a href=&#34;#&#34; hyperlink&gt;Hyperlink button&lt;/a&gt;</code></fluent-border></td>
+                                    <td>Primary actions that are important to the user.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4>Attributes</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Preview</th>
+                                    <th>Usage</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><fluent-label consolas>url</fluent-label></td>
+                                    <td><button url="https://bexcool.eu/">BeXCool</button></td>
+                                    <td><fluent-border><code sh="HTML"> &lt;button url="https://bexcool.eu/"&gt;BeXCool&lt;/button&gt;</code></fluent-border></td>
+                                    <td>Open URL link.</td>
+                                </tr>
+                                <tr>
+                                    <td><fluent-label consolas>urlnew</fluent-label></td>
+                                    <td><button urlnew="https://bexcool.eu/">BeXCool</button></td>
+                                    <td><fluent-border><code sh="HTML"> &lt;button urlnew="https://bexcool.eu/"&gt;BeXCool&lt;/button&gt;</code></fluent-border></td>
+                                    <td>Open URL link in a new tab.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </fluent-page>
+                <!-- Check box -->
+                <fluent-page>
+                    <section id="border">
+                        <h2>Check box</h2>
+                        <p>Redesigned input checkbox.</p>
+                        <h3>Usage</h3>
+                        <fluent-border><code sh="HTML"> &lt;input type=&#34;checkbox&#34; id=&#34;mycheck&#34;&gt;&lt;label for=&#34;mycheck&#34;&gt;Am I a checkbox?&lt;/label&gt;</code></fluent-border><br>
+                        <input type="checkbox" id="mycheck"><label for="mycheck">Am I a checkbox?</label>
+                    </section>
+                </fluent-page>
+                <!-- Code section -->
+                <fluent-page>
+                    <section id="code">
+                        <h2>Code</h2>
+                        <p>Remade code element.</p>
+                        <h4>Syntax highlighting</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Language</th>
+                                    <th>Preview</th>
+                                    <th>Usage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><fluent-label consolas>HTML</fluent-label></td>
+                                    <td><code sh="HTML">&lt;button url="https://bexcool.eu/"&gt;BeXCool&lt;/button&gt;</code></td>
+                                    <td><fluent-border><code sh="HTML">&lt;code sh="HTML"&gt;&AMP;lt;button url="https://bexcool.eu/"&AMP;gt;BeXCool&AMP;lt;/button&AMP;gt;&lt;/code&gt;</code></fluent-border></td>
+                                </tr>
+                                <tr>
+                                    <td><fluent-label consolas>CSS</fluent-label></td>
+                                    <td><code sh="CSS"> .fluent-content {
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;margin: 2em;
+                                                        }</code></td>
+                                    <td><fluent-border><code sh="HTML"> &lt;code sh="CSS"&gt; .fluent-content {
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin: 2em;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&lt;/code&gt;</code></fluent-border></td>
+                                </tr>
+                                <tr>
+                                    <td><fluent-label consolas>JS</fluent-label></td>
+                                    <td><code sh="JS">  const bexcool = "https://bexcool.eu/";
+                                                        SetActivePageIndex('page-switcher', 1);</code></td>
+                                    <td><fluent-border><code sh="HTML"> &lt;code sh="JS"&gt; const bexcool = "https://bexcool.eu/";
+                                                                                             SetActivePageIndex('page-switcher', 1);&lt;/code&gt;</code></fluent-border></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </fluent-page>
+                <!-- Content dialog section -->
+                <fluent-page>
+                    <section id="content-dialog">
+                        <h2>Content dialog</h2>
+                        <p>Element for displaying content in a dialog window.</p>
+                        <h3>Usage</h3>
+                        <h4>Functions</h4>
+                        <fluent-border><code sh="JS">ShowContentDialog('content-dialog-id');</code></fluent-border>
+                        <fluent-border><code sh="JS">HideContentDialog('content-dialog-id');</code></fluent-border>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><fluent-label consolas>id</fluent-label></td>
+                                    <td><fluent-label consolas>string</fluent-label></td>
+                                    <td>ID of content dialog.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4>Sample</h4>
+                        <fluent-border><code sh="HTML"> &lt;button accent onclick=&#34;ShowFlyout(this, 'This is flyout', 2000);&#34;&gt;Show flyout!&lt;/button&gt;
+
+                                                        &lt;fluent-content-dialog id="cd"&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;Content dialog&lt;/h4&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-content-dialog-options&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="HideContentDialog('cd');" accent&gt;Ok&lt;/button&gt;&lt;button onclick="HideContentDialog('cd');"&gt;Close&lt;/button&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-content-dialog-options&gt;
+                                                        &lt;/fluent-content-dialog&gt;
+                        </code></fluent-border><br>
+                        <button accent onclick="ShowContentDialog('cd');">Show content dialog</button>
+                        <fluent-content-dialog id="cd">
+                            <h4>Content dialog</h4>
+                            <fluent-content-dialog-options>
+                                <button onclick="HideContentDialog('cd');" accent>Ok</button><button onclick="HideContentDialog('cd');">Close</button>
+                            </fluent-content-dialog-options>
+                        </fluent-content-dialog>
+                    </section>
+                </fluent-page>
+                <!-- Context menu section -->
+                <fluent-page>
+                    <section id="contextmenu">
+                        <h2>Context Menu</h2>
+                        <p>Custom element with items.</p>
+                        <fluent-expander header="Standard">
+                            <div class="fluent-content">
+                                <p>Hover it to show menu.</p>
+                                <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
+                                                                &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
+                                                                &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
+                                <fluent-contextmenu header="Navigation" url="#">
+                                    <fluent-menu-item url="#button">Button</fluent-menu-item>
+                                    <fluent-menu-item url="#textbox">Textbox</fluent-menu-item>
+                                    <fluent-menu-item url="#contextmenu">Context Menu</fluent-menu-item>
+                                    <fluent-menu-item url="#expander">Expander</fluent-menu-item>
+                                    <fluent-menu-item url="#code">Code</fluent-menu-item>
+                                </fluent-contextmenu>
+                            </div>
+                        </fluent-expander>
+                        <fluent-expander header="Standard and selectable"> 
+                            <div class="fluent-content">
+                                <p>Hover it to show menu.</p>
+                                <fluent-border><code sh="HTML"> &lt;!-- Attribute &#34;url&#34; works like &#34;href&#34;. --&gt;
+                                                                &lt;fluent-contextmenu header=&#34;Navigation&#34;&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#button&#34;&gt;Button&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#textbox&#34;&gt;Textbox&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34;&gt;Context Menu&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34;&gt;Expander&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34;&gt;Code Menu&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;hr&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#contextmenu&#34; selectable selected&gt;1st option&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#expander&#34; selectable&gt;2nd option&lt;/fluent-menu-item&gt;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item url=&#34;#code&#34; selectable&gt;3rd option&lt;/fluent-menu-item&gt;
+                                                                &lt;/fluent-contextmenu&gt;</code></fluent-border><br>
+                                <fluent-contextmenu header="Navigation" url="#">
+                                    <fluent-menu-item url="#button">Button</fluent-menu-item>
+                                    <fluent-menu-item url="#textbox">Textbox</fluent-menu-item>
+                                    <fluent-menu-item url="#contextmenu">Context Menu</fluent-menu-item>
+                                    <fluent-menu-item url="#expander">Expander</fluent-menu-item>
+                                    <fluent-menu-item url="#code">Code</fluent-menu-item>
+                                    <hr>
+                                    <fluent-menu-item selectable selected>1st option</fluent-menu-item>
+                                    <fluent-menu-item selectable>2nd option</fluent-menu-item>
+                                    <fluent-menu-item selectable>3rd option</fluent-menu-item>
+                                </fluent-contextmenu>
+                            </div>
+                        </fluent-expander>
+                    </section>
+                </fluent-page>
+                <!-- Expander section -->
+                <fluent-page>
+                    <section id="expander">
+                        <h2>Expander</h2>
+                        <p>Custom element which can be opened or closed.</p>
+                        <h3>Usage</h3>
+                        <h4>Attributes</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Preview</th>
+                                    <th>Usage</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><fluent-label consolas>header</fluent-label></td>
+                                    <td style="vertical-align: top;">
+                                        <fluent-expander header="Expander">
+                                            <div class="fluent-content">
+                                                <button>Button</button>
+                                            </div>
+                                        </fluent-expander>
+                                    </td>
+                                    <td><fluent-border><code sh="HTML"> &lt;fluent-expander header="Expander"&gt;
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="fluent-content"&gt;
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Button&lt;/button&gt;
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+                                                                        &lt;/fluent-expander&gt;</code></fluent-border></td>
+                                    <td>Recommended to use everytime.</td>
+                                </tr>
+                                <tr>
+                                    <td><fluent-label consolas>expanded</fluent-label></td>
+                                    <td style="vertical-align: top;">
+                                        <fluent-expander header="Expander" expanded>
+                                            <div class="fluent-content">
+                                                <button>Button</button>
+                                            </div>
+                                        </fluent-expander>
+                                    </td>
+                                    <td><fluent-border><code sh="HTML"> &lt;fluent-expander header="Expander" expanded&gt;
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="fluent-content"&gt;
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Button&lt;/button&gt;
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+                                                                        &lt;/fluent-expander&gt;</code></fluent-border></td>
+                                    <td>Use only when user has to access this expander (e.g. Link that redirects to this expander).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </fluent-page>
+                <!-- Flyout section -->
+                <fluent-page>
+                    <section id="flyout">
+                        <h2>Flyout</h2>
+                        <p>Element with text that shows on the top of the parent element when function <fluent-label consolas>ShowFlyout</fluent-label> is called.</p>
+                        <h3>Usage</h3>
+                        <h4>Functions</h4>
+                        <fluent-border><code sh="JS">ShowFlyout(this, 'This is flyout', 2000);</code></fluent-border>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><fluent-label consolas>element</fluent-label></td>
+                                    <td><fluent-label consolas>element</fluent-label></td>
+                                    <td>Show flyout above this element.</td>
+                                </tr>
+                                <tr>
+                                    <td><fluent-label consolas>string</fluent-label></td>
+                                    <td><fluent-label consolas>string</fluent-label></td>
+                                    <td>Text to show in flyout.</td>
+                                </tr>
+                                <tr>
+                                    <td><fluent-label consolas>delay</fluent-label></td>
+                                    <td><fluent-label consolas>int</fluent-label></td>
+                                    <td>How long will flyout be visible (in milliseconds).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4>Sample</h4>
+                        <fluent-border><code sh="HTML"> &lt;button onclick=&#34;ShowFlyout(this, 'This is flyout', 2000);&#34;&gt;Show flyout!&lt;/button&gt;</code></fluent-border><br>
+                        <button onclick="ShowFlyout(this, 'This is flyout', 2000);">Show flyout!</button>
+                    </section>
+                </fluent-page>
+                <!-- Hyperlink section -->
+                <fluent-page>
+                    <section id="flyout">
+                        <h2>Hyperlink</h2>
+                        <p>Element which can be put in text to redirect user to other page. Works the same like <fluent-label consolas>a</fluent-label> link.</p>
+                        <h3>Usage</h3>
+                        <h4>Sample</h4>
+                        <fluent-border><code sh="HTML"> &lt;fluent-hyperlink href="https://www.bexcool.eu" target="_blank"&gt;BexCool&lt;/fluent-hyperlink&gt;</code></fluent-border><br>
+                        <fluent-hyperlink href="https://www.bexcool.eu" target="_blank">BexCool</fluent-hyperlink>
+                    </section>
+                </fluent-page>
+                <!-- Icon section -->
+                <fluent-page>
+                    <section id="icon">
+                        <h2>Icon</h2>
+                        <p>Icons are from Microsoft's <fluent-hyperlink href="https://github.com/microsoft/fluentui-system-icons" target="_blank">FluentUI System Icons</fluent-hyperlink> library.</p>
+                        <h3>Usage</h3>
+                        <h4>Available icons</h4>
+                        <p>
+                            You can find all icons <fluent-hyperlink href="https://github.com/microsoft/fluentui-system-icons/blob/master/icons_regular.md" target="_blank">here</fluent-hyperlink>.<br>
+                            Use the <fluent-label consolas>Android</fluent-label> icon code without using the <fluent-label consolas>ic_fluent_</fluent-label> prefix (<fluent-label consolas color="red">ic_fluent_emoji_hand_20_regular</fluent-label> is used like <fluent-label consolas color="green">emoji_hand_20_regular</fluent-label>).
+                        </p>
+                        <h4>Attributes</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Preview</th>
+                                    <th>Usage</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><fluent-label consolas>icon</fluent-label></td>
+                                    <td><fluent-icon icon="emoji_hand_20_regular"></fluent-icon></td>
+                                    <td><fluent-border><code sh="HTML"> &lt;fluent-icon icon="emoji_hand_20_regular"&gt;&lt;/fluent-icon&gt;</code></fluent-border></td>
+                                    <td>Sets icon.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </fluent-page>
+                <!-- Label section -->
+                <fluent-page>
+                    <section id="label">
+                        <h2>Label</h2>
+                        <p>Text in automatically adjusted background color and border.</p>
+                        <h3>Usage</h3>
+                        <h4>Styling</h4>
+                        <p>Multiple styling attributes can be used on one label.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Preview</th>
+                                    <th>Usage</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>none</td>
+                                    <td><fluent-label>Label</fluent-label></td>
+                                    <td><fluent-border><code sh="HTML">&lt;fluent-label&gt;Label&lt;/fluent-label&gt;</code></fluent-border></td>
+                                    <td>Standard label without styling attributes.</td>
+                                </tr>
+                                <tr>
+                                    <td><fluent-label consolas>color</fluent-label></td>
+                                    <td><fluent-label color="red">Label</fluent-label></td>
+                                    <td><fluent-border><code sh="HTML"> &lt;fluent-label color="red"&gt;Label&lt;/fluent-label&gt;
+                                                                        &lt;fluent-label color="#FF0000"&gt;Label&lt;/fluent-label&gt;</code></fluent-border></td>
+                                    <td>Use any string color or a 6 digit long HEX.</td>
+                                </tr>
+                                <tr>
+                                    <td><fluent-label consolas>consolas</fluent-label></td>
+                                    <td><fluent-label consolas>Label</fluent-label></td>
+                                    <td><fluent-border><code sh="HTML">&lt;fluent-label consolas&gt;Label&lt;/fluent-label&gt;</code></fluent-border></td>
+                                    <td>Label with Consolas font.<br>Use consolas for code attributes or for tags.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </fluent-page>
+                <!-- Menu section -->
+                <fluent-page>
+                    <section id="menu">
+                        <h2>Menu</h2>
+                        <p>Custom element for navigating on your webpage. Menu item expander works like normal expander.</p>
+                        <h3>Usage</h3>
+                        <fluent-border><code sh="HTML"> &lt;fluent-menu style="width: 25%;"&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item icon="cursor_hover_16_regular" selectable selected&gt;Button&lt;/fluent-menu-item&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable&gt;Accessories&lt;/fluent-menu-item&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item-expander header="More"&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable&gt;Info&lt;/fluent-menu-item&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable&gt;Donate&lt;/fluent-menu-item&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable&gt;About&lt;/fluent-menu-item&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-menu-item-expander&gt;
+                                                        &lt;/fluent-menu&gt</code></fluent-border><br>
+                        <fluent-menu style="width: 25%;">
+                            <fluent-menu-item icon="cursor_hover_16_regular" selectable selected>Button</fluent-menu-item>
+                            <fluent-menu-item selectable>Accessories</fluent-menu-item>
+                            <fluent-menu-item-expander header="More">
+                                <fluent-menu-item selectable>Info</fluent-menu-item>
+                                <fluent-menu-item selectable>Donate</fluent-menu-item>
+                                <fluent-menu-item selectable>About</fluent-menu-item>
+                            </fluent-menu-item-expander>
+                        </fluent-menu>
+                    </section>
+                </fluent-page>
+                <!-- Menu item section -->
+                <fluent-page>
+                    <section id="menu-item">
+                        <h2>Menu item</h2>
+                        <p>Element for <fluent-label consolas>fluent-menu</fluent-label> and <fluent-label consolas>fluent-context-menu</fluent-label>.</p>
+                    </section>
+                </fluent-page>
+                <!-- Page switcher -->
+                <fluent-page>
+                    <section id="page-switcher">
+                        <h2>Page switcher</h2>
+                        <p>Custom element for switching between pages. Makes your webpage pages a lot easier.</p>
+                        <h3>Usage</h3>
+                        <h4>Functions</h4>
+                        <p>Set active page index.</p>
+                        <fluent-border><code sh="JS">SetActivePageIndex('showcase-page-switcher', 0);</code></fluent-border>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><fluent-label consolas>page_switcher_id</fluent-label></td>
+                                    <td>string</td>
+                                    <td>ID of the Page switcher.</td>
+                                </tr>
+                                <tr>
+                                    <td><fluent-label consolas>index</fluent-label></td>
+                                    <td>int</td>
+                                    <td>Page's index.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <fluent-border><code sh="HTML"> &lt;button onclick="SetActivePageIndex('showcase-page-switcher', 0)"&gt;Open Page 1&lt;/button&gt;
+                                                        &lt;button onclick="SetActivePageIndex('showcase-page-switcher', 1)"&gt;Open Page 2&lt;/button&gt;
+
+                                                        &lt;fluent-page-switcher id="showcase-page-switcher"&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-page&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Page 1&lt;/h2&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-page&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-page&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Page 2&lt;/h2&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-page&gt;
+                                                        &lt;/fluent-page-switcher&gt;</code></fluent-border><br>
+                        <button onclick="SetActivePageIndex('showcase-page-switcher', 0);">Open Page 1</button>
+                        <button onclick="SetActivePageIndex('showcase-page-switcher', 1);">Open Page 2</button>
+                        <fluent-page-switcher id="showcase-page-switcher">
+                            <fluent-page>
+                                <h2>Page 1</h2>
+                            </fluent-page>
+                            <fluent-page>
+                                <h2>Page 2</h2>
+                            </fluent-page>
+                        </fluent-page-switcher>
+                    </section>
+                </fluent-page>
+                <!-- Slider -->
+                <fluent-page>
+                    <section if="slider">
+                        <h2>Slider</h2>
+                        <p>Redesigned input range.</p>
+                        <fluent-expander header="Horizontal">
+                            <div class="fluent-content">
+                                <p>Hover it to show menu.</p>
+                                <fluent-border><code sh="HTML"> &lt;input type=&#34;range&#34;&gt;</code></fluent-border><br>
+                                <input type="range">
+                            </div>
+                        </fluent-expander>
+                    </section>
+                </fluent-page>
+                <!-- Table -->
+                <fluent-page>
+                    <section if="table">
+                        <h2>Table</h2>
+                        <p>Redesigned <fluent-label consolas>table</fluent-label> element.</p>
+                        <h3>Usage</h3>
+                        <p>Tables are often used for showing some data.<br><strong>Remember to use</strong> <fluent-label consolas>thead</fluent-label> and <fluent-label consolas>tbody</fluent-label> elements.</p>
+                        <fluent-border><code sh="HTML"> &lt;table&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;thead&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Header 1&lt;/th&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Header 2&lt;/th&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Header 3&lt;/th&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Header 4&lt;/th&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/thead&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tbody&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Value&lt;/td&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Value&lt;/td&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Value&lt;/td&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Value&lt;/td&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Value&lt;/td&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Value&lt;/td&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Value&lt;/td&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Value&lt;/td&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tbody&gt;
+                                                        &lt;/table&gt;</code></fluent-border><br>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Header 1</th>
+                                    <th>Header 2</th>
+                                    <th>Header 3</th>
+                                    <th>Header 4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Value</td>
+                                    <td>Value</td>
+                                    <td>Value</td>
+                                    <td>Value</td>
+                                </tr>
+                                <tr>
+                                    <td>Value</td>
+                                    <td>Value</td>
+                                    <td>Value</td>
+                                    <td>Value</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </fluent-page>
+                <!-- Textbox section -->
+                <fluent-page>
+                    <section id="textbox">
+                        <h2>Textbox</h2>
+                        <p>Redesigned <fluent-label consolas>input type="text"</fluent-label> and <fluent-label consolas>input type="password"</fluent-label> elements with more functionalities.</p>
+                        <h2>Usage</h2>
+                        <fluent-expander header="Text">
+                            <div class="fluent-content">
+                                <p>Redesigned <fluent-label consolas>input type="text"</fluent-label> with more attributes.</p>
+                                <h3>Attributes</h3>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Preview</th>
+                                            <th>Usage</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>none</td>
+                                            <td><input type="text"></td>
+                                            <td><code sh="HTML">&lt;input type=&#34;text&#34;&gt;</code></td>
+                                            <td>Standard textbox.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><fluent-label consolas>clear_btn</fluent-label></td>
+                                            <td><input type="text" value="BeXCool" clear_btn></td>
+                                            <td><code sh="HTML">&lt;input type=&#34;text&#34; value=&#34;BeXCool&#34; clear_btn&gt;</code></td>
+                                            <td>Textbox with button for clearing text.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fluent-expander>
+                        <fluent-expander header="Password">
+                            <div class="fluent-content">
+                                <p>Redesigned <fluent-label consolas>input type="password"</fluent-label> with more attributes.</p>
+                                <h3>Attributes</h3>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Preview</th>
+                                            <th>Usage</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>none</td>
+                                            <td><input type="password"></td>
+                                            <td><code sh="HTML">&lt;input type=&#34;password&#34;&gt;</code></td>
+                                            <td>Standard passwordbox.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><fluent-label consolas>showpass_btn</fluent-label></td>
+                                            <td><input type="password" value="1234" showpass_btn></td>
+                                            <td><code sh="HTML">&lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn&gt;</code></td>
+                                            <td>Passwordbox with button for showing password.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><fluent-label consolas>showpass</fluent-label></td>
+                                            <td><input type="password" value="1234" showpass_btn showpass></td>
+                                            <td><code sh="HTML">&lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn showpass&gt;</code></td>
+                                            <td>Passwordbox with button for showing password with showed password on default.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fluent-expander>
+                    </section>
+                </fluent-page>
+                <!-- Web container section -->
+                <fluent-page>
+                    <section id="web-container">
+                        <h2>Web container</h2>
+                        <p>Container for webpage content.<br>Web container splits webpage into 2 columns.</p>
+                        <h3>Usage</h3>
+                        <fluent-border><code sh="HTML"> &lt;h1&gt;My Webpage&lt;/h1&gt;
+                                                        &lt;fluent-web-container&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu style="width: 15em;"&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable selected onclick="SetActivePageIndex('showcase-page-switcher-web-container', 0)"&gt;Page 1&lt;/fluent-menu-item&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item-expander header="More pages"&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable onclick="SetActivePageIndex('showcase-page-switcher-web-container', 1)"&gt;Page 2&lt;/fluent-menu-item&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-menu-item selectable onclick="SetActivePageIndex('showcase-page-switcher-web-container', 2)"&gt;Page 3&lt;/fluent-menu-item&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-menu-item-expander&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-menu&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-main-content&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-page-switcher id="showcase-page-switcher-web-container"&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-page&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Page 1&lt;/h2&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-page&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-page&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Page 2&lt;/h2&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-page&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fluent-page&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Page 3&lt;/h2&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-page&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-page-switcher&gt;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/fluent-main-content&gt;
+                                                        &lt;/fluent-web-container&gt;</code></fluent-border><br>
+                        <h1>My Webpage</h1>
+                        <fluent-web-container>
+                            <fluent-menu style="width: 15em;">
+                                <fluent-menu-item selectable selected onclick="SetActivePageIndex('showcase-page-switcher-web-container', 0)">Page 1</fluent-menu-item>
+                                <fluent-menu-item-expander header="More pages">
+                                    <fluent-menu-item selectable onclick="SetActivePageIndex('showcase-page-switcher-web-container', 1)">Page 2</fluent-menu-item>
+                                    <fluent-menu-item selectable onclick="SetActivePageIndex('showcase-page-switcher-web-container', 2)">Page 3</fluent-menu-item>
+                                </fluent-menu-item-expander>
+                            </fluent-menu>
+                            <fluent-main-content>
+                                <fluent-page-switcher id="showcase-page-switcher-web-container">
+                                    <fluent-page>
+                                        <h2>Page 1</h2>
+                                    </fluent-page>
+                                    <fluent-page>
+                                        <h2>Page 2</h2>
+                                    </fluent-page>
+                                    <fluent-page>
+                                        <h2>Page 3</h2>
+                                    </fluent-page>
+                                </fluent-page-switcher>
+                            </fluent-main-content>
+                        </fluent-web-container>
+                    </section>
+                </fluent-page>
+                <!-- Colors section -->
+                <fluent-page>
+                    <section id="colors">
+                        <h2>Colors</h2>
+                        <p>Colors from Fluent.</p>
+                        <h3>Standard</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Key</th>
+                                    <th>Light theme</th>
+                                    <th>Dark theme</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Black and white</td>
+                                    <td><code><fluent-label consolas>--black-white-color</fluent-label></code></td>
+                                    <td><div class="docs-colors-border" style="background-color: white;"></div></td>
+                                    <td><div class="docs-colors-border" style="background-color: black;"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Dark</td>
+                                    <td><code><fluent-label consolas>--dark-color</fluent-label></code></td>
+                                    <td><div class="docs-colors-border" style="background-color: rgb(43, 43, 43);"></div></td>
+                                    <td><div class="docs-colors-border" style="background-color: rgb(245, 245, 245);"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Dark border</td>
+                                    <td><code><fluent-label consolas>--dark-border-color</fluent-label></code></td>
+                                    <td><div class="docs-colors-border" style="background-color: rgb(25, 25, 25, 0.6);"></div></td>
+                                    <td><div class="docs-colors-border" style="background-color: rgb(225, 225, 225);"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Darker </td>
+                                    <td><code><fluent-label consolas>--darker-color</fluent-label></code></td>
+                                    <td><div class="docs-colors-border" style="background-color: hsla(0, 0%, 100%, 3.26%);"></div></td>
+                                    <td><div class="docs-colors-border" style="background-color: hsla(0, 0%, 100%, 46.74%);"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Darker (No alpha)</td>
+                                    <td><code><fluent-label consolas>--darker-color-noa</fluent-label></code></td>
+                                    <td><div class="docs-colors-border" style="background-color: rgb(32, 32, 32);"></div></td>
+                                    <td><div class="docs-colors-border" style="background-color: rgb(238, 238, 238);"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Light</td>
+                                    <td><code><fluent-label consolas>--light-color</fluent-label></code></td>
+                                    <td><div class="docs-colors-border" style="background-color: hsla(0, 0%, 100%, 5.12%);"></div></td>
+                                    <td><div class="docs-colors-border" style="background-color: hsla(0, 0%, 100%, 65.12%);"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Light darker</td>
+                                    <td><code><fluent-label consolas>--light-darker-color</fluent-label></code></td>
+                                    <td><div class="docs-colors-border" style="background-color: rgba(40, 40, 40, 0.7);"></div></td>
+                                    <td><div class="docs-colors-border" style="background-color: rgba(251, 251, 251, 0.7);"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Light hover</td>
+                                    <td><code><fluent-label consolas>--light-hover-color</fluent-label></code></td>
+                                    <td><div class="docs-colors-border" style="background-color: hsla(0, 0%, 100%, .084);"></div></td>
+                                    <td><div class="docs-colors-border" style="background-color: rgb(242, 242, 242);"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Lighter hover</td>
+                                    <td><code><fluent-label consolas>--lighter-hover-color</fluent-label></code></td>
+                                    <td><div class="docs-colors-border" style="background-color: rgba(100, 100, 100, 0.25);"></div></td>
+                                    <td><div class="docs-colors-border" style="background-color: rgb(242, 242, 242);"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Lighter press</td>
+                                    <td><code><fluent-label consolas>--lighter-press-color</fluent-label></code></td>
+                                    <td><div class="docs-colors-border" style="background-color: rgba(100, 100, 100, 0.125);"></div></td>
+                                    <td><div class="docs-colors-border" style="background-color: rgb(245, 245, 245);"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </fluent-page>
+                <!-- Guidelines section -->
+                <fluent-page>
+                    <section id="guidelines">
+                        <h2>Guidelines</h2>
+                        <p>Fluent uses Microsoft's design guidelines which can be found by click the button below.</p><br>
+                        <a hyperlink href="https://docs.microsoft.com/cs-cz/windows/apps/design/style/" target="_blank">Design guidelines</a>
+                    </section>
+                </fluent-page>
+                <!-- Initialize section -->
+                <fluent-page>
+                    <section id="initialize">
+                        <h2>Initialize</h2>
+                        <p>Important functions to initialize Fluent.</p>
+                    </section>
+                </fluent-page>
+                <!-- Mica section -->
+                <fluent-page>
+                    <section id="initialize">
+                        <h2>Mica</h2>
+                        <p>Functions to enable Mica effect.</p>
+                    </section>
+                </fluent-page>
+                <!-- Themes section -->
+                <fluent-page>
+                    <section id="themes">
+                        <h2>Themes</h2>
+                        <p>Fluent has light and dark theme.</p>
+                    </section>
+                </fluent-page>
+                <!-- About section -->
+                <fluent-page>
+                    <section id="about">
+                        <h2>About</h2>
+                        <p>Created by Peter from <fluent-hyperlink href="https://bexcool.eu/" target="_blank">BeXCool</fluent-hyperlink>.<br>
+                        2022</p>
+                    </section>
+                </fluent-page>
+            </fluent-page-switcher>
+        </fluent-web-container>
+    </fluent-main-content>
+</body>
