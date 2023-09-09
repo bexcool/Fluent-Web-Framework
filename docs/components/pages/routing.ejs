@@ -1,0 +1,77 @@
+<h2>
+  <fluent-label color="red">New!</fluent-label>&nbsp;<%- data.name %>
+</h2>
+<p>
+  Fluent implements a basic hash location router, which can be enabled by setting
+  <fluent-label consolas>enableRouter</fluent-label>
+  to <fluent-label consolas>true</fluent-label>.
+</p>
+
+<h3>Basic usage</h3>
+<p>Using Fluent pages:
+  (<fluent-hyperlink onclick="navigate.ctrlPageSwitcher()">page switcher</fluent-hyperlink>)
+</p>
+<fluent-border>
+  <pre><code class="lang-js">Fluent_setActivePageIndex('page-switcher-id', 0, /*routing*/true, "example/route-1");</code></pre>
+  <pre><code class="lang-html">&lt;fluent-page-switcher id="page-switcher" use-routing&gt;
+	&lt;fluent-page routing="optional-route-name"&gt;
+		...
+	&lt;/fluent-page&gt;
+&lt;/fluent-page-switcher&gt;</code></pre>
+</fluent-border>
+<p>
+  If <fluent-label consolas>route</fluent-label> isn't specified, Fluent chooses a route
+  based on the id + index.<br>
+  Route handlers created by Fluent don't have params (yet).
+</p>
+<fluent-label color="red">Even newer!</fluent-label>
+<p>
+  Use <fluent-label consolas>&lt;fluent-menu&gt;</fluent-label> with
+  <fluent-label consolas>experimental-use-routing</fluent-label>
+  and Fluent will try to match the selected item with the active route.
+</p>
+
+<p>Manually navigate:</p>
+<fluent-border>
+  <pre><code class="lang-js">Fluent_routerNavigate("route");</code></pre>
+</fluent-border>
+
+<p>Define a route:</p>
+<fluent-border>
+  <pre><code class="lang-js">Fluent_routerAddHandler("route", () => { 
+/* handler function */ 
+});</code></pre>
+</fluent-border>
+
+<p>Define multiple routes:</p>
+<fluent-border>
+  <pre><code class="lang-js">Fluent_routerAddHandlers({ 
+"route1": () => { }, 
+"route2": () => { },
+});</code></pre>
+</fluent-border>
+
+<h3>Advanced usage</h3>
+<p>Define a route with parameters:</p>
+<fluent-border>
+  <pre><code class="lang-js">Fluent_routerAddHandler("play/:id", (params) => { 
+/* params.id */
+});</code></pre>
+  <pre><code class="lang-js">Fluent_routerAddHandler("play/?:id", (params) => { 
+/* params.id might be undefined */
+});</code></pre>
+</fluent-border>
+
+<p>Define a wildcard route:</p>
+<fluent-border>
+  <pre><code class="lang-js">Fluent_routerAddHandler("list/*", () => {
+
+});</code></pre>
+  <pre><code class="lang-js">Fluent_routerAddHandler("*", () => { 
+/* custom handler function for all routes */ 
+});</code></pre>
+</fluent-border>
+
+<h3>Credits</h3>
+<p>Fluent Router is based on Routie by jgallen23</p>
+<a href="https://linkify.cz/r0Wa" target="_blank">Routie GitHub</a>

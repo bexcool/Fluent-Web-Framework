@@ -1,0 +1,90 @@
+@import "input/input";
+@import "input/select";
+@import "input/textbox";
+
+.#{$prefix}input-button {
+	opacity: 0;
+	display: none;
+	margin-left: -2.1em;
+	padding: 0.095em 0.52em 0.18em;
+	height: 100%;
+	font-weight: 100;
+	transform: translateY(-0.1em);
+
+	&[icon] {
+		// margin-left: -1.8em;
+		// padding: 0 0.5em 0.1em 0.5em;
+		padding: 0;
+
+		svg {
+			height: 100%;
+			filter: invert($icon-color-light);
+			fill: $white;
+
+			html.#{$theme-dark-specific} & {
+				filter: invert($icon-color-dark);
+			}
+		}
+	}
+
+	&:hover {
+		filter: invert(0.3);
+	}
+}
+
+input {
+	&[type="text"],
+	&[type="password"],
+	&[type="email"],
+	&[type="url"] {
+		margin: 0.2em;
+		background-color: var(--#{$prefix}light-color);
+		border: var(--#{$prefix}light-border-color) solid 0.4px;
+		border-bottom: var(--#{$prefix}textbox-border-bottom-color) solid 0.4px;
+		border-radius: 4px;
+		padding: 6px 6px 5px 10px;
+		color: var(--#{$prefix}text-color);
+		outline: none;
+	}
+}
+
+textarea {
+	margin: 0.2em;
+	background-color: var(--#{$prefix}light-color);
+	border: var(--#{$prefix}light-border-color) solid 0.4px;
+	border-bottom: var(--#{$prefix}textbox-border-bottom-color) solid 0.4px;
+	border-radius: 4px;
+	padding: 6px 6px 5px 10px;
+	color: var(--#{$prefix}text-color);
+	outline: none;
+}
+
+input {
+	&[type="text"]:hover,
+	&[type="password"]:hover,
+	&[type="email"]:hover,
+	&[type="url"]:hover {
+		background-color: var(--#{$prefix}light-hover-color);
+	}
+}
+
+textarea:hover {
+	background-color: var(--#{$prefix}light-hover-color);
+}
+
+input {
+	&[type="text"]:focus,
+	&[type="password"]:focus,
+	&[type="email"]:focus,
+	&[type="url"]:focus {
+		background-color: var(--#{$prefix}dark-color);
+		border-bottom: #2e89ff solid 2px;
+		padding: 6px 6px 4px 10px;
+	}
+}
+
+textarea:focus {
+	background-color: var(--#{$prefix}dark-color);
+	border-bottom: #2e89ff solid 2px;
+	padding: 6px 6px 4px 10px;
+}

@@ -1,0 +1,22 @@
+html,
+body {
+	html.fluent-theme-light & {
+		@import "~prismjs/themes/prism";
+
+		:not(pre) > code[class*="language-"],
+		pre[class*="language-"] {
+			background: #f5f2f002 !important;
+		}
+	}
+
+	html.fluent-theme-dark & {
+		@import "~prismjs/themes/prism-tomorrow";
+
+		:not(pre) > code[class*="language-"],
+		pre[class*="language-"] {
+			background: #2d2d2d02 !important;
+		}
+	}
+}
+
+// @import "~prismjs/themes/prism-tomorrow";

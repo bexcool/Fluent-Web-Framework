@@ -1,0 +1,25 @@
+@import "dark";
+@import "light";
+
+$themes: ("light", "dark");
+
+$theme-light-specific: #{$prefix}#{$theme-light};
+$theme-dark-specific: #{$prefix}#{$theme-dark};
+
+@mixin create-theme($theme-colors) {
+	@each $color, $value in $theme-colors {
+		--#{$prefix}#{$color}: #{$value};
+	}
+}
+
+:root, html, body {
+	html.#{$theme-light-specific} & {
+		@include theme-light;
+	}
+
+	// Default
+	&,
+	html.#{$theme-dark-specific} & {
+		@include theme-dark;
+	}
+}

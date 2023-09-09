@@ -1,0 +1,28 @@
+<fluent-menu style="min-width: 20em;" experimental-use-routing>
+  <button onclick="Fluent_switchTheme()">Switch theme</button>
+  <button onclick="Fluent_enableMica()">Enable Mica</button>
+  <button onclick="Fluent_disableMica()" style="margin-bottom: 10px;">Disable Mica</button>
+
+  <% let i = 0; %>
+  <% pages.forEach(page => { %>
+  <% if (page.children) { %>
+
+  <fluent-menu-item-expander header="<%- page.name %>" icon="<%- page.icon %>">
+
+    <% page.children.forEach(child => { %>
+
+    <fluent-menu-item onclick="Fluent_setActivePageIndex(_PS_ID, +'<%- i %>', true, '<%- page.route %>/<%- child.route %>')" icon="<%- child.icon %>" selectable><%- child.name %></fluent-menu-item>
+
+    <% i++; %>
+    <% }); %>
+
+  </fluent-menu-item-expander>
+
+  <% } else { %>
+
+  <fluent-menu-item onclick="Fluent_setActivePageIndex(_PS_ID, +'<%- i %>', true, '<%- page.route %>')" icon="<%- page.icon %>" selectable><%- page.name %></fluent-menu-item>
+
+  <% i++; %>
+  <% } %>
+  <% }); %>
+</fluent-menu>

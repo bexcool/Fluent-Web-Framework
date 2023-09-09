@@ -1,0 +1,38 @@
+select {
+	color: var(--#{$prefix}text-color);
+	border: var(--#{$prefix}light-border-color) solid 0.4px;
+	padding: 5px 0px 6px 11px;
+	background-color: var(--#{$prefix}light-color);
+	transition: 0.1s ease-in-out;
+	outline: var(--text-color);
+	border-radius: 4px;
+
+	&:hover {
+		background-color: var(--#{$prefix}light-hover-color);
+		cursor: pointer;
+	}
+
+	&:focus {
+		background-color: var(--#{$prefix}focus-color);
+		color: var(--#{$prefix}text-focus-color);
+	}
+
+	&[multiselect] option {
+		color: var(--#{$prefix}textbox-border-bottom-color);
+		border: none;
+		padding: 5px 11px 6px;
+		background-color: rgba(0, 0, 0, 0);
+		transition: 0.1s ease-in-out;
+		outline: var(--#{$prefix}text-color);
+		border-radius: 4px;
+
+		&:hover {
+			background-color: var(--#{$prefix}light-hover-color);
+			cursor: pointer;
+		}
+
+		&:focus {
+			background-color: var(--f#{$prefix}ocus-color);
+		}
+	}
+}

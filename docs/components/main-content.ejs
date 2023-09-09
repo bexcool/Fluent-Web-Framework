@@ -1,0 +1,28 @@
+<fluent-main-content>
+  <fluent-page-switcher id="page-switcher" use-routing>
+
+    <% pages.forEach(page => { %>
+    <% if (page.children) { %>
+    <% page.children.forEach(child => { %>
+    <% const route = page.route.toLowerCase() + "/" + child.route.toLowerCase() %>
+
+    <fluent-page routing="<%= route %>">
+      <section id="<%= route %>">
+        <%- include("pages/" + route + ".ejs", {data: child}) %>
+      </section>
+    </fluent-page>
+
+    <% }); %>
+    <% } else { %>
+    <% const route = page.route.toLowerCase() %>
+
+    <fluent-page routing="<%= route %>">
+      <section id="<%= route %>">
+        <%- include("pages/" + route + ".ejs", {data: page}) %>
+      </section>
+    </fluent-page>
+
+    <% } %>
+    <% }); %>
+  </fluent-page-switcher>
+</fluent-main-content>

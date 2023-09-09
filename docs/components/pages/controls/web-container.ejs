@@ -1,0 +1,59 @@
+<h2>
+  <%- data.name %>
+</h2>
+<p>Container for webpage content.<br>Web container splits webpage into 2 columns.</p>
+<h3>Usage</h3>
+<fluent-border>
+  <pre><code class="lang-html">&lt;h1&gt;My Webpage&lt;/h1&gt;
+&lt;fluent-web-container&gt;
+	&lt;fluent-menu style="width: 15em;"&gt;
+		&lt;fluent-menu-item selectable selected onclick="Fluent_setActivePageIndex('showcase-page-switcher-web-container', 0)"&gt;Page 1&lt;/fluent-menu-item&gt;
+		&lt;fluent-menu-item-expander header="More pages"&gt;
+			&lt;fluent-menu-item selectable onclick="Fluent_setActivePageIndex('showcase-page-switcher-web-container', 1)"&gt;Page 2&lt;/fluent-menu-item&gt;
+			&lt;fluent-menu-item selectable onclick="Fluent_setActivePageIndex('showcase-page-switcher-web-container', 2)"&gt;Page 3&lt;/fluent-menu-item&gt;
+		&lt;/fluent-menu-item-expander&gt;
+	&lt;/fluent-menu&gt;
+	&lt;fluent-main-content&gt;
+		&lt;fluent-page-switcher id="showcase-page-switcher-web-container"&gt;
+			&lt;fluent-page&gt;
+				&lt;h2&gt;Page 1&lt;/h2&gt;
+			&lt;/fluent-page&gt;
+			&lt;fluent-page&gt;
+				&lt;h2&gt;Page 2&lt;/h2&gt;
+			&lt;/fluent-page&gt;
+			&lt;fluent-page&gt;
+				&lt;h2&gt;Page 3&lt;/h2&gt;
+			&lt;/fluent-page&gt;
+		&lt;/fluent-page-switcher&gt;
+	&lt;/fluent-main-content&gt;
+&lt;/fluent-web-container&gt;</code></pre>
+</fluent-border><br>
+<h1>My Webpage</h1>
+<fluent-web-container>
+  <fluent-menu style="width: 15em;">
+    <fluent-menu-item selectable selected onclick="Fluent_setActivePageIndex('showcase-page-switcher-web-container', 0)">
+      Page 1
+    </fluent-menu-item>
+    <fluent-menu-item-expander header="More pages">
+      <fluent-menu-item selectable onclick="Fluent_setActivePageIndex('showcase-page-switcher-web-container', 1)">
+        Page
+        2</fluent-menu-item>
+      <fluent-menu-item selectable onclick="Fluent_setActivePageIndex('showcase-page-switcher-web-container', 2)">
+        Page
+        3</fluent-menu-item>
+    </fluent-menu-item-expander>
+  </fluent-menu>
+  <fluent-main-content>
+    <fluent-page-switcher id="showcase-page-switcher-web-container">
+      <fluent-page>
+        <h2>Page 1</h2>
+      </fluent-page>
+      <fluent-page>
+        <h2>Page 2</h2>
+      </fluent-page>
+      <fluent-page>
+        <h2>Page 3</h2>
+      </fluent-page>
+    </fluent-page-switcher>
+  </fluent-main-content>
+</fluent-web-container>

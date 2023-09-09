@@ -1,0 +1,66 @@
+{
+  "name": "fluent-web-framework",
+  "description": "Framework for using Windows 11 Fluent design on the web.",
+  "author": "BeXCool",
+  "license": "Apache-2.0",
+  "version": "0.7.1",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Spejik/Fluent-Web-Framework/issues"
+  },
+  "homepage": "https://github.com/Spejik/Fluent-Web-Framework#readme",
+  "keywords": [
+    "windows",
+    "fluent",
+    "css",
+    "design",
+    "web"
+  ],
+  "scripts": {
+    "build": "node prebuild.mjs && webpack && node postbuild.mjs",
+    "dev": "node prebuild.mjs && webpack serve --env dev",
+    "lint": "eslint && ejslint ./docs/index.ejs"
+  },
+  "dependencies": {
+    "@fluentui/svg-icons": "^1.1.195",
+    "brotli-dec-wasm": "^1.3.3",
+    "core-js": "^3.29.0",
+    "ejs-lint": "^2.0.0",
+    "js-untar": "^2.0.0",
+    "prismjs": "^1.29.0",
+    "tslib": "^2.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@types/prismjs": "^1.26.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "babel-loader": "^9.1.2",
+    "babel-plugin-prismjs": "^2.1.0",
+    "babel-polyfill": "^6.26.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.3",
+    "ejs": "^3.1.8",
+    "eslint": "^8.35.0",
+    "glob": "^9.3.2",
+    "html-add-asset-webpack-plugin": "^0.1.2",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "ignore-loader": "^0.1.2",
+    "mini-css-extract-plugin": "^2.7.5",
+    "prepend-file": "^2.0.1",
+    "sass": "^1.58.3",
+    "sass-loader": "^13.2.1",
+    "style-loader": "^3.3.1",
+    "svg-inline-loader": "^0.8.2",
+    "tar": "^6.1.13",
+    "template-ejs-loader": "^0.9.4",
+    "terser-webpack-plugin": "^5.3.6",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.1"
+  }
+}

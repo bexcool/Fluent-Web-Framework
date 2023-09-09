@@ -1,0 +1,333 @@
+.#{$prefix}menu {
+	border-radius: 8px;
+	overflow: hidden;
+	margin: 0;
+	padding: 1.5em;
+	padding-top: 0;
+
+	ul {
+		list-style: none;
+		padding: 3px;
+		margin-top: 0;
+		width: 100%;
+		color: var(--#{$prefix}text-color);
+		backdrop-filter: blur(15px);
+		outline: var(--#{$prefix}text-color);
+		border-radius: 8px;
+		transition: 0.1s ease-in-out;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	&-item-select {
+		overflow: hidden;
+		cursor: default;
+	}
+
+	&-item-select-selected {
+		position: absolute;
+		padding: 0;
+		width: 3px;
+		height: 1.15em;
+		opacity: 0;
+		background-color: var(--#{$prefix}accent-color);
+		display: inline-block;
+		border-radius: 10px;
+		margin: 0.1em 0 0.1em -42px;
+	}
+
+	&-item-icon {
+		position: absolute;
+		filter: invert($icon-color-light);
+		transition: 0.2s ease-in-out;
+		height: 1.425em;
+		margin-left: -31.5px;
+		fill: $white;
+
+		html.#{$theme-dark-specific} & {
+			filter: invert($icon-color-dark);
+		}
+	}
+
+	&-item-expander-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		color: var(--#{$prefix}text-color);
+		border: none;
+		margin: 5px;
+		margin-bottom: 0;
+		padding: 6px 20px 7px 42px;
+		background-color: rgba(0, 0, 0, 0);
+		transition: 0.1s ease-in-out;
+		outline: var(--#{$prefix}text-color);
+		border-radius: 4px;
+		width: auto;
+		overflow: hidden;
+
+		.#{$prefix}menu-item-icon {
+			height: 1.25em;
+		}
+
+		&:hover,
+		&:focus {
+			background-color: var(--#{$prefix}light-hover-color);
+		}
+
+		p {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			user-select: none;
+			margin: 0;
+			font-size: 13.33px;
+		}
+
+		div {
+			display: flex;
+			align-items: center;
+			overflow: visible;
+		}
+
+		&.press {
+			background-color: var(--#{$prefix}focus-color);
+		}
+	}
+
+	&-item-expander-body {
+		margin-left: 2em;
+		color: var(--#{$prefix}text-color);
+		display: none;
+
+		&.expanded {
+			display: flex;
+			flex-direction: column;
+
+			li a {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&-item-expander-body-container {
+		height: fit-content;
+	}
+
+	&-item-expander-arrow {
+		height: 0.8em;
+		pointer-events: none;
+		margin: 0;
+		margin-right: -0.7em;
+		filter: invert($icon-color-light);
+		transition: 0.2s ease-in-out;
+		fill: $white;
+
+		html.#{$theme-dark-specific} & {
+			filter: invert($icon-color-dark);
+		}
+	}
+}
+
+.#{$prefix}context-menu {
+	border-radius: 8px;
+	overflow: hidden;
+	display: none;
+	position: absolute;
+	margin: -1.5em;
+	padding: 1.5em;
+	margin-top: 0;
+	padding-top: 0;
+
+	&-standalone {
+		display: none;
+		position: fixed;
+
+		&.visible {
+			display: block;
+		}
+
+		ul {
+			list-style: none;
+			padding: 3px;
+			margin-top: 0;
+			width: auto;
+			color: var(--#{$prefix}text-color);
+			border: var(--#{$prefix}light-border-color) solid 0.4px;
+			background: var(--#{$prefix}light-darker-color);
+			backdrop-filter: blur(15px);
+			outline: var(--#{$prefix}text-color);
+			border-radius: 8px;
+			list-style: none;
+			transition: 0.1s ease-in-out;
+			white-space: nowrap;
+			box-shadow: 0px 5px 13px 5px rgba(0, 0, 0, 0.1);
+		}
+	}
+
+	&-container {
+		position: relative;
+		display: inline-block;
+		width: auto;
+		border-radius: 4px;
+		transition: 0.1s ease-in-out;
+		margin: 0.2em;
+		margin-right: 1.43em;
+
+		&:focus {
+			background-color: var(--#{$prefix}focus-color);
+			color: var(--#{$prefix}text-focus-color);
+		}
+
+		ul {
+			list-style: none;
+			display: none;
+			padding: 3px;
+			margin-top: 0;
+			width: auto;
+			color: var(--#{$prefix}text-color);
+			border: var(--#{$prefix}dark-border-color) solid 0.4px;
+			background: var(--#{$prefix}light-color);
+			backdrop-filter: blur(15px);
+			outline: var(--#{$prefix}text-color);
+			border-radius: 8px;
+			transition: 0.1s ease-in-out;
+			height: 0;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		&:hover ul {
+			display: inline-block;
+			position: absolute;
+			height: auto;
+		}
+	}
+
+	&-container:hover & {
+		display: inline-block;
+	}
+
+	&-standalone:hover ul {
+		display: inline-block;
+		position: absolute;
+		height: auto;
+	}
+}
+
+.#{$prefix}context-menu-container ul li,
+.#{$prefix}context-menu-standalone ul li,
+.#{$prefix}menu ul li {
+	display: block;
+	width: 100%;
+}
+
+.#{$prefix}context-menu-container ul li a,
+.#{$prefix}context-menu-standalone ul li a,
+.#{$prefix}menu ul li a {
+	background-repeat: no-repeat;
+	background-size: 1.5em;
+	background-position-x: 1.2em;
+	background-position-y: center;
+	color: var(--#{$prefix}text-color);
+	border: none;
+	margin: 5px;
+	padding: 6px 42px 7px;
+	background-color: rgba(0, 0, 0, 0);
+	transition: 0.1s ease-in-out;
+	outline: var(--#{$prefix}text-color);
+	border-radius: 4px;
+	width: auto;
+	overflow: hidden;
+}
+
+.#{$prefix}context-menu-container ul li a:hover,
+.#{$prefix}context-menu-standalone ul li a:hover,
+.#{$prefix}menu ul li a:hover {
+	background-color: var(--#{$prefix}light-hover-color);
+}
+
+.#{$prefix}context-menu-container ul li a.press,
+.#{$prefix}context-menu-standalone ul li a.press,
+.#{$prefix}menu ul li a.press {
+	background-color: var(--#{$prefix}focus-color);
+}
+
+.#{$prefix}context-menu-container a,
+.#{$prefix}context-menu-standalone a,
+.#{$prefix}menu a {
+	text-decoration: none;
+	color: #282737;
+	display: block;
+	width: 100%;
+	color: var(--#{$prefix}text-color);
+	border: var(--#{$prefix}button-border-color) solid 0.4px;
+	padding: 4px 11px 6px;
+	background-color: var(--#{$prefix}button-color);
+	transition: 0.1s ease-in-out;
+	outline: var(--#{$prefix}text-color);
+	border-radius: 4px;
+	font-size: 13.33px;
+}
+
+.#{$prefix}context-menu-container a {
+	&:hover {
+		background-color: var(--#{$prefix}button-hover-color);
+		cursor: default;
+	}
+
+	&.#{$prefix}menu-item-select.selected {
+		background-color: var(--#{$prefix}light-hover-color);
+	}
+}
+
+.#{$prefix}menu a.#{$prefix}menu-item-select.selected {
+	background-color: var(--#{$prefix}light-hover-color);
+}
+
+.#{$prefix}context-menu-container a.#{$prefix}menu-item-select.selected:hover,
+.#{$prefix}menu a.#{$prefix}menu-item-select.selected:hover {
+	background-color: var(--#{$prefix}focus-color);
+}
+
+a.#{$prefix}menu-item:hover {
+	cursor: pointer;
+}
+
+@keyframes #{$prefix}menu-item-select-up {
+	0% {
+		transform: translateY(0em) scaleY(1);
+	}
+
+	100% {
+		transform: translateY(-0.575em) scaleY(2);
+	}
+}
+
+@keyframes #{$prefix}menu-item-select-down {
+	0% {
+		transform: translateY(0em) scaleY(1);
+	}
+
+	100% {
+		transform: translateY(0.575em) scaleY(2);
+	}
+}
+
+@keyframes #{$prefix}menu-item-select-up-reverse {
+	0% {
+		transform: translateY(-0.575em) scaleY(2);
+	}
+
+	100% {
+		transform: translateY(0em) scaleY(1);
+	}
+}
+
+@keyframes #{$prefix}menu-item-select-down-reverse {
+	0% {
+		transform: translateY(0.575em) scaleY(2);
+	}
+
+	100% {
+		transform: translateY(0em) scaleY(1);
+	}
+}

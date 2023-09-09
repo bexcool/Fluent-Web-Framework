@@ -1,0 +1,17 @@
+$mica-enabled: mica-enabled;
+$mica-disabled: mica-disabled;
+
+.fluent-mica-effect {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -10000;
+
+	html.#{$prefix}#{$mica-enabled} & {
+		background-color: var(--#{$prefix}dark-color);
+		background: var(--#{$prefix}background-image) no-repeat fixed;
+		background-size: cover;
+	}
+}

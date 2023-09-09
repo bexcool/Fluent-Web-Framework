@@ -1,0 +1,74 @@
+hr {
+	border: none;
+	border-bottom: var(--#{$prefix}very-light-color) solid 0.1px;
+	opacity: 0.5;
+	width: 70%;
+}
+
+h1,
+.#{$prefix}display {
+	font-size: 68px;
+	font-weight: 600;
+	margin-bottom: 0.25em;
+}
+
+h2,
+.#{$prefix}title-large {
+	font-size: 40px;
+	font-weight: 600;
+	margin-bottom: 0.35em;
+}
+
+h3,
+.#{$prefix}title {
+	font-size: 28px;
+	font-weight: 600;
+	margin-top: 0.3em;
+	margin-bottom: 0.4em;
+}
+
+h4,
+.#{$prefix}subtitle {
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 0.5em;
+	margin-bottom: 0.3em;
+}
+
+h5,
+.#{$prefix}body-large {
+	font-size: 20px;
+	font-weight: 400;
+	margin-top: 0.5em;
+	margin-bottom: 0.3em;
+}
+
+h6,
+.#{$prefix}body-strong {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+p,
+.#{$prefix}body {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+form {
+	color: var(--#{$prefix}text-color);
+	border: var(--#{$prefix}light-border-color) solid 0.4px;
+	border-radius: 10px;
+	padding: 2em;
+}
+
+fieldset {
+	color: var(--#{$prefix}text-color);
+	border: var(--#{$prefix}light-border-color) solid 0.4px;
+	border-radius: 4px;
+}
+
+legend {
+	color: var(--#{$prefix}text-color);
+	padding: 0px 15px;
+}

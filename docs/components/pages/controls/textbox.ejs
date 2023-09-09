@@ -1,0 +1,91 @@
+<h2>
+  <%- data.name %>
+</h2>
+<p>Redesigned <fluent-label consolas>input type="text"</fluent-label> and <fluent-label consolas>input type="password"</fluent-label> elements with more functionalities.
+</p>
+<h2>Usage</h2>
+<fluent-expander header="Text">
+  <div class="fluent-content">
+    <p>Redesigned <fluent-label consolas>input type="text"</fluent-label> with more
+      attributes.</p>
+    <h3>Attributes</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Preview</th>
+          <th>Usage</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>none</td>
+          <td><input type="text"></td>
+          <td>
+            <pre><code class="lang-html">&lt;input type=&#34;text&#34;&gt;</code></pre>
+          </td>
+          <td>Standard textbox.</td>
+        </tr>
+        <tr>
+          <td>
+            <fluent-label consolas>clear_btn</fluent-label>
+          </td>
+          <td><input type="text" value="BeXCool" clear_btn></td>
+          <td>
+            <pre><code class="lang-html">&lt;input type=&#34;text&#34; value=&#34;BeXCool&#34; clear_btn&gt;</code></pre>
+          </td>
+          <td>Textbox with button for clearing text.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</fluent-expander>
+<fluent-expander header="Password">
+  <div class="fluent-content">
+    <p>Redesigned <fluent-label consolas>input type="password"</fluent-label> with more
+      attributes.</p>
+    <h3>Attributes</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Preview</th>
+          <th>Usage</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>none</td>
+          <td><input type="password"></td>
+          <td>
+            <pre><code class="lang-html">&lt;input type=&#34;password&#34;&gt;</code></pre>
+          </td>
+          <td>Standard passwordbox.</td>
+        </tr>
+        <tr>
+          <td>
+            <fluent-label consolas>showpass_btn</fluent-label>
+          </td>
+          <td><input type="password" value="1234" showpass_btn></td>
+          <td>
+            <pre><code class="lang-html">&lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn&gt;</code></pre>
+          </td>
+          <td>Passwordbox with button for showing password.</td>
+        </tr>
+        <tr>
+          <td>
+            <fluent-label consolas>showpass</fluent-label>
+          </td>
+          <td><input type="password" value="1234" showpass_btn showpass></td>
+          <td>
+            <pre><code class="lang-html">&lt;input type=&#34;password&#34; value=&#34;1234&#34; showpass_btn showpass&gt;</code></pre>
+          </td>
+          <td>Passwordbox with button for showing password with showed password on
+            default.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</fluent-expander>

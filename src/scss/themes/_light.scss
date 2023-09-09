@@ -1,0 +1,43 @@
+$theme-light: theme-light;
+
+$icon-color-light: 0.7;
+$theme-light-colors: (
+	"black-white-color": $black,
+	"dark-color": #eeeeee,
+	"dark-border-color": #e1e1e1,
+	"darker-color": #ffffff77,
+	"darker-color-noa": #f5f5f5,
+	"light-color": #ffffffa6,
+	"light-darker-color": #fbfbfbb3,
+	"light-hover-color": #00000008,
+	"lighter-hover-color": #f2f2f2,
+	"lighter-press-color": #f5f5f5,
+	"light-border-color": #dcdcdc66,
+	"lighter-border-color": #ffffff,
+	"focus-color": #00000005,
+	"text-color-inverted": $white,
+	"text-focus-color-inverted": #ffffff80,
+	"text-color": $black,
+	"text-focus-color": #0000008c,
+	"text-nobg-color": #323232,
+	"textbox-border-bottom-color": #6e6e6e,
+	"light-dark-color": #f8f8f8,
+	"accent-focus-color": #3183ca,
+	"accent-hover-color ": #1975c5,
+	"accent-color": #0067c0,
+	"icon-color": $icon-color-light,
+	"button-color": #ffffffef,
+	"button-hover-color": #ffffff9c,
+	"button-focus-color": #ffffff0a,
+	"button-border-color": #9696964d,
+	"slider-thumb-border-color": $white,
+	"background-image": url(#{$cdn-url}/img/background_light.png),
+);
+
+$theme-light-layout: ();
+
+$theme-light-merged: map-merge($theme-light-colors, $theme-light-layout);
+
+@mixin theme-light {
+	@include create-theme($theme-light-merged);
+}

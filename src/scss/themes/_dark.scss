@@ -1,0 +1,46 @@
+$theme-dark: theme-dark;
+
+$icon-color-dark: 0;
+$theme-dark-colors: (
+	"black-white-color": $white,
+	"dark-color": #202020,
+	"dark-border-color": #19191999,
+	"darker-color": #ffffff08,
+	"darker-color-noa": #2b2b2b,
+	"light-color": #ffffff0d,
+	"light-darker-color": #282828b3,
+	"light-hover-color": #ffffff15,
+	"lighter-hover-color": #64646440,
+	"lighter-press-color": #64646420,
+	"light-border-color": #19191940,
+	"lighter-border-color": #69696940,
+	"focus-color": #ffffff0b,
+	"text-color-inverted": $black,
+	"text-focus-color-inverted": #00000073,
+	"text-color": $white,
+	"text-focus-color": #ffffffbf,
+	"text-nobg-color": #b9b9b9,
+	"textbox-border-bottom-color": #b4b4b4,
+	"light-dark-color": #212121,
+	"accent-focus-color": #42a1d2,
+	"accent-hover-color": #47b1e8,
+	"accent-color": #4cc2ff,
+	"accent-color-1": #4cc2ff,
+  	"accent-color-2": #4cc2ff,
+  	"accent-color-3": #4cc2ff,
+	"icon-color": $icon-color-dark,
+	"button-color": #ffffff10,
+	"button-hover-color": #ffffff17,
+	"button-focus-color": #ffffff0a,
+	"button-border-color": #3f3f3f80,
+	"slider-thumb-border-color": #454545,
+	"background-image": url(#{$cdn-url}/img/background_dark.png),
+);
+
+$theme-dark-layout: ();
+
+$theme-dark-merged: map-merge($theme-dark-colors, $theme-dark-layout);
+
+@mixin theme-dark {
+	@include create-theme($theme-dark-merged);
+}

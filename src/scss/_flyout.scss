@@ -1,0 +1,20 @@
+.#{$prefix}flyout {
+	position: absolute;
+	list-style: none;
+	padding: 0.5em;
+	margin-top: 0;
+	width: fit-content;
+	height: fit-content;
+	color: var(--#{$prefix}text-color);
+	border: var(--#{$prefix}light-border-color) solid 0.4px;
+	background: var(--#{$prefix}light-darker-color);
+	backdrop-filter: blur(15px);
+	outline: var(--#{$prefix}text-color);
+	border-radius: 8px;
+	list-style: none;
+	transition: 0.1s ease-in-out;
+	box-shadow: 0px 5px 13px 5px rgba(0, 0, 0, 0.1);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
+}

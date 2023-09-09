@@ -1,0 +1,95 @@
+<h2>
+  <%- data.name %>
+</h2>
+<fluent-border>
+  <pre><code class="lang-html">&lt;script&gt;
+// Fluent Web Framework options
+// Put this script before importing fluent.min.js
+var FLUENT = {
+    noPrefix: false,
+    enableRouter: false,
+    enableCode: false,
+    enableIcons: false,
+};
+&lt;/script&gt;
+</code></pre>
+</fluent-border>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <fluent-label consolas>noPrefix</fluent-label>
+      </td>
+      <td>Compatibility with the original project<br>
+        Make functions and variables available without the `Fluent_` prefix and
+        capitalizes the
+        first letter.<br>
+        E.g. Fluent_showSplashScreen() becomes available as ShowSplashScreen().
+      </td>
+      <td>
+        <fluent-label consolas>boolean</fluent-label>
+      </td>
+      <td>
+        <fluent-label consolas>false</fluent-label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <fluent-label consolas>enableCode</fluent-label>
+      </td>
+      <td>Enable code highlighting<br>
+        Loads the code highlight module.
+      </td>
+      <td>
+        <fluent-label consolas>boolean</fluent-label>
+      </td>
+      <td>
+        <fluent-label consolas>false</fluent-label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <fluent-label consolas>enableRouter</fluent-label>
+      </td>
+      <td>Basic routing using hash location
+        (<fluent-label consolas>#/</fluent-label>)<br>
+        See <fluent-hyperlink onclick="navigate.routing()">router
+          docs</fluent-hyperlink><br>
+        Loads the router module.
+      </td>
+      <td>
+        <fluent-label consolas>boolean</fluent-label>
+      </td>
+      <td>
+        <fluent-label consolas>false</fluent-label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <fluent-label consolas>enableIcons</fluent-label>
+      </td>
+      <td>Enable icons<br>
+        Gets a list of <b>ALL</b>
+        (<span id="config_enableIcons_iconsCount">at least 2</span>)
+        Fluent icons. (doesn't load the individual icons)<br>
+        See <fluent-hyperlink onclick="navigate.icons()">icons
+          docs</fluent-hyperlink>
+      </td>
+      <td>
+        <fluent-label consolas>boolean</fluent-label>
+      </td>
+      <td>
+        <fluent-label consolas>false</fluent-label>
+      </td>
+    </tr>
+  </tbody>
+</table>

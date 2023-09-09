@@ -1,0 +1,63 @@
+<h2>
+  <%- data.name %>
+</h2>
+<p>Custom element which can be opened or closed.</p>
+<h3>Usage</h3>
+<h4>Attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Preview</th>
+      <th>Usage</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <fluent-label consolas>header</fluent-label>
+      </td>
+      <td style="vertical-align: top;">
+        <fluent-expander header="Expander">
+          <div class="fluent-content">
+            <button>Button</button>
+          </div>
+        </fluent-expander>
+      </td>
+      <td>
+        <fluent-border>
+          <pre><code class="lang-html">&lt;fluent-expander header="Expander"&gt;
+	&lt;div class="fluent-content"&gt;
+		&lt;button&gt;Button&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/fluent-expander&gt;</code></pre>
+        </fluent-border>
+      </td>
+      <td>Recommended to use everytime.</td>
+    </tr>
+    <tr>
+      <td>
+        <fluent-label consolas>expanded</fluent-label>
+      </td>
+      <td style="vertical-align: top;">
+        <fluent-expander header="Expander" expanded>
+          <div class="fluent-content">
+            <button>Button</button>
+          </div>
+        </fluent-expander>
+      </td>
+      <td>
+        <fluent-border>
+          <pre><code class="lang-html">&lt;fluent-expander header="Expander" expanded&gt;
+	&lt;div class="fluent-content"&gt;
+		&lt;button&gt;Button&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/fluent-expander&gt;</code></pre>
+        </fluent-border>
+      </td>
+      <td>Use only when user has to access this expander (e.g. Link that redirects to
+        this expander).</td>
+    </tr>
+  </tbody>
+</table>
