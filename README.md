@@ -38,4 +38,8 @@ After <body>:
 <script src="https://static.bexcool.com/fwf/fluent.min.js"></script>
 ```
 
-NOT AFFILIATED WITH MICROSOFT
+### Looking for the old version?
+
+That was moved to [legacy](https://github.com/bexcool/Fluent-Web-Framework/tree/legacy). See [this PR](https://github.com/bexcool/Fluent-Web-Framework/pull/1) for details.
+
+#### NOT AFFILIATED WITH MICROSOFT
