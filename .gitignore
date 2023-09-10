@@ -130,4 +130,5 @@ dist
 .pnp.*
 
 icons.tar.br
+tmp/
 .vscode/settings.json

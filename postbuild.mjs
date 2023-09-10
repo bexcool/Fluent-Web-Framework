@@ -1,8 +1,10 @@
 import { readdirSync } from "fs";
-import { extname, join, resolve } from "path";
+import { dirname, extname, join, resolve } from "path";
 import { sync } from "prepend-file";
+import { fileURLToPath } from "url";
 
-const outputPath = resolve("./dist");
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const outputPath = resolve(__dirname, "dist");
 
 // Add copyright to every js or css file
 console.time("Add headers");

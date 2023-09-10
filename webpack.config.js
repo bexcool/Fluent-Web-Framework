@@ -72,7 +72,13 @@ export default (env) => {
 						test: /\.ejs$/i,
 						use: [
 							{ loader: "html-loader", options: { minimize: false } },
-							{ loader: "template-ejs-loader", options: { data: docsData } }
+							{
+								loader: "template-ejs-loader",
+								options: {
+									rmWhitespace: false,
+									data: docsData
+								}
+							}
 						],
 					},
 				]
@@ -102,7 +108,8 @@ export default (env) => {
 					],
 					options: {
 						minify: {
-							conservativeCollapse: true,
+							collapseWhitespace: false,
+							//conservativeCollapse: true,
 							quoteCharacter: "\"",
 							removeAttributeQuotes: true,
 							minifyJS: false,
@@ -114,7 +121,7 @@ export default (env) => {
 				new CopyWebpackPlugin({
 					patterns: [
 						{ from: "redirect.html", to: "../index.html" },
-						{ from: "../icons.tar.br", to: "icons.tar.br" },
+						{ from: "../tmp/icons.tar.br", to: "icons.tar.br" },
 					]
 				}),
 			],

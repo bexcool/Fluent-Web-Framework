@@ -8,7 +8,7 @@ export const uniqueRand = (): string => {
 		return crypto.randomUUID();
 	}
 
-	const date = Date.now();
+	const date = (performance || Date).now();
 	const num = Math.random();
 	return (date * num).toString(16);
 };
